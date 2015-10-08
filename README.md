@@ -1,5 +1,4 @@
-# GCO
-Gerenciador Clínico Odontológico
+# Gerenciador Clínico Odontológico
 
 O Gerenciador Clínico Odontológico Smile surgiu da necessidade da elaboração de um sistema administrativo completo para todas as clínicas odontológicas Smile.
 
