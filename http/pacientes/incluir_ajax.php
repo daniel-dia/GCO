@@ -1,37 +1,37 @@
-<?php
+ï»¿<?php
    /**
-    * Gerenciador Clínico Odontológico
+    * Gerenciador ClÃ­nico OdontolÃ³gico
     * Copyright (C) 2006 - 2009
     * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e Programação(ikkinet@gmail.com)
+    *          Pedro Henrique Braga Moreira - Engenharia e ProgramaÃ§Ã£o(ikkinet@gmail.com)
     *
-    * Este arquivo é parte do programa Gerenciador Clínico Odontológico
+    * Este arquivo Ã© parte do programa Gerenciador ClÃ­nico OdontolÃ³gico
     *
-    * Gerenciador Clínico Odontológico é um software livre; você pode
-    * redistribuí-lo e/ou modificá-lo dentro dos termos da Licença
-    * Pública Geral GNU como publicada pela Fundação do Software Livre
-    * (FSF); na versão 2 da Licença invariavelmente.
+    * Gerenciador ClÃ­nico OdontolÃ³gico Ã© um software livre; vocÃª pode
+    * redistribuÃ­-lo e/ou modificÃ¡-lo dentro dos termos da LicenÃ§a
+    * PÃºblica Geral GNU como publicada pela FundaÃ§Ã£o do Software Livre
+    * (FSF); na versÃ£o 2 da LicenÃ§a invariavelmente.
     *
-    * Este programa é distribuído na esperança que possa ser útil,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÂO
-    * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
-    * Licença Pública Geral GNU para maiores detalhes.
+    * Este programa Ã© distribuÃ­do na esperanÃ§a que possa ser Ãºtil,
+    * mas SEM NENHUMA GARANTIA; sem uma garantia implÃ­cita de ADEQUAÃ‡Ã‚O
+    * a qualquer MERCADO ou APLICAÃ‡ÃƒO EM PARTICULAR. Veja a
+    * LicenÃ§a PÃºblica Geral GNU para maiores detalhes.
     *
-    * Você recebeu uma cópia da Licença Pública Geral GNU,
-    * que está localizada na raíz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se não, visite o endereço para maiores informações:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Inglês)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (Português - Brasil)
+    * VocÃª recebeu uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU,
+    * que estÃ¡ localizada na raÃ­z do programa no arquivo COPYING ou COPYING.TXT
+    * junto com este programa. Se nÃ£o, visite o endereÃ§o para maiores informaÃ§Ãµes:
+    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (InglÃªs)
+    * http://www.magnux.org/doc/GPL-pt_BR.txt (PortuguÃªs - Brasil)
     *
-    * Em caso de dúvidas quanto ao software ou quanto à licença, visite o
-    * endereço eletrônico ou envie-nos um e-mail:
+    * Em caso de dÃºvidas quanto ao software ou quanto Ã  licenÃ§a, visite o
+    * endereÃ§o eletrÃ´nico ou envie-nos um e-mail:
     *
     * http://www.smileodonto.com.br/gco
     * smile@smileodonto.com.br
     *
-    * Ou envie sua carta para o endereço:
+    * Ou envie sua carta para o endereÃ§o:
     *
-    * Smile Odontolóogia
+    * Smile OdontolÃ³ogia
     * Rua Laudemira Maria de Jesus, 51 - Lourdes
     * Arcos - MG - CEP 35588-000
     *
@@ -307,7 +307,7 @@
               <br /></td>
             <td><?php echo $LANG['patients']['dead']?><br /><select name="falecido" class="forms" <?php echo $disable?> id="falecido">
 <?php
-	$valores = array('Não' => $LANG['patients']['no'], 'Sim' => $LANG['patients']['yes']);
+	$valores = array('NÃ£o' => $LANG['patients']['no'], 'Sim' => $LANG['patients']['yes']);
 	foreach($valores as $chave => $valor) {
 		if($row[falecido] == $chave) {
 			echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
@@ -348,7 +348,7 @@
           </tr>
         </table>
         </fieldset>
-        <br /> <fieldset>
+        <br />Â <fieldset>
         <legend><span class="style1"><?php echo $LANG['patients']['treatments_to_do']?></span></legend>
 
         <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
@@ -361,8 +361,8 @@
           <tr>
             <td><input name="tratamento[]" value="Ortodontia" <?php echo ((strpos($row[tratamento], 'Ortodontia')!== false)?'checked':'')?> type="checkbox" id="tra1" /><label for="tra1"> <?php echo $LANG['patients']['orthodonty']?></label></td>
             <td><input name="tratamento[]" value="Implantodontia" <?php echo ((strpos($row[tratamento], 'Implantodontia')!== false)?'checked':'')?> type="checkbox" id="tra2" /><label for="tra2"> <?php echo $LANG['patients']['implantodonty']?></label>&nbsp;&nbsp;</td>
-            <td><input name="tratamento[]" value="Dentística" <?php echo ((strpos($row[tratamento], 'Dentística')!== false)?'checked':'')?> type="checkbox" id="tra3" /><label for="tra3"> <?php echo $LANG['patients']['dentistic']?></label>&nbsp;&nbsp;</td>
-            <td><input name="tratamento[]" value="Prótese" <?php echo ((strpos($row[tratamento], 'Prótese')!== false)?'checked':'')?> type="checkbox" id="tra4" /><label for="tra4"> <?php echo $LANG['patients']['prosthesis']?></label><br /></td>
+            <td><input name="tratamento[]" value="DentÃ­stica" <?php echo ((strpos($row[tratamento], 'DentÃ­stica')!== false)?'checked':'')?> type="checkbox" id="tra3" /><label for="tra3"> <?php echo $LANG['patients']['dentistic']?></label>&nbsp;&nbsp;</td>
+            <td><input name="tratamento[]" value="PrÃ³tese" <?php echo ((strpos($row[tratamento], 'PrÃ³tese')!== false)?'checked':'')?> type="checkbox" id="tra4" /><label for="tra4"> <?php echo $LANG['patients']['prosthesis']?></label><br /></td>
           </tr>
           <tr>
             <td><input name="tratamento[]" value="Odontopediatria" <?php echo ((strpos($row[tratamento], 'Odontopediatria')!== false)?'checked':'')?> type="checkbox" id="tra5" /><label for="tra5"> <?php echo $LANG['patients']['odontopediatry']?></label>&nbsp;&nbsp;</td>
@@ -384,7 +384,7 @@
           </tr>
         </table>
         </fieldset>
-         <br />
+        Â <br />
         <fieldset>
         <legend><span class="style1"><?php echo $LANG['patients']['professional_informations']?></span></legend>
 
@@ -455,7 +455,7 @@
           </tr>
         </table>
         </fieldset>
-         <br />
+        Â <br />
         <fieldset>
         <legend><span class="style1"><?php echo $LANG['patients']['familiar_information']?></span></legend>
 
@@ -539,7 +539,7 @@
             <td width="287"><?php echo $LANG['patients']['patient_status']?> <br />
               <label><select name="status" class="forms" <?php echo $disable?> id="status">
 <?php
-	$valores = array('Avaliação' => $LANG['patients']['evaluation'], 'Em tratamento' => $LANG['patients']['in_treatment'], 'Em revisão' => $LANG['patients']['in_revision'], 'Concluído' => $LANG['patients']['closed']);
+	$valores = array('AvaliaÃ§Ã£o' => $LANG['patients']['evaluation'], 'Em tratamento' => $LANG['patients']['in_treatment'], 'Em revisÃ£o' => $LANG['patients']['in_revision'], 'ConcluÃ­do' => $LANG['patients']['closed']);
 	foreach($valores as $chave => $valor) {
 		if($row[status] == $chave) {
 			echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
@@ -571,7 +571,7 @@
         </table>
         </fieldset>
 
-         <fieldset>
+        Â <fieldset>
         <legend><span class="style1"><?php echo $LANG['patients']['plan_information']?></span></legend>
 
         <table width="519" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">

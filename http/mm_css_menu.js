@@ -1,4 +1,4 @@
-var mmOpenContainer = null;
+﻿var mmOpenContainer = null;
 var mmOpenMenus = null;
 var mmHideMenuTimer = null;
 

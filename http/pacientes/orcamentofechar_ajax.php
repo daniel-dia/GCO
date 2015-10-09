@@ -1,37 +1,37 @@
-<?php
+ï»¿<?php
    /**
-    * Gerenciador Clínico Odontológico
+    * Gerenciador ClÃ­nico OdontolÃ³gico
     * Copyright (C) 2006 - 2009
     * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e Programação(ikkinet@gmail.com)
+    *          Pedro Henrique Braga Moreira - Engenharia e ProgramaÃ§Ã£o(ikkinet@gmail.com)
     *
-    * Este arquivo é parte do programa Gerenciador Clínico Odontológico
+    * Este arquivo Ã© parte do programa Gerenciador ClÃ­nico OdontolÃ³gico
     *
-    * Gerenciador Clínico Odontológico é um software livre; você pode
-    * redistribuí-lo e/ou modificá-lo dentro dos termos da Licença
-    * Pública Geral GNU como publicada pela Fundação do Software Livre
-    * (FSF); na versão 2 da Licença invariavelmente.
+    * Gerenciador ClÃ­nico OdontolÃ³gico Ã© um software livre; vocÃª pode
+    * redistribuÃ­-lo e/ou modificÃ¡-lo dentro dos termos da LicenÃ§a
+    * PÃºblica Geral GNU como publicada pela FundaÃ§Ã£o do Software Livre
+    * (FSF); na versÃ£o 2 da LicenÃ§a invariavelmente.
     *
-    * Este programa é distribuído na esperança que possa ser útil,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÂO
-    * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
-    * Licença Pública Geral GNU para maiores detalhes.
+    * Este programa Ã© distribuÃ­do na esperanÃ§a que possa ser Ãºtil,
+    * mas SEM NENHUMA GARANTIA; sem uma garantia implÃ­cita de ADEQUAÃ‡Ã‚O
+    * a qualquer MERCADO ou APLICAÃ‡ÃƒO EM PARTICULAR. Veja a
+    * LicenÃ§a PÃºblica Geral GNU para maiores detalhes.
     *
-    * Você recebeu uma cópia da Licença Pública Geral GNU,
-    * que está localizada na raíz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se não, visite o endereço para maiores informações:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Inglês)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (Português - Brasil)
+    * VocÃª recebeu uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU,
+    * que estÃ¡ localizada na raÃ­z do programa no arquivo COPYING ou COPYING.TXT
+    * junto com este programa. Se nÃ£o, visite o endereÃ§o para maiores informaÃ§Ãµes:
+    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (InglÃªs)
+    * http://www.magnux.org/doc/GPL-pt_BR.txt (PortuguÃªs - Brasil)
     *
-    * Em caso de dúvidas quanto ao software ou quanto à licença, visite o
-    * endereço eletrônico ou envie-nos um e-mail:
+    * Em caso de dÃºvidas quanto ao software ou quanto Ã  licenÃ§a, visite o
+    * endereÃ§o eletrÃ´nico ou envie-nos um e-mail:
     *
     * http://www.smileodonto.com.br/gco
     * smile@smileodonto.com.br
     *
-    * Ou envie sua carta para o endereço:
+    * Ou envie sua carta para o endereÃ§o:
     *
-    * Smile Odontolóogia
+    * Smile OdontolÃ³ogia
     * Rua Laudemira Maria de Jesus, 51 - Lourdes
     * Arcos - MG - CEP 35588-000
     *
@@ -47,7 +47,7 @@
 	}
     if($_GET['confirm_baixa'] == "baixa") {
         mysql_query("UPDATE orcamento SET baixa = 'Sim' WHERE codigo = ".$_GET['codigo_orc']) or die('Line 39: '.mysql_error());
-        echo '<script>alert("Parcelas restantes do orçamento canceladas com sucesso!")</script>';
+        echo '<script>alert("Parcelas restantes do orÃ§amento canceladas com sucesso!")</script>';
     }
 	$acao = '&acao=editar';
 	$strLoCase = encontra_valor('pacientes', 'codigo', $_GET[codigo], 'nome').' - '.$_GET['codigo'];
@@ -59,7 +59,7 @@
         //echo '<pre>';
         //print_r($_POST);
         //echo '</pre>';
-		//Alteração de procedimentos
+		//AlteraÃ§Ã£o de procedimentos
 		if(is_array($_POST[codigoprocedimento])) {
 			foreach($_POST[codigoprocedimento] as $codigo => $codigoprocedimento) {
 				$dente = $_POST[dente][$codigo];
@@ -82,7 +82,7 @@
 			mysql_query("INSERT INTO `procedimentos_orcamento` (`codigo_orcamento`, `codigoprocedimento`, `dente`, `descricao`, `particular`, `convenio`) VALUES ('".$codigo_orc."', '".$_POST[codigoprocedimento_new]."', '".$_POST[dente_new]."', '".$_POST[descricao_new]."', '".$_POST[particular_new]."', '".$_POST[convenio_new]."')") or die(mysql_error());
 		}
 		$row = mysql_fetch_array(mysql_query("SELECT * FROM `orcamento` WHERE `codigo` = '".$codigo_orc."'"));
-		//Atualizando os dados gerais do orçamento
+		//Atualizando os dados gerais do orÃ§amento
 		if(isset($_POST[aserpago])) {
 			if(empty($_POST[desconto]))
 				$_POST[desconto] = 0;
@@ -101,18 +101,18 @@
 				mysql_query("INSERT INTO `parcelas_orcamento` (`codigo_orcamento`, `datavencimento`, `valor`) VALUES ('".$codigo_orc."', '".converte_data($datavencimento, 1)."', '".$valor."')") or die(mysql_error());
 			}
 		}
-		//Confirmando orçamento
+		//Confirmando orÃ§amento
 		if(isset($_POST['Salvar222'])) {
             //var_dump($_POST['confirmed']); die();
             if($_POST['confirmed'] != 'Sim') {
-                $_POST['confirmed'] = 'Não';
+                $_POST['confirmed'] = 'NÃ£o';
             }
     	    mysql_query("UPDATE orcamento SET confirmado = '".$_POST['confirmed']."' WHERE `codigo` = '".$codigo_orc."'") or die('Line 91: '.mysql_error());
         }
 		//Recuperando os dados da tabela
 		$row = mysql_fetch_array(mysql_query("SELECT * FROM `orcamento` WHERE `codigo` = '".$codigo_orc."'"));
-		if($row[aserpago] == "Convênio") {
-			$chk[aserpago]['Convênio'] = 'checked';
+		if($row[aserpago] == "ConvÃªnio") {
+			$chk[aserpago]['ConvÃªnio'] = 'checked';
 		} elseif($row[aserpago] == "Particular") {
 			$chk[aserpago]['Particular'] = 'checked';
 		}
@@ -252,7 +252,7 @@
                 <div align="left">
                   <input <?php echo $disable?> name="aserpago" type="radio" value="Particular" <?php echo $chk[aserpago]['Particular']?> onclick="document.getElementById('valortotal').value = document.getElementById('total_particular').value; document.getElementById('valor__total').value = document.getElementById('total_particular').value;" />
                 <?php echo $LANG['patients']['private']?>
-                <input <?php echo $disable?> name="aserpago" type="radio" value="Convênio" <?php echo $chk[aserpago]['Convênio']?> onclick="document.getElementById('valortotal').value = document.getElementById('total_convenio').value; document.getElementById('valor__total').value = document.getElementById('total_convenio').value;" />
+                <input <?php echo $disable?> name="aserpago" type="radio" value="ConvÃªnio" <?php echo $chk[aserpago]['ConvÃªnio']?> onclick="document.getElementById('valortotal').value = document.getElementById('total_convenio').value; document.getElementById('valor__total').value = document.getElementById('total_convenio').value;" />
               <?php echo $LANG['patients']['plan']?></div></td>
               <td><div align="center">
                 <input <?php echo $disable?> name="valor__total" disabled type="text" value="<?php echo money_form($row[valortotal])?>" class="forms" id="valor__total" size="15" />
@@ -261,7 +261,7 @@
               <td><div align="right">
                 <select <?php echo $disable?> name="formapagamento" class="forms" id="formapagamento">
 <?php
-	$valores = array('À vista' => $LANG['patients']['at_sight'], 'Cheque pré-datado' => $LANG['patients']['pre_dated_check'], 'Promissória' => $LANG['patients']['promissory'], 'Cartão' => $LANG['patients']['credit_card']);
+	$valores = array('Ã€ vista' => $LANG['patients']['at_sight'], 'Cheque prÃ©-datado' => $LANG['patients']['pre_dated_check'], 'PromissÃ³ria' => $LANG['patients']['promissory'], 'CartÃ£o' => $LANG['patients']['credit_card']);
 	foreach($valores as $chave => $valor) {
 		if($row[formapagamento] == $chave) {
 			echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
@@ -392,7 +392,7 @@
                 //$efetuar = '<input type="submit" class="forms" name="efetuar['.$row1['codigo'].']" value="Efetuar pagamento">';
                 $efetuar = '<a href="javascript:Ajax(\'pagamentos/parcelas\', \'conteudo\', \'codigo='.$row1['codigo'].'\')">Efetuar pagamento</a> ';
             } elseif($disable == 'disabled') {
-                $efetuar = 'Pagamento já realizado!';
+                $efetuar = 'Pagamento jÃ¡ realizado!';
             }
             $total_final += $valor;
 ?>
@@ -401,7 +401,7 @@
     		  <td><div align="center">
       		    <input <?php echo $disable?> name="datavencimento[<?php echo $i?>]" value="<?php echo (($row1['datavencimento'] == '-00-')?'00/00/0000':converte_data($row1['datavencimento'], 2))?>" type="text" class="forms" size="15" />
     		    </div></td>
-    		  <td><div align="center"><?php echo (($row['baixa'] == 'Não')?(($row1['pago'] == 'Sim')?$LANG['patients']['paid']:'<a href="javascript:Ajax(\'pagamentos/parcelas\', \'conteudo\', \'codigo='.completa_zeros($row1['codigo'], ZEROS).'\')">'.$LANG['patients']['open']).((($row1['datavencimento'] < date('Y-m-d')) && ($row1['pago'] != 'Sim'))?' ('.$LANG['patients']['overdue'].')</a>':'</a>').(($row1['pago'] == 'Sim')?' ('.converte_data($row1['datapgto'], 2).')':''):(($row1['pago'] == 'Sim')?$LANG['patients']['paid'].' ('.converte_data($row1['datapgto'], 2).')':$LANG['patients']['canceled']))?></div></td>
+    		  <td><div align="center"><?php echo (($row['baixa'] == 'NÃ£o')?(($row1['pago'] == 'Sim')?$LANG['patients']['paid']:'<a href="javascript:Ajax(\'pagamentos/parcelas\', \'conteudo\', \'codigo='.completa_zeros($row1['codigo'], ZEROS).'\')">'.$LANG['patients']['open']).((($row1['datavencimento'] < date('Y-m-d')) && ($row1['pago'] != 'Sim'))?' ('.$LANG['patients']['overdue'].')</a>':'</a>').(($row1['pago'] == 'Sim')?' ('.converte_data($row1['datapgto'], 2).')':''):(($row1['pago'] == 'Sim')?$LANG['patients']['paid'].' ('.converte_data($row1['datapgto'], 2).')':$LANG['patients']['canceled']))?></div></td>
     		  <td><div align="center">
       		   <input <?php echo $disable?> name="parcela[<?php echo $i?>]" value="<?php echo money_form($valor)?>" type="text" class="forms" size="15" />
     		  </div></td>
@@ -436,11 +436,11 @@
     </td>
 <?php
     if($disable == 'disabled') {
-        if($row['baixa'] == 'Não') {
+        if($row['baixa'] == 'NÃ£o') {
             if(!checknivel('Dentista')) {
 ?>
     <td width="33%" align="center">
-      <a href="javascript:;" onclick="if(confirm('<?php echo $LANG['patients']['are_you_sure_you_want_to_cancel_this_budget']?>')) { javascript:Ajax('pacientes/orcamentofechar', 'conteudo', 'codigo=<?php echo $_GET[codigo]?>&indice_orc=<?php echo ($i+1)?>&acao=editar&subacao=editar&codigo_orc=<?php echo $row[codigo]?>&confirm_baixa=baixa') }">Dar Baixar no Orçamento</a>
+      <a href="javascript:;" onclick="if(confirm('<?php echo $LANG['patients']['are_you_sure_you_want_to_cancel_this_budget']?>')) { javascript:Ajax('pacientes/orcamentofechar', 'conteudo', 'codigo=<?php echo $_GET[codigo]?>&indice_orc=<?php echo ($i+1)?>&acao=editar&subacao=editar&codigo_orc=<?php echo $row[codigo]?>&confirm_baixa=baixa') }">Dar Baixar no OrÃ§amento</a>
     </td>
 <?php
             }

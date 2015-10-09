@@ -1,7 +1,7 @@
-# 3.5
+﻿# 3.5
 
 ALTER TABLE dentistas ADD data_inicio DATE NOT NULL AFTER ativo, ADD data_fim DATE NOT NULL AFTER data_inicio;
-ALTER TABLE pacientes ADD falecido ENUM('Sim', 'N�o') NOT NULL DEFAULT 'N�o' AFTER pais;
+ALTER TABLE pacientes ADD falecido ENUM('Sim', 'Nï¿½o') NOT NULL DEFAULT 'Nï¿½o' AFTER pais;
 
 ALTER TABLE convenios CHANGE codigo codigo INT(15) NOT NULL, DROP PRIMARY KEY;
 UPDATE convenios SET codigo = codigo + 2;

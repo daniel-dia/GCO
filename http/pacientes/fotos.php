@@ -1,37 +1,37 @@
-<?php
+ï»¿<?php
    /**
-    * Gerenciador Clínico Odontológico
+    * Gerenciador ClÃ­nico OdontolÃ³gico
     * Copyright (C) 2006 - 2009
     * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e Programação(ikkinet@gmail.com)
+    *          Pedro Henrique Braga Moreira - Engenharia e ProgramaÃ§Ã£o(ikkinet@gmail.com)
     *
-    * Este arquivo é parte do programa Gerenciador Clínico Odontológico
+    * Este arquivo Ã© parte do programa Gerenciador ClÃ­nico OdontolÃ³gico
     *
-    * Gerenciador Clínico Odontológico é um software livre; você pode
-    * redistribuí-lo e/ou modificá-lo dentro dos termos da Licença
-    * Pública Geral GNU como publicada pela Fundação do Software Livre
-    * (FSF); na versão 2 da Licença invariavelmente.
+    * Gerenciador ClÃ­nico OdontolÃ³gico Ã© um software livre; vocÃª pode
+    * redistribuÃ­-lo e/ou modificÃ¡-lo dentro dos termos da LicenÃ§a
+    * PÃºblica Geral GNU como publicada pela FundaÃ§Ã£o do Software Livre
+    * (FSF); na versÃ£o 2 da LicenÃ§a invariavelmente.
     *
-    * Este programa é distribuído na esperança que possa ser útil,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÂO
-    * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
-    * Licença Pública Geral GNU para maiores detalhes.
+    * Este programa Ã© distribuÃ­do na esperanÃ§a que possa ser Ãºtil,
+    * mas SEM NENHUMA GARANTIA; sem uma garantia implÃ­cita de ADEQUAÃ‡Ã‚O
+    * a qualquer MERCADO ou APLICAÃ‡ÃƒO EM PARTICULAR. Veja a
+    * LicenÃ§a PÃºblica Geral GNU para maiores detalhes.
     *
-    * Você recebeu uma cópia da Licença Pública Geral GNU,
-    * que está localizada na raíz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se não, visite o endereço para maiores informações:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Inglês)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (Português - Brasil)
+    * VocÃª recebeu uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU,
+    * que estÃ¡ localizada na raÃ­z do programa no arquivo COPYING ou COPYING.TXT
+    * junto com este programa. Se nÃ£o, visite o endereÃ§o para maiores informaÃ§Ãµes:
+    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (InglÃªs)
+    * http://www.magnux.org/doc/GPL-pt_BR.txt (PortuguÃªs - Brasil)
     *
-    * Em caso de dúvidas quanto ao software ou quanto à licença, visite o
-    * endereço eletrônico ou envie-nos um e-mail:
+    * Em caso de dÃºvidas quanto ao software ou quanto Ã  licenÃ§a, visite o
+    * endereÃ§o eletrÃ´nico ou envie-nos um e-mail:
     *
     * http://www.smileodonto.com.br/gco
     * smile@smileodonto.com.br
     *
-    * Ou envie sua carta para o endereço:
+    * Ou envie sua carta para o endereÃ§o:
     *
-    * Smile Odontolóogia
+    * Smile OdontolÃ³ogia
     * Rua Laudemira Maria de Jesus, 51 - Lourdes
     * Arcos - MG - CEP 35588-000
     *
@@ -84,7 +84,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Gerenciador Clínico Odontológico Smile Odonto - Administração Odontológica Em Suas Mãos</title>
+<title>Gerenciador ClÃ­nico OdontolÃ³gico Smile Odonto - AdministraÃ§Ã£o OdontolÃ³gica Em Suas MÃ£os</title>
 <link href="../css/smile.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="../lib/script.js.php"></script>
 </head>

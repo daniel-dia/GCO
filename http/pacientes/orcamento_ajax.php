@@ -1,37 +1,37 @@
-<?php
+ï»¿<?php
    /**
-    * Gerenciador Clínico Odontológico
+    * Gerenciador ClÃ­nico OdontolÃ³gico
     * Copyright (C) 2006 - 2009
     * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e Programação(ikkinet@gmail.com)
+    *          Pedro Henrique Braga Moreira - Engenharia e ProgramaÃ§Ã£o(ikkinet@gmail.com)
     *
-    * Este arquivo é parte do programa Gerenciador Clínico Odontológico
+    * Este arquivo Ã© parte do programa Gerenciador ClÃ­nico OdontolÃ³gico
     *
-    * Gerenciador Clínico Odontológico é um software livre; você pode
-    * redistribuí-lo e/ou modificá-lo dentro dos termos da Licença
-    * Pública Geral GNU como publicada pela Fundação do Software Livre
-    * (FSF); na versão 2 da Licença invariavelmente.
+    * Gerenciador ClÃ­nico OdontolÃ³gico Ã© um software livre; vocÃª pode
+    * redistribuÃ­-lo e/ou modificÃ¡-lo dentro dos termos da LicenÃ§a
+    * PÃºblica Geral GNU como publicada pela FundaÃ§Ã£o do Software Livre
+    * (FSF); na versÃ£o 2 da LicenÃ§a invariavelmente.
     *
-    * Este programa é distribuído na esperança que possa ser útil,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÂO
-    * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
-    * Licença Pública Geral GNU para maiores detalhes.
+    * Este programa Ã© distribuÃ­do na esperanÃ§a que possa ser Ãºtil,
+    * mas SEM NENHUMA GARANTIA; sem uma garantia implÃ­cita de ADEQUAÃ‡Ã‚O
+    * a qualquer MERCADO ou APLICAÃ‡ÃƒO EM PARTICULAR. Veja a
+    * LicenÃ§a PÃºblica Geral GNU para maiores detalhes.
     *
-    * Você recebeu uma cópia da Licença Pública Geral GNU,
-    * que está localizada na raíz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se não, visite o endereço para maiores informações:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Inglês)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (Português - Brasil)
+    * VocÃª recebeu uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU,
+    * que estÃ¡ localizada na raÃ­z do programa no arquivo COPYING ou COPYING.TXT
+    * junto com este programa. Se nÃ£o, visite o endereÃ§o para maiores informaÃ§Ãµes:
+    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (InglÃªs)
+    * http://www.magnux.org/doc/GPL-pt_BR.txt (PortuguÃªs - Brasil)
     *
-    * Em caso de dúvidas quanto ao software ou quanto à licença, visite o
-    * endereço eletrônico ou envie-nos um e-mail:
+    * Em caso de dÃºvidas quanto ao software ou quanto Ã  licenÃ§a, visite o
+    * endereÃ§o eletrÃ´nico ou envie-nos um e-mail:
     *
     * http://www.smileodonto.com.br/gco
     * smile@smileodonto.com.br
     *
-    * Ou envie sua carta para o endereço:
+    * Ou envie sua carta para o endereÃ§o:
     *
-    * Smile Odontolóogia
+    * Smile OdontolÃ³ogia
     * Rua Laudemira Maria de Jesus, 51 - Lourdes
     * Arcos - MG - CEP 35588-000
     *
@@ -45,7 +45,7 @@
 	if(!checklog()) {
 		die($frase_log);
 	}
-	$strUpCase = "ALTERAÇÂO";
+	$strUpCase = "ALTERAÃ‡Ã‚O";
     $strLoCase = encontra_valor('pacientes', 'codigo', $_GET[codigo], 'nome').' - '.$_GET['codigo'];
 	$frmActEdt = "?acao=editar&codigo=".$_GET[codigo];
 	$acao = '&acao=editar';
@@ -114,7 +114,7 @@
           <td width="13%"><?php echo converte_data($row[data], 2)?></td>
           <td width="14%" align="right"><?php echo $LANG['general']['currency'].' '.money_form($row[valortotal]-($row[valortotal]*($row[desconto]/100)))?></td>
           <td width="11%"><div align="center"><a href="javascript:Ajax('pacientes/orcamentofechar', 'conteudo', 'codigo=<?php echo $_GET[codigo]?>&indice_orc=<?php echo ($i+1)?>&acao=editar&subacao=editar&codigo_orc=<?php echo $row[codigo]?>')"><img src="imagens/icones/editar.gif" border="0" alt="Editar" width="16" height="18" /></div></td>
-          <td width="14%"><div align="center"><?php echo (($row['confirmado'] == 'Não')?'':'<img src="imagens/icones/ok.gif" border="0" alt="Confirmado" width="19" height="19" /> '.((mysql_num_rows(mysql_query("SELECT * FROM parcelas_orcamento WHERE codigo_orcamento = ".$row['codigo']." AND pago = 'Não'")) > 0)?$LANG['patients']['open']:$LANG['patients']['paid']))?></div></td>
+          <td width="14%"><div align="center"><?php echo (($row['confirmado'] == 'NÃ£o')?'':'<img src="imagens/icones/ok.gif" border="0" alt="Confirmado" width="19" height="19" /> '.((mysql_num_rows(mysql_query("SELECT * FROM parcelas_orcamento WHERE codigo_orcamento = ".$row['codigo']." AND pago = 'NÃ£o'")) > 0)?$LANG['patients']['open']:$LANG['patients']['paid']))?></div></td>
         </tr>
 <?php
 		$i++;

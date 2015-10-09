@@ -1,4 +1,4 @@
-SISBB  -  SISTEMA DE INFORMACOES BANCO DO BRASIL
+﻿SISBB  -  SISTEMA DE INFORMACOES BANCO DO BRASIL
 08/11/2006    AUTO-ATENDIMENTO          18.34.07
 089400894                                       
                                                 

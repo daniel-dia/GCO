@@ -1,4 +1,4 @@
-# 2.0
+﻿# 2.0
 
 # 2.2
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS dentistas_temp (
   conselho_tipo varchar(30) default NULL,
   conselho_estado varchar(30) default NULL,
   conselho_numero varchar(30) default NULL,
-  ativo enum('Sim','N�o') default NULL,
+  ativo enum('Sim','Nï¿½o') default NULL,
   foto blob,
   PRIMARY KEY  (codigo)
 ) ENGINE=MyISAM;
@@ -102,7 +102,7 @@ UPDATE pacientes SET estadocivil = 'casado' WHERE estadocivil = 'Casado(a)';
 UPDATE pacientes SET estadocivil = 'divorciado' WHERE estadocivil = 'Separado(a)';
 UPDATE pacientes SET estadocivil = 'divorciado' WHERE estadocivil = 'Divorciado(a)';
 UPDATE pacientes SET estadocivil = 'casado' WHERE estadocivil = 'Amasiado(a)';
-UPDATE pacientes SET estadocivil = 'viuvo' WHERE estadocivil = 'Vi�vo(a)';
+UPDATE pacientes SET estadocivil = 'viuvo' WHERE estadocivil = 'Viï¿½vo(a)';
 UPDATE pacientes SET etnia = 'caucasiano' WHERE etnia = 'Branco';
 UPDATE pacientes SET etnia = 'africano' WHERE etnia = 'Moreno';
 UPDATE pacientes SET etnia = 'africano' WHERE etnia = 'Negro';
@@ -116,7 +116,7 @@ UPDATE funcionarios SET estadocivil = 'casado' WHERE estadocivil = 'Casado(a)';
 UPDATE funcionarios SET estadocivil = 'divorciado' WHERE estadocivil = 'Separado(a)';
 UPDATE funcionarios SET estadocivil = 'divorciado' WHERE estadocivil = 'Divorciado(a)';
 UPDATE funcionarios SET estadocivil = 'casado' WHERE estadocivil = 'Amasiado(a)';
-UPDATE funcionarios SET estadocivil = 'viuvo' WHERE estadocivil = 'Vi�vo(a)';
+UPDATE funcionarios SET estadocivil = 'viuvo' WHERE estadocivil = 'Viï¿½vo(a)';
 ALTER TABLE funcionarios CHANGE estadocivil estadocivil enum('solteiro','casado','divorciado','viuvo') default NULL;
 
 CREATE TABLE IF NOT EXISTS funcionarios_temp (
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS funcionarios_temp (
   usuario varchar(15) character set latin7 collate latin7_general_cs default NULL,
   senha varchar(32) default NULL,
   rg varchar(50) default NULL,
-  estadocivil enum('Solteiro(a)','Casado(a)','Separado(a)','Divorciado(a)','Amasiado(a)','Vi�vo(a)') default NULL,
+  estadocivil enum('Solteiro(a)','Casado(a)','Separado(a)','Divorciado(a)','Amasiado(a)','Viï¿½vo(a)') default NULL,
   endereco varchar(150) default NULL,
   bairro varchar(50) default NULL,
   cidade varchar(50) default NULL,
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS funcionarios_temp (
   admissao date default NULL,
   demissao date default NULL,
   observacoes text,
-  ativo enum('Sim','N�o') default NULL,
+  ativo enum('Sim','Nï¿½o') default NULL,
   foto blob,
   PRIMARY KEY  (codigo)
 ) ENGINE=MyISAM;
@@ -227,7 +227,7 @@ ALTER TABLE laboratorios_procedimentos ADD codigo_laboratorio int NOT NULL AFTER
 # 3.5
 
 ALTER TABLE dentistas ADD data_inicio DATE NOT NULL AFTER ativo, ADD data_fim DATE NOT NULL AFTER data_inicio;
-ALTER TABLE pacientes ADD falecido ENUM('Sim', 'N�o') NOT NULL DEFAULT 'N�o' AFTER pais;
+ALTER TABLE pacientes ADD falecido ENUM('Sim', 'Nï¿½o') NOT NULL DEFAULT 'Nï¿½o' AFTER pais;
 
 ALTER TABLE convenios CHANGE codigo codigo INT(15) NOT NULL, DROP PRIMARY KEY;
 UPDATE convenios SET codigo = codigo + 2;

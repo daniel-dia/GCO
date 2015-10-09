@@ -1,37 +1,37 @@
-<?php
+Ôªø<?php
    /**
-    * Gerenciador ClÌnico OdontolÛgico
+    * Gerenciador Cl√≠nico Odontol√≥gico
     * Copyright (C) 2006 - 2009
     * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e ProgramaÁ„o(ikkinet@gmail.com)
+    *          Pedro Henrique Braga Moreira - Engenharia e Programa√ß√£o(ikkinet@gmail.com)
     *
-    * Este arquivo È parte do programa Gerenciador ClÌnico OdontolÛgico
+    * Este arquivo √© parte do programa Gerenciador Cl√≠nico Odontol√≥gico
     *
-    * Gerenciador ClÌnico OdontolÛgico È um software livre; vocÍ pode
-    * redistribuÌ-lo e/ou modific·-lo dentro dos termos da LicenÁa
-    * P˙blica Geral GNU como publicada pela FundaÁ„o do Software Livre
-    * (FSF); na vers„o 2 da LicenÁa invariavelmente.
+    * Gerenciador Cl√≠nico Odontol√≥gico √© um software livre; voc√™ pode
+    * redistribu√≠-lo e/ou modific√°-lo dentro dos termos da Licen√ßa
+    * P√∫blica Geral GNU como publicada pela Funda√ß√£o do Software Livre
+    * (FSF); na vers√£o 2 da Licen√ßa invariavelmente.
     *
-    * Este programa È distribuÌdo na esperanÁa que possa ser ˙til,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implÌcita de ADEQUA«¬O
-    * a qualquer MERCADO ou APLICA«√O EM PARTICULAR. Veja a
-    * LicenÁa P˙blica Geral GNU para maiores detalhes.
+    * Este programa √© distribu√≠do na esperan√ßa que possa ser √∫til,
+    * mas SEM NENHUMA GARANTIA; sem uma garantia impl√≠cita de ADEQUA√á√ÇO
+    * a qualquer MERCADO ou APLICA√á√ÉO EM PARTICULAR. Veja a
+    * Licen√ßa P√∫blica Geral GNU para maiores detalhes.
     *
-    * VocÍ recebeu uma cÛpia da LicenÁa P˙blica Geral GNU,
-    * que est· localizada na raÌz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se n„o, visite o endereÁo para maiores informaÁıes:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (InglÍs)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (PortuguÍs - Brasil)
+    * Voc√™ recebeu uma c√≥pia da Licen√ßa P√∫blica Geral GNU,
+    * que est√° localizada na ra√≠z do programa no arquivo COPYING ou COPYING.TXT
+    * junto com este programa. Se n√£o, visite o endere√ßo para maiores informa√ß√µes:
+    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Ingl√™s)
+    * http://www.magnux.org/doc/GPL-pt_BR.txt (Portugu√™s - Brasil)
     *
-    * Em caso de d˙vidas quanto ao software ou quanto ‡ licenÁa, visite o
-    * endereÁo eletrÙnico ou envie-nos um e-mail:
+    * Em caso de d√∫vidas quanto ao software ou quanto √† licen√ßa, visite o
+    * endere√ßo eletr√¥nico ou envie-nos um e-mail:
     *
     * http://www.smileodonto.com.br/gco
     * smile@smileodonto.com.br
     *
-    * Ou envie sua carta para o endereÁo:
+    * Ou envie sua carta para o endere√ßo:
     *
-    * Smile OdontolÛogia
+    * Smile Odontol√≥ogia
     * Rua Laudemira Maria de Jesus, 51 - Lourdes
     * Arcos - MG - CEP 35588-000
     *
@@ -44,164 +44,164 @@
 </div>
 
 <dl>
-    <dt><b>20/08/2015 - Vers„o 6.0</b><br />
+    <dt><b>20/08/2015 - Vers√£o 6.0</b><br />
     <dd><ul type="circle">
-            <li>RemoÁ„o do short-tag para compatibilidade com versıes mais recentes do PHP;</li>
+            <li>Remo√ß√£o do short-tag para compatibilidade com vers√µes mais recentes do PHP;</li>
             <li>Adicionada chamada para participar da Franquia Smile Odonto;</li>
-            <li>Alterado o mÛdulo de Profissionais para Dentistas;</li>
-            <li>Corrigida exclus„o de Dentistas;</li>
-            <li>Corrigida exclus„o de ConvÍnios/Planos e Honor·rios;</li>
-            <li>Criada vers„o em espanhol;</li>
+            <li>Alterado o m√≥dulo de Profissionais para Dentistas;</li>
+            <li>Corrigida exclus√£o de Dentistas;</li>
+            <li>Corrigida exclus√£o de Conv√™nios/Planos e Honor√°rios;</li>
+            <li>Criada vers√£o em espanhol;</li>
         </ul><br /></dd>
     </dt>
-    <dt><b>17/09/2013 - Vers„o 5.0</b><br />
+    <dt><b>17/09/2013 - Vers√£o 5.0</b><br />
     <dd><ul type="circle">
-            <li>CorreÁ„o de bug no lanÁamento de Contas a Receber;</li>
-            <li>CorreÁ„o de bug na codificaÁ„o de caracteres com acento em v·rios campos;</li>
-            <li>Adicionado campo de pesquisa por endereÁo e indicaÁ„o em pacientes;</li>
+            <li>Corre√ß√£o de bug no lan√ßamento de Contas a Receber;</li>
+            <li>Corre√ß√£o de bug na codifica√ß√£o de caracteres com acento em v√°rios campos;</li>
+            <li>Adicionado campo de pesquisa por endere√ßo e indica√ß√£o em pacientes;</li>
             <li>Melhoria da pesquisa por aniversariantes em pacientes;</li>
-            <li>Adicionado link para Tabela de Honor·rios;</li>
-            <li>CorreÁ„o da exibiÁ„o de tÌtulos em relatÛrios;</li>
-            <li>CorreÁ„o de bug para ediÁ„o de cheques;</li>
-            <li>Adicionadas fotos de inÌcio;</li>
-            <li>CorreÁ„o de bug para excluir agendamento de paciente excluÌdo;</li>
-            <li>CorreÁ„o de bug nas pemissıes de funcion·rios;</li>
-            <li>Adicionada restriÁ„o de hor·rio de atendimento de profissonal com bloqueio da agenda;</li>
-            <li>CorreÁ„o de bug em evoluÁ„o do tratamento por um funcion·rio;</li>
-            <li>Adicionado controle de acesso para funcion·rios e profissionais;</li>
+            <li>Adicionado link para Tabela de Honor√°rios;</li>
+            <li>Corre√ß√£o da exibi√ß√£o de t√≠tulos em relat√≥rios;</li>
+            <li>Corre√ß√£o de bug para edi√ß√£o de cheques;</li>
+            <li>Adicionadas fotos de in√≠cio;</li>
+            <li>Corre√ß√£o de bug para excluir agendamento de paciente exclu√≠do;</li>
+            <li>Corre√ß√£o de bug nas pemiss√µes de funcion√°rios;</li>
+            <li>Adicionada restri√ß√£o de hor√°rio de atendimento de profissonal com bloqueio da agenda;</li>
+            <li>Corre√ß√£o de bug em evolu√ß√£o do tratamento por um funcion√°rio;</li>
+            <li>Adicionado controle de acesso para funcion√°rios e profissionais;</li>
         </ul><br /></dd>
     </dt>
-    <dt><b>21/12/2009 - Vers„o 4.0</b><br />
+    <dt><b>21/12/2009 - Vers√£o 4.0</b><br />
     <dd><ul type="circle">
-            <li>Corrigido bug na seleÁ„o de convÍnios nos pacientes;</li>
+            <li>Corrigido bug na sele√ß√£o de conv√™nios nos pacientes;</li>
             <li>Melhorado o sistema de redimensionamento de fotos;</li>
             <li>Adicionado campo de pesquisa por telefone, em pacientes;</li>
-            <li>Alterada a tabela de honor·rios, por convÍnio; cada convÍnio poder· ter um valor por procedimento;</li>
-            <li>Adicionados os campos InÌcio e TÈrmino das atividades dos profissionais;</li>
-            <li>Adicionado campo para marcaÁ„o de pacientes falecidos; o nome, na listagem, aparece em cinza;</li>
-            <li>Corrigidos bug na configuraÁ„o e adicionadas mensagens de erro;</li>
-            <li>Adicionada a situaÁ„o do paciente na listagem, em frente ao nome;</li>
-            <li>Adicionado Ìndice informativo para os orÁamentos confirmados: Aberto ou Pago;</li>
-            <li>O tempo de expiraÁ„o da sess„o foi aumentado para 24 horas;</li>
-            <li>Adicionada ·rea radiolÛgica para os pacientes;</li>
-            <li>Adicionado controle de acesso para funcion·rios e profissionais;</li>
+            <li>Alterada a tabela de honor√°rios, por conv√™nio; cada conv√™nio poder√° ter um valor por procedimento;</li>
+            <li>Adicionados os campos In√≠cio e T√©rmino das atividades dos profissionais;</li>
+            <li>Adicionado campo para marca√ß√£o de pacientes falecidos; o nome, na listagem, aparece em cinza;</li>
+            <li>Corrigidos bug na configura√ß√£o e adicionadas mensagens de erro;</li>
+            <li>Adicionada a situa√ß√£o do paciente na listagem, em frente ao nome;</li>
+            <li>Adicionado √≠ndice informativo para os or√ßamentos confirmados: Aberto ou Pago;</li>
+            <li>O tempo de expira√ß√£o da sess√£o foi aumentado para 24 horas;</li>
+            <li>Adicionada √°rea radiol√≥gica para os pacientes;</li>
+            <li>Adicionado controle de acesso para funcion√°rios e profissionais;</li>
         </ul><br /></dd>
     </dt>
-    <dt><b>03/08/2009 - Vers„o 3.0</b><br />
+    <dt><b>03/08/2009 - Vers√£o 3.0</b><br />
     <dd><ul type="circle">
-            <li>LanÁada a vers„o 3.0 do sistema</li>
+            <li>Lan√ßada a vers√£o 3.0 do sistema</li>
         </ul></dd>
     </dt>
     <dt><b>07/07/2009</b><br />
     <dd><ul type="circle">
-            <li>Corrigido bug na impress„o da agenda, que n„o mostrava o dia da semana;</li>
-            <li>Corrigido bug na impress„o de receitas, atestados e outros, que n„o mostrava o mÍs;</li>
-            <li>Corrigido erro na impress„o do odontograma;</li>
-            <li>Atualizado forma de busca por aniversariantes no mÍs, em Pacientes;</li>
-            <li>Corrigido erro na impress„o de orÁamentos;</li>
+            <li>Corrigido bug na impress√£o da agenda, que n√£o mostrava o dia da semana;</li>
+            <li>Corrigido bug na impress√£o de receitas, atestados e outros, que n√£o mostrava o m√™s;</li>
+            <li>Corrigido erro na impress√£o do odontograma;</li>
+            <li>Atualizado forma de busca por aniversariantes no m√™s, em Pacientes;</li>
+            <li>Corrigido erro na impress√£o de or√ßamentos;</li>
             <li>Corrigido bug nos materiais laboratoriais do paciente;</li>
         </ul><br /></dd>
     </dt>
     <dt><b>10/05/2009</b><br />
     <dd><ul type="circle">
             <li>Adicionado o suporte a multi-idiomas;</li>
-            <li>Adicionado o idioma inglÍs;</li>
-            <li>Adicionado o suporte ‡ Materiais Laboratoriais por pacientes com status de acompanhamento;</li>
-            <li>Adicionada cor vermelha para pacientes em dÈbito;</li>
-            <li>Corrigido bug no orÁamento para valores decimais;</li>
-            <li>Adicionada caixa de texto para observaÁıes gerais em Fornecedores;</li>
-            <li>Adicionados campos adicionais para correspondÍncia em Contatos ⁄teis;</li>
-            <li>Adicionada opÁ„o de impress„o de etiquetas em Contatos ⁄teis;</li>
-            <li>Adicionados campos banc·rios adicionais em Fornecedores;</li>
-            <li>Adicionado mÛdulo de cadastro de ConvÍnios/Planos;</li>
-            <li>Adicionado mÛdulo de cadastro de LaboratÛrios;</li>
-            <li>Corrigido bug inserÁ„o de logomarca da clÌnica;</li>
-            <li>Adicionada possiblidade de editar a EvoluÁ„o do Tratamento, em Pacientes;</li>
-            <li>Adicionada opÁ„o de deletar lanÁamento do caixa;</li>
-            <li>Adicionada opÁ„o de impress„o de relatÛrio do fluxo caixa;</li>
+            <li>Adicionado o idioma ingl√™s;</li>
+            <li>Adicionado o suporte √† Materiais Laboratoriais por pacientes com status de acompanhamento;</li>
+            <li>Adicionada cor vermelha para pacientes em d√©bito;</li>
+            <li>Corrigido bug no or√ßamento para valores decimais;</li>
+            <li>Adicionada caixa de texto para observa√ß√µes gerais em Fornecedores;</li>
+            <li>Adicionados campos adicionais para correspond√™ncia em Contatos √öteis;</li>
+            <li>Adicionada op√ß√£o de impress√£o de etiquetas em Contatos √öteis;</li>
+            <li>Adicionados campos banc√°rios adicionais em Fornecedores;</li>
+            <li>Adicionado m√≥dulo de cadastro de Conv√™nios/Planos;</li>
+            <li>Adicionado m√≥dulo de cadastro de Laborat√≥rios;</li>
+            <li>Corrigido bug inser√ß√£o de logomarca da cl√≠nica;</li>
+            <li>Adicionada possiblidade de editar a Evolu√ß√£o do Tratamento, em Pacientes;</li>
+            <li>Adicionada op√ß√£o de deletar lan√ßamento do caixa;</li>
+            <li>Adicionada op√ß√£o de impress√£o de relat√≥rio do fluxo caixa;</li>
         </ul><br /></dd>
     </dt>
     <dt><b>28/02/2009</b><br />
     <dd><ul type="circle">
-            <li>Alterado o banco de dados de forma a desvincular os funcion·rios e profissionais do CPF, retirando sua obrigatoriedade;</li>
+            <li>Alterado o banco de dados de forma a desvincular os funcion√°rios e profissionais do CPF, retirando sua obrigatoriedade;</li>
         </ul><br /></dd>
     </dt>
-    <dt><b>25/06/2008 - Vers„o 2.0</b><br />
+    <dt><b>25/06/2008 - Vers√£o 2.0</b><br />
     <dd><ul type="circle">
-            <li>Corrigido o Configurador: fontes e funcionamento de atualizaÁıes;</li>
-            <li>Corrigido erro com o valor nulo (zero) na tabÈla de honor·rios;</li>
+            <li>Corrigido o Configurador: fontes e funcionamento de atualiza√ß√µes;</li>
+            <li>Corrigido erro com o valor nulo (zero) na tab√©la de honor√°rios;</li>
             <li>Corrigida rotina de backup;</li>
-            <li>Corrigidos os links para impressıes;</li>
-            <li>Corrigida a rotina de cheques da clÌnica, que n„o registrava as datas de compensaÁ„o;</li>
+            <li>Corrigidos os links para impress√µes;</li>
+            <li>Corrigida a rotina de cheques da cl√≠nica, que n√£o registrava as datas de compensa√ß√£o;</li>
         </ul><br /></dd>
     </dt>
     <dt><b>28/05/2008</b><br />
     <dd><ul type="circle">
-            <li>Corrigido bug de nova instalaÁ„o;</li>
+            <li>Corrigido bug de nova instala√ß√£o;</li>
             <li>Corrigido bug no menu de contexto da agenda;</li>
-            <li>Corrigido bug no menu de contexto do orÁamento de pacientes;</li>
+            <li>Corrigido bug no menu de contexto do or√ßamento de pacientes;</li>
         </ul><br /></dd>
     </dt>
     <dt><b>17/05/2008</b><br />
     <dd><ul type="circle">
-            <li>Adicionada a primeira vers„o do Odontograma;</li>
-            <li>CorreÁ„o de alguns erros de portuguÍs;</li>
+            <li>Adicionada a primeira vers√£o do Odontograma;</li>
+            <li>Corre√ß√£o de alguns erros de portugu√™s;</li>
         </ul><br /></dd>
     </dt>
     <dt><b>16/05/2008</b><br />
     <dd><ul type="circle">
-            <li>Adicionado mÛdulo de tabela de honor·rios;</li>
-            <li>Corrigido bug na paginaÁ„o de relatÛrios de clientes;</li>
-            <li>Corrigido bug de pagamento de parcelas de OrÁamentos n„o confirmados;</li>
-            <li>Corrigido bug que n„o permitia a impress„o de OrÁamentos n„o confirmados;</li>
-            <li>Adicionada integraÁ„o entre procedimentos do OrÁamento e Tabela de Honor·rios;</li>
+            <li>Adicionado m√≥dulo de tabela de honor√°rios;</li>
+            <li>Corrigido bug na pagina√ß√£o de relat√≥rios de clientes;</li>
+            <li>Corrigido bug de pagamento de parcelas de Or√ßamentos n√£o confirmados;</li>
+            <li>Corrigido bug que n√£o permitia a impress√£o de Or√ßamentos n√£o confirmados;</li>
+            <li>Adicionada integra√ß√£o entre procedimentos do Or√ßamento e Tabela de Honor√°rios;</li>
             <li>Corrigido bug de pagamentos de parcelas;</li>
-            <li>Corrigido bug do CPF errado ou j· existente;</li>
-            <li>Corrigido bug que permitia Funcion·rios e Dentistas apagarem Pacientes;</li>
-            <li>Adicionada ·rea de Ortodontia;</li>
-            <li>Adicionada ·rea de Implantodontia;</li>
+            <li>Corrigido bug do CPF errado ou j√° existente;</li>
+            <li>Corrigido bug que permitia Funcion√°rios e Dentistas apagarem Pacientes;</li>
+            <li>Adicionada √°rea de Ortodontia;</li>
+            <li>Adicionada √°rea de Implantodontia;</li>
         </ul><br /></dd>
     </dt>
     <dt><b>15/05/2008</b><br />
     <dd><ul type="circle">
-            <li>Adicionado mÈtodo de busca de Pacientes por Profissional a quem foram encaminhados;</li>
-            <li>Adicionado mÈtodo de busca de Pacientes por Profissional que Atendeu;</li>
-            <li>Alterados links de impress„o de Boleto e OrÁamento para a p·gina do OrÁamento correspondente;</li>
-            <li>Adicionada funÁ„o de Dar Baixa/Cancelar em Parcelas de OrÁamentos;</li>
-            <li>Adicionado relatÛrio no controle de Caixa da ClÌnica para separar pagamentos de Pacientes por Dentistas;</li>
-            <li>Adicionados mÈtodos de impress„o Encaminhamento, Laudo/Parecer e Agradecimento pelo Encaminhamento;</li>
-            <li>Adicionada vers„o para impress„o das fichas de cadastro de Paciente, Profissinal e Funcion·rio;</li>
+            <li>Adicionado m√©todo de busca de Pacientes por Profissional a quem foram encaminhados;</li>
+            <li>Adicionado m√©todo de busca de Pacientes por Profissional que Atendeu;</li>
+            <li>Alterados links de impress√£o de Boleto e Or√ßamento para a p√°gina do Or√ßamento correspondente;</li>
+            <li>Adicionada fun√ß√£o de Dar Baixa/Cancelar em Parcelas de Or√ßamentos;</li>
+            <li>Adicionado relat√≥rio no controle de Caixa da Cl√≠nica para separar pagamentos de Pacientes por Dentistas;</li>
+            <li>Adicionados m√©todos de impress√£o Encaminhamento, Laudo/Parecer e Agradecimento pelo Encaminhamento;</li>
+            <li>Adicionada vers√£o para impress√£o das fichas de cadastro de Paciente, Profissinal e Funcion√°rio;</li>
         </ul><br /></dd>
     </dt>
     <dt><b>14/05/2008</b><br />
     <dd><ul type="circle">
-            <li>Alterado o mÛdulo de Dentistas para Profissionais;</li>
-            <li>Adicionadas categorias de outras ·reas profissionais (CRO, CRM, CRFa, CRP, CREFITO);</li>
-            <li>Adicionadas ·reas de tratamento do paciente na ficha de cadastro;</li>
-            <li>Adicionado relatÛrio de Pacientes pela ·rea de tratamento;</li>
-            <li>Adicionado relatÛrio de Pacientes com parcelas a pagar vencidas;</li>
-            <li>Adicionada geraÁ„o de Recibo no pagamento de parcelas;</li>
-            <li>Adicionada vers„o impressa de relatÛrios de pacientes;</li>
+            <li>Alterado o m√≥dulo de Dentistas para Profissionais;</li>
+            <li>Adicionadas categorias de outras √°reas profissionais (CRO, CRM, CRFa, CRP, CREFITO);</li>
+            <li>Adicionadas √°reas de tratamento do paciente na ficha de cadastro;</li>
+            <li>Adicionado relat√≥rio de Pacientes pela √°rea de tratamento;</li>
+            <li>Adicionado relat√≥rio de Pacientes com parcelas a pagar vencidas;</li>
+            <li>Adicionada gera√ß√£o de Recibo no pagamento de parcelas;</li>
+            <li>Adicionada vers√£o impressa de relat√≥rios de pacientes;</li>
         </ul></dd>
     </dt>
-    <dt><b>16/02/2008 - Vers„o 1.0</b><br />
+    <dt><b>16/02/2008 - Vers√£o 1.0</b><br />
     <dd><ul type="circle">
-            <li>LanÁada a vers„o 1.0 do sistema</li>
+            <li>Lan√ßada a vers√£o 1.0 do sistema</li>
         </ul></dd>
     </dt>
-    <dt><b>06/08/2006 - Vers„o 0.18</b><br />
+    <dt><b>06/08/2006 - Vers√£o 0.18</b><br />
     <dd><ul type="circle">
-            <li>LanÁada a vers„o 0.18 do sistema</li>
+            <li>Lan√ßada a vers√£o 0.18 do sistema</li>
         </ul></dd>
     </dt>
-    <dt><b>12/02/2007 - Vers„o 0.14</b><br />
+    <dt><b>12/02/2007 - Vers√£o 0.14</b><br />
     <dd><ul type="circle">
-            <li>LanÁada a vers„o 0.14 do sistema</li>
+            <li>Lan√ßada a vers√£o 0.14 do sistema</li>
         </ul></dd>
     </dt>
-    <dt><b>27/12/2006 - Vers„o 0.11beta</b><br />
+    <dt><b>27/12/2006 - Vers√£o 0.11beta</b><br />
     <dd><ul type="circle">
-            <li>LanÁada a vers„o 0.11beta do sistema</li>
+            <li>Lan√ßada a vers√£o 0.11beta do sistema</li>
         </ul></dd>
     </dt>
 </dl>

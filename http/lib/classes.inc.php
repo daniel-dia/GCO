@@ -1,44 +1,44 @@
-<?php
+ï»¿<?php
    /**
-    * Gerenciador Clínico Odontológico
+    * Gerenciador ClÃ­nico OdontolÃ³gico
     * Copyright (C) 2006 - 2009
     * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e Programação(ikkinet@gmail.com)
+    *          Pedro Henrique Braga Moreira - Engenharia e ProgramaÃ§Ã£o(ikkinet@gmail.com)
     *
-    * Este arquivo é parte do programa Gerenciador Clínico Odontológico
+    * Este arquivo Ã© parte do programa Gerenciador ClÃ­nico OdontolÃ³gico
     *
-    * Gerenciador Clínico Odontológico é um software livre; você pode
-    * redistribuí-lo e/ou modificá-lo dentro dos termos da Licença
-    * Pública Geral GNU como publicada pela Fundação do Software Livre
-    * (FSF); na versão 2 da Licença invariavelmente.
+    * Gerenciador ClÃ­nico OdontolÃ³gico Ã© um software livre; vocÃª pode
+    * redistribuÃ­-lo e/ou modificÃ¡-lo dentro dos termos da LicenÃ§a
+    * PÃºblica Geral GNU como publicada pela FundaÃ§Ã£o do Software Livre
+    * (FSF); na versÃ£o 2 da LicenÃ§a invariavelmente.
     *
-    * Este programa é distribuído na esperança que possa ser útil,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÂO
-    * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
-    * Licença Pública Geral GNU para maiores detalhes.
+    * Este programa Ã© distribuÃ­do na esperanÃ§a que possa ser Ãºtil,
+    * mas SEM NENHUMA GARANTIA; sem uma garantia implÃ­cita de ADEQUAÃ‡Ã‚O
+    * a qualquer MERCADO ou APLICAÃ‡ÃƒO EM PARTICULAR. Veja a
+    * LicenÃ§a PÃºblica Geral GNU para maiores detalhes.
     *
-    * Você recebeu uma cópia da Licença Pública Geral GNU,
-    * que está localizada na raíz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se não, visite o endereço para maiores informações:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Inglês)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (Português - Brasil)
+    * VocÃª recebeu uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU,
+    * que estÃ¡ localizada na raÃ­z do programa no arquivo COPYING ou COPYING.TXT
+    * junto com este programa. Se nÃ£o, visite o endereÃ§o para maiores informaÃ§Ãµes:
+    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (InglÃªs)
+    * http://www.magnux.org/doc/GPL-pt_BR.txt (PortuguÃªs - Brasil)
     *
-    * Em caso de dúvidas quanto ao software ou quanto à licença, visite o
-    * endereço eletrônico ou envie-nos um e-mail:
+    * Em caso de dÃºvidas quanto ao software ou quanto Ã  licenÃ§a, visite o
+    * endereÃ§o eletrÃ´nico ou envie-nos um e-mail:
     *
     * http://www.smileodonto.com.br/gco
     * smile@smileodonto.com.br
     *
-    * Ou envie sua carta para o endereço:
+    * Ou envie sua carta para o endereÃ§o:
     *
-    * Smile Odontolóogia
+    * Smile OdontolÃ³ogia
     * Rua Laudemira Maria de Jesus, 51 - Lourdes
     * Arcos - MG - CEP 35588-000
     *
     *
     */
 	/**
-	 * Classe das Especialidades dos Dentistas das clínicas
+	 * Classe das Especialidades dos Dentistas das clÃ­nicas
 	 *
 	 */
 	class TEspecialidades {
@@ -78,7 +78,7 @@
 		}
 	}
 	/**
-	 * Classe dos dentistas das clínicas
+	 * Classe dos dentistas das clÃ­nicas
 	 *
 	 */
 	class TDentistas {
@@ -140,7 +140,7 @@
 		}
 	}
 	/**
-	 * Classe dos pacientes da clínica
+	 * Classe dos pacientes da clÃ­nica
 	 *
 	 */
 	class TPacientes {
@@ -194,7 +194,7 @@
 		}
 	}
 	/**
-	 * Classe dos Funcionários da clínica
+	 * Classe dos FuncionÃ¡rios da clÃ­nica
 	 *
 	 */
 	class TFuncionarios {
@@ -251,7 +251,7 @@
 		}
 	}
 	/**
-	 * Classe dos Fornecedores da clínica
+	 * Classe dos Fornecedores da clÃ­nica
 	 *
 	 */
 	class TFornecedores {
@@ -300,7 +300,7 @@
 		}
 	}
 	/**
-	 * Classe dos Laboratórios Clínicos
+	 * Classe dos LaboratÃ³rios ClÃ­nicos
 	 *
 	 */
 	class TLaboratorio {
@@ -349,7 +349,7 @@
 		}
 	}
 	/**
-	 * Classe dos Convênios
+	 * Classe dos ConvÃªnios
 	 *
 	 */
 	class TConvenio {
@@ -398,8 +398,8 @@
 		}
 	}
 	/**
-	 * Classe do livro caixa da clínica e 
-	 * dos funcionários
+	 * Classe do livro caixa da clÃ­nica e 
+	 * dos funcionÃ¡rios
 	 * 
 	 */
 	class TCaixa {
@@ -515,7 +515,7 @@
 		}
 	}
 	/**
-	 * Classe dos Patrimônios da Clínica
+	 * Classe dos PatrimÃ´nios da ClÃ­nica
 	 *
 	 */
 	class TPatrimonios {
@@ -794,7 +794,7 @@
 		}
 	}
 	/**
-	 * Classe do controle da tablea de honorários
+	 * Classe do controle da tablea de honorÃ¡rios
 	 *
 	 */
 	class THonorarios {
@@ -838,7 +838,7 @@
 		}
 	}
 	/**
-	 * Classe para controle de orçamento
+	 * Classe para controle de orÃ§amento
 	 * 
 	 */
 	class TOrcamento {
@@ -898,7 +898,7 @@
 		}
 	}
 	/**
-	 * Classe dos exames objetivos dos pacientes da clínica
+	 * Classe dos exames objetivos dos pacientes da clÃ­nica
 	 *
 	 */
 	class TExObjetivo {
@@ -928,7 +928,7 @@
 		}
 	}
 	/**
-	 * Classe da evolução no tratamento dos pacientes da clínica
+	 * Classe da evoluÃ§Ã£o no tratamento dos pacientes da clÃ­nica
 	 *
 	 */
 	class TEvolucao {
@@ -974,7 +974,7 @@
 		}
 	}
 	/**
-	 * Classe dos inquéritos de saúde dos pacientes da clínica
+	 * Classe dos inquÃ©ritos de saÃºde dos pacientes da clÃ­nica
 	 *
 	 */
 	class TInquerito {
@@ -1004,7 +1004,7 @@
 		}
 	}
 	/**
-	 * Classe da Ortodontia dos pacientes da clínica
+	 * Classe da Ortodontia dos pacientes da clÃ­nica
 	 *
 	 */
 	class TOrtodontia {
@@ -1036,7 +1036,7 @@
 		}
 	}
 	/**
-	 * Classe da Implantodontia dos pacientes da clínica
+	 * Classe da Implantodontia dos pacientes da clÃ­nica
 	 *
 	 */
 	class TImplantodontia {
@@ -1068,7 +1068,7 @@
 		}
 	}
 	/**
-	 * Classe dos dados da clínica para cabeçalhos
+	 * Classe dos dados da clÃ­nica para cabeÃ§alhos
 	 *
 	 */
 	class TClinica {
@@ -1172,7 +1172,7 @@
         function getLogomarca() { return $this->logomarca; }
         function setLogomarca($strLogomarca) { $this->logomarca = $strLogomarca; }
         /**
-         * Métodos da classe
+         * MÃ©todos da classe
          *
          */
 		function LoadInfo() {
@@ -1247,7 +1247,7 @@
         function getCodigo_Paciente() { return $this->codigo_paciente; }
         function setCodigo_Paciente($strCodigo_Paciente) { $this->codigo_paciente = $strCodigo_Paciente; }
         /**
-         * Métodos da classe
+         * MÃ©todos da classe
          *
          */
         function LoadInfo() {
@@ -1258,7 +1258,7 @@
             $sql  = "INSERT INTO receitas ";
             $sql .= "(receita, codigo_paciente) ";
             $sql .= "VALUES ('Amoxil(Amoxicilina).................................................... 500 mg ............................................................ 1cx
-1(uma) cápsula de 8(oito) em 8(oito) horas durante 7(sete) dias
+1(uma) cÃ¡psula de 8(oito) em 8(oito) horas durante 7(sete) dias
 
 
 
@@ -1298,7 +1298,7 @@ Tylenol(Paracetamol).................................................... 750mg .
         function getCodigo_Paciente() { return $this->codigo_paciente; }
         function setCodigo_Paciente($strCodigo_Paciente) { $this->codigo_paciente = $strCodigo_Paciente; }
         /**
-         * Métodos da classe
+         * MÃ©todos da classe
          *
          */
 		function LoadInfo() {
@@ -1308,20 +1308,20 @@ Tylenol(Paracetamol).................................................... 750mg .
 		function SalvarNovo() {
             $sql  = "INSERT INTO atestados ";
             $sql .= "(atestado, codigo_paciente) ";
-            $sql .= "VALUES ('Atesto para fins trabalhistas e/ou escolares que o paciente supracitada esteve sob meus cuidados durante este dia realizando uma cirurgia oral avançada de exodontia (extração) de dentes cisos, e deverá ficar 4(quatro) dias em repouso absoluto a partir desta data.
+            $sql .= "VALUES ('Atesto para fins trabalhistas e/ou escolares que o paciente supracitada esteve sob meus cuidados durante este dia realizando uma cirurgia oral avanÃ§ada de exodontia (extraÃ§Ã£o) de dentes cisos, e deverÃ¡ ficar 4(quatro) dias em repouso absoluto a partir desta data.
 
 
-Ressalto que este repouso será importante para o sucesso do tratamento e tranquilidade pós-operatória.
-
-
-
-Sem mais, fico a disposição para quaisquer esclarecimentos.
+Ressalto que este repouso serÃ¡ importante para o sucesso do tratamento e tranquilidade pÃ³s-operatÃ³ria.
 
 
 
+Sem mais, fico a disposiÃ§Ã£o para quaisquer esclarecimentos.
 
 
-CID (Código Internacional de Doenças) = K07.3', ";
+
+
+
+CID (CÃ³digo Internacional de DoenÃ§as) = K07.3', ";
             $sql .= "'".$this->Codigo_Paciente."')";
             mysql_query($sql) or die('Line 1203: '. mysql_error());
 		}
@@ -1349,7 +1349,7 @@ CID (Código Internacional de Doenças) = K07.3', ";
         function getCodigo_Paciente() { return $this->codigo_paciente; }
         function setCodigo_Paciente($strCodigo_Paciente) { $this->codigo_paciente = $strCodigo_Paciente; }
         /**
-         * Métodos da classe
+         * MÃ©todos da classe
          *
          */
 		function LoadInfo() {
@@ -1359,7 +1359,7 @@ CID (Código Internacional de Doenças) = K07.3', ";
 		function SalvarNovo() {
             $sql  = "INSERT INTO exames ";
             $sql .= "(exame, codigo_paciente) ";
-            $sql .= "VALUES ('Solicito para o(a) paciente supracitado os seguintes exames laboratoriais para finalidade de tratamento odontológico:
+            $sql .= "VALUES ('Solicito para o(a) paciente supracitado os seguintes exames laboratoriais para finalidade de tratamento odontolÃ³gico:
 
 
 - Hemograma Completo
@@ -1368,7 +1368,7 @@ CID (Código Internacional de Doenças) = K07.3', ";
 
 - Colesterol
 
-- Triglicérides
+- TriglicÃ©rides
 
 - Glicose
 
@@ -1400,7 +1400,7 @@ CID (Código Internacional de Doenças) = K07.3', ";
         function getCodigo_Paciente() { return $this->codigo_paciente; }
         function setCodigo_Paciente($strCodigo_Paciente) { $this->codigo_paciente = $strCodigo_Paciente; }
         /**
-         * Métodos da classe
+         * MÃ©todos da classe
          *
          */
 		function LoadInfo() {
@@ -1412,9 +1412,9 @@ CID (Código Internacional de Doenças) = K07.3', ";
             $sql .= "(encaminhamento, codigo_paciente) ";
             $sql .= "VALUES ('Prezado colega,
 
-Encaminho o(a) paciente para a realização de um tratamento endodôntico no dente 26 conforme imagem radiográfica visível na radiografia em anexo.
+Encaminho o(a) paciente para a realizaÃ§Ã£o de um tratamento endodÃ´ntico no dente 26 conforme imagem radiogrÃ¡fica visÃ­vel na radiografia em anexo.
 
-Fico a disposição para qualquer esclarecimento.
+Fico a disposiÃ§Ã£o para qualquer esclarecimento.
 
 Atenciosamente.', ";
             $sql .= "'".$this->Codigo_Paciente."')";
@@ -1444,7 +1444,7 @@ Atenciosamente.', ";
         function getCodigo_Paciente() { return $this->codigo_paciente; }
         function setCodigo_Paciente($strCodigo_Paciente) { $this->codigo_paciente = $strCodigo_Paciente; }
         /**
-         * Métodos da classe
+         * MÃ©todos da classe
          *
          */
 		function LoadInfo() {
@@ -1454,11 +1454,11 @@ Atenciosamente.', ";
 		function SalvarNovo() {
             $sql  = "INSERT INTO laudos ";
             $sql .= "(laudo, codigo_paciente) ";
-            $sql .= "VALUES ('Paciente apresenta-se com lesão periapical radiolúcida sugestiva de cisto.
+            $sql .= "VALUES ('Paciente apresenta-se com lesÃ£o periapical radiolÃºcida sugestiva de cisto.
 
-Recomendamos que faça o tratamento adequado para a regressão desta lesão.
+Recomendamos que faÃ§a o tratamento adequado para a regressÃ£o desta lesÃ£o.
 
-Fico à disposição para qualquer esclarecimento.
+Fico Ã  disposiÃ§Ã£o para qualquer esclarecimento.
 
 Atenciosamente.', ";
             $sql .= "'".$this->Codigo_Paciente."')";
@@ -1488,7 +1488,7 @@ Atenciosamente.', ";
         function getCodigo_Paciente() { return $this->codigo_paciente; }
         function setCodigo_Paciente($strCodigo_Paciente) { $this->codigo_paciente = $strCodigo_Paciente; }
         /**
-         * Métodos da classe
+         * MÃ©todos da classe
          *
          */
 		function LoadInfo() {
@@ -1498,9 +1498,9 @@ Atenciosamente.', ";
 		function SalvarNovo() {
             $sql  = "INSERT INTO agradecimentos ";
             $sql .= "(agradecimento, codigo_paciente) ";
-            $sql .= "VALUES ('Agradeço o encaminhamento do(a) paciente em questão e encaminho de volta para a continuidade do tratamento após ter executado todo o tratamento solicitado.
+            $sql .= "VALUES ('AgradeÃ§o o encaminhamento do(a) paciente em questÃ£o e encaminho de volta para a continuidade do tratamento apÃ³s ter executado todo o tratamento solicitado.
 
-Fico à disposição para esclarecimentos.
+Fico Ã  disposiÃ§Ã£o para esclarecimentos.
 
 Atenciosamente.', ";
             $sql .= "'".$this->Codigo_Paciente."')";

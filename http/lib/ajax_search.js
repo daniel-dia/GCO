@@ -1,11 +1,11 @@
-//Gets the browser specific XmlHttpRequest Object
+ï»¿//Gets the browser specific XmlHttpRequest Object
 function getXmlHttpRequestObject() {
     if (window.XMLHttpRequest) {
         return new XMLHttpRequest();
     } else if(window.ActiveXObject) {
         return new ActiveXObject("Microsoft.XMLHTTP");
     } else {
-        alert("Este navegador não suporta AJAX!");
+        alert("Este navegador nÃ£o suporta AJAX!");
     }
 }
 //Our XmlHttpRequest object to get the auto suggest
@@ -53,7 +53,7 @@ function handleSearchSuggest() {
     }
 }
 
-// PACIENTES - ORÇAMENTO
+// PACIENTES - ORÃ‡AMENTO
 //Starts the AJAX request.
 function searchOrcSuggest(txtSearch, txtCodigo, txtParticular, txtConvenio, divSuggest, convenio) {
     if (searchReq.readyState == 4 || searchReq.readyState == 0) {
@@ -115,7 +115,7 @@ function setSearch(value, codigo, fieldCode, fieldSearch, divSuggest) {
     document.getElementById(fieldSearch).blur();
 }
 
-//PACIENTES - ORÇAMENTO
+//PACIENTES - ORÃ‡AMENTO
 //Click function
 function setOrcSearch(txtCodigo, txtProcedimento, txtParticular, txtConvenio,  divSuggest) {
     document.getElementById(fieldCodigo).value = txtCodigo;

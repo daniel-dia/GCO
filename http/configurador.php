@@ -1,37 +1,37 @@
-<?php
+ï»¿<?php
    /**
-    * Gerenciador Clínico Odontológico
+    * Gerenciador ClÃ­nico OdontolÃ³gico
     * Copyright (C) 2006 - 2009
     * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e Programação(ikkinet@gmail.com)
+    *          Pedro Henrique Braga Moreira - Engenharia e ProgramaÃ§Ã£o(ikkinet@gmail.com)
     *
-    * Este arquivo é parte do programa Gerenciador Clínico Odontológico
+    * Este arquivo Ã© parte do programa Gerenciador ClÃ­nico OdontolÃ³gico
     *
-    * Gerenciador Clínico Odontológico é um software livre; você pode
-    * redistribuí-lo e/ou modificá-lo dentro dos termos da Licença
-    * Pública Geral GNU como publicada pela Fundação do Software Livre
-    * (FSF); na versão 2 da Licença invariavelmente.
+    * Gerenciador ClÃ­nico OdontolÃ³gico Ã© um software livre; vocÃª pode
+    * redistribuÃ­-lo e/ou modificÃ¡-lo dentro dos termos da LicenÃ§a
+    * PÃºblica Geral GNU como publicada pela FundaÃ§Ã£o do Software Livre
+    * (FSF); na versÃ£o 2 da LicenÃ§a invariavelmente.
     *
-    * Este programa é distribuído na esperança que possa ser útil,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÂO
-    * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
-    * Licença Pública Geral GNU para maiores detalhes.
+    * Este programa Ã© distribuÃ­do na esperanÃ§a que possa ser Ãºtil,
+    * mas SEM NENHUMA GARANTIA; sem uma garantia implÃ­cita de ADEQUAÃ‡Ã‚O
+    * a qualquer MERCADO ou APLICAÃ‡ÃƒO EM PARTICULAR. Veja a
+    * LicenÃ§a PÃºblica Geral GNU para maiores detalhes.
     *
-    * Você recebeu uma cópia da Licença Pública Geral GNU,
-    * que está localizada na raíz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se não, visite o endereço para maiores informações:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Inglês)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (Português - Brasil)
+    * VocÃª recebeu uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU,
+    * que estÃ¡ localizada na raÃ­z do programa no arquivo COPYING ou COPYING.TXT
+    * junto com este programa. Se nÃ£o, visite o endereÃ§o para maiores informaÃ§Ãµes:
+    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (InglÃªs)
+    * http://www.magnux.org/doc/GPL-pt_BR.txt (PortuguÃªs - Brasil)
     *
-    * Em caso de dúvidas quanto ao software ou quanto à licença, visite o
-    * endereço eletrônico ou envie-nos um e-mail:
+    * Em caso de dÃºvidas quanto ao software ou quanto Ã  licenÃ§a, visite o
+    * endereÃ§o eletrÃ´nico ou envie-nos um e-mail:
     *
     * http://www.smileodonto.com.br/gco
     * smile@smileodonto.com.br
     *
-    * Ou envie sua carta para o endereço:
+    * Ou envie sua carta para o endereÃ§o:
     *
-    * Smile Odontolóogia
+    * Smile OdontolÃ³ogia
     * Rua Laudemira Maria de Jesus, 51 - Lourdes
     * Arcos - MG - CEP 35588-000
     *
@@ -75,7 +75,7 @@
                 $myerro++;
                 $r[3] = ' color="#FF0000"';
                 $msg[] = $LANG['config']['err_database_server_not_found'];
-                //Servidor não encontrado
+                //Servidor nÃ£o encontrado
             }
             if($_POST['versao'] == 'novo') {
                 if(!empty($_POST['senha']) && !empty($_POST['fantasia']) && $_POST['senha'] == $_POST['resenha'] && strlen($_POST['senha']) >= 6 && $myerro === 0) {
@@ -86,18 +86,18 @@
                     $config[54] = "    \$bd = '".$_POST['bd']."';\n";
                     $config[64] = "    \$install = true;\n";
                     file_put_contents($caminho, $config);
-                    mysql_query("CREATE DATABASE IF NOT EXISTS ".$_POST['bd']) or die('Criação da base: '.mysql_error());
-                    mysql_select_db($_POST['bd'], $conn) or die('Seleção da base: '.mysql_error());
+                    mysql_query("CREATE DATABASE IF NOT EXISTS ".$_POST['bd']) or die('CriaÃ§Ã£o da base: '.mysql_error());
+                    mysql_select_db($_POST['bd'], $conn) or die('SeleÃ§Ã£o da base: '.mysql_error());
                     $sqls = extraiSQL('bases/bd_novo.sql');
                     foreach($sqls as $sql) {
-                        mysql_query($sql) or die('Importação nova: '.mysql_error());
+                        mysql_query($sql) or die('ImportaÃ§Ã£o nova: '.mysql_error());
                     }
                     $sql = "UPDATE funcionarios SET senha = MD5('".$_POST['senha']."') WHERE cpf = '11111111111'";
-                    mysql_query($sql) or die('Alteração de senha: '.mysql_error());
+                    mysql_query($sql) or die('AlteraÃ§Ã£o de senha: '.mysql_error());
                     $sql  = "UPDATE dados_clinica SET cnpj = '".$_POST['cnpj']."', razaosocial = '".$_POST['razaosocial']."', fantasia = '".$_POST['fantasia']."', proprietario = '".$_POST['proprietario']."', endereco = '".$_POST['endereco']."', ";
                     $sql .= "bairro = '".$_POST['bairro']."', cidade = '".$_POST['cidade']."', estado = '".$_POST['estado']."', cep = '".$_POST['cep']."', fundacao = '".$_POST['fundacao']."', telefone1 = '".$_POST['telefone1']."', telefone2 = '".$_POST['telefone2']."', ";
                     $sql .= "fax = '".$_POST['fax']."', email = '".$_POST['email']."', web = '".$_POST['web']."', idioma = '".$_GET['idioma']."'";
-                    mysql_query($sql) or die('Alteração de dados da clínica: '.mysql_error());
+                    mysql_query($sql) or die('AlteraÃ§Ã£o de dados da clÃ­nica: '.mysql_error());
                     header('Location: ./');
                 } else {
                     if(empty($_POST['senha']) || $_POST['senha'] != $_POST['resenha'] || strlen($_POST['senha']) < 6) {
@@ -111,10 +111,10 @@
                 }
             } else {
                 if($myerro === 0) {
-                    mysql_select_db($_POST['bd'], $conn) or die('Seleção da base: '.mysql_error());
+                    mysql_select_db($_POST['bd'], $conn) or die('SeleÃ§Ã£o da base: '.mysql_error());
                     $sqls = extraiSQL('bases/bd_atu_'.$_POST['versao'].'.sql');
                     foreach($sqls as $sql) {
-                        mysql_query($sql) or die('Importação Atualização: '.mysql_error().' - '.$sql);
+                        mysql_query($sql) or die('ImportaÃ§Ã£o AtualizaÃ§Ã£o: '.mysql_error().' - '.$sql);
                     }
                     $config = file($caminho);
                     $config[51] = "    \$server = '".$_POST['server']."';\n";
