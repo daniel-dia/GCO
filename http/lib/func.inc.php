@@ -495,9 +495,11 @@
     function verifica_nivel($area, $permissao, $nivel = '') {
         if($nivel == '') {
             $nivel = $_SESSION['nivel'];
-        }
-
+			
+			if($nivel == 'Funcionario') $nivel = $_SESSION['funcao1'];
+        } 
         return($nivel == 'Administrador' || mysql_num_rows(mysql_query("SELECT * FROM permissoes WHERE nivel = '".$nivel."' AND area = '".$area."' AND permissao LIKE '%".$permissao."%'")) > 0);
     }
+
 
 ?>

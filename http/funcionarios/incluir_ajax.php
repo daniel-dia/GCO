@@ -336,7 +336,22 @@
           <tr>
             <td width="264"><?php echo $r[21]?>* <?php echo $LANG['employee']['main_function']?> <br />
                 <label>
-                <input name="funcao1" value="<?php echo $row[funcao1]?>" <?php echo $disable?> type="text" class="forms" id="funcao1" size="40" maxlength="80" />
+                <!--<input name="funcao1" value="<?php echo $row[funcao1]?>" <?php echo $disable?> type="text"
+				class="forms" id="funcao1" size="40" maxlength="80" />-->
+				
+				<select name="funcao1" <?php echo $disable?> class="forms" id="funcao1">
+					<?php
+						$valores = $valores = array('Dentista' => $LANG['settings']['professionals'], 'Funcionario' => $LANG['settings']['employees'], 'Financeiro' => $LANG['settings']['monetary']);
+						foreach($valores as $chave => $valor) {
+							if($row[funcao1] == $chave) {
+								echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
+							} else {
+								echo '<option value="'.$chave.'">'.$valor.'</option>';
+							}
+						}
+					?>       
+			 </select>
+			 
                 </label>
                 <br />
                 <br />
