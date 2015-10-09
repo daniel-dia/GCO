@@ -1,35 +1,35 @@
-﻿# Gerenciador ClÃ­nico OdontolÃ³gico
+﻿# Gerenciador Clínico Odontológico
 
-O Gerenciador ClÃ­nico OdontolÃ³gico Smile surgiu da necessidade da elaboraÃ§Ã£o de um sistema administrativo completo para todas as clÃ­nicas odontolÃ³gicas Smile.
+O Gerenciador Clínico Odontológico Smile surgiu da necessidade da elaboração de um sistema administrativo completo para todas as clínicas odontológicas Smile.
 
-A Ãºltima versÃ£o para download Ã© completa e estÃ¡vel, podendo ser utilizado todos recursos disponÃ­veis pelo sistema, conforme o projeto de desenvolvimento do software e tambÃ©m por se tratar de um sistema livre (software livre).
+A última versão para download é completa e estável, podendo ser utilizado todos recursos disponíveis pelo sistema, conforme o projeto de desenvolvimento do software e também por se tratar de um sistema livre (software livre).
 
-Baseados nos objetivos primÃ¡rios do idealizador da Smile que sÃ£o:
+Baseados nos objetivos primários do idealizador da Smile que são:
 
-- Proporcionar um bem-estar e conforto para os proprietÃ¡rios e dentistas de clÃ­nicas odontolÃ³gicas;
-- Gerar um sistema de gestÃ£o para administrar a clÃ­nica odontolÃ³gica;
-- Agregar maior nÃºmero de clientes as clÃ­nicias odontolÃ³gicas parceiras;
-- Gerar conforto e tranquilidade para os usuÃ¡rios e dentistas das clÃ­nicas;
-- Diminuir custo administrativo e gerencial para as clÃ­nicas;
-- Criar uma rede de clÃ­nicas odontolÃ³gicas de referÃªncia no Brasil.
+- Proporcionar um bem-estar e conforto para os proprietários e dentistas de clínicas odontológicas;
+- Gerar um sistema de gestão para administrar a clínica odontológica;
+- Agregar maior número de clientes as clínicias odontológicas parceiras;
+- Gerar conforto e tranquilidade para os usuários e dentistas das clínicas;
+- Diminuir custo administrativo e gerencial para as clínicas;
+- Criar uma rede de clínicas odontológicas de referência no Brasil.
 
-Com isso ideializamos e criamos o Gerenciador OdontolÃ³gico Smile nos seguintes modelos: 
+Com isso ideializamos e criamos o Gerenciador Odontológico Smile nos seguintes modelos: 
 
-Open Source (versÃ£o para download e utilizaÃ§Ã£o livre) com:
+Open Source (versão para download e utilização livre) com:
 
 - Gerenciar dentistas;
 - Gerenciar pacientes;
-- Gerenciar funcionÃ¡rios;
-- Controle de patrimÃ´mio;
+- Gerenciar funcionários;
+- Controle de patrimômio;
 - Agenda por dentistas;
-- Livro caixa geral da clÃ­nica e por dentistas;
+- Livro caixa geral da clínica e por dentistas;
 - Gerenciar contas a serem pagas;
 - Gerenciar fornecedores;
-- Gerenciar telefones Ãºteis;
+- Gerenciar telefones úteis;
 - dentre outros;
 
-Toda equipe de desenvolvimento e a SmileÂ® deseja que o Gerenciador ClÃ­nico OdontolÃ³gico seja base para uma boa administraÃ§Ã£o e referÃªncia para administraÃ§Ã£o.
+Toda equipe de desenvolvimento e a Smile® deseja que o Gerenciador Clínico Odontológico seja base para uma boa administração e referência para administração.
 
-Maiores informaÃ§Ãµes sobre a Smile podem ser encontradas em seu web site: www.smileodonto.com.br. 
+Maiores informações sobre a Smile podem ser encontradas em seu web site: www.smileodonto.com.br. 
 
-Gerenciador ClÃ­nico OdontolÃ³gico protegido pela licenÃ§a GPL.
+Gerenciador Clínico Odontológico protegido pela licença GPL.
