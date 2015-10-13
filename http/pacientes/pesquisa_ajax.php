@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -52,7 +52,7 @@
 ?>
   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 <?php
-    $_GET['pesquisa'] = utf8_decode ( htmlspecialchars( utf8_encode($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+    $_GET['pesquisa'] =  ( htmlspecialchars( ($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
 	$pacientes = new TPacientes();
 	if($_GET[campo] == 'nascimento') {
 

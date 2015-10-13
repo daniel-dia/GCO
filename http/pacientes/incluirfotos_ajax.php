@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -60,7 +60,7 @@
 		}
 		imagejpeg($imagem, 'teste.jpg');
         $img_data = addslashes(file_get_contents('teste.jpg'));
-        $sql = "INSERT INTO `fotospacientes` (`codigo_paciente`, `foto`, `legenda`) VALUES ('".$_GET['codigo']."', '".$img_data."', '".utf8_decode ( htmlspecialchars( utf8_encode($_POST['legenda']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') )."')";
+        $sql = "INSERT INTO `fotospacientes` (`codigo_paciente`, `foto`, `legenda`) VALUES ('".$_GET['codigo']."', '".$img_data."', '". ( htmlspecialchars( ($_POST['legenda']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') )."')";
         unlink('teste.jpg');
         mysql_query($sql) or die(mysql_error());
 	}

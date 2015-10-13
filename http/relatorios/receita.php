@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -55,7 +55,7 @@
         $receita->SalvarNovo();
 	}
 	if(isset($_POST['send'])) {
-        $receita->Receita = utf8_decode ( htmlspecialchars( utf8_encode($_POST['receita']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+        $receita->Receita =  ( htmlspecialchars( ($_POST['receita']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
         $receita->Salvar();
 	}
     $paciente->LoadPaciente($_GET['codigo']);

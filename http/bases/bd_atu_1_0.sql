@@ -1,4 +1,4 @@
-﻿# 1.0
+# 1.0
 ALTER TABLE `pacientes` ADD `tratamento` SET( 'Ortodontia', 'Implantodontia', 'Dentï¿½stica', 'Prï¿½tese', 'Odontopediatria', 'Cirurgia', 'Endodontia', 'Periodontia', 'Radiologia', 'DTM', 'Odontogeriatria', 'Ortopedia' ) NULL DEFAULT NULL AFTER `obs_etiqueta` ;
 ALTER TABLE `parcelas_orcamento` ADD `datapgto` DATE NULL DEFAULT NULL;
 ALTER TABLE `dentistas` CHANGE `cro` `conselho_numero` VARCHAR(30) NULL DEFAULT NULL;

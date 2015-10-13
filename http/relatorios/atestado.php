@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -55,7 +55,7 @@
         $atestado->SalvarNovo();
 	}
 	if(isset($_POST['send'])) {
-        $atestado->Atestado = utf8_decode ( htmlspecialchars( utf8_encode($_POST['atestado']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+        $atestado->Atestado =  ( htmlspecialchars( ($_POST['atestado']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
         $atestado->Salvar();
 	}
     $paciente->LoadPaciente($_GET['codigo']);

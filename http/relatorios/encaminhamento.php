@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
 <?php
    /**
@@ -57,7 +57,7 @@
         $encaminhamento->SalvarNovo();
 	}
 	if(isset($_POST['send'])) {
-        $encaminhamento->Encaminhamento = utf8_decode ( htmlspecialchars( utf8_encode($_POST['encaminhamento']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+        $encaminhamento->Encaminhamento =  ( htmlspecialchars( ($_POST['encaminhamento']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
         $encaminhamento->Salvar();
 	}
     $paciente->LoadPaciente($_GET['codigo']);

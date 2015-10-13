@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -64,13 +64,13 @@
 				$convenio->LoadConvenio($_GET[codigo]);
 				$strScrp = "Ajax('convenios/gerenciar', 'conteudo', '');";
 			}
-			$convenio->SetDados('nomefantasia', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nomefantasia']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
+			$convenio->SetDados('nomefantasia',  ( htmlspecialchars( ($_POST['nomefantasia']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
 			$convenio->SetDados('cpf', $_POST[cpf]);
-			$convenio->SetDados('razaosocial', utf8_decode ( htmlspecialchars( utf8_encode($_POST['razaosocial']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
-			$convenio->SetDados('atuacao', utf8_decode ( htmlspecialchars( utf8_encode($_POST['atuacao']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
-			$convenio->SetDados('endereco', utf8_decode ( htmlspecialchars( utf8_encode($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
-			$convenio->SetDados('bairro', utf8_decode ( htmlspecialchars( utf8_encode($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
-			$convenio->SetDados('cidade', utf8_decode ( htmlspecialchars( utf8_encode($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
+			$convenio->SetDados('razaosocial',  ( htmlspecialchars( ($_POST['razaosocial']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
+			$convenio->SetDados('atuacao',  ( htmlspecialchars( ($_POST['atuacao']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
+			$convenio->SetDados('endereco',  ( htmlspecialchars( ($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
+			$convenio->SetDados('bairro',  ( htmlspecialchars( ($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
+			$convenio->SetDados('cidade',  ( htmlspecialchars( ($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
 			$convenio->SetDados('estado', $_POST[estado]);
 			$convenio->SetDados('pais', $_POST[pais]);
 			$convenio->SetDados('cep', $_POST[cep]);

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -49,7 +49,7 @@
         if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
             $procedimento = htmlspecialchars($_GET['procedimento'], ENT_QUOTES);
         } else {
-            $procedimento = utf8_decode($_GET['procedimento']);
+            $procedimento = ($_GET['procedimento']);
         }
         mysql_query("UPDATE laboratorios_procedimentos SET procedimento = '".$procedimento."' WHERE codigo = ".$_GET['codigo']);
 	}

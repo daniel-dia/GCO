@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -49,14 +49,14 @@
         if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
             $procedimento = $_GET['procedimento'];
         } else {
-            $procedimento = utf8_decode($_GET['procedimento']);
+            $procedimento = ($_GET['procedimento']);
         }
         mysql_query("UPDATE honorarios SET procedimento = '".$procedimento."' WHERE codigo = '".$_GET['codigo']."'");
     } elseif(isset($_GET['valor'])) {
         if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
             $valor = $_GET['valor'];
         } else {
-            $valor = utf8_decode($_GET['valor']);
+            $valor = ($_GET['valor']);
         }
         mysql_query("REPLACE INTO honorarios_convenios VALUES (".$_GET['codigo_convenio'].", '".$_GET['codigo']."', ".$valor.")");
     }

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -64,13 +64,13 @@
 				$fornecedor->LoadFornecedores($_GET[codigo]);
 				$strScrp = "Ajax('fornecedores/gerenciar', 'conteudo', '');";
 			}
-			$fornecedor->SetDados('nomefantasia', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nomefantasia']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$fornecedor->SetDados('nomefantasia',  ( htmlspecialchars( ($_POST['nomefantasia']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$fornecedor->SetDados('cpf', $_POST[cpf]);
-			$fornecedor->SetDados('razaosocial', utf8_decode ( htmlspecialchars( utf8_encode($_POST['razaosocial']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$fornecedor->SetDados('atuacao', utf8_decode ( htmlspecialchars( utf8_encode($_POST['atuacao']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$fornecedor->SetDados('endereco', utf8_decode ( htmlspecialchars( utf8_encode($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$fornecedor->SetDados('bairro', utf8_decode ( htmlspecialchars( utf8_encode($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$fornecedor->SetDados('cidade', utf8_decode ( htmlspecialchars( utf8_encode($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$fornecedor->SetDados('razaosocial',  ( htmlspecialchars( ($_POST['razaosocial']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$fornecedor->SetDados('atuacao',  ( htmlspecialchars( ($_POST['atuacao']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$fornecedor->SetDados('endereco',  ( htmlspecialchars( ($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$fornecedor->SetDados('bairro',  ( htmlspecialchars( ($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$fornecedor->SetDados('cidade',  ( htmlspecialchars( ($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$fornecedor->SetDados('estado', $_POST[estado]);
 			$fornecedor->SetDados('pais', $_POST[pais]);
 			$fornecedor->SetDados('cep', $_POST[cep]);

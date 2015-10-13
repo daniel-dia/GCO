@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -48,7 +48,7 @@
 ?>
   <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
 <?php
-    $_GET['pesquisa'] = utf8_decode ( htmlspecialchars( utf8_encode($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+    $_GET['pesquisa'] =  ( htmlspecialchars( ($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
 	if($_GET[pg] != '') {
 		$limit = ($_GET[pg]-1)*PG_MAX;
 	} else {

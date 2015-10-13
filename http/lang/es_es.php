@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $white_space = "&nbsp;&nbsp;";
 // Define the phrase shown to non-authenticated person
 $frase_log = $white_space."¡Tienes que ser usuario para acceder a esta área!";

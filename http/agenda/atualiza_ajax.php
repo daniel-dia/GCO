@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -51,7 +51,7 @@
         if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
             $agenda->SetDados('descricao', $_GET['descricao']);
         } else {
-            $agenda->SetDados('descricao', utf8_decode ( htmlspecialchars( utf8_encode($_GET['descricao']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+            $agenda->SetDados('descricao',  ( htmlspecialchars( ($_GET['descricao']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
         }
         //echo '<script>alert("'.$agenda->RetornaDados('descricao').'")</script>';
         if($_GET['codigo_paciente'] == '') {
@@ -63,13 +63,13 @@
         if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
             $agenda->SetDados('procedimento', $_GET['procedimento']);
         } else {
-            $agenda->SetDados('procedimento', utf8_decode($_GET['procedimento']));
+            $agenda->SetDados('procedimento', ($_GET['procedimento']));
         }
 	} elseif(isset($_GET['faltou'])) {
         if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
             $agenda->SetDados('faltou', $_GET['faltou']);
         } else {
-            $agenda->SetDados('faltou', utf8_decode($_GET['faltou']));
+            $agenda->SetDados('faltou', ($_GET['faltou']));
         }
         //echo '<script>alert("'.$agenda->RetornaDados('faltou').'")</script>';
 	}

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -47,7 +47,7 @@
 		die($frase_log);
 	}
 	if(!empty($_FILES['arquivo']['name'])) {
-        $sql = "INSERT INTO radiografias (codigo_paciente, foto, legenda, data, modelo) VALUES ('".$_GET['codigo']."', '".addslashes(file_get_contents($_FILES['arquivo']['tmp_name']))."', '".utf8_decode ( htmlspecialchars( utf8_encode($_POST['legenda']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') )."', '".converte_data($_POST['data'], 1)."', '".$_POST['modelo']."')";
+        $sql = "INSERT INTO radiografias (codigo_paciente, foto, legenda, data, modelo) VALUES ('".$_GET['codigo']."', '".addslashes(file_get_contents($_FILES['arquivo']['tmp_name']))."', '". ( htmlspecialchars( ($_POST['legenda']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') )."', '".converte_data($_POST['data'], 1)."', '".$_POST['modelo']."')";
         mysql_query($sql);
 	}
 ?>

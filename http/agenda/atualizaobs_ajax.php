@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -48,7 +48,7 @@
     if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
         $obs = $_GET['obs'];
     } else {
-        $obs = utf8_decode($_GET['obs']);
+        $obs = ($_GET['obs']);
     }
 	$sql = "UPDATE agenda_obs SET obs = '".$obs."' WHERE data = '".$_GET['data']."' AND codigo_dentista = '".$_GET['codigo_dentista']."'";
 	$query = mysql_query($sql) or die('Line 44: '.mysql_error());

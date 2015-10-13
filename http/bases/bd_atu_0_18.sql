@@ -1,4 +1,4 @@
-﻿# 0.18
+# 0.18
 ALTER TABLE atestados ADD codigo_paciente INT NOT NULL;
 ALTER TABLE atestados ADD PRIMARY KEY (codigo_paciente);
 ALTER TABLE receitas ADD codigo_paciente INT NOT NULL;

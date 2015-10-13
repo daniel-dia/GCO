@@ -1,4 +1,4 @@
-﻿# 3.0
+# 3.0
 
 ALTER TABLE laboratorios_procedimentos ADD codigo_laboratorio int NOT NULL AFTER codigo;
 

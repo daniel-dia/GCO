@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -110,7 +110,7 @@
 					$strScrp = "Ajax('funcionarios/gerenciar', 'conteudo', '');";
 				}
 
-				$funcionario->SetDados('nome', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nom']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+				$funcionario->SetDados('nome',  ( htmlspecialchars( ($_POST['nom']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 				$funcionario->SetDados('cpf', $_POST[cpf]);
 				if($_POST[senha] != "") {
 					$funcionario->SetDados('senha', md5($_POST[senha]));

@@ -1,4 +1,4 @@
-﻿//Gets the browser specific XmlHttpRequest Object
+//Gets the browser specific XmlHttpRequest Object
 function getXmlHttpRequestObject() {
     if (window.XMLHttpRequest) {
         return new XMLHttpRequest();

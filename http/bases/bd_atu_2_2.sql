@@ -1,4 +1,4 @@
-﻿# 2.2
+# 2.2
 
 CREATE TABLE IF NOT EXISTS convenios (
   codigo int(15) NOT NULL auto_increment,

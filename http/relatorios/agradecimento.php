@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -55,7 +55,7 @@
         $agradecimento->SalvarNovo();
 	}
 	if(isset($_POST['send'])) {
-        $agradecimento->Agradecimento = utf8_decode ( htmlspecialchars( utf8_encode($_POST['agradecimento']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+        $agradecimento->Agradecimento =  ( htmlspecialchars( ($_POST['agradecimento']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
         $agradecimento->Salvar();
 	}
     $paciente->LoadPaciente($_GET['codigo']);

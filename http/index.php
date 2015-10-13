@@ -47,10 +47,10 @@
 	include "lib/classes.inc.php";
 	require_once 'lang/'.$idioma.'.php';
 	header("Content-type: text/html; charset=utf-8", true);
-?><!DOCTYPE html>
-<html>
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8" /> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Gerenciador Clínico Odontológico Smile Odonto - Administração Odontológica Em Suas Mãos</title>
 <link rel="SHORTCUT ICON" href="favicon.ico">

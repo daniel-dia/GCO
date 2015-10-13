@@ -1,4 +1,4 @@
-﻿# 4.0
+# 4.0
 
 CREATE TABLE dentista_atendimento (
   codigo_dentista int(11) NOT NULL,

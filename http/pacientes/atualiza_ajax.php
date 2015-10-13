@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -49,7 +49,7 @@
         if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
             $descricao = $_GET['descricao'];
         } else {
-            $descricao = utf8_decode($_GET['descricao']);
+            $descricao = ($_GET['descricao']);
         }
         mysql_query("REPLACE INTO odontograma (codigo_paciente, dente, descricao) VALUES ('".$_GET['codigo_paciente']."', '".$_GET['dente']."', '".$descricao."')");
 	}

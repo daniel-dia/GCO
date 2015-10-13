@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -55,7 +55,7 @@
         $exame->SalvarNovo();
 	}
     if(isset($_POST['send'])) {
-        $exame->Exame = utf8_decode ( htmlspecialchars( utf8_encode($_POST['exame']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+        $exame->Exame =  ( htmlspecialchars( ($_POST['exame']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
         $exame->Salvar();
 	}
     $paciente->LoadPaciente($_GET['codigo']);

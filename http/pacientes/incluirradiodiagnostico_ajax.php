@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -47,7 +47,7 @@
 		die($frase_log);
 	}
 	if(!empty($_POST['texto'])) {
-        $sql = "UPDATE radiografias SET diagnostico = '".utf8_decode ( htmlspecialchars( utf8_encode($_POST['texto']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') )."' WHERE codigo = ".$_GET['codigo'];
+        $sql = "UPDATE radiografias SET diagnostico = '". ( htmlspecialchars( ($_POST['texto']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') )."' WHERE codigo = ".$_GET['codigo'];
         mysql_query($sql);
 	}
 ?>

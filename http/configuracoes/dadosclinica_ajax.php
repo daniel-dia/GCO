@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -84,12 +84,12 @@
 		if($j == 0) {
             $clinica->LoadInfo();
 			$clinica->CNPJ = $_POST['cnpj'];
-            $clinica->RazaoSocial = utf8_decode ( htmlspecialchars( utf8_encode($_POST['razaosocial']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
-            $clinica->Fantasia = utf8_decode ( htmlspecialchars( utf8_encode($_POST['fantasia']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
-            $clinica->Proprietario = utf8_decode ( htmlspecialchars( utf8_encode($_POST['proprietario']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
-            $clinica->Endereco = utf8_decode ( htmlspecialchars( utf8_encode($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
-            $clinica->Bairro = utf8_decode ( htmlspecialchars( utf8_encode($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
-            $clinica->Cidade = utf8_decode ( htmlspecialchars( utf8_encode($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+            $clinica->RazaoSocial =  ( htmlspecialchars( ($_POST['razaosocial']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+            $clinica->Fantasia =  ( htmlspecialchars( ($_POST['fantasia']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+            $clinica->Proprietario =  ( htmlspecialchars( ($_POST['proprietario']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+            $clinica->Endereco =  ( htmlspecialchars( ($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+            $clinica->Bairro =  ( htmlspecialchars( ($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+            $clinica->Cidade =  ( htmlspecialchars( ($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
             $clinica->Estado = $_POST['estado'];
             $clinica->Cep = $_POST['cep'];
             $clinica->Pais = $_POST['pais'];

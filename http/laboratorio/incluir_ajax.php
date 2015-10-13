@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -64,13 +64,13 @@
 				$laboratorio->LoadLaboratorio($_GET[codigo]);
 				$strScrp = "Ajax('laboratorio/gerenciar', 'conteudo', '');";
 			}
-			$laboratorio->SetDados('nomefantasia', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nomefantasia']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
+			$laboratorio->SetDados('nomefantasia',  ( htmlspecialchars( ($_POST['nomefantasia']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ) );
 			$laboratorio->SetDados('cpf', $_POST[cpf]);
-			$laboratorio->SetDados('razaosocial', utf8_decode ( htmlspecialchars( utf8_encode($_POST['razaosocial']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$laboratorio->SetDados('atuacao', utf8_decode ( htmlspecialchars( utf8_encode($_POST['atuacao']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$laboratorio->SetDados('endereco', utf8_decode ( htmlspecialchars( utf8_encode($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$laboratorio->SetDados('bairro', utf8_decode ( htmlspecialchars( utf8_encode($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$laboratorio->SetDados('cidade', utf8_decode ( htmlspecialchars( utf8_encode($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$laboratorio->SetDados('razaosocial',  ( htmlspecialchars( ($_POST['razaosocial']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$laboratorio->SetDados('atuacao',  ( htmlspecialchars( ($_POST['atuacao']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$laboratorio->SetDados('endereco',  ( htmlspecialchars( ($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$laboratorio->SetDados('bairro',  ( htmlspecialchars( ($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$laboratorio->SetDados('cidade',  ( htmlspecialchars( ($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$laboratorio->SetDados('estado', $_POST[estado]);
 			$laboratorio->SetDados('pais', $_POST[pais]);
 			$laboratorio->SetDados('cep', $_POST[cep]);
@@ -80,8 +80,8 @@
 			$laboratorio->SetDados('inscricaoestadual', $_POST[inscricaoestadual]);
 			$laboratorio->SetDados('website', $_POST[website]);
 			$laboratorio->SetDados('email', $_POST[email]);
-			$laboratorio->SetDados('nomerepresentante', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nomerepresentante']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$laboratorio->SetDados('apelidorepresentante', utf8_decode ( htmlspecialchars( utf8_encode($_POST['apelidorepresentante']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$laboratorio->SetDados('nomerepresentante',  ( htmlspecialchars( ($_POST['nomerepresentante']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$laboratorio->SetDados('apelidorepresentante',  ( htmlspecialchars( ($_POST['apelidorepresentante']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$laboratorio->SetDados('emailrepresentante', $_POST[emailrepresentante]);
 			$laboratorio->SetDados('celularrepresentante', $_POST[celularrepresentante]);
 			$laboratorio->SetDados('telefone1representante', $_POST[telefone1representante]);

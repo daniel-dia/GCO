@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -51,9 +51,9 @@
             $procprevisto = $_GET['procprevisto'];
             $data = converte_data($_GET['data'], 1);
         } else {
-            $procexecutado = utf8_decode($_GET['procexecutado']);
-            $procprevisto = utf8_decode($_GET['procprevisto']);
-            $data = utf8_decode(converte_data($_GET['data'], 1));
+            $procexecutado = ($_GET['procexecutado']);
+            $procprevisto = ($_GET['procprevisto']);
+            $data = (converte_data($_GET['data'], 1));
         }
         mysql_query("UPDATE evolucao SET procexecutado = '".$procexecutado."', procprevisto = '".$procprevisto."', data = '".$data."' WHERE codigo = ".$_GET['codigo']);
 	}

@@ -1,4 +1,4 @@
-﻿# 3.5
+# 3.5
 
 ALTER TABLE dentistas ADD data_inicio DATE NOT NULL AFTER ativo, ADD data_fim DATE NOT NULL AFTER data_inicio;
 ALTER TABLE pacientes ADD falecido ENUM('Sim', 'Nï¿½o') NOT NULL DEFAULT 'Nï¿½o' AFTER pais;

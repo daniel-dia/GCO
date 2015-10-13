@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -68,48 +68,48 @@
 				$strScrp = "Ajax('pacientes/gerenciar', 'conteudo', '')";
 			}
 			$paciente->SetDados('codigo', $_POST[codigo]);
-			$paciente->SetDados('nome', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nom']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('nome',  ( htmlspecialchars( ($_POST['nom']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('cpf', $_POST[cpf]);
 			$paciente->SetDados('rg', $_POST[rg]);
-			$paciente->SetDados('estadocivil', utf8_decode ( htmlspecialchars( utf8_encode($_POST['estadocivil']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('estadocivil',  ( htmlspecialchars( ($_POST['estadocivil']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('sexo', $_POST[sexo]);
 			$paciente->SetDados('etnia', $_POST[etnia]);
-			$paciente->SetDados('profissao', utf8_decode ( htmlspecialchars( utf8_encode($_POST['profissao']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$paciente->SetDados('naturalidade', utf8_decode ( htmlspecialchars( utf8_encode($_POST['naturalidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$paciente->SetDados('nacionalidade', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nacionalidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('profissao',  ( htmlspecialchars( ($_POST['profissao']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('naturalidade',  ( htmlspecialchars( ($_POST['naturalidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('nacionalidade',  ( htmlspecialchars( ($_POST['nacionalidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('nascimento', converte_data($_POST[nascimento], 1));
-			$paciente->SetDados('endereco', utf8_decode ( htmlspecialchars( utf8_encode($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$paciente->SetDados('bairro', utf8_decode ( htmlspecialchars( utf8_encode($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$paciente->SetDados('cidade', utf8_decode ( htmlspecialchars( utf8_encode($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('endereco',  ( htmlspecialchars( ($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('bairro',  ( htmlspecialchars( ($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('cidade',  ( htmlspecialchars( ($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('estado', $_POST[estado]);
-			$paciente->SetDados('pais', utf8_decode ( htmlspecialchars( utf8_encode($_POST['pais']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('pais',  ( htmlspecialchars( ($_POST['pais']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('falecido', $_POST[falecido]);
 			$paciente->SetDados('cep', $_POST[cep]);
 			$paciente->SetDados('celular', $_POST[celular]);
 			$paciente->SetDados('telefone1', $_POST[telefone1]);
 			$paciente->SetDados('telefone2', $_POST[telefone2]);
-			$paciente->SetDados('hobby', utf8_decode ( htmlspecialchars( utf8_encode($_POST['hobby']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$paciente->SetDados('indicadopor', utf8_decode ( htmlspecialchars( utf8_encode($_POST['indicadopor']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('hobby',  ( htmlspecialchars( ($_POST['hobby']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('indicadopor',  ( htmlspecialchars( ($_POST['indicadopor']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('email', $_POST[email]);
-			$paciente->SetDados('obs_etiqueta', utf8_decode ( htmlspecialchars( utf8_encode($_POST['obs_etiqueta']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('obs_etiqueta',  ( htmlspecialchars( ($_POST['obs_etiqueta']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('tratamento', $_POST[tratamento]);
 			$paciente->SetDados('codigo_dentistaprocurado', $_POST[codigo_dentistaprocurado]);
 			$paciente->SetDados('codigo_dentistaatendido', $_POST[codigo_dentistaatendido]);
 			$paciente->SetDados('codigo_dentistaencaminhado', $_POST[codigo_dentistaencaminhado]);
-			$paciente->SetDados('nomemae', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nomemae']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('nomemae',  ( htmlspecialchars( ($_POST['nomemae']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('nascimentomae', converte_data($_POST[nascimentomae], 1));
-			$paciente->SetDados('profissaomae', utf8_decode ( htmlspecialchars( utf8_encode($_POST['profissaomae']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$paciente->SetDados('nomepai', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nomepai']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('profissaomae',  ( htmlspecialchars( ($_POST['profissaomae']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('nomepai',  ( htmlspecialchars( ($_POST['nomepai']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('nascimentopai', converte_data($_POST[nascimentopai], 1));
-			$paciente->SetDados('profissaopai', utf8_decode ( htmlspecialchars( utf8_encode($_POST['profissaopai']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('profissaopai',  ( htmlspecialchars( ($_POST['profissaopai']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('telefone1pais', $_POST[telefone1pais]);
 			$paciente->SetDados('telefone2pais', $_POST[telefone2pais]);
 			$paciente->SetDados('enderecofamiliar', $_POST[enderecofamiliar]);
 			$paciente->SetDados('datacadastro', converte_data($_POST[datacadastro], 1));
 			$paciente->SetDados('dataatualizacao', date(Y.'-'.m.'-'.d));
 			$paciente->SetDados('status', $_POST[status]);
-			$paciente->SetDados('objetivo', utf8_decode ( htmlspecialchars( utf8_encode($_POST['objetivo']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-			$paciente->SetDados('observacoes', utf8_decode ( htmlspecialchars( utf8_encode($_POST['observacoes']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('objetivo',  ( htmlspecialchars( ($_POST['objetivo']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+			$paciente->SetDados('observacoes',  ( htmlspecialchars( ($_POST['observacoes']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 			$paciente->SetDados('codigo_convenio', $_POST[convenio]);
 			$paciente->SetDados('outros', $_POST[outros]);
 			$paciente->SetDados('matricula', $_POST[matricula]);

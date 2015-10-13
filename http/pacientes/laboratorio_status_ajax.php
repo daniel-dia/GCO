@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -51,7 +51,7 @@
 	$r = '';
 	if(isset($_POST['Salvar'])) {
         if($_POST['status'] != '') {
-            mysql_query("INSERT INTO laboratorios_procedimentos_status (codigo_procedimento, status, datahora) VALUES (".$_GET['codigo_procedimento'].", '".utf8_decode ( htmlspecialchars( utf8_encode($_POST['status']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') )."', NOW())");
+            mysql_query("INSERT INTO laboratorios_procedimentos_status (codigo_procedimento, status, datahora) VALUES (".$_GET['codigo_procedimento'].", '". ( htmlspecialchars( ($_POST['status']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') )."', NOW())");
             $strScrp = 'Ajax("pacientes/laboratorio_status", "conteudo", "codigo='.$_GET['codigo'].'&acao=editar&codigo_procedimento='.$_GET['codigo_procedimento'].'")';
         } else {
             $r = '<font color="#FF0000">';

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -55,7 +55,7 @@
         $laudo->SalvarNovo();
 	}
 	if(isset($_POST['send'])) {
-        $laudo->Laudo = utf8_decode ( htmlspecialchars( utf8_encode($_POST['laudo']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+        $laudo->Laudo =  ( htmlspecialchars( ($_POST['laudo']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
         $laudo->Salvar();
 	}
     $paciente->LoadPaciente($_GET['codigo']);

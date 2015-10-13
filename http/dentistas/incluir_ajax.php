@@ -1,4 +1,4 @@
-﻿<?php
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -107,14 +107,14 @@
 					$dentista->LoadDentista($_GET[codigo]);
 					//$strScrp = "Ajax('dentistas/gerenciar', 'conteudo', '');";
 				}
-				$dentista->SetDados('nome', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nom']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+				$dentista->SetDados('nome',  ( htmlspecialchars( ($_POST['nom']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 				$dentista->SetDados('cpf', $_POST[cpf]);
 				if($_POST[senha] != "") {
 					$dentista->SetDados('senha', md5($_POST[senha]));
 				}
-				$dentista->SetDados('endereco', utf8_decode ( htmlspecialchars( utf8_encode($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-				$dentista->SetDados('bairro', utf8_decode ( htmlspecialchars( utf8_encode($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
-				$dentista->SetDados('cidade', utf8_decode ( htmlspecialchars( utf8_encode($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+				$dentista->SetDados('endereco',  ( htmlspecialchars( ($_POST['endereco']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+				$dentista->SetDados('bairro',  ( htmlspecialchars( ($_POST['bairro']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+				$dentista->SetDados('cidade',  ( htmlspecialchars( ($_POST['cidade']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 				$dentista->SetDados('estado', $_POST[estado]);
 				$dentista->SetDados('pais', $_POST[pais]);
 				$dentista->SetDados('cep', $_POST[cep]);
@@ -123,7 +123,7 @@
 				$dentista->SetDados('celular', $_POST[celular]);
 				$dentista->SetDados('telefone2', $_POST[telefone2]);
 				$dentista->SetDados('sexo', $_POST[sexo]);
-				$dentista->SetDados('nomemae', utf8_decode ( htmlspecialchars( utf8_encode($_POST['nomemae']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
+				$dentista->SetDados('nomemae',  ( htmlspecialchars( ($_POST['nomemae']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') ));
 				$dentista->SetDados('rg', $_POST[rg]);
 				$dentista->SetDados('email', $_POST[email]);
 				$dentista->SetDados('comissao', $_POST[comissao]);
