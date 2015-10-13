@@ -40,7 +40,7 @@
 	//include "../lib/config.inc.php";
 	//include "../lib/func.inc.php";
 	//include "../lib/classes.inc.php";
-	//header("Content-type: text/html; charset=ISO-8859-1", true);
+	//header("Content-type: text/html; charset=UTF-8", true);
 	//if(!checklog()) {
 	//	die($frase_log);
 	//}
@@ -50,7 +50,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Gerenciador Clínico Odontológico Smile Odonto - <?php echo $LANG['general']['administration_in_your_hands']?></title>
 <link rel="SHORTCUT ICON" href="favicon.ico">
 <link href="../css/smile.css" rel="stylesheet" type="text/css" />

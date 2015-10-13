@@ -41,7 +41,7 @@
 	include "../lib/func.inc.php";
 	include "../lib/classes.inc.php";
 	require_once '../lang/'.$idioma.'.php';
-	header("Content-type: text/html; charset=ISO-8859-1", true);
+	header("Content-type: text/html; charset=UTF-8", true);
 	$caminho = "logo.jpg";
 	if($_GET[confirm_del] == "delete\')") {
         $sql = "UPDATE `dados_clinica` SET `logomarca` = ''";
@@ -75,7 +75,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Gerenciador Clínico Odontológico Smile Odonto - Administração Odontológica Em Suas Mãos</title>
 <link href="../css/smile.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="../lib/script.js.php"></script>

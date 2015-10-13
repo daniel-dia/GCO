@@ -64,7 +64,7 @@
 	include_once "../lib/func.inc.php";
 	include_once "../lib/classes.inc.php";
 	require_once '../lang/'.$idioma.'.php';
-@header("Content-type: text/html; charset=ISO-8859-1", true);
+@header("Content-type: text/html; charset=UTF-8", true);
 
 $y = date('Y');
 $m = date('m');
