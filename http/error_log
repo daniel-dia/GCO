@@ -1,0 +1,1 @@
+[13-Oct-2015 00:54:46 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/diastudio/public_html/gco2/lib/func.inc.php on line 46
