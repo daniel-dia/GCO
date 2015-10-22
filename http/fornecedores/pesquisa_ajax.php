@@ -46,7 +46,7 @@
 		die($frase_log);
 	}
 ?>
-  <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <table>
 <?php
     $_GET['pesquisa'] = htmlspecialchars($_GET['pesquisa'], ENT_QUOTES);
 	$where = "`".$_GET['campo']."` LIKE '".$_GET['pesquisa']."%'";
@@ -69,12 +69,12 @@
 			$odev = $impar;
 		}
 ?>
-    <tr bgcolor="#<?php echo $odev?>" onmouseout="style.background='#<?php echo $odev?>'" onmouseover="style.background='#DDE1E6'">
-      <td width="360" colspan="2" align="left"><?php echo $lista[$i][nome]?></td>
-      <td width="160" colspan="2" align="left"><?php echo $lista[$i][cidade_uf]?></td>
-      <td width="105" colspan="2" align="left"><?php echo $lista[$i][telefone]?></td>
-      <td width="59" align="center"><?php echo ((verifica_nivel('fornecedores', 'V'))?'<a href="javascript:Ajax(\'fornecedores/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.png" alt="" width="16" height="18" border="0"></a>':'')?></td>
-      <td width="66" align="center"><?php echo ((verifica_nivel('fornecedores', 'A'))?'<a href="javascript:Ajax(\'fornecedores/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="" width="19" height="19" border="0"></a>':'')?></td>
+    <tr>
+      <td><?php echo $lista[$i][nome]?></td>
+      <td><?php echo $lista[$i][cidade_uf]?></td>
+      <td><?php echo $lista[$i][telefone]?></td>
+      <td><?php echo ((verifica_nivel('fornecedores', 'V'))?'<a href="javascript:Ajax(\'fornecedores/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.png" alt="" width="16" height="18" border="0"></a>':'')?></td>
+      <td><?php echo ((verifica_nivel('fornecedores', 'A'))?'<a href="javascript:Ajax(\'fornecedores/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="" width="19" height="19" border="0"></a>':'')?></td>
     </tr>
 <?php
 	}

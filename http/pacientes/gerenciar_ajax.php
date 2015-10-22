@@ -137,8 +137,20 @@
     }
 </script>
 <div class="conteudo" id="conteudo_central">
+    
+            <h1 class="page-header"> 
+            <?php echo $LANG['patients']['manage_patients']?>
+        </h1>
+
+        
+       
+       
+            
+            
   <table width="98%" border="0" cellpadding="0" cellspacing="0" align="center">
     <tr>
+        
+        
       <td width="38%">&nbsp;&nbsp;&nbsp;<img src="pacientes/img/pacientes.png" alt="<?php echo $LANG['patients']['manage_patients']?>"> <span class="h3"><?php echo $LANG['patients']['manage_patients']?></span></td>
       <td width="62%" valign="bottom">
       	<table width="98%" border="0" cellpadding="0" cellspacing="0">

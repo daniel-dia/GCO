@@ -41,7 +41,7 @@
 	include "../lib/func.inc.php";
 	include "../lib/classes.inc.php";
 	require_once '../lang/'.$idioma.'.php';
-	header("Content-type: text/html; charset=UTF-8", true);
+	
 	if(!checklog()) {
         echo '<script>Ajax("wallpapers/index", "conteudo", "");</script>';
         die();
@@ -60,13 +60,24 @@
             <?php echo $LANG['useful_telephones']['useful_telephones']?>
         </h1>
 
-          <?php echo $LANG['useful_telephones']['search_for']?>
-            <input name="procurar" id="procurar" type="text" class="forms" size="20" maxlength="40" onkeyup="javascript:Ajax('telefones/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value)">
- 
-      <?php echo ((verifica_nivel('contatos', 'I'))?'<img src="imagens/icones/novo.png"  ><a href="javascript:Ajax(\'telefones/incluir\', \'conteudo\', \'\')">'.$LANG['useful_telephones']['include_new_contact'].'</a>':'')?>
-    
-   
-    
+        
+        <div class="row form-inline">
+       
+              <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+            <input id="procurar" type="text" class="form-control" placeholder="<?php echo $LANG['useful_telephones']['search_for']?>" onkeyup="javascript:Ajax('telefones/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value)">
+                  </div>
+          
+            <?php if (verifica_nivel('contatos', 'I')) { ?>
+             <a href="javascript:Ajax('telefones/incluir', 'conteudo', '')">
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <?php echo $LANG['useful_telephones']['include_new_contact']; ?>
+            </button>
+                 </a>
+            <?php }?>
+           
+        </div> 
+     
     <div class="conteudo" id="table dados"><br>
       <div id="pesquisa"></div>
       <script>
