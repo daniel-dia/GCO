@@ -626,7 +626,7 @@
     </tr>
     <tr>
       <td align="right">
-        <img src="imagens/icones/imprimir.gif"> <a href="relatorios/paciente.php?codigo=<?php echo $row['codigo']?>" target="_blank"><?php echo $LANG['patients']['print_sheet']?></a>&nbsp;
+        <img src="imagens/icones/imprimir.png"> <a href="relatorios/paciente.php?codigo=<?php echo $row['codigo']?>" target="_blank"><?php echo $LANG['patients']['print_sheet']?></a>&nbsp;
       </td>
     </tr>
   </table>

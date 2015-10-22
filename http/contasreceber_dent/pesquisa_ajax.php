@@ -95,7 +95,7 @@
       <td width="50%" align="left"><?php echo $conta->RetornaDados('descricao')?></td>
       <td width="13%" align="right"><?php echo money_form($conta->RetornaDados('valor'))?></td>
       <td width="21%" align="right"><input type="text" size="13" name="datapagamento" id="datapagamento" value="<?php echo converte_data($conta->RetornaDados('datapagamento'), 2)?>" onblur="Ajax('contasreceber_dent/atualiza', 'conta_atualiza', 'codigo=<?php echo $conta->RetornaDados('codigo')?>&datapagamento='%2Bthis.value)" onKeypress="return Ajusta_Data(this, event);" <?php echo ((!verifica_nivel('contas_receber', 'E'))?'disabled':'')?>></td>
-      <td width="5%" align="center"><?php echo ((verifica_nivel('contas_receber', 'A'))?'<a href="javascript:Ajax(\'contasreceber_dent/extrato\', \'conteudo\', \'codigo='.$conta->RetornaDados('codigo').'&codigo_dentista='.$_GET[codigo_dentista].'&senha_dentista='.$_GET[senha_dentista].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
+      <td width="5%" align="center"><?php echo ((verifica_nivel('contas_receber', 'A'))?'<a href="javascript:Ajax(\'contasreceber_dent/extrato\', \'conteudo\', \'codigo='.$conta->RetornaDados('codigo').'&codigo_dentista='.$_GET[codigo_dentista].'&senha_dentista='.$_GET[senha_dentista].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
     </tr>
 <?php
 	}

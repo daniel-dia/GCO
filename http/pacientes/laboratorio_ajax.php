@@ -142,14 +142,14 @@
     echo mysql_error();
     while($row = mysql_fetch_assoc($query)) {
         if($_SESSION['codigo'] == $row['codigo_dentista']) {
-            $delete = '<a href="javascript:Ajax(\'pacientes/laboratorio\', \'conteudo\', \'codigo='.$_GET['codigo'].'&acao=editar&codigo_procedimento='.$row['codigo'].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" border="0"></a>';
+            $delete = '<a href="javascript:Ajax(\'pacientes/laboratorio\', \'conteudo\', \'codigo='.$_GET['codigo'].'&acao=editar&codigo_procedimento='.$row['codigo'].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" border="0"></a>';
         }
 ?>
             <tr>
               <td><input type="text" class="forms" size="40" name="procedimento_novo[]" value="<?php echo $row['procedimento']?>" id="procedimento_novo[]" onblur="Ajax('pacientes/atualiza_procedimento', 'lab_atualiza', 'codigo=<?php echo $row['codigo']?>&procedimento='%2Bthis.value)"></td>
               <td><?php echo $row['dentista']?></td>
               <td><?php echo $row['nomefantasia']?></td>
-              <td align="center"><a href="javascript:Ajax('pacientes/laboratorio_status', 'conteudo', 'codigo=<?php echo $_GET['codigo']?>&acao=editar&codigo_procedimento=<?php echo $row['codigo']?>');"><img src="imagens/icones/editar.gif" border="0" /></a></td>
+              <td align="center"><a href="javascript:Ajax('pacientes/laboratorio_status', 'conteudo', 'codigo=<?php echo $_GET['codigo']?>&acao=editar&codigo_procedimento=<?php echo $row['codigo']?>');"><img src="imagens/icones/editar.png" border="0" /></a></td>
               <td align="center"><?php echo $delete?></td>
             </tr>
 <?php

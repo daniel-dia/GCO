@@ -146,7 +146,7 @@
     $query = mysql_query("SELECT * FROM laboratorios_procedimentos_status WHERE codigo_procedimento = ".$_GET['codigo_procedimento']." ORDER BY datahora DESC");
     while($row = mysql_fetch_assoc($query)) {
         if($_SESSION['codigo'] == $codigo_dentista) {
-            $delete = '<a href="javascript:Ajax(\'pacientes/laboratorio_status\', \'conteudo\', \'codigo='.$_GET['codigo'].'&acao=editar&codigo_procedimento='.$_GET['codigo_procedimento'].'&codigo_status='.$row['codigo'].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" border="0"></a>';
+            $delete = '<a href="javascript:Ajax(\'pacientes/laboratorio_status\', \'conteudo\', \'codigo='.$_GET['codigo'].'&acao=editar&codigo_procedimento='.$_GET['codigo_procedimento'].'&codigo_status='.$row['codigo'].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" border="0"></a>';
         }
 ?>
             <tr>

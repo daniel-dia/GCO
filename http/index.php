@@ -1,4 +1,5 @@
-﻿<?php
+<!DOCTYPE>
+<?php
    /**
     * Gerenciador Clínico Odontológico
     * Copyright (C) 2006 - 2009
@@ -48,27 +49,69 @@
 	require_once 'lang/'.$idioma.'.php';
 	header("Content-type: text/html; charset=utf-8", true);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<html>
+<head> 
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
 <title>Gerenciador Clínico Odontológico Smile Odonto - Administração Odontológica Em Suas Mãos</title>
 <link rel="SHORTCUT ICON" href="favicon.ico">
-<link href="css/smile.css" rel="stylesheet" type="text/css" />
+    
 <script language="javascript" type="text/javascript" src="lib/script.js.php"></script>
+<script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/bootstrap.min.js"></script>
 <script language="javascript" type="text/javascript" src="lib/ajax_search.js"></script>
+<script language="javascript" type="text/javascript" src="js/sb-admin-2.js"></script>
+
+    
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="css/gco.css" rel="stylesheet" type="text/css" />
+<link href="css/sb-admin-2.css" rel="stylesheet" type="text/css" />
+<link href="css/timeline.css" rel="stylesheet" type="text/css" />
 </head>
-<body onload="MM_preloadImages('imagens/menu/inicio_f2.jpg','imagens/menu/arquivo_f2.jpg','imagens/menu/financeiro_f2.jpg','imagens/menu/atualizacoes_f2.jpg','imagens/menu/utilitarios_f2.jpg','imagens/menu/configuracoes_f2.jpg','imagens/menu/ajuda_f2.jpg','imagens/menu/sair_f2.jpg','imagens/menu/pacientes_f2.jpg','imagens/menu/pagamentos_f2.jpg','imagens/menu/fornecedores_f2.jpg','imagens/menu/caixa_f2.jpg','imagens/menu/agenda_f2.jpg','imagens/menu/estoque_f2.jpg','imagens/menu/telefones_f2.jpg'); javascript:Ajax('wallpapers/index', 'conteudo', '')">
-  <input type="hidden" id="ScriptID" value="0" />
-  <div class="topo" id="topo"> <img src="imagens/top_gerenciador_smile.jpg" alt="Smile Odonto" width="770" height="40" />
-    <?php include "menu.php"; ?>
-    <br />
-</div>
-<div class="conteudo" id="conteudo"></div>
-  <div class="rodape" id="rodape"> <br />
-      <?php echo $LANG['general']['smile_odontology']?> - <?php echo $LANG['general']['enhancing_your_smile']?> - <a href="http://www.smileodonto.com.br" target="_blank">www.smileodonto.com.br </a><br>
-      <br>
-      <?php echo $LANG['general']['be_part_of_smile']?>
-  </div>
+    
+<body onload=" javascript:Ajax('wallpapers/index', 'conteudo', '')">
+<input type="hidden" id="ScriptID" value="0" />
+    
+    <div id="wrapper">
+        
+          <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+            <div class="navbar-header" > 
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">GCO</a>
+            </div>
+            <!-- /.navbar-header -->
+            
+            <?php include "menutop.php"; ?>
+            <!-- /.navbar-top-links -->
+            
+            <?php include "menu.php"; ?>
+            <!-- /.navbar-static-side -->
+        </nav>
+        
+        
+        <div id="page-wrapper">
+            <div id="conteudo"></div>
+        </div>
+        
+        <div class="row">
+            <div class="rodape col-xs-12" id="rodape"> <br />
+                <?php echo $LANG['general']['smile_odontology']?> - <?php echo $LANG['general']['enhancing_your_smile']?> - <a href="http://www.smileodonto.com.br" target="_blank">www.smileodonto.com.br </a><br>
+                <br />
+                <?php echo $LANG['general']['be_part_of_smile']?><br />
+                <a href="https://icons8.com/download-huge-windows8-set">Windows icons by Icons8</a>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>

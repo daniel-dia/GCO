@@ -105,7 +105,7 @@
       <td width="13%" align="right"><?php echo $debito?></td>
       <td width="13%" align="right"><?php echo $credito?></td>
       <td width="13%" align="right"><font color="#<?php echo $cor?>"><?php echo $LANG['general']['currency'].' '.money_form($saldo)?></form></td>
-      <td width="10%" align="center"><?php echo ((verifica_nivel('caixa', 'A'))?'<a href="javascript:Ajax(\'caixa_dent/extrato\', \'conteudo\', \'codigo='.$lista[$i]['codigo'].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" border="0" /></a>':'')?></td>
+      <td width="10%" align="center"><?php echo ((verifica_nivel('caixa', 'A'))?'<a href="javascript:Ajax(\'caixa_dent/extrato\', \'conteudo\', \'codigo='.$lista[$i]['codigo'].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" border="0" /></a>':'')?></td>
     </tr>
 <?php
 		}
@@ -134,7 +134,7 @@
       <td width="40%" align="center">
       </td>
       <td width="40%" align="right">
-        <img src="imagens/icones/imprimir.gif" border="0" weight="29" height="33"><a href="relatorios/caixa.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['patients']['print_report']?></a>
+        <img src="imagens/icones/imprimir.png" border="0" weight="29" height="33"><a href="relatorios/caixa.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['patients']['print_report']?></a>
       </td>
     </tr>
   </table>

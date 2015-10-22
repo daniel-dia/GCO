@@ -91,8 +91,8 @@
       <td width="325"><font color="<?php echo $ativo?>"><?php echo $lista[$i][titulo].' '.$lista[$i][nome]?></td>
       <td width="150" align="left"><font color="<?php echo $ativo?>"><?php echo $pacientes->RetornaDados('telefone1')?></td>
       <td width="150"><font color="<?php echo $ativo?>"><?php echo $lista[$i][funcao1]?></td>
-      <td width="59" align="center"><?php echo ((verifica_nivel('funcionarios', 'V'))?'<a href="javascript:Ajax(\'funcionarios/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.gif" alt="Editar" width="16" height="18" border="0"></a>':'')?></td>
-      <td width="66" align="center"><?php echo ((verifica_nivel('funcionarios', 'A'))?'<a href="javascript:Ajax(\'funcionarios/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
+      <td width="59" align="center"><?php echo ((verifica_nivel('funcionarios', 'V'))?'<a href="javascript:Ajax(\'funcionarios/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.png" alt="Editar" width="16" height="18" border="0"></a>':'')?></td>
+      <td width="66" align="center"><?php echo ((verifica_nivel('funcionarios', 'A'))?'<a href="javascript:Ajax(\'funcionarios/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
     </tr>
 <?php
 	}
@@ -133,6 +133,6 @@
 	echo $retf;
 ?>
       </td>
-      <td width="140" align="right"><img src="imagens/icones/etiquetas.gif" border=""> <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['employee']['print_labels']?></a></td>
+      <td width="140" align="right"><img src="imagens/icones/etiquetas.png" border=""> <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['employee']['print_labels']?></a></td>
     </tr>
   </table>

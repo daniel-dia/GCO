@@ -99,7 +99,7 @@ function esconde(campo) {
       	  </tr>
       	</table>
       </td>
-      <td width="27%" align="right" valign="bottom"><?php echo ((verifica_nivel('funcionarios', 'I'))?'<img src="imagens/icones/novo.gif" alt="Incluir" width="19" height="22" border="0"><a href="javascript:Ajax(\'funcionarios/incluir\', \'conteudo\', \'\')">'.$LANG['employee']['include_new_employee'].'</a>':'')?></td>
+      <td width="27%" align="right" valign="bottom"><?php echo ((verifica_nivel('funcionarios', 'I'))?'<img src="imagens/icones/novo.png" alt="Incluir" width="19" height="22" border="0"><a href="javascript:Ajax(\'funcionarios/incluir\', \'conteudo\', \'\')">'.$LANG['employee']['include_new_employee'].'</a>':'')?></td>
       <td width="2%" valign="bottom">&nbsp;</td>
       <td width="2%" valign="bottom">&nbsp;</td>
     </tr>

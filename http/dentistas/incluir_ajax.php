@@ -546,7 +546,7 @@
     </tr>
     <tr>
       <td align="right">
-        <img src="imagens/icones/imprimir.gif"> <a href="relatorios/dentista.php?codigo_dentista=<?php echo $row['codigo']?>" target="_blank"><?php echo $LANG['professionals']['print_sheet']?></a>&nbsp;
+        <img src="imagens/icones/imprimir.png"> <a href="relatorios/dentista.php?codigo_dentista=<?php echo $row['codigo']?>" target="_blank"><?php echo $LANG['professionals']['print_sheet']?></a>&nbsp;
       </td>
     </tr>
   </table>

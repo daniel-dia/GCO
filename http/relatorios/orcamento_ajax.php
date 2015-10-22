@@ -113,8 +113,8 @@
           <td width="34%"><?php echo $dentista->RetornaDados('titulo').' '.$nome;?></td>
           <td width="13%"><?php echo converte_data($row[data], 2)?></td>
           <td width="14%" align="right"><?php echo $LANG['general']['currency'].' '.money_form($row[valortotal]-($row[valortotal]*($row[desconto]/100)))?></td>
-          <td width="11%"><div align="center"><a href="javascript:Ajax('pacientes/orcamentofechar', 'conteudo', 'codigo=<?php echo $_GET[codigo]?>&indice_orc=<?php echo ($i+1)?>&acao=editar&subacao=editar&codigo_orc=<?php echo $row[codigo]?>')"><img src="imagens/icones/editar.gif" border="0" alt="Editar" width="16" height="18" /></div></td>
-          <td width="14%"><div align="center"><?php echo (($row['confirmado'] == 'Não')?'':'<img src="imagens/icones/ok.gif" border="0" alt="Confirmado" width="19" height="19" /> '.((mysql_num_rows(mysql_query("SELECT * FROM parcelas_orcamento WHERE codigo_orcamento = ".$row['codigo']." AND pago = 'Não'")) > 0)?$LANG['patients']['open']:$LANG['patients']['paid']))?></div></td>
+          <td width="11%"><div align="center"><a href="javascript:Ajax('pacientes/orcamentofechar', 'conteudo', 'codigo=<?php echo $_GET[codigo]?>&indice_orc=<?php echo ($i+1)?>&acao=editar&subacao=editar&codigo_orc=<?php echo $row[codigo]?>')"><img src="imagens/icones/editar.png" border="0" alt="Editar" width="16" height="18" /></div></td>
+          <td width="14%"><div align="center"><?php echo (($row['confirmado'] == 'Não')?'':'<img src="imagens/icones/ok.png" border="0" alt="Confirmado" width="19" height="19" /> '.((mysql_num_rows(mysql_query("SELECT * FROM parcelas_orcamento WHERE codigo_orcamento = ".$row['codigo']." AND pago = 'Não'")) > 0)?$LANG['patients']['open']:$LANG['patients']['paid']))?></div></td>
         </tr>
 <?php
 		$i++;

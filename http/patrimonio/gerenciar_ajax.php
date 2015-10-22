@@ -62,7 +62,7 @@
 <?php echo $LANG['patrimony']['search_for']?>
   <input name="procurar" id="procurar" type="text" class="forms" size="20" maxlength="40" onkeyup="javascript:Ajax('patrimonio/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value)">
 </td>
-      <td width="23%" align="right" valign="bottom"><?php echo ((verifica_nivel('patrimonio', 'I'))?'<img src="imagens/icones/novo.gif" alt="Incluir" width="19" height="22" border="0"><a href="javascript:Ajax(\'patrimonio/incluir\', \'conteudo\', \'\')">'.$LANG['patrimony']['include_new_item'].'</a>':'')?></td>
+      <td width="23%" align="right" valign="bottom"><?php echo ((verifica_nivel('patrimonio', 'I'))?'<img src="imagens/icones/novo.png" alt="Incluir" width="19" height="22" border="0"><a href="javascript:Ajax(\'patrimonio/incluir\', \'conteudo\', \'\')">'.$LANG['patrimony']['include_new_item'].'</a>':'')?></td>
       <td width="2%" valign="bottom">&nbsp;</td>
       <td width="2%" valign="bottom">&nbsp;</td>
     </tr>

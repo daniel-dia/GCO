@@ -225,7 +225,7 @@
     </tr>
     <tr>
       <td colspan="2" align="right" valign="bottom">
-        <?php echo ((verifica_nivel('pacientes', 'I'))?'<img src="imagens/icones/novo.gif" alt="Incluir" width="19" height="22" border="0"><a href="javascript:Ajax(\'pacientes/incluir\', \'conteudo\', \'\')">'.$LANG['patients']['include_new_patient'].'</a>':'')?>
+        <?php echo ((verifica_nivel('pacientes', 'I'))?'<img src="imagens/icones/novo.png" alt="Incluir" width="19" height="22" border="0"><a href="javascript:Ajax(\'pacientes/incluir\', \'conteudo\', \'\')">'.$LANG['patients']['include_new_patient'].'</a>':'')?>
       </td>
     </tr>
 </table>

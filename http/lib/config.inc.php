@@ -49,10 +49,10 @@
     $version = '6.1';
 
     // Variáveis do conexão com o BD
-    $server = '';
-    $user = '';
+    $server = 'localhost';
+    $user = 'root';
     $pass = '';
-    $bd = '';
+    $bd = 'gerenciador';
   
     // Quantidade de páginas exibidas nas paginações
     define('PG_MAX', 15);
@@ -62,4 +62,4 @@
     define('ZEROS', 11);
   
     // Define se está instalado ou não
-    $install = false;
+    $install = true;

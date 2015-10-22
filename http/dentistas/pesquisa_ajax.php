@@ -84,8 +84,8 @@
       <td width="325"><font color="<?php echo $ativo?>"><?php echo $lista[$i][titulo].' '.$lista[$i][nome]?></td>
       <td width="150"><font color="<?php echo $ativo?>"><?php echo $lista[$i][telefone]?></td>
       <td width="150"><font color="<?php echo $ativo?>"><?php echo $lista[$i][conselho_tipo].'/'.$lista[$i][conselho_estado].' '.$lista[$i][conselho_numero]?></td>
-      <td width="59" align="center"><?php echo ((verifica_nivel('profissionais', 'V'))?'<a href="javascript:Ajax(\'dentistas/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.gif" alt="" width="16" height="18" border="0"></a>':'')?></td>
-      <td width="66" align="center"><?php echo ((verifica_nivel('profissionais', 'A'))?'<a href="javascript:Ajax(\'dentistas/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="" width="19" height="19" border="0"></a>':'')?></td>
+      <td width="59" align="center"><?php echo ((verifica_nivel('profissionais', 'V'))?'<a href="javascript:Ajax(\'dentistas/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.png" alt="" width="16" height="18" border="0"></a>':'')?></td>
+      <td width="66" align="center"><?php echo ((verifica_nivel('profissionais', 'A'))?'<a href="javascript:Ajax(\'dentistas/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="" width="19" height="19" border="0"></a>':'')?></td>
     </tr>
 <?php
 	}
@@ -126,6 +126,6 @@
 	echo $retf;
 ?>
       </td>
-      <td width="140" align="right"><img src="imagens/icones/etiquetas.gif" border=""> <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['professionals']['print_labels']?></a></td>
+      <td width="140" align="right"><img src="imagens/icones/etiquetas.png" border=""> <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['professionals']['print_labels']?></a></td>
     </tr>
   </table>

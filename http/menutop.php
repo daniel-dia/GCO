@@ -1,0 +1,10 @@
+<ul  class="nav navbar-top-links navbar-right">
+  <li><a href="javascript:Ajax('pacientes/gerenciar','conteudo','')" >     <img name="pacientes" src="imagens/menu/pacientes.png" alt="<?php echo $LANG['menu']['patients']?>" title="<?php echo $LANG['menu']['patients']?>" /></a></li>
+  <li><a href="javascript:Ajax('dentistas/gerenciar','conteudo','')" >     <img name="profissionais" src="imagens/menu/profissionais.png" alt="<?php echo $LANG['menu']['professionals']?>" title="<?php echo $LANG['menu']['professionals']?>" /></a></li>
+  <li><a href="javascript:Ajax('pagamentos/parcelas','conteudo','')" >     <img name="funcionarios" src="imagens/menu/pagamentos.png"  alt="<?php echo $LANG['menu']['payments']?>" title="<?php echo $LANG['menu']['payments']?>" /></a></li>
+  <li><a href="javascript:Ajax('fornecedores/gerenciar','conteudo','')" >  <img name="fornecedores" src="imagens/menu/fornecedores.png" alt="<?php echo $LANG['menu']['supliers']?>" title="<?php echo $LANG['menu']['supliers']?>" /></a></li>
+  <li><a href="javascript:Ajax('caixa/caixa','conteudo','')" >             <img name="caixa" src="imagens/menu/caixa.png" alt="<?php echo $LANG['menu']['cash_flow']?>" title="<?php echo $LANG['menu']['cash_flow']?>" /></a></li>
+  <li><a href="javascript:Ajax('agenda/agenda','conteudo','')" >           <img name="agenda" src="imagens/menu/agenda.png" alt="<?php echo $LANG['menu']['calendar']?>" title="<?php echo $LANG['menu']['calendar']?>" /></a></li>
+  <li><a href="javascript:Ajax('estoque/estoque','conteudo','')" >         <img name="patrimonio" src="imagens/menu/estoque.png"  alt="<?php echo $LANG['menu']['stock_control']?>" title="<?php echo $LANG['menu']['stock_control']?>" /></a></li>
+  <li><a href="javascript:Ajax('telefones/gerenciar','conteudo','')">      <img name="telefones" src="imagens/menu/telefones.png"  i alt="<?php echo $LANG['menu']['usefull_telephones']?>" title="<?php echo $LANG['menu']['usefull_telephones']?>" /></a></li>
+</ul> 

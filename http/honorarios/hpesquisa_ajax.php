@@ -71,8 +71,8 @@
 ?>
     <tr bgcolor="#<?php echo $odev?>" onmouseout="style.background='#<?php echo $odev?>'" onmouseover="style.background='#DDE1E6'">
       <td width="684" align="left"><?php echo $lista[$i]['nome']?></td>
-		<td width="66" align="center"><?php echo ((verifica_nivel('honorarios', 'L'))?'<a href="javascript:Ajax(\'honorarios/honorarios\', \'conteudo\', \'codigo_convenio='.$lista[$i][codigo].'\')"><img src="imagens/icones/honorarios.gif" alt="" width="16" height="18" border="0"></a>':'')?></td>
-		<?php /*<td width="66" align="center"><?php echo ((verifica_nivel('honorarios', 'A'))?'<a href="javascript:Ajax(\'honorarios/gerenciar\', \'conteudo\', \'codigo_convenio='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td> */?>
+		<td width="66" align="center"><?php echo ((verifica_nivel('honorarios', 'L'))?'<a href="javascript:Ajax(\'honorarios/honorarios\', \'conteudo\', \'codigo_convenio='.$lista[$i][codigo].'\')"><img src="imagens/icones/honorarios.png" alt="" width="16" height="18" border="0"></a>':'')?></td>
+		<?php /*<td width="66" align="center"><?php echo ((verifica_nivel('honorarios', 'A'))?'<a href="javascript:Ajax(\'honorarios/gerenciar\', \'conteudo\', \'codigo_convenio='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td> */?>
     </tr>
 <?php
 	}

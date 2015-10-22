@@ -83,8 +83,8 @@
       <td width="123" height="23" align="left"><?php echo $cheque->RetornaDados('encaminhadopara')?></td>
       <td width="123" height="23" align="left"><?php echo converte_data($cheque->RetornaDados('compensacao'), 2)?></td>
       <td width="80" height="23" align="right"><?php echo $LANG['general']['currency'].''.money_form($cheque->RetornaDados('valor'))?></td>
-      <td width="66" align="center"><?php echo ((verifica_nivel('cheques', 'V'))?'<a href="javascript:Ajax(\'cheques/incluir\', \'conteudo\', \'codigo='.$cheque->RetornaDados('codigo').'&acao=editar\')"><img src="imagens/icones/editar.gif" alt="" width="16" height="18" border="0"></a>':'')?></td>
-      <td width="66" align="center"><?php echo ((verifica_nivel('cheques', 'A'))?'<a href="javascript:Ajax(\'cheques/gerenciar\', \'conteudo\', \'codigo='.$cheque->RetornaDados('codigo').'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="" width="19" height="19" border="0"></a>':'')?></td>
+      <td width="66" align="center"><?php echo ((verifica_nivel('cheques', 'V'))?'<a href="javascript:Ajax(\'cheques/incluir\', \'conteudo\', \'codigo='.$cheque->RetornaDados('codigo').'&acao=editar\')"><img src="imagens/icones/editar.png" alt="" width="16" height="18" border="0"></a>':'')?></td>
+      <td width="66" align="center"><?php echo ((verifica_nivel('cheques', 'A'))?'<a href="javascript:Ajax(\'cheques/gerenciar\', \'conteudo\', \'codigo='.$cheque->RetornaDados('codigo').'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="" width="19" height="19" border="0"></a>':'')?></td>
     </tr>
 <?php
 	}

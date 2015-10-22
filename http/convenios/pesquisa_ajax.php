@@ -73,9 +73,9 @@
       <td width="281" align="left"><?php echo $lista[$i]['nome']?></td>
       <td width="160" align="left"><?php echo (($lista[$i]['codigo'] == '1')?'':$lista[$i]['cidade_uf'])?>&nbsp;</td>
       <td width="105" align="left"><?php echo (($lista[$i]['codigo'] == '1')?'':$lista[$i]['telefone'])?>&nbsp;</td>
-      <td width="79" align="center"><?php echo ((verifica_nivel('honorarios', 'L'))?'<a href="javascript:Ajax(\'honorarios/honorarios\', \'conteudo\', \'codigo_convenio='.$lista[$i][codigo].'\')"><img src="imagens/icones/honorarios.gif" alt="" width="16" height="18" border="0"></a>':'')?></td>
-      <td width="59" align="center"><?php echo (($lista[$i]['codigo'] == '1' || !verifica_nivel('convenios', 'V'))?'':'<a href="javascript:Ajax(\'convenios/incluir\', \'conteudo\', \'codigo='.$lista[$i]['codigo'].'&acao=editar\')"><img src="imagens/icones/editar.gif" alt="" width="16" height="18" border="0"></a>')?>&nbsp;</td>
-      <td width="66" align="center"><?php echo (($lista[$i]['codigo'] == '1' || !verifica_nivel('convenios', 'A'))?'':'<a href="javascript:Ajax(\'convenios/gerenciar\', \'conteudo\', \'codigo='.$lista[$i]['codigo'].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="" width="19" height="19" border="0"></a>')?>&nbsp;</td>
+      <td width="79" align="center"><?php echo ((verifica_nivel('honorarios', 'L'))?'<a href="javascript:Ajax(\'honorarios/honorarios\', \'conteudo\', \'codigo_convenio='.$lista[$i][codigo].'\')"><img src="imagens/icones/honorarios.png" alt="" width="16" height="18" border="0"></a>':'')?></td>
+      <td width="59" align="center"><?php echo (($lista[$i]['codigo'] == '1' || !verifica_nivel('convenios', 'V'))?'':'<a href="javascript:Ajax(\'convenios/incluir\', \'conteudo\', \'codigo='.$lista[$i]['codigo'].'&acao=editar\')"><img src="imagens/icones/editar.png" alt="" width="16" height="18" border="0"></a>')?>&nbsp;</td>
+      <td width="66" align="center"><?php echo (($lista[$i]['codigo'] == '1' || !verifica_nivel('convenios', 'A'))?'':'<a href="javascript:Ajax(\'convenios/gerenciar\', \'conteudo\', \'codigo='.$lista[$i]['codigo'].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="" width="19" height="19" border="0"></a>')?>&nbsp;</td>
     </tr>
 <?php
 	}

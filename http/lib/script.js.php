@@ -172,7 +172,7 @@ function formSender(f, campo) {
 
 function Ajax(url, campo, query) {
 	elem = campo;
-	document.getElementById(elem).innerHTML = "<font color='red'>Carregando...";
+	document.getElementById(elem).innerHTML = "<center><img src='imagens/loading.png' width='31' ></center>";
 	if (window.XMLHttpRequest) {  
 		req = new XMLHttpRequest();  
 	} else if (window.ActiveXObject) {  
@@ -184,6 +184,8 @@ function Ajax(url, campo, query) {
 	req.open("GET", url+"_ajax.php?"+query, true);
 	req.onreadystatechange = processReqChange;
 	req.send(null); 
+    
+    if(campo == "conteudo") window.location.hash = '#' + url;
 }
 
 function processReqChange() {

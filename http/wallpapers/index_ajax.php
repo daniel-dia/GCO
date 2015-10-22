@@ -59,8 +59,8 @@
 			$prim_nome = 'Administrador(a)';
 		}
 ?>
-<center><img src="imagens/wallpapers/<?php echo $papel[$rand]?>" border="0" width="753" height="230"></center>
-<script>document.getElementById('saudacao').innerHTML='<font size=\"1\"><?php
+
+<script>document.getElementById('saudacao').innerHTML='<?php
   	if(date('H') >= 0 && date('H') < 12) {
   		echo $LANG['func']['good_morning'];
   	} elseif(date('H') >= 12 && date('H') < 18) {
@@ -69,7 +69,7 @@
   		echo $LANG['func']['good_night'];
   	}
     echo ', '.$titulo.' '.$prim_nome;
-?>&nbsp;&nbsp;'</script>
+    ?>'</script>
 <?php
 	} elseif(!isset($_POST[login])) {
 ?>

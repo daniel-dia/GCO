@@ -46,7 +46,12 @@
 		die($frase_log);
 	}
 ?>
-  <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <table class="table table-hover">
+  <tr>
+      <th align="left"><?php echo $LANG['useful_telephones']['name']?></td>
+      <th align="left"><?php echo $LANG['useful_telephones']['telephone']?></td>
+      <th align="center"> </td>
+    </tr>
 <?php
     $_GET['pesquisa'] =  ( htmlspecialchars( ($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
 	if($_GET[pg] != '') {
@@ -59,60 +64,34 @@
 	$telefones = new TTelefones();
 	$lista = $telefones->ListTelefones($sql.' LIMIT '.$limit.', '.PG_MAX);
 	$total_regs = $telefones->ListTelefones($sql);
-	$par = $odev = "F0F0F0";
-	$impar = "F8F8F8";
+	 
 	for($i = 0; $i < count($lista); $i++) {
-		if($i % 2 == 0) {
-			$odev = $par;
-		} else {
-			$odev = $impar;
-		}
+		 
 ?>
-    <tr bgcolor="#<?php echo $odev?>" onmouseout="style.background='#<?php echo $odev?>'" onmouseover="style.background='#DDE1E6'">
-      <td width="475" colspan="2" align="left"><?php echo $lista[$i][nome]?></td>
-      <td width="150" colspan="2" align="left"><?php echo $lista[$i][telefone1]?></td>
-      <td width="59" align="center"><?php echo ((verifica_nivel('contatos', 'V'))?'<a href="javascript:Ajax(\'telefones/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.gif" alt="Editar" width="16" height="18" border="0"></a>':'')?></td>
-      <td width="66" align="center"><?php echo ((verifica_nivel('contatos', 'A'))?'<a href="javascript:Ajax(\'telefones/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
-    </tr>
-<?php
+    <?php if (verifica_nivel('contatos', 'V')) {   ?>
+    
+        <tr>
+            <td><a href="javascript:Ajax(\'telefones/incluir\', \'conteudo\', \'codigo=' <?php echo $lista[$i][codigo] ?>'&acao=editar\')">            <?php echo $lista[$i][nome]?>                </a>            </td>
+            <td><?php echo $lista[$i][telefone1]?></td>
+            <td><?php echo ((verifica_nivel('contatos', 'A'))?'<a href="javascript:Ajax(\'telefones/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
+        </tr>
+
+    <?php } else{?>   
+ <tr>
+            <td><?php echo $lista[$i][nome]?></td>
+            <td><?php echo $lista[$i][telefone1]?></td>
+            <td><?php echo ((verifica_nivel('contatos', 'A'))?'<a href="javascript:Ajax(\'telefones/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
+        </tr>
+   <?php
+	}
 	}
 ?>
   </table>
   <br>
-  <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tr bgcolor="#<?php echo $odev?>" onmouseout="style.background='#<?php echo $odev?>'" onmouseover="style.background='#DDE1E6'">
-      <td width="160">
+
+ 
       <?php echo $LANG['useful_telephones']['total_contacts']?>: <b><?php echo count($total_regs)?></b>
-      </td>
-      <td width="450" align="center">
-<?php
-	$pg_total = ceil(count($total_regs)/PG_MAX);
-	$i = $_GET[pg] - 5;
-	if($i <= 1) {
-		$i = 1;
-		$reti = '';
-	} else {
-		$reti = '...&nbsp;&nbsp;';
-	}
-	$j = $_GET[pg] + 5;
-	if($j >= $pg_total) {
-		$j = $pg_total;
-		$retf = '';
-	} else {
-		$retf = '...';
-	}
-	echo $reti;
-	while($i <= $j) {
-		if($i == $_GET[pg]) {
-			echo $i.'&nbsp;&nbsp;';
-		} else {
-			echo '<a href="javascript:;" onclick="javascript:Ajax(\'telefones/pesquisa\', \'pesquisa\', \'pg='.$i.'\')">'.$i.'</a>&nbsp;&nbsp;';
-		}
-		$i++;
-	}
-	echo $retf;
-?>
-      </td>
-      <td width="140" align="right"><img src="imagens/icones/etiquetas.gif" border=""> <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['suppliers']['print_labels']?></a></td>
-    </tr>
+      
+     <img src="imagens/icones/etiquetas.png" border=""> <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['suppliers']['print_labels']?></a>
+
   </table>

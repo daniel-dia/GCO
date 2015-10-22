@@ -74,8 +74,8 @@
       <td width="338" align="left"><?php echo $lista[$i][descricao]?></td>
       <td width="130" align="left"><?php echo $lista[$i][setor]?></td>
       <td width="107" align="right"><?php echo $LANG['general']['currency'].' '.money_form($lista[$i][valor])?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td width="59" align="center"><?php echo ((verifica_nivel('patrimonio', 'V'))?'<a href="javascript:Ajax(\'patrimonio/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.gif" alt="Editar" width="16" height="18" border="0"></a>':'')?></td>
-      <td width="66" align="center"><?php echo ((verifica_nivel('patrimonio', 'A'))?'<a href="javascript:Ajax(\'patrimonio/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
+      <td width="59" align="center"><?php echo ((verifica_nivel('patrimonio', 'V'))?'<a href="javascript:Ajax(\'patrimonio/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.png" alt="Editar" width="16" height="18" border="0"></a>':'')?></td>
+      <td width="66" align="center"><?php echo ((verifica_nivel('patrimonio', 'A'))?'<a href="javascript:Ajax(\'patrimonio/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
     </tr>
 <?php
 	}

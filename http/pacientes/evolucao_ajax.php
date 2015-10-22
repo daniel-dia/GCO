@@ -142,7 +142,7 @@
 ?>
             </td>
             <td><div align="center"><input type="text" value="<?php echo converte_data($paciente->RetornaDados('data'), 2)?>" class="forms" id="data<?php echo $chave?>" onblur="Ajax('pacientes/atualiza_evolucao', 'evolucao_atualiza', 'codigo=<?php echo $paciente->RetornaDados('codigo')?>&procexecutado='%2Bdocument.getElementById('procexecutado<?php echo $chave?>').value%2B'&procprevisto='%2Bdocument.getElementById('procprevisto<?php echo $chave?>').value%2B'&data='%2Bthis.value)" <?php echo ((checknivel('Administrador') || (checknivel('Dentista') && $_SESSION['codigo'] == $paciente->RetornaDados('codigo_dentista')))?'':'readonly="readonly"')?> <?php echo $disable?> size="12" maxlength="10" onKeypress="return Ajusta_Data(this, event);" /></div></td>
-            <td><div align="center"><?php echo ((checknivel('Administrador') || (checknivel('Dentista') && $_SESSION['codigo'] == $paciente->RetornaDados('codigo_dentista')))?'<a href="javascript:Ajax(\'pacientes/evolucao\', \'conteudo\', \'codigo='.$_GET['codigo'].'&acao=editar&codigo_evolucao='.$paciente->RetornaDados('codigo').'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="" width="19" height="19" border="0"></a>':'')?></div></td>
+            <td><div align="center"><?php echo ((checknivel('Administrador') || (checknivel('Dentista') && $_SESSION['codigo'] == $paciente->RetornaDados('codigo_dentista')))?'<a href="javascript:Ajax(\'pacientes/evolucao\', \'conteudo\', \'codigo='.$_GET['codigo'].'&acao=editar&codigo_evolucao='.$paciente->RetornaDados('codigo').'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="" width="19" height="19" border="0"></a>':'')?></div></td>
           </tr>
 <?php
 		}

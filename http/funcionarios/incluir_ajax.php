@@ -453,7 +453,7 @@
     </tr>
     <tr>
       <td align="right">
-        <img src="imagens/icones/imprimir.gif"> <a href="relatorios/funcionario.php?codigo=<?php echo $row['codigo']?>" target="_blank"><?php echo $LANG['employee']['print_sheet']?></a>&nbsp;
+        <img src="imagens/icones/imprimir.png"> <a href="relatorios/funcionario.php?codigo=<?php echo $row['codigo']?>" target="_blank"><?php echo $LANG['employee']['print_sheet']?></a>&nbsp;
       </td>
     </tr>
   </table>

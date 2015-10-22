@@ -73,7 +73,7 @@
     <tr bgcolor="#<?php echo $odev?>" onmouseout="style.background='#<?php echo $odev?>'" onmouseover="style.background='#DDE1E6'">
       <td width="75%" align="left"><?php echo $conta->RetornaDados('descricao')?></td>
       <td width="15%" align="center"><input type="text" size="13" name="quantidade" id="quantidade" value="<?php echo $conta->RetornaDados('quantidade')?>" onblur="Ajax('estoque/atualiza', 'conta_atualiza', 'codigo=<?php echo $conta->RetornaDados('codigo')?>&estoque='%2Bthis.value)" <?php echo ((!verifica_nivel('estoque', 'E'))?'disabled':'')?>></td>
-      <td width="10%" align="center"><?php echo ((verifica_nivel('estoque', 'A'))?'<a href="javascript:Ajax(\'estoque/extrato\', \'conteudo\', \'codigo='.$conta->RetornaDados('codigo').'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
+      <td width="10%" align="center"><?php echo ((verifica_nivel('estoque', 'A'))?'<a href="javascript:Ajax(\'estoque/extrato\', \'conteudo\', \'codigo='.$conta->RetornaDados('codigo').'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
     </tr>
 <?php
 	}
@@ -114,7 +114,7 @@
 	echo $retf;
 ?>
       </td>
-      <td width="140" align="right"><img src="imagens/icones/imprimir.gif" border="0"> <a href="relatorios/estoque.php?sql=<?php echo $sql?>" target="_blank"><?php echo $LANG['stock']['print_report']?></a></td>
+      <td width="140" align="right"><img src="imagens/icones/imprimir.png" border="0"> <a href="relatorios/estoque.php?sql=<?php echo $sql?>" target="_blank"><?php echo $LANG['stock']['print_report']?></a></td>
     </tr>
   </table>
   <div id="conta_atualiza"></div>

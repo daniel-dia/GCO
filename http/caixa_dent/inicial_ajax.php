@@ -106,7 +106,7 @@
       <td width="13%" align="right"><?php echo $debito?></td>
       <td width="13%" align="right"><?php echo $credito?></td>
       <td width="13%" align="right"></td>
-      <td width="10%" align="center"><?php echo ((verifica_nivel('caixa', 'A'))?'<a href="javascript:Ajax(\'caixa_dent/extrato\', \'conteudo\', \'codigo='.$lista[$i]['codigo'].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" border="0" /></a>':'')?></td>
+      <td width="10%" align="center"><?php echo ((verifica_nivel('caixa', 'A'))?'<a href="javascript:Ajax(\'caixa_dent/extrato\', \'conteudo\', \'codigo='.$lista[$i]['codigo'].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" border="0" /></a>':'')?></td>
     </tr>
 <?php
 		}

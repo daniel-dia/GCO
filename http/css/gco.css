@@ -1,0 +1,20 @@
+.body{
+    
+    background-color: white
+}
+
+.navbara{
+    background-color:  #337ab7;
+    color  :white;
+}
+
+.navbar img{
+    height: 30px;
+}
+#conteudo{ 
+    padding-top:1px
+}
+
+h1 img{
+    height: 36px;
+}

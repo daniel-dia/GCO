@@ -77,7 +77,7 @@
   <tr>
     <td>
       <form id="form2" name="form2" method="POST" action="pacientes/incluir_ajax.php<?php echo $frmActEdt?>" onsubmit="formSender(this, 'conteudo'); return false;"><br /><fieldset>
-      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background: url('pacientes/img/odontograma.gif') center center no-repeat;">
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background: url('pacientes/img/odontograma.png') center center no-repeat;">
         <tr>
           <td width="35%" align="right">
             <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -133,7 +133,7 @@
   </tr>
     <tr>
       <td align="right"> <br />
-        <img src="../imagens/icones/imprimir.gif"> <a href="relatorios/odontograma.php?codigo=<?php echo $_GET['codigo']?>" target="_blank"><?php echo $LANG['patients']['print_odontogram']?></a>&nbsp;
+        <img src="../imagens/icones/imprimir.png"> <a href="relatorios/odontograma.php?codigo=<?php echo $_GET['codigo']?>" target="_blank"><?php echo $LANG['patients']['print_odontogram']?></a>&nbsp;
       </td>
     </tr>
 </table>

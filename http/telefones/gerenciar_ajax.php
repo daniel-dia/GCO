@@ -53,38 +53,24 @@
 	if($_GET[confirm_del] == "delete") {
 		mysql_query("DELETE FROM `telefones` WHERE `codigo` = '".$_GET[codigo]."'") or die(mysql_error());
 	}
-?>
-<div class="conteudo" id="conteudo_central">
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="conteudo">
-    <tr>
-      <td width="46%">&nbsp;&nbsp;&nbsp;<img src="telefones/img/telefones.png" alt="Telefones Úteis" height="40"> <span class="h3"><?php echo $LANG['useful_telephones']['useful_telephones']?></span></td>
-      <td width="27%" valign="bottom">
-<?php echo $LANG['useful_telephones']['search_for']?>
-  <input name="procurar" id="procurar" type="text" class="forms" size="20" maxlength="40" onkeyup="javascript:Ajax('telefones/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value)">
-</td>
-      <td width="23%" align="right" valign="bottom"><?php echo ((verifica_nivel('contatos', 'I'))?'<img src="imagens/icones/novo.gif" width="19" height="22" border="0"><a href="javascript:Ajax(\'telefones/incluir\', \'conteudo\', \'\')">'.$LANG['useful_telephones']['include_new_contact'].'</a>':'')?></td>
-      <td width="2%" valign="bottom">&nbsp;</td>
-      <td width="2%" valign="bottom">&nbsp;</td>
-    </tr>
-  </table>
-<div class="conteudo" id="table dados"><br>
-  <table width="750" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela_titulo">
-    <tr>
-      <td bgcolor="#009BE6">&nbsp;</td>
-      <td bgcolor="#009BE6">&nbsp;</td>
-      <td bgcolor="#009BE6">&nbsp;</td>
-      <td bgcolor="#009BE6">&nbsp;</td>
-    </tr>
-    <tr>
-      <td width="475" height="23" align="left"><?php echo $LANG['useful_telephones']['name']?></td>
-      <td width="150" align="left"><?php echo $LANG['useful_telephones']['telephone']?></td>
-      <td width="59" align="center"><?php echo $LANG['useful_telephones']['edit_view']?></td>
-      <td width="66" align="center"><?php echo $LANG['useful_telephones']['delete']?></td>
-    </tr>
-  </table>
-  <div id="pesquisa"></div>
-  <script>
-  document.getElementById('procurar').focus();
-  Ajax('telefones/pesquisa', 'pesquisa', 'pesquisa=');
-  </script>
-</div>
+    ?>
+    <div>
+  
+        <h1 class="page-header"> 
+            <?php echo $LANG['useful_telephones']['useful_telephones']?>
+        </h1>
+
+          <?php echo $LANG['useful_telephones']['search_for']?>
+            <input name="procurar" id="procurar" type="text" class="forms" size="20" maxlength="40" onkeyup="javascript:Ajax('telefones/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value)">
+ 
+      <?php echo ((verifica_nivel('contatos', 'I'))?'<img src="imagens/icones/novo.png"  ><a href="javascript:Ajax(\'telefones/incluir\', \'conteudo\', \'\')">'.$LANG['useful_telephones']['include_new_contact'].'</a>':'')?>
+    
+   
+    
+    <div class="conteudo" id="table dados"><br>
+      <div id="pesquisa"></div>
+      <script>
+      document.getElementById('procurar').focus();
+      Ajax('telefones/pesquisa', 'pesquisa', 'pesquisa=');
+      </script>
+    </div>

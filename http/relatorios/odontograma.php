@@ -62,7 +62,7 @@
 <b><?php echo date('d/m/Y')?></b></font><br /><br />
 <br />
 <div align="center">
-      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background: url('../pacientes/img/odontograma.gif') center center no-repeat;">
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background: url('../pacientes/img/odontograma.png') center center no-repeat;">
         <tr>
           <td width="38%" align="right">
             <table width="100%" border="0" align="center" cellpadding="0" cellspacing="2">

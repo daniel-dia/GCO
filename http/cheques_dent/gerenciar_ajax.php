@@ -78,7 +78,7 @@
       	  </tr>
       	</table>
       </td>
-      <td width="23%" align="right" valign="bottom"><?php echo ((verifica_nivel('cheques', 'I'))?'<img src="imagens/icones/novo.gif" alt="" width="19" height="22" border="0"><a href="javascript:Ajax(\'cheques_dent/incluir\', \'conteudo\', \'codigo_dentista='.$_SESSION[codigo].'\')">'.$LANG['check_control']['include_new_check'].'</a>':'')?></td>
+      <td width="23%" align="right" valign="bottom"><?php echo ((verifica_nivel('cheques', 'I'))?'<img src="imagens/icones/novo.png" alt="" width="19" height="22" border="0"><a href="javascript:Ajax(\'cheques_dent/incluir\', \'conteudo\', \'codigo_dentista='.$_SESSION[codigo].'\')">'.$LANG['check_control']['include_new_check'].'</a>':'')?></td>
       <td width="2%" valign="bottom">&nbsp;</td>
       <td width="2%" valign="bottom">&nbsp;</td>
     </tr>

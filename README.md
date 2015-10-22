@@ -33,3 +33,5 @@ Toda equipe de desenvolvimento e a Smile® deseja que o Gerenciador Clínico Odo
 Maiores informações sobre a Smile podem ser encontradas em seu web site: www.smileodonto.com.br. 
 
 Gerenciador Clínico Odontológico protegido pela licença GPL.
+
+

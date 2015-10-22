@@ -161,7 +161,7 @@
   <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr style="background: #F8F8F8">
       <td width="610" align="center"></td>
-      <td width="140" align="right"><img src="imagens/icones/imprimir.gif" border=""> <a href="relatorios/agenda_consultas.php?data=<?php echo converte_data($_GET[pesquisa], 1)?>&codigo_dentista=<?php echo $_GET[codigo_dentista]?>" target="_blank"><?php echo $LANG['calendar']['print_calendar']?></a></td>
+      <td width="140" align="right"><img src="imagens/icones/imprimir.png" border=""> <a href="relatorios/agenda_consultas.php?data=<?php echo converte_data($_GET[pesquisa], 1)?>&codigo_dentista=<?php echo $_GET[codigo_dentista]?>" target="_blank"><?php echo $LANG['calendar']['print_calendar']?></a></td>
     </tr>
   </table>
   <div id="agenda_atualiza"></div>

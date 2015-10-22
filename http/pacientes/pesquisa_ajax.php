@@ -50,7 +50,7 @@
         return(mysql_num_rows($query) > 0);
     }
 ?>
-  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <table class="table table-striped table-hover">
 <?php
     $_GET['pesquisa'] =  ( htmlspecialchars( ($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
 	$pacientes = new TPacientes();
@@ -113,28 +113,23 @@
     }
 	$lista = $pacientes->ListPacientes($sql.' LIMIT '.$limit.', '.PG_MAX);
 	$total_regs = $pacientes->ListPacientes($sql);
-	$par = $odev = "F0F0F0";
-	$impar = "F8F8F8";
-	for($i = 0; $i < count($lista); $i++) {
-		if($i % 2 == 0) {
-			$odev = $par;
-		} else {
-			$odev = $impar;
-		}
-?>
-    <tr bgcolor="#<?php echo $odev?>" onmouseout="style.background='#<?php echo $odev?>'" onmouseover="style.background='#DDE1E6'">
+	
+	for($i = 0; $i < count($lista); $i++) ?>
+      
+    <tr>
       <td width="63%"><?php echo ((encontra_valor('pacientes', 'codigo', $lista[$i]['codigo'], 'falecido') == 'Sim')?'<font color="#808080">':((em_debito($lista[$i][codigo]))?'<font color="red">':'')).$lista[$i][nome].' ('.encontra_valor('pacientes', 'codigo', $lista[$i]['codigo'], 'status').')'?></td>
       <td width="20%"><?php echo ((encontra_valor('pacientes', 'codigo', $lista[$i]['codigo'], 'falecido') == 'Sim')?'<font color="#808080">':((em_debito($lista[$i][codigo]))?'<font color="red">':'')).$lista[$i][codigo]?></td>
-      <td width="8%" align="center"><?php echo ((verifica_nivel('pacientes', 'V'))?'<a href="javascript:Ajax(\'pacientes/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.gif" alt="Editar" width="16" height="18" border="0"></a>':'')?></td>
-      <td width="9%" align="center"><?php echo ((verifica_nivel('pacientes', 'A'))?'<a href="javascript:Ajax(\'pacientes/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
+      <td width="8%" ><?php echo ((verifica_nivel('pacientes', 'V'))?'<a href="javascript:Ajax(\'pacientes/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.png" alt="Editar" width="16" height="18" border="0"></a>':'')?></td>
+      <td width="9%" ><?php echo ((verifica_nivel('pacientes', 'A'))?'<a href="javascript:Ajax(\'pacientes/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
     </tr>
-<?php
-	}
-?>
+<?php	} ?>
+      
   </table>
   <br>
+
+
   <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tr bgcolor="#<?php echo $odev?>" onmouseout="style.background='#<?php echo $odev?>'" onmouseover="style.background='#DDE1E6'">
+    <tr>
       <td width="20%">
       <?php echo $LANG['patients']['total_patients']?>: <b><?php echo count($total_regs)?></b>
       </td>
@@ -168,8 +163,8 @@
 ?>
       </td>
       <td width="43%" align="right">
-        <img src="imagens/icones/imprimir.gif" border="0" weight="29" height="33"> <a href="relatorios/pacientes.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['patients']['print_report']?></a>
-        <img src="imagens/icones/etiquetas.gif" border="0"> <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?><?php echo ($_GET['campo']=='nascimento' ? '&nasc=true' : '')?>" target="_blank"><?php echo $LANG['patients']['print_labels']?></a>
+        <img src="imagens/icones/imprimir.png" border="0" weight="29" height="33"> <a href="relatorios/pacientes.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['patients']['print_report']?></a>
+        <img src="imagens/icones/etiquetas.png" border="0"> <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?><?php echo ($_GET['campo']=='nascimento' ? '&nasc=true' : '')?>" target="_blank"><?php echo $LANG['patients']['print_labels']?></a>
       </td>
     </tr>
   </table>

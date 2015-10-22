@@ -85,7 +85,7 @@
       <td width="9%" align="center"><?php echo (($_GET['codigo_convenio'] != '1')?'<input type="text" '.((!verifica_nivel('honorarios', 'E'))?'disabled':'').' class="forms" size="8" name="valor_convenio"   id="valor_convenio"   value="'.number_format($valor_convenio, 2, '.', '').'"   onblur="Ajax(\'honorarios/atualiza\', \'conta_atualiza\', \'&codigo_convenio='.$_GET['codigo_convenio'].'&codigo='.$conta->RetornaDados('codigo').'&valor=\'%2Bthis.value)" onKeypress="return Ajusta_Valor(this, event);">':'')?></td>
       <td width="9%" align="right"><?php echo (($_GET['codigo_convenio'] != '1')?$LANG['general']['currency'].' '.@number_format($valor_particular - $valor_convenio, 2, ',', '.'):'')?></td>
       <td width="9%" align="right"><?php echo (($_GET['codigo_convenio'] != '1')?@number_format(round(100 - ($valor_convenio / $valor_particular) * 100, 2), 2, ',', '.').' %':'')?></td>
-      <td width="7%" align="center"><?php echo ((verifica_nivel('honorarios', 'A'))?'<a href="javascript:Ajax(\'honorarios/honorarios\', \'conteudo\', \'codigo_convenio='.$_GET['codigo_convenio'].'&codigo='.$conta->RetornaDados('codigo').'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
+      <td width="7%" align="center"><?php echo ((verifica_nivel('honorarios', 'A'))?'<a href="javascript:Ajax(\'honorarios/honorarios\', \'conteudo\', \'codigo_convenio='.$_GET['codigo_convenio'].'&codigo='.$conta->RetornaDados('codigo').'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
     </tr>
 <?php
 	}
@@ -126,7 +126,7 @@
 	echo $retf;
 ?>
       </td>
-      <td width="19%" align="right"><img src="imagens/icones/imprimir.gif" border="0"> <a href="relatorios/honorarios.php?codigo_convenio=<?php echo $_GET['codigo_convenio']?>&sql=<?php echo $sql?>" target="_blank"><?php echo $LANG['fee_table']['print_report']?></a></td>
+      <td width="19%" align="right"><img src="imagens/icones/imprimir.png" border="0"> <a href="relatorios/honorarios.php?codigo_convenio=<?php echo $_GET['codigo_convenio']?>&sql=<?php echo $sql?>" target="_blank"><?php echo $LANG['fee_table']['print_report']?></a></td>
     </tr>
   </table>
   <div id="conta_atualiza"></div>
