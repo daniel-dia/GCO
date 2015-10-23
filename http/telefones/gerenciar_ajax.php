@@ -61,7 +61,7 @@
         </h1>
 
         
-        <div class="row form-inline">
+        <div class="form-inline">
        
               <div class="input-group">
             <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>

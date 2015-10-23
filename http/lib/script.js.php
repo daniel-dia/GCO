@@ -172,7 +172,7 @@ function formSender(f, campo) {
 
 function Ajax(url, campo, query) {
 	elem = campo;
-	document.getElementById(elem).innerHTML = "<center><img src='imagens/loading.png' width='31' ></center>";
+	document.getElementById(elem).innerHTML = "<center><img src='imagens/loading.gif' width='31' ></center>";
 	if (window.XMLHttpRequest) {  
 		req = new XMLHttpRequest();  
 	} else if (window.ActiveXObject) {  

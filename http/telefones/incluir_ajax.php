@@ -49,14 +49,16 @@
         $disable = 'disabled';
     }
 	$telefones = new TTelefones();
+  
 	if(isset($_POST[Salvar])) { 
 		$obrigatorios[1] = 'nom';
-		$obrigatorios[] = 'telefone1';
+		$obrigatorios[2] = 'telefone1';
 		$i = $j = 0;
+    
 		foreach($_POST as $post => $valor) {
 			$i++;
 			if(array_search($post, $obrigatorios) && $valor == "") {
-				$r[$i] = '<font color="#FF0000">';
+				$r[$i] = 'has-error';
 			    $j++;
 			}
 		}
@@ -103,93 +105,77 @@
 		die();	
 	}
 ?>
-<div class="conteudo" id="conteudo_central">
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="conteudo">
-    <tr>
-      <td width="56%">&nbsp;&nbsp;&nbsp;<img src="telefones/img/telefones.png" alt="TELEFONES ÚTEIS"> <span class="h3"><?php echo $LANG['useful_telephones']['useful_telephones']?> [<?php echo $strLoCase?>] </span></td>
-      <td width="6%" valign="bottom"><a href="#"></a></td>
-      <td width="36%" valign="bottom" align="right">&nbsp;</td>
-      <td width="2%" valign="bottom">&nbsp;</td>
-    </tr>
-  </table>
-<div class="conteudo" id="table dados"><br>
-  <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela_titulo">
-    <tr>
-      <td width="243" height="26"><?php echo $strLoCase.' '.$LANG['useful_telephones']['contatc']?> </td>
-      <td width="381">&nbsp;</td>
-    </tr>
-  </table>
-  <table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela">
-    <tr>
-      <td>
-      <form id="form2" name="form2" method="POST" action="telefones/incluir_ajax.php<?php echo $frmActEdt?>" onsubmit="formSender(this, 'conteudo'); return false;"><fieldset>
-        <legend><span class="style1"><?php echo $LANG['useful_telephones']['contact_information']?></span></legend>
-        <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td width="287"><?php echo $r[1]?>* <?php echo $LANG['useful_telephones']['name']?> <br />
-                <label>
-                  <input name="nom" value="<?php echo $row[nome]?>" type="text" class="forms" <?php echo $disable?> id="nom" size="50" maxlength="80" />
-                </label>
-                <br />
-                <label></label></td>
-            <td width="210"></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['useful_telephones']['address1']?><br />
-              <input name="endereco" value="<?php echo $row[endereco]?>" type="text" class="forms" <?php echo $disable?> id="endereco" size="50" maxlength="150" /></td>
-            <td><?php echo $LANG['useful_telephones']['address2']?><br />
-              <input name="bairro" value="<?php echo $row[bairro]?>" type="text" class="forms" <?php echo $disable?> id="bairro" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['useful_telephones']['city']?><br />
-                <input name="cidade" value="<?php echo $row[cidade]?>" <?php echo $disable?> type="text" class="forms" <?php echo $disable?> id="cidade" size="30" maxlength="50" />
-              <br /></td>
-            <td><?php echo $LANG['useful_telephones']['state']?><br />
-                <input name="estado" value="<?php echo $row[estado]?>" <?php echo $disable?> type="text" class="forms" <?php echo $disable?> id="estado" maxlength="50" />
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['useful_telephones']['country']?><br />
-                <input name="pais" value="<?php echo $row[pais]?>" <?php echo $disable?> type="text" class="forms" <?php echo $disable?> id="pais" size="30" maxlength="50" />
-              <br /></td>
-            <td>&nbsp;
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['useful_telephones']['zip']?><br />
-              <input name="cep" value="<?php echo $row[cep]?>" type="text" class="forms" <?php echo $disable?> id="cep" size="10" maxlength="9" onKeypress="return Ajusta_CEP(this, event);" /></td>
-            <td><?php echo $LANG['useful_telephones']['cellphone']?><br />
-              <input name="celular" value="<?php echo $row[celular]?>" type="text" class="forms" <?php echo $disable?> id="celular" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $r[8]?>* <?php echo $LANG['useful_telephones']['phone1']?><br />
-              <input name="telefone1" value="<?php echo $row[telefone1]?>" type="text" class="forms" <?php echo $disable?> id="telefone1" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
-            <td><?php echo $LANG['useful_telephones']['phone2']?><br />
-              <input name="telefone2" value="<?php echo $row[telefone2]?>" type="text" class="forms" <?php echo $disable?> id="telefone2" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['useful_telephones']['email']?><br />
-              <input name="email" value="<?php echo $row[email]?>" type="text" class="forms" <?php echo $disable?> id="email" size="40" /></td>
-            <td><?php echo $LANG['useful_telephones']['website']?> <br />
-              <input name="website" value="<?php echo $row[website]?>" type="text" class="forms" <?php echo $disable?> id="site" size="40" /></td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-        </table>
-        </fieldset>
-		<br />
-        <div align="center"><br />
-          <input name="Salvar" type="submit" class="forms" <?php echo $disable?> id="Salvar" value="<?php echo $LANG['useful_telephones']['save']?>" />
-        </div>
-      </form>      </td>
-    </tr>
-  </table>
+
+
+    <h1 class="page-header"> 
+   <?php echo $LANG['useful_telephones']['contact_information']?>
+    </h1>
+
+    <div class="conteudo" id="table dados"><br>
+
+ 
+      <form class="form-horizontal" id="form2" name="form2" method="POST" action="telefones/incluir_ajax.php<?php echo $frmActEdt?>" 
+          onsubmit="formSender(this, 'conteudo'); return false;">
+    
+         
+          <div class="form-group <?php echo $r[1]?>">
+          <label class="control-label col-sm-2 input-lg">*<?php echo $LANG['useful_telephones']['name']?>    </label>
+          <div class="col-sm-10"><input class="input-lg form-control" name="nom" value="<?php echo $row[nome]?>" type="text" <?php echo $disable?> id="nom" size="50" maxlength="80" />
+          </div></div>
+          <div class="form-group">
+          <label class="control-label col-sm-2"> <?php echo $LANG['useful_telephones']['address1']?></labeL>
+          <div class="col-sm-10"><input name="endereco" value="<?php echo $row[endereco]?>" type="text" class="form-control" <?php echo $disable?> id="endereco" size="50" maxlength="150" /> 
+          </div></div>
+          <div class="form-group">
+          <label class="control-label col-sm-2"><?php echo $LANG['useful_telephones']['address2']?></label>
+          <div class="col-sm-10"><input name="bairro" value="<?php echo $row[bairro]?>" type="text" class="form-control" <?php echo $disable?> id="bairro" /> 
+          </div></div>
+          <div class="form-group">
+          <label class="control-label col-sm-2"><?php echo $LANG['useful_telephones']['city']?></label>
+          <div class="col-sm-10"><input name="cidade" value="<?php echo $row[cidade]?>" <?php echo $disable?> type="text" class="form-control" <?php echo $disable?> id="cidade" size="30" maxlength="50" />
+          </div></div>
+          <div class="form-group">
+          <label class="control-label col-sm-2"><?php echo $LANG['useful_telephones']['state']?></label>
+          <div class="col-sm-10"><input name="estado" value="<?php echo $row[estado]?>" <?php echo $disable?> type="text" class="form-control" <?php echo $disable?> id="estado" maxlength="50" />
+          </div></div>
+          <div class="form-group">
+          <label class="control-label col-sm-2"><?php echo $LANG['useful_telephones']['country']?></label>
+          <div class="col-sm-10"><input name="pais" value="<?php echo $row[pais]?>" <?php echo $disable?> type="text" class="form-control" <?php echo $disable?> id="pais" size="30" maxlength="50" />
+          </div></div>
+          <div class="form-group">
+          <label class="control-label col-sm-2"> <?php echo $LANG['useful_telephones']['zip']?></label>
+          <div class="col-sm-10"><input name="cep" value="<?php echo $row[cep]?>" type="text" class="form-control" <?php echo $disable?> id="cep" size="10" maxlength="9" onKeypress="return Ajusta_CEP(this, event);" />
+          </div></div>
+          <div class="form-group">
+          <label class="control-label col-sm-2"><?php echo $LANG['useful_telephones']['cellphone']?></label>
+          <div class="col-sm-10"><input name="celular" value="<?php echo $row[celular]?>" type="text" class="form-control" <?php echo $disable?> id="celular" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" />
+          </div></div>
+          <div class="form-group <?php echo $r[9]?>">
+          <label class="control-label col-sm-2"> *<?php echo $LANG['useful_telephones']['phone1']?></label>
+          <div class="col-sm-10"><input name="telefone1" value="<?php echo $row[telefone1]?>" type="text" class="form-control" <?php echo $disable?> id="telefone1" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" />
+          </div></div>
+          <div class="form-group">
+          <label class="control-label col-sm-2"><?php echo $LANG['useful_telephones']['phone2']?></label>
+          <div class="col-sm-10"><input name="telefone2" value="<?php echo $row[telefone2]?>" type="text" class="form-control" <?php echo $disable?> id="telefone2" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" />
+          </div></div>
+          <div class="form-group">
+          <label class="control-label col-sm-2"><?php echo $LANG['useful_telephones']['email']?></label>
+          <div class="col-sm-10"><input name="email" value="<?php echo $row[email]?>" type="text" class="form-control" <?php echo $disable?> id="email" size="40" />
+          </div></div>
+          <div class="form-group">
+          <label class="control-label col-sm-2"><?php echo $LANG['useful_telephones']['website']?> </label>
+          <div class="col-sm-10"><input name="website" value="<?php echo $row[website]?>" type="text" class="form-control" <?php echo $disable?> id="site" size="40" />
+          </div> </div>
+          
+          <div class="form-group">
+          <div class="col-sm-10 col-sm-offset-2">
+            <button class="btn btn-primary" name="Salvar" type="submit" <?php echo $disable?> id="Salvar" >
+                <?php echo $LANG['useful_telephones']['save']?>
+            </button>
+            </div>  
+          </div>
+          
+      </form>   
 </div>
 <script>
   document.getElementById('nom').focus();

@@ -71,7 +71,7 @@
     <?php if (verifica_nivel('contatos', 'V')) {   ?>
     
         <tr>
-            <td><a href="javascript:Ajax(\'telefones/incluir\', \'conteudo\', \'codigo=' <?php echo $lista[$i][codigo] ?>'&acao=editar\')">            <?php echo $lista[$i][nome]?>                </a>            </td>
+            <td><a href="javascript:Ajax('telefones/incluir', 'conteudo', 'codigo=<?php echo $lista[$i][codigo] ?>&acao=editar')">            <?php echo $lista[$i][nome]?>                </a>            </td>
             <td><?php echo $lista[$i][telefone1]?></td>
             <td><?php echo ((verifica_nivel('contatos', 'A'))?'<a href="javascript:Ajax(\'telefones/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
         </tr>
