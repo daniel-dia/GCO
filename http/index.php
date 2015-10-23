@@ -53,24 +53,31 @@
 <html>
 <head> 
     
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-    
-<title>Gerenciador Clínico Odontológico Smile Odonto - Administração Odontológica Em Suas Mãos</title>
-<link rel="SHORTCUT ICON" href="favicon.ico">
-    
-<script language="javascript" type="text/javascript" src="lib/script.js.php"></script>
-<script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-<script language="javascript" type="text/javascript" src="js/bootstrap.min.js"></script>
-<script language="javascript" type="text/javascript" src="lib/ajax_search.js"></script>
-<script language="javascript" type="text/javascript" src="js/sb-admin-2.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>Gerenciador Clínico Odontológico Smile Odonto - Administração Odontológica Em Suas Mãos</title>
+    <link rel="SHORTCUT ICON" href="favicon.ico">
+
+    <script language="javascript" type="text/javascript" src="lib/script.js.php"></script>
+    <script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/ajax_search.js"></script>
+    <script language="javascript" type="text/javascript" src="js/sb-admin-2.js"></script>
+    <script language="javascript" type="text/javascript" src="js/metisMenu.min.js"></script>
+
+     <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme CSS -->
+    <link href="css/sb-admin-2.css" rel="stylesheet" type="text/css" /> 
     
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="css/gco.css" rel="stylesheet" type="text/css" />
-<link href="css/sb-admin-2.css" rel="stylesheet" type="text/css" />
-<link href="css/timeline.css" rel="stylesheet" type="text/css" />
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    
+    <!-- Custom CSS -->
+    <link href="css/gco.css" rel="stylesheet" type="text/css" />
 </head>
     
 <body onload=" javascript:Ajax('wallpapers/index', 'conteudo', '')">
