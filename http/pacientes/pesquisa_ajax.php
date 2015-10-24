@@ -50,9 +50,17 @@
         return(mysql_num_rows($query) > 0);
     }
 ?>
-  <table class="table table-striped table-hover">
+<table class="table table-hover">
+    <tr>
+        <th>
+            <?php echo $LANG['patients']['patient']?>
+        </th>
+        <th>
+            <?php echo $LANG['patients']['clinical_sheet']?>
+        </th>
+    </tr> 
 <?php
-    $_GET['pesquisa'] =  ( htmlspecialchars( ($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+    $_GET['pesquisa'] = utf8_decode ( htmlspecialchars( utf8_encode($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
 	$pacientes = new TPacientes();
 	if($_GET[campo] == 'nascimento') {
 
@@ -113,58 +121,72 @@
     }
 	$lista = $pacientes->ListPacientes($sql.' LIMIT '.$limit.', '.PG_MAX);
 	$total_regs = $pacientes->ListPacientes($sql);
-	
-	for($i = 0; $i < count($lista); $i++) ?>
-      
-    <tr>
-      <td width="63%"><?php echo ((encontra_valor('pacientes', 'codigo', $lista[$i]['codigo'], 'falecido') == 'Sim')?'<font color="#808080">':((em_debito($lista[$i][codigo]))?'<font color="red">':'')).$lista[$i][nome].' ('.encontra_valor('pacientes', 'codigo', $lista[$i]['codigo'], 'status').')'?></td>
-      <td width="20%"><?php echo ((encontra_valor('pacientes', 'codigo', $lista[$i]['codigo'], 'falecido') == 'Sim')?'<font color="#808080">':((em_debito($lista[$i][codigo]))?'<font color="red">':'')).$lista[$i][codigo]?></td>
-      <td width="8%" ><?php echo ((verifica_nivel('pacientes', 'V'))?'<a href="javascript:Ajax(\'pacientes/incluir\', \'conteudo\', \'codigo='.$lista[$i][codigo].'&acao=editar\')"><img src="imagens/icones/editar.png" alt="Editar" width="16" height="18" border="0"></a>':'')?></td>
-      <td width="9%" ><?php echo ((verifica_nivel('pacientes', 'A'))?'<a href="javascript:Ajax(\'pacientes/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
-    </tr>
-<?php	} ?>
-      
-  </table>
-  <br>
+	 
 
-
-  <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tr>
-      <td width="20%">
-      <?php echo $LANG['patients']['total_patients']?>: <b><?php echo count($total_regs)?></b>
-      </td>
-      <td width="40%" align="center">
-<?php
-	$pg_total = ceil(count($total_regs)/PG_MAX);
-	$i = $_GET[pg] - 5;
-	if($i <= 1) {
-		$i = 1;
-		$reti = '';
-	} else {
-		$reti = '...&nbsp;&nbsp;';
-	}
-	$j = $_GET[pg] + 5;
-	if($j >= $pg_total) {
-		$j = $pg_total;
-		$retf = '';
-	} else {
-		$retf = '...';
-	}
-	echo $reti;
-	while($i <= $j) {
-		if($i == $_GET[pg]) {
-			echo $i.'&nbsp;&nbsp;';
-		} else {
-			echo '<a href="javascript:;" onclick="javascript:Ajax(\'pacientes/pesquisa\', \'pesquisa\', \'pesquisa=\'%2BgetElementById(getElementById(\'id_procurar\').value).value%2B\'&campo=\'%2BgetElementById(\'campo\').options[getElementById(\'campo\').selectedIndex].value%2B\'&pg='.$i.'\')">'.$i.'</a>&nbsp;&nbsp;';
-		}
-		$i++;
-	}
-	echo $retf;
+     
+     
+	for($i = 0; $i < count($lista); $i++) {
+	 
 ?>
-      </td>
-      <td width="43%" align="right">
-        <img src="imagens/icones/imprimir.png" border="0" weight="29" height="33"> <a href="relatorios/pacientes.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><?php echo $LANG['patients']['print_report']?></a>
-        <img src="imagens/icones/etiquetas.png" border="0"> <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?><?php echo ($_GET['campo']=='nascimento' ? '&nasc=true' : '')?>" target="_blank"><?php echo $LANG['patients']['print_labels']?></a>
-      </td>
-    </tr>
+<tr onclick="Ajax('pacientes/incluir', 'conteudo', 'codigo=<?php echo $lista[$i][codigo] ?>&acao=editar')" class="<?php echo em_debito($lista[$i][codigo])?'danger ':'' ?>  <?php echo (encontra_valor('pacientes', 'codigo', $lista[$i]['codigo'], 'falecido') == 'Sim')?'warning ':'' ?>">
+<td>
+    <?php echo $lista[$i][nome]?></td>
+<td>
+    <?php echo $lista[$i][codigo].'  '.encontra_valor('pacientes', 'codigo', $lista[$i]['codigo'], 'status').''?></td>
+    
+    <?php // echo ((verifica_nivel('pacientes', 'A'))?'<a href="javascript:Ajax(\'pacientes/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
+
+<?php
+	}
+?>
+
+
   </table>
+ 
+
+
+<nav>
+  <ul class="pagination">
+   
+        
+        <?php
+            $pg_total = ceil(count($total_regs)/PG_MAX);
+            $i = $_GET[pg] - 5;
+            if($i <= 1) {
+                $i = 1;
+                $reti = '<li></li>';
+            } else {
+                $reti = '<li><a><span aria-hidden="true">...</span></a></li>';
+            }
+            $j = $_GET[pg] + 5;
+            if($j >= $pg_total) {
+                $j = $pg_total;
+                $retf = '';
+            } else {
+                $retf = '<li><a><span aria-hidden="true">...</span></a></li>';
+            }
+            echo $reti;
+      
+            while($i <= $j) {
+                if($i == $_GET[pg]) {
+                    echo '<li class="active"><a>'.$i.'</a></li>';
+                } else {
+                    echo '<li><a  onclick="javascript:Ajax(\'pacientes/pesquisa\', \'pesquisa\', \'pesquisa=\'%2BgetElementById(getElementById(\'id_procurar\').value).value%2B\'&campo=\'%2BgetElementById(\'campo\').options[getElementById(\'campo\').selectedIndex].value%2B\'&pg='.$i.'\')">'.$i.'</a></li>';
+                }
+                $i++;
+            }
+        ?> 
+  </ul>
+</nav>
+<div class="row">
+<div class="col-sm-4">
+ <?php echo $LANG['patients']['total_patients']?>: <b><?php echo count($total_regs)?></b>
+</div>
+<div class="col-sm-4">
+        <a href="relatorios/pacientes.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_report']?></a>
+</div>
+<div class="col-sm-4">
+        <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?><?php echo ($_GET['campo']=='nascimento' ? '&nasc=true' : '')?>" target="_blank"><span class="glyphicon glyphicon-tag"></span> <?php echo $LANG['patients']['print_labels']?></a>
+</div>
+</div>
+<br>

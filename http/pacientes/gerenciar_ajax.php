@@ -40,8 +40,7 @@
 	include "../lib/config.inc.php";
 	include "../lib/func.inc.php";
 	include "../lib/classes.inc.php";
-	require_once '../lang/'.$idioma.'.php';
-	header("Content-type: text/html; charset=UTF-8", true);
+	require_once '../lang/'.$idioma.'.php'; 
 	if(!checklog()) {
         echo '<script>Ajax("wallpapers/index", "conteudo", "");</script>';
         die();
@@ -135,29 +134,14 @@
 
         Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2B pesq %2B'&campo='%2Bdocument.getElementById('campo').options[document.getElementById('campo').selectedIndex].value)
     }
-</script>
+</script> 
 <div class="conteudo" id="conteudo_central">
+    <h1 class="page-header"> <?php echo $LANG['patients']['manage_patients']?> </h1>
     
-            <h1 class="page-header"> 
-            <?php echo $LANG['patients']['manage_patients']?>
-        </h1>
-
-        
-       
-       
-            
-            
-  <table width="98%" border="0" cellpadding="0" cellspacing="0" align="center">
-    <tr>
-        
-        
-      <td width="38%">&nbsp;&nbsp;&nbsp;<img src="pacientes/img/pacientes.png" alt="<?php echo $LANG['patients']['manage_patients']?>"> <span class="h3"><?php echo $LANG['patients']['manage_patients']?></span></td>
-      <td width="62%" valign="bottom">
-      	<table width="98%" border="0" cellpadding="0" cellspacing="0">
-      	  <tr>
-      	    <td width="40%">
-      	      <?php echo $LANG['patients']['search_for']?><br>
-      	      <select name="campo" id="campo" class="forms" onchange="esconde(this)">
+    <?php echo $LANG['patients']['search_for']?><br>
+    <div class="form-group form-inline">
+    <div class="form-group">      	      
+      	      <select name="campo" id="campo" class="form-control " onchange="esconde(this)">
       	        <option value="nome"><?php echo $LANG['patients']['name']?></option>
       	        <option value="nascimento"><?php echo $LANG['patients']['birthdays']?></option>
       	        <option value="matricula"><?php echo $LANG['patients']['clinical_sheet']?></option>
@@ -174,11 +158,10 @@
                 <option value="endereco"><?php echo $LANG['patients']['address1']?></option>
       	      </select>
       	      <input type="hidden" id="id_procurar" value="procurar">
-      	    </td>
-      	    <td width="60%">
-      	      <br>
-      	      <input name="procurar" id="procurar" type="text" class="forms" size="20" maxlength="40" onkeyup="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
-      	      <select name="procurar1" id="procurar1" style="display:none" class="forms" onchange="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.options[this.selectedIndex].value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
+    </div>
+    <div  class="form-group">
+      	      <input name="procurar" id="procurar" type="text" class="form-control " size="20" maxlength="40" onkeyup="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
+      	      <select name="procurar1" id="procurar1" style="display:none" class="form-control " onchange="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.options[this.selectedIndex].value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
                 <option value=""></option>
                 <option value="Ortodontia"><?php echo $LANG['patients']['orthodonty']?></option>
                 <option value="Implantodontia"><?php echo $LANG['patients']['implantodonty']?></option>
@@ -193,22 +176,22 @@
                 <option value="Odontogeriatria"><?php echo $LANG['patients']['odontogeriatry']?></option>
                 <option value="Ortopedia"><?php echo $LANG['patients']['orthopedy']?></option>
       	      </select>
-      	      <select name="procurar2" id="procurar2" style="display:none" class="forms" onchange="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.options[this.selectedIndex].value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
+      	      <select name="procurar2" id="procurar2" style="display:none" class="form-control " onchange="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.options[this.selectedIndex].value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
                 <option></option>
-<?php
-	$dentista = new TDentistas();
-	$lista = $dentista->ListDentistas();
-	for($i = 0; $i < count($lista); $i++) {
-		if($row[codigo_dentistaprocurado] == $lista[$i][codigo]) {
-			echo '<option value="'.$lista[$i][codigo].'" selected>'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
-		} else {
-			echo '<option value="'.$lista[$i][codigo].'">'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
-		}
-	}
-?>
+                    <?php
+                        $dentista = new TDentistas();
+                        $lista = $dentista->ListDentistas();
+                        for($i = 0; $i < count($lista); $i++) {
+                            if($row[codigo_dentistaprocurado] == $lista[$i][codigo]) {
+                                echo '<option value="'.$lista[$i][codigo].'" selected>'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
+                            } else {
+                                echo '<option value="'.$lista[$i][codigo].'">'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
+                            }
+                        }
+                    ?>  
 			  </select>
               <div id="procurar3" style="display:none">
-                  <select name="mes1" id="mes1" class="forms" onchange="javascript:niver()">
+                  <select name="mes1" id="mes1" class="form-control " onchange="javascript:niver()">
                       <option value=""></option>
                       <?php
                       for($i = 1; $i <= 12; $i++) {
@@ -219,43 +202,35 @@
                   <input name="dia1" id="dia1" disabled="disabled" type="text" class="forms" size="4" maxlength="2" onkeyup="javascript:niver()">
                   <br />
 
-                  <select name="mes2" id="mes2" disabled="disabled" class="forms" onchange="javascript:niver()" style="margin-top: 3px;">
+                  <select name="mes2" id="mes2" disabled="disabled" class="form-control " onchange="javascript:niver()" style="margin-top: 3px;">
                       <option value=""></option>
                       <?php
                       for($i = 1; $i <= 12; $i++) {
-                          echo '                <option value="'.str_pad($i, 2, '0', STR_PAD_LEFT).'">'.nome_mes($i).'</option>';
+                          echo '   <option value="'.str_pad($i, 2, '0', STR_PAD_LEFT).'">'.nome_mes($i).'</option>';
                       }
                       ?>
                   </select>
                   <input name="dia2" id="dia2" disabled="disabled" type="text" class="forms" size="4" maxlength="2" onkeyup="javascript:niver()">
               </div>
-      	      <input name="procurar4" id="procurar4" style="display:none" type="text" class="forms" size="20" maxlength="13" onkeypress="return Ajusta_Telefone(this, event);" onkeyup="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
-      	    </td>
-      	  </tr>
-      	</table>
-	  </td>
-    </tr>
-    <tr>
-      <td colspan="2" align="right" valign="bottom">
-        <?php echo ((verifica_nivel('pacientes', 'I'))?'<img src="imagens/icones/novo.png" alt="Incluir" width="19" height="22" border="0"><a href="javascript:Ajax(\'pacientes/incluir\', \'conteudo\', \'\')">'.$LANG['patients']['include_new_patient'].'</a>':'')?>
-      </td>
-    </tr>
-</table>
+      	      <input name="procurar4" id="procurar4" style="display:none" type="text" class="form-control " size="20" maxlength="13" onkeypress="return Ajusta_Telefone(this, event);" onkeyup="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
+        </div>
+    
+    <div  class="form-group">
+    <?php if (verifica_nivel('contatos', 'I')) { ?>
+             <a href="javascript:Ajax('pacientes/incluir', 'conteudo', '')">
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <?php echo $LANG['patients']['include_new_patient']; ?>
+            </button>
+                 </a>
+            <?php }?>
+    </div>
+    </div>
+</div>
+    
+
+
 <div class="conteudo" id="table dados"><br>
-  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela_titulo">
-    <tr>
-      <td bgcolor="#009BE6">&nbsp;</td>
-      <td bgcolor="#009BE6">&nbsp;</td>
-      <td bgcolor="#009BE6">&nbsp;</td>
-      <td bgcolor="#009BE6">&nbsp;</td>
-    </tr>
-    <tr>
-      <td width="63%" height="23" align="left"><?php echo $LANG['patients']['patient']?></td>
-      <td width="20%" align="left"><?php echo $LANG['patients']['clinical_sheet']?></td>
-      <td width="8%" align="center"><?php echo $LANG['patients']['edit_view']?></td>
-      <td width="9%" align="center"><?php echo $LANG['patients']['delete']?></td>
-    </tr>
-  </table>
+ 
   <div id="pesquisa"></div>
   <script>
   document.getElementById('procurar').focus();

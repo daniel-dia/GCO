@@ -53,25 +53,20 @@
         $disable = 'disabled';
 	}
 ?>
-<table width="620" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr style="background-image: url('pacientes/img/fundo_submenu_pacientes.jpg')">
-    <td align="center" width="20%"><a href="javascript:Ajax('pacientes/incluir','conteudo','codigo=<?php echo $_GET[codigo].$acao?>')"><span class="link_submenu_pacientes"><?php echo $LANG['patients']['clinical_sheet']?></span></a></td>
-    <td align="center" width="15%"><?php echo $odontograma.'<span class="link_submenu_pacientes">'.$LANG['patients']['odontogram']?></span></a></td>
-    <td align="center" width="15%"><?php echo $orcamento.'<span class="link_submenu_pacientes">'.$LANG['patients']['budget']?></span></a></td>
-    <td align="center" width="25%"><?php echo $objetivo.'<span class="link_submenu_pacientes">'.$LANG['patients']['objective_examination']?></span></a></td>
-    <td align="center" width="25%"><?php echo $evolucao.'<span class="link_submenu_pacientes">'.$LANG['patients']['treatment_evolution']?></span></a></td>
-  </tr>
-  <tr>
-    <td height="5"></td>
-  </tr>
-</table>
-<table width="620" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr style="background-image: url('pacientes/img/fundo_submenu_pacientes.jpg')">
-    <td align="center" width="20%"><?php echo $inquerito.'<span class="link_submenu_pacientes">'.$LANG['patients']['health_investigation']?></span></a></td>
-    <td align="center" width="15%"><?php echo $ortodontia.'<span class="link_submenu_pacientes">'.$LANG['patients']['orthodonty']?></span></a></td>
-    <td align="center" width="20%"><?php echo $implantodontia.'<span class="link_submenu_pacientes">'.$LANG['patients']['implantodonty']?></span></a></td>
-    <td align="center" width="15%"><?php echo $fotos.'<span class="link_submenu_pacientes">'.$LANG['patients']['photos']?></span></a></td>
-    <td align="center" width="15%"><?php echo $radio.'<span class="link_submenu_pacientes">'.$LANG['patients']['radiograph']?></span></a></td>
-    <td align="center" width="15%"><?php echo $outros.'<span class="link_submenu_pacientes">'.$LANG['patients']['others']?></span></a></td>
-  </tr>
-</table>
+
+ 
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="javascript:Ajax('pacientes/incluir','conteudo','codigo=<?php echo $_GET[codigo].$acao?>')"><span class="link_submenu_pacientes"><?php echo $LANG['patients']['clinical_sheet']?></span></a></li>
+        <li><?php echo $odontograma.'<span class="link_submenu_pacientes">'.$LANG['patients']['odontogram']?></span></a></li>
+        <li><?php echo $orcamento.'<span class="link_submenu_pacientes">'.$LANG['patients']['budget']?></span></a></li>
+        <li><?php echo $objetivo.'<span class="link_submenu_pacientes">'.$LANG['patients']['objective_examination']?></span></a></li>
+        <li><?php echo $evolucao.'<span class="link_submenu_pacientes">'.$LANG['patients']['treatment_evolution']?></span></a></li>
+        <li><?php echo $inquerito.'<span class="link_submenu_pacientes">'.$LANG['patients']['health_investigation']?></span></a></li>
+        <li><?php echo $ortodontia.'<span class="link_submenu_pacientes">'.$LANG['patients']['orthodonty']?></span></a></li>
+        <li><?php echo $implantodontia.'<span class="link_submenu_pacientes">'.$LANG['patients']['implantodonty']?></span></a></li>
+        <li><?php echo $fotos.'<span class="link_submenu_pacientes">'.$LANG['patients']['photos']?></span></a></li>
+        <li><?php echo $radio.'<span class="link_submenu_pacientes">'.$LANG['patients']['radiograph']?></span></a></li>
+        <li><?php echo $outros.'<span class="link_submenu_pacientes">'.$LANG['patients']['others']?></span></a></li>
+    </ul>
+
+  

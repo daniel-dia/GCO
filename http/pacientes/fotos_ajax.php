@@ -50,6 +50,8 @@
 	$acao = '&acao=editar';
 ?>
 <link href="../css/smile.css" rel="stylesheet" type="text/css" />
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
 <style type="text/css">
 <!--
 .style4 {color: #FFFFFF}
@@ -87,7 +89,7 @@
 		}
 ?>
               <td width="50%" align="center" valign="top">
-               <img src="pacientes/verfoto.php?codigo=<?php echo $row['codigo']?>" border="0"><BR>
+               <img class="img-circle" src="pacientes/verfoto.php?codigo=<?php echo $row['codigo']?>" border="0"><BR>
                <font size="1"><?php echo $row['legenda']?></font><br><br>
                <?php echo ((verifica_nivel('pacientes', 'E'))?'<a href="pacientes/excluirfotos_ajax.php?codigo='.$_GET[codigo].'&codigo_foto='.$row[codigo].'" onclick="return confirmLink(this)" target="iframe_upload">'.$LANG['patients']['delete_photo'].'</a>':'')?>
               </td>

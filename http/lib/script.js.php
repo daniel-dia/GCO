@@ -51,7 +51,7 @@ if (navigator.appName.indexOf('Microsoft') != -1) {
 }
 
 function extraiScript(texto) {
-	/**
+ 	/**
  	 * Função original de SkyWalker.TO do imasters/forum
  	 * Alterada por Micox - micoxjcg@yahoo.com.br
  	 * Alterada por Pita

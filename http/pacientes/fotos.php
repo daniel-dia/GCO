@@ -87,6 +87,9 @@
 <title>Gerenciador Clínico Odontológico Smile Odonto - Administração Odontológica Em Suas Mãos</title>
 <link href="../css/smile.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="../lib/script.js.php"></script>
+    
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body style="background-color: #F0F0F0"><center>
 <?php
@@ -94,9 +97,9 @@
     $query = mysql_query($sql) or die('Erro: '. mysql_error());
     $row = mysql_fetch_array($query);
 	if($row['foto'] != '') {
-		echo '<img src="verfoto_p.php?codigo='.$_GET['codigo'].'" border="0">';
+		echo '<img class="img-circle" src="verfoto_p.php?codigo='.$_GET['codigo'].'" border="0">';
 	} else {
-		echo '<img src="verfoto_p.php?codigo='.$_GET['codigo'].'&padrao=no_photo" border="0">';
+		echo '<img class="img-circle"  src="verfoto_p.php?codigo='.$_GET['codigo'].'&padrao=no_photo" border="0">';
 	}
 ?><br><br>
 <form action="fotos.php?codigo=<?php echo $_GET['codigo']?>" method="POST" enctype="multipart/form-data" target="_self">

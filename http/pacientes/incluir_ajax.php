@@ -40,8 +40,7 @@
 	include "../lib/config.inc.php";
 	include "../lib/func.inc.php";
 	include "../lib/classes.inc.php";
-	require_once '../lang/'.$idioma.'.php';
-	header("Content-type: text/html; charset=UTF-8", true);
+	require_once '../lang/'.$idioma.'.php'; 
 	if(!checklog()) {
 		die($frase_log);
 	}
@@ -176,182 +175,180 @@
 ?>
 <link href="../css/smile.css" rel="stylesheet" type="text/css" />
 
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="conteudo">
-    <tr>
-      <td width="100%">&nbsp;&nbsp;&nbsp;<img src="pacientes/img/pacientes.png" alt="<?php echo $LANG['patients']['manage_patients']?>"> <span class="h3"><?php echo $LANG['patients']['manage_patients']?> &nbsp;[<?php echo $strCase?>] </span></td>
-    </tr>
-  </table>
+   
+<h1 class="page-header"><?php echo $strCase?></h1> 
+ 
 <div class="conteudo" id="table dados">
-<br />
-<?php include('submenu.php')?>
-<br>
-  <table width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela_titulo">
-    
-    <tr>
-      <td height="26"><?php echo $strLoCase.' '.$LANG['patients']['patient']?> </td>
-    </tr>
-  </table>
-  <table width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela">
-    <tr>
-      <td width="602">
-      <form id="form2" name="form2" method="POST" action="pacientes/incluir_ajax.php<?php echo $frmActEdt?>" onsubmit="formSender(this, 'conteudo'); return false;"><fieldset>
-        <legend><?php echo $LANG['patients']['personal_information']?></legend>
-        <table width="570" border="0" cellpadding="0" cellspacing="0" class="texto">
-          <tr>
-            <td>&nbsp;</td>
-            <td colspan="2">&nbsp;</td>
-          </tr>
-          <tr>
-            <td><?php echo $r[1]?>* <?php echo $LANG['patients']['clinical_sheet']?><br />
-<?php
-	if($_GET[acao] == "editar") {
-?>
-              <input disabled value="<?php echo $row[codigo]?>" type="text" class="forms" id="codigo"<?php/* onblur="javascript:foto_frame.location.href='pacientes/fotos.php?codigo='%2Bthis.value"*/?> />
-              <input name="codigo" value="<?php echo $row[codigo]?>" type="hidden" class="forms" <?php echo $disable?> id="codigo"<?php/* onblur="javascript:foto_frame.location.href='pacientes/fotos.php?codigo='%2Bthis.value"*/?> />
-<?php
-    } else {
-?>
-              <input name="codigo" value="<?php echo $row[codigo]?>" type="text" class="forms" <?php echo $disable?> id="codigo"<?php/* onblur="javascript:foto_frame.location.href='pacientes/fotos.php?codigo='%2Bthis.value"*/?> />
-<?php
-    }
-?>
-            </td>
-            <td>&nbsp;</td>
-            <td width="150" rowspan="13" valign="top"><br />
-            <iframe height="300" scrolling="No" width="150" name="foto_frame" id="foto_frame" src="pacientes/fotos.php?codigo=<?php echo $row[codigo]?><?php echo (($_GET[acao] != "editar")?'&disabled=yes':'')?>" frameborder="0"></iframe>
-            </td>
-          </tr>
-          <tr>
-            <td width="290"><?php echo $r[2]?>* <?php echo $LANG['patients']['name']?><br />
-                <label>
-                  <input name="nom" value="<?php echo $row[nome]?>" type="text" class="forms" <?php echo $disable?> id="nom" size="50" maxlength="80" />
-                </label>
-                <br />
-            <label></label></td>
-            <td width="130"><?php echo $r[3]?><?php echo $LANG['patients']['document1']?><br />
-              <input name="cpf" value="<?php echo $row['cpf']?>" type="text" class="forms" <?php echo $disable?> id="cpf" maxlength="50" />
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['document2']?><br />
-              <input name="rg" value="<?php echo $row[rg]?>" type="text" class="forms" <?php echo $disable?> id="rg" /></td>
-            <td><?php echo $LANG['patients']['relationship_status']?><br /><select name="estadocivil" class="forms" <?php echo $disable?> id="estadocivil">
-<?php
-	$valores = array('solteiro' => $LANG['patients']['single'], 'casado' => $LANG['patients']['married'], 'divorciado' => $LANG['patients']['divorced'], 'viuvo' => $LANG['patients']['widowed']);
-	foreach($valores as $chave => $valor) {
-		if($row[estadocivil] == $chave) {
-			echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
-		} else {
-			echo '<option value="'.$chave.'">'.$valor.'</option>';
-		}
-	}
-?>       
-			 </select>            </td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['gender']?><br />
-                <select name="sexo" class="forms" <?php echo $disable?> id="sexo">
-<?php
-	$valores = array('Masculino' => $LANG['patients']['male'], 'Feminino' => $LANG['patients']['female']);
-	foreach($valores as $chave => $valor) {
-		if($row[sexo] == $chave) {
-			echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
-		} else {
-			echo '<option value="'.$chave.'">'.$valor.'</option>';
-		}
-	}
-?>       
-			 </select> </td>
-            <td><?php echo $LANG['patients']['ethnicity']?><br /><select name="etnia" class="forms" <?php echo $disable?> id="etnia">
-<?php
-	$valores = array('africano' => $LANG['patients']['african'], 'asiatico' => $LANG['patients']['asian'], 'caucasiano' => $LANG['patients']['caucasian'], 'latino' => $LANG['patients']['latin'], 'orientemedio' => $LANG['patients']['middle_eastern'], 'multietnico' => $LANG['patients']['multi_ethnic']);
-	foreach($valores as $chave => $valor) {
-		if($row[etnia] == $chave) {
-			echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
-		} else {
-			echo '<option value="'.$chave.'">'.$valor.'</option>';
-		}
-	}
-?>       
-			 </select>            </td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['profession']?><br />
-              <input name="profissao" value="<?php echo $row[profissao]?>" type="text" class="forms" <?php echo $disable?> id="profissao" /></td>
-            <td><?php echo $LANG['patients']['naturality']?><br />
-              <input name="naturalidade" value="<?php echo $row[naturalidade]?>" type="text" class="forms" <?php echo $disable?> id="naturalidade" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['nationality']?><br />
-              <input name="nacionalidade" value="<?php echo $row[nacionalidade]?>" type="text" class="forms" <?php echo $disable?> id="nacionalidade" /></td>
-            <td><?php echo $LANG['patients']['birthdate']?><br />
-              <input name="nascimento" value="<?php echo $row[nascimento]?>" type="text" class="forms" <?php echo $disable?> id="nascimento" maxlength="10" onKeypress="return Ajusta_Data(this, event);" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['address1']?><br />
-              <input name="endereco" value="<?php echo $row[endereco]?>" type="text" class="forms" <?php echo $disable?> id="endereco" size="50" maxlength="150" /></td>
-            <td><?php echo $LANG['patients']['address2']?><br />
-              <input name="bairro" value="<?php echo $row[bairro]?>" type="text" class="forms" <?php echo $disable?> id="bairro" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['city']?><br />
-                <input name="cidade" value="<?php echo $row[cidade]?>" <?php echo $disable?> type="text" class="forms" <?php echo $disable?> id="cidade" size="30" maxlength="50" />
-              <br /></td>
-            <td><?php echo $LANG['patients']['state']?><br />
-                <input name="estado" value="<?php echo $row[estado]?>" <?php echo $disable?> type="text" class="forms" <?php echo $disable?> id="estado" maxlength="50" />
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['country']?><br />
-                <input name="pais" value="<?php echo $row[pais]?>" <?php echo $disable?> type="text" class="forms" <?php echo $disable?> id="pais" size="30" maxlength="50" />
-              <br /></td>
-            <td><?php echo $LANG['patients']['dead']?><br /><select name="falecido" class="forms" <?php echo $disable?> id="falecido">
-<?php
-	$valores = array('Não' => $LANG['patients']['no'], 'Sim' => $LANG['patients']['yes']);
-	foreach($valores as $chave => $valor) {
-		if($row[falecido] == $chave) {
-			echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
-		} else {
-			echo '<option value="'.$chave.'">'.$valor.'</option>';
-		}
-	}
-?>
-			 </select>            </td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['zip']?><br />
-              <input name="cep" value="<?php echo $row[cep]?>" type="text" class="forms" <?php echo $disable?> id="cep" size="10" maxlength="9" onKeypress="return Ajusta_CEP(this, event);" /></td>
-            <td><?php echo $LANG['patients']['cellphone']?><br />
-              <input name="celular" value="<?php echo $row[celular]?>" type="text" class="forms" <?php echo $disable?> id="celular" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['residential_phone']?><br />
-              <input name="telefone1" value="<?php echo $row[telefone1]?>" type="text" class="forms" <?php echo $disable?> id="telefone1" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
-            <td><?php echo $LANG['patients']['comercial_phone']?><br />
-              <input name="telefone2" value="<?php echo $row[telefone2]?>" type="text" class="forms" <?php echo $disable?> id="telefone2" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['hobby']?><br />
-              <input name="hobby" value="<?php echo $row[hobby]?>" type="text" class="forms" <?php echo $disable?> id="hobby" size="50" /></td>
-            <td><?php echo $LANG['patients']['indicated_by']?><br />
-              <input name="indicadopor" value="<?php echo $row[indicadopor]?>" type="text" class="forms" <?php echo $disable?> id="indicacao" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['email']?><br />
-              <input name="email" value="<?php echo $row[email]?>" type="text" class="forms" <?php echo $disable?> id="email" size="50" /></td>
-            <td><?php echo $LANG['patients']['comments_for_label']?> <br />
-              <input name="obs_etiqueta" value="<?php echo $row[obs_etiqueta]?>" type="text" class="forms" <?php echo $disable?> id="obs_etiqueta" /></td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-        </table>
-        </fieldset>
-        <br /> <fieldset>
-        <legend><span class="style1"><?php echo $LANG['patients']['treatments_to_do']?></span></legend>
-
-        <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
+    <div  style="float:left">
+    <?php include('submenu.php')?>
+    </div>
+        <div  style="float:left">
+ <!-- ------------------------------------------------------------------------------------------------------------------------------------>       
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?php echo $LANG['patients']['personal_information']?></h3>
+                </div>
+                <div class="panel-body">
+                    <table width="570" border="0" cellpadding="0" cellspacing="0" class="texto">
+                                  <tr>
+                                    <td>&nbsp;</td>
+                                    <td colspan="2">&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $r[1]?>* <?php echo $LANG['patients']['clinical_sheet']?><br />
+                        <?php
+                            if($_GET[acao] == "editar") {
+                        ?>
+                                      <input disabled value="<?php echo $row[codigo]?>" type="text" class="forms" id="codigo"<?php/* onblur="javascript:foto_frame.location.href='pacientes/fotos.php?codigo='%2Bthis.value"*/?> />
+                                      <input name="codigo" value="<?php echo $row[codigo]?>" type="hidden" class="forms" <?php echo $disable?> id="codigo"<?php/* onblur="javascript:foto_frame.location.href='pacientes/fotos.php?codigo='%2Bthis.value"*/?> />
+                        <?php
+                            } else {
+                        ?>
+                                      <input name="codigo" value="<?php echo $row[codigo]?>" type="text" class="forms" <?php echo $disable?> id="codigo"<?php/* onblur="javascript:foto_frame.location.href='pacientes/fotos.php?codigo='%2Bthis.value"*/?> />
+                        <?php
+                            }
+                        ?>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                    <td width="150" rowspan="13" valign="top"><br />
+                                    <iframe height="300" scrolling="No" width="150" name="foto_frame" id="foto_frame" src="pacientes/fotos.php?codigo=<?php echo $row[codigo]?><?php echo (($_GET[acao] != "editar")?'&disabled=yes':'')?> frameborder="0"></iframe>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td width="290"><?php echo $r[2]?>* <?php echo $LANG['patients']['name']?><br />
+                                        <label>
+                                          <input name="nom" value="<?php echo $row[nome]?>" type="text" class="forms" <?php echo $disable?> id="nom" size="50" maxlength="80" />
+                                        </label>
+                                        <br />
+                                    <label></label></td>
+                                    <td width="130"><?php echo $r[3]?><?php echo $LANG['patients']['document1']?><br />
+                                      <input name="cpf" value="<?php echo $row['cpf']?>" type="text" class="forms" <?php echo $disable?> id="cpf" maxlength="50" />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['document2']?><br />
+                                      <input name="rg" value="<?php echo $row[rg]?>" type="text" class="forms" <?php echo $disable?> id="rg" /></td>
+                                    <td><?php echo $LANG['patients']['relationship_status']?><br /><select name="estadocivil" class="forms" <?php echo $disable?> id="estadocivil">
+                        <?php
+                            $valores = array('solteiro' => $LANG['patients']['single'], 'casado' => $LANG['patients']['married'], 'divorciado' => $LANG['patients']['divorced'], 'viuvo' => $LANG['patients']['widowed']);
+                            foreach($valores as $chave => $valor) {
+                                if($row[estadocivil] == $chave) {
+                                    echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
+                                } else {
+                                    echo '<option value="'.$chave.'">'.$valor.'</option>';
+                                }
+                            }
+                        ?>       
+                                     </select>            </td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['gender']?><br />
+                                        <select name="sexo" class="forms" <?php echo $disable?> id="sexo">
+                        <?php
+                            $valores = array('Masculino' => $LANG['patients']['male'], 'Feminino' => $LANG['patients']['female']);
+                            foreach($valores as $chave => $valor) {
+                                if($row[sexo] == $chave) {
+                                    echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
+                                } else {
+                                    echo '<option value="'.$chave.'">'.$valor.'</option>';
+                                }
+                            }
+                        ?>       
+                                     </select> </td>
+                                    <td><?php echo $LANG['patients']['ethnicity']?><br /><select name="etnia" class="forms" <?php echo $disable?> id="etnia">
+                        <?php
+                            $valores = array('africano' => $LANG['patients']['african'], 'asiatico' => $LANG['patients']['asian'], 'caucasiano' => $LANG['patients']['caucasian'], 'latino' => $LANG['patients']['latin'], 'orientemedio' => $LANG['patients']['middle_eastern'], 'multietnico' => $LANG['patients']['multi_ethnic']);
+                            foreach($valores as $chave => $valor) {
+                                if($row[etnia] == $chave) {
+                                    echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
+                                } else {
+                                    echo '<option value="'.$chave.'">'.$valor.'</option>';
+                                }
+                            }
+                        ?>       
+                                     </select>            </td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['profession']?><br />
+                                      <input name="profissao" value="<?php echo $row[profissao]?>" type="text" class="forms" <?php echo $disable?> id="profissao" /></td>
+                                    <td><?php echo $LANG['patients']['naturality']?><br />
+                                      <input name="naturalidade" value="<?php echo $row[naturalidade]?>" type="text" class="forms" <?php echo $disable?> id="naturalidade" /></td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['nationality']?><br />
+                                      <input name="nacionalidade" value="<?php echo $row[nacionalidade]?>" type="text" class="forms" <?php echo $disable?> id="nacionalidade" /></td>
+                                    <td><?php echo $LANG['patients']['birthdate']?><br />
+                                      <input name="nascimento" value="<?php echo $row[nascimento]?>" type="text" class="forms" <?php echo $disable?> id="nascimento" maxlength="10" onKeypress="return Ajusta_Data(this, event);" /></td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['address1']?><br />
+                                      <input name="endereco" value="<?php echo $row[endereco]?>" type="text" class="forms" <?php echo $disable?> id="endereco" size="50" maxlength="150" /></td>
+                                    <td><?php echo $LANG['patients']['address2']?><br />
+                                      <input name="bairro" value="<?php echo $row[bairro]?>" type="text" class="forms" <?php echo $disable?> id="bairro" /></td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['city']?><br />
+                                        <input name="cidade" value="<?php echo $row[cidade]?>" <?php echo $disable?> type="text" class="forms" <?php echo $disable?> id="cidade" size="30" maxlength="50" />
+                                      <br /></td>
+                                    <td><?php echo $LANG['patients']['state']?><br />
+                                        <input name="estado" value="<?php echo $row[estado]?>" <?php echo $disable?> type="text" class="forms" <?php echo $disable?> id="estado" maxlength="50" />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['country']?><br />
+                                        <input name="pais" value="<?php echo $row[pais]?>" <?php echo $disable?> type="text" class="forms" <?php echo $disable?> id="pais" size="30" maxlength="50" />
+                                      <br /></td>
+                                    <td><?php echo $LANG['patients']['dead']?><br /><select name="falecido" class="forms" <?php echo $disable?> id="falecido">
+                        <?php
+                            $valores = array('Não' => $LANG['patients']['no'], 'Sim' => $LANG['patients']['yes']);
+                            foreach($valores as $chave => $valor) {
+                                if($row[falecido] == $chave) {
+                                    echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
+                                } else {
+                                    echo '<option value="'.$chave.'">'.$valor.'</option>';
+                                }
+                            }
+                        ?>
+                                     </select>            </td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['zip']?><br />
+                                      <input name="cep" value="<?php echo $row[cep]?>" type="text" class="forms" <?php echo $disable?> id="cep" size="10" maxlength="9" onKeypress="return Ajusta_CEP(this, event);" /></td>
+                                    <td><?php echo $LANG['patients']['cellphone']?><br />
+                                      <input name="celular" value="<?php echo $row[celular]?>" type="text" class="forms" <?php echo $disable?> id="celular" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['residential_phone']?><br />
+                                      <input name="telefone1" value="<?php echo $row[telefone1]?>" type="text" class="forms" <?php echo $disable?> id="telefone1" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
+                                    <td><?php echo $LANG['patients']['comercial_phone']?><br />
+                                      <input name="telefone2" value="<?php echo $row[telefone2]?>" type="text" class="forms" <?php echo $disable?> id="telefone2" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['hobby']?><br />
+                                      <input name="hobby" value="<?php echo $row[hobby]?>" type="text" class="forms" <?php echo $disable?> id="hobby" size="50" /></td>
+                                    <td><?php echo $LANG['patients']['indicated_by']?><br />
+                                      <input name="indicadopor" value="<?php echo $row[indicadopor]?>" type="text" class="forms" <?php echo $disable?> id="indicacao" /></td>
+                                  </tr>
+                                  <tr>
+                                    <td><?php echo $LANG['patients']['email']?><br />
+                                      <input name="email" value="<?php echo $row[email]?>" type="text" class="forms" <?php echo $disable?> id="email" size="50" /></td>
+                                    <td><?php echo $LANG['patients']['comments_for_label']?> <br />
+                                      <input name="obs_etiqueta" value="<?php echo $row[obs_etiqueta]?>" type="text" class="forms" <?php echo $disable?> id="obs_etiqueta" /></td>
+                                  </tr>
+                                  <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                  </tr>
+                                </table>
+                </div>
+            </div>
+ <!-- ------------------------------------------------------------------------------------------------------------------------------------>   
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?php echo $LANG['patients']['treatments_to_do']?></h3>
+                </div>
+                <div class="panel-body">
+                    <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
           <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -383,12 +380,15 @@
             <td>&nbsp;</td>
           </tr>
         </table>
-        </fieldset>
-         <br />
-        <fieldset>
-        <legend><span class="style1"><?php echo $LANG['patients']['professional_informations']?></span></legend>
-
-        <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
+                </div>
+            </div>
+ <!-- ------------------------------------------------------------------------------------------------------------------------------------>   
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?php echo $LANG['patients']['professional_informations']?></h3>
+                </div>
+                <div class="panel-body">
+                       <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
           <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -454,12 +454,15 @@
             <td colspan="2"><br /></td>
           </tr>
         </table>
-        </fieldset>
-         <br />
-        <fieldset>
-        <legend><span class="style1"><?php echo $LANG['patients']['familiar_information']?></span></legend>
-
-        <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
+                </div>
+            </div>
+ <!-- ------------------------------------------------------------------------------------------------------------------------------------>   
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?php echo $LANG['patients']['familiar_information']?></h3>
+                </div>
+                <div class="panel-body">
+                          <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
           <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -497,12 +500,16 @@
                 <input name="enderecofamiliar" value="<?php echo $row[enderecofamiliar]?>" type="text" class="forms" <?php echo $disable?> id="endereco_familiar" size="78" maxlength="220" />                <br /></td>
           </tr>
         </table>
-        </fieldset>
-        <br />
-        <fieldset>
-        <legend><span class="style1"><?php echo $LANG['patients']['extra_information']?> </span></legend>
 
-        <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
+                </div>
+            </div>
+ <!-- ------------------------------------------------------------------------------------------------------------------------------------>       
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?php echo $LANG['patients']['extra_information']?></h3>
+                </div>
+                <div class="panel-body">
+                           <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
           <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -569,12 +576,16 @@
             <td>&nbsp;</td>
           </tr>
         </table>
-        </fieldset>
-
-         <fieldset>
-        <legend><span class="style1"><?php echo $LANG['patients']['plan_information']?></span></legend>
-
-        <table width="519" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
+ 
+                </div>
+            </div>
+ <!-- ------------------------------------------------------------------------------------------------------------------------------------>   
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?php echo $LANG['patients']['plan_information']?></h3>
+                </div>
+                <div class="panel-body">
+                     <table width="519" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
           <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -617,9 +628,14 @@
             <td>&nbsp;</td>
           </tr>
         </table>
-        </fieldset>	
-	
-        <div align="center"><br />
+   
+                </div>
+            </div>
+ <!-- ------------------------------------------------------------------------------------------------------------------------------------>
+ 
+    </div>
+         <br style="clear:both" />
+        <div align="center">
           <input name="Salvar" type="submit" class="forms" <?php echo $disable?> id="Salvar" value="<?php echo $LANG['patients']['save']?>" />
         </div>
       </form>      </td>
