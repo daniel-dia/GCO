@@ -55,13 +55,11 @@
     }
   }
 </script>
-  <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
-	<tr bgcolor="#F0F0F0" onmouseout="style.background='#F0F0F0'" onmouseover="style.background='#DDE1E6'">
+
 <?php
 	if(is_date(converte_data($_GET[pesquisa], 1)) && $_GET[codigo_dentista] != "") {
 		$agenda = new TAgendas();
-		$par = "F0F0F0";
-		$impar = "F8F8F8";
+	
 		for($i = 7; $i <= 22; $i++) {
 			if(strlen($i) < 2) {
 				$horas[] = "0".$i.":";
@@ -82,14 +80,10 @@
 
         $j = 0;
 		for($i = 0; $i < count($horario); $i++) {
-			if($j % 2 == 0) {
-				$odev = $par;
-			} else {
-				$odev = $impar;
-			}
+			 
 			if($i % 2 == 0) {
 				if($i !== 0) {
-					echo '</tr> <tr bgcolor="#'.$odev.'" onmouseout="style.background=\'#'.$odev.'\'" onmouseover="style.background=\'#DDE1E6\'">';
+					//echo '</tr><tr>';
 				}
 				$j++;
 				$style = 'style="border-right: 1px; border-right-color=: #CCCCCC; border-right-style: solid"';
@@ -125,15 +119,23 @@
             }
 
 ?>
-      <td width="7%" align="center" height="23">&nbsp;<?php echo $horario[$i]?></td>
-      <td width="24%" align="left">
-        <input type="text" size="30" maxlength="90" name="descricao" onkeyup="searchSuggest(this, 'codigo_pac<?php echo $i?>', 'search<?php echo $i?>');" id="descricao<?php echo $i?>" value="<?php echo $agenda->RetornaDados('descricao')?>" <?php echo $disable?> onblur="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&descricao='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>&codigo_paciente='%2Bdocument.getElementById('codigo_pac<?php echo $i?>').value);"
-        onfocus="esconde_itens('searches')" onkeypress="document.getElementById('codigo_pac<?php echo $i?>').value=''" class="forms" autocomplete="off"><BR>
-        <input type="hidden" id="codigo_pac<?php echo $i?>" value="<?php echo $agenda->RetornaDados('codigo_paciente')?>">
-        <div id='search<?php echo $i?>' style="position: absolute"></div>
-      </td>
-      <td width="13%" align="left"><input type="text" size="13" maxlength="15" name="procedimento" id="procedimento" value="<?php echo $agenda->RetornaDados('procedimento')?>" <?php echo $disable?> onblur="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&procedimento='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>')" class="forms" onfocus="esconde_itens('searches')"></td>
-      <td width="6%" align="left" <?php echo $style?>><input type="checkbox" name="faltou" id="faltou" value="<?php echo $val_chk?>" <?php echo $disable.' '.$chk?> onclick="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&faltou='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>'); muda_valor(this);" onfocus="esconde_itens('searches')"></td>
+    <div class="agendarow col-xs-12 col-sm-6">
+        <div class="col-xs-2">
+            <?php echo $horario[$i]?>
+        </div>
+        <div class="col-xs-6">
+            <input type="text" size="30" maxlength="90" name="descricao" onkeyup="searchSuggest(this, 'codigo_pac<?php echo $i?>', 'search<?php echo $i?>');" id="descricao<?php echo $i?>" value="<?php echo $agenda->RetornaDados('descricao')?>" <?php echo $disable?> onblur="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&descricao='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>&codigo_paciente='%2Bdocument.getElementById('codigo_pac<?php echo $i?>').value);"        onfocus="esconde_itens('searches')" onkeypress="document.getElementById('codigo_pac<?php echo $i?>').value=''" class="form-control" autocomplete="off"> 
+            <input type="hidden" id="codigo_pac<?php echo $i?>" value="<?php echo $agenda->RetornaDados('codigo_paciente')?>">
+            <div id='search<?php echo $i?>' style="position: absolute"></div>
+        </div>
+        <div class="col-xs-3">
+            <input type="text" size="13" maxlength="15" name="procedimento" id="procedimento" value="<?php echo $agenda->RetornaDados('procedimento')?>" <?php echo $disable?> onblur="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&procedimento='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>')" class="form-control" onfocus="esconde_itens('searches')">
+        </div>
+        <div class="col-xs-1">
+            <input style="margin:10px!important;" type="checkbox" name="faltou" id="faltou" value="<?php echo $val_chk?>" <?php echo $disable.' '.$chk?> onclick="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&faltou='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>'); muda_valor(this);" onfocus="esconde_itens('searches')"  >
+        </div>
+    </div>
+
 <?php
 		}
     $sql = "SELECT `data`, `obs` FROM agenda_obs WHERE data = '".converte_data($_GET['pesquisa'], 1)."' AND codigo_dentista = '".$_GET['codigo_dentista']."'";
@@ -146,8 +148,7 @@
         $row = mysql_fetch_array($query);
     }
 ?>
-	</tr>
-  </table>
+	 
   <BR>
   <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr style="background: #F8F8F8">
