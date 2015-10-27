@@ -55,26 +55,15 @@
 .style4 {color: #FFFFFF}
 -->
 </style>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="conteudo">
-    <tr>
-      <td width="100%">&nbsp;&nbsp;&nbsp;<img src="pacientes/img/pacientes.png" alt="<?php echo $LANG['patients']['manage_patients']?>"> <span class="h3"><?php echo $LANG['patients']['manage_patients']?> [<?php echo $strLoCase?>] </span></td>
-    </tr>
-  </table>
+ 
 <div class="conteudo" id="table dados">
-<br />
-<?phpinclude('submenu.php')?>
-<br>
-  <table width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela_titulo">
-    
-    <tr>
-      <td height="26">&nbsp;<?php echo $LANG['patients']['radiograph']?></td>
-    </tr>
-  </table>
+ 
+<h3><?php echo $LANG['patients']['radiograph']?></h3>
   <table width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela">
     <tr>
       <td>
         <br />
-        <div align="center"><select name="modelo" class="forms" onchange="Ajax('pacientes/radio', 'conteudo', 'codigo=<?php echo $_GET['codigo']?>&acao=editar&modelo='%2Bthis.value)">
+        <div align="center"><select name="modelo" class="forms" onchange="Ajax('pacientes/radio', 'conteudoPaciente', 'codigo=<?php echo $_GET['codigo']?>&acao=editar&modelo='%2Bthis.value)">
 <?php
     $_GET['modelo'] = (($_GET['modelo'] != '')?$_GET['modelo']:'Panoramica');
     $valores = array('Panoramica' => $LANG['patients']['panoramic'], 'Oclusal' => $LANG['patients']['occlusal'], 'Periapical' => $LANG['patients']['periapical'], 'Interproximal' => $LANG['patients']['interproximal'], 'ATM' => $LANG['patients']['atm'], 'PA' => $LANG['patients']['posteroanterior'], 'AP' => $LANG['patients']['anteroposterior'], 'Lateral' => $LANG['patients']['lateral']);

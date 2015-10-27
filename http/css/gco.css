@@ -20,3 +20,15 @@ h1 img{
 }
 
 img.submenu-img{display: none}
+
+img.photo{
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 100px;
+  width: 100px;
+
+}
+
+.row.multiline div{
+    margin-bottom: 10px;
+}

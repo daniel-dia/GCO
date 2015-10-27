@@ -42,12 +42,22 @@
     if(!$install) {
         header('Location: ./configurador.php');
     } else {
-        //@unlink('./configurador.php');
+        
     }
+    
+
 	include "lib/func.inc.php";
 	include "lib/classes.inc.php";
 	require_once 'lang/'.$idioma.'.php';
 	header("Content-type: text/html; charset=utf-8", true);
+
+?>
+    <?php
+    if(checklog()!=1){
+         $redirect = "login.php";
+         header("location:$redirect");
+         die();
+    }
 ?>
 
 <html>
@@ -80,8 +90,8 @@
     <link href="css/gco.css" rel="stylesheet" type="text/css" />
 </head>
     
-<body onload=" javascript:Ajax('wallpapers/index', 'conteudo', '')">
-<input type="hidden" id="ScriptID" value="0" />
+<body>
+    <input type="hidden" id="ScriptID" value="0" />
     
     <div id="wrapper">
         

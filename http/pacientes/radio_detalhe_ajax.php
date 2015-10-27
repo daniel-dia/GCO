@@ -61,9 +61,7 @@
     </tr>
   </table>
 <div class="conteudo" id="table dados">
-<br />
-<?phpinclude('submenu.php')?>
-<br>
+
   <table width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela_titulo">
     
     <tr>

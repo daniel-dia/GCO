@@ -38,23 +38,23 @@
     *
     */
 	if($_GET[acao] == 'editar') {
-		$odontograma = "<a href=\"javascript:Ajax('pacientes/odontograma','conteudo','codigo=".$_GET[codigo].$acao."')\">";
-		$orcamento = "<a href=\"javascript:Ajax('pacientes/orcamento','conteudo','codigo=".$_GET[codigo].$acao."')\">";
-		$objetivo = "<a href=\"javascript:Ajax('pacientes/objetivo','conteudo','codigo=".$_GET[codigo].$acao."')\">";
-		$evolucao = "<a href=\"javascript:Ajax('pacientes/evolucao','conteudo','codigo=".$_GET[codigo].$acao."')\">";
-		$inquerito = "<a href=\"javascript:Ajax('pacientes/inquerito','conteudo','codigo=".$_GET[codigo].$acao."')\">";
-		$ortodontia = "<a href=\"javascript:Ajax('pacientes/ortodontia','conteudo','codigo=".$_GET[codigo].$acao."')\">";
-		$implantodontia = "<a href=\"javascript:Ajax('pacientes/implantodontia','conteudo','codigo=".$_GET[codigo].$acao."')\">";
-		$fotos = "<a href=\"javascript:Ajax('pacientes/fotos','conteudo','codigo=".$_GET[codigo].$acao."')\">";
-		$outros = "<a href=\"javascript:Ajax('pacientes/outros','conteudo','codigo=".$_GET[codigo].$acao."')\">";
-		$radio = "<a href=\"javascript:Ajax('pacientes/radio','conteudo','codigo=".$_GET[codigo].$acao."')\">";
+		$odontograma = "<a href=\"javascript:Ajax('pacientes/odontograma','pacientesConteudo','codigo=".$_GET[codigo].$acao."')\">";
+		$orcamento = "<a href=\"javascript:Ajax('pacientes/orcamento','pacientesConteudo','codigo=".$_GET[codigo].$acao."')\">";
+		$objetivo = "<a href=\"javascript:Ajax('pacientes/objetivo','pacientesConteudo','codigo=".$_GET[codigo].$acao."')\">";
+		$evolucao = "<a href=\"javascript:Ajax('pacientes/evolucao','pacientesConteudo','codigo=".$_GET[codigo].$acao."')\">";
+		$inquerito = "<a href=\"javascript:Ajax('pacientes/inquerito','pacientesConteudo','codigo=".$_GET[codigo].$acao."')\">";
+		$ortodontia = "<a href=\"javascript:Ajax('pacientes/ortodontia','pacientesConteudo','codigo=".$_GET[codigo].$acao."')\">";
+		$implantodontia = "<a href=\"javascript:Ajax('pacientes/implantodontia','pacientesConteudo','codigo=".$_GET[codigo].$acao."')\">";
+		$fotos = "<a href=\"javascript:Ajax('pacientes/fotos','pacientesConteudo','codigo=".$_GET[codigo].$acao."')\">";
+		$outros = "<a href=\"javascript:Ajax('pacientes/outros','pacientesConteudo','codigo=".$_GET[codigo].$acao."')\">";
+		$radio = "<a href=\"javascript:Ajax('pacientes/radio','pacientesConteudo','codigo=".$_GET[codigo].$acao."')\">";
 	}
 	if(($_GET['codigo'] != '' && !verifica_nivel('pacientes', 'E')) || ($_GET['codigo'] == '' && !verifica_nivel('pacientes', 'I'))) {
         $disable = 'disabled';
 	}
 ?>
 
- 
+ <div  style="float:left">
     <ul class="nav nav-pills nav-stacked">
         <li><a href="javascript:Ajax('pacientes/incluir','conteudo','codigo=<?php echo $_GET[codigo].$acao?>')"><span class="link_submenu_pacientes"><?php echo $LANG['patients']['clinical_sheet']?></span></a></li>
         <li><?php echo $odontograma.'<span class="link_submenu_pacientes">'.$LANG['patients']['odontogram']?></span></a></li>
@@ -68,5 +68,5 @@
         <li><?php echo $radio.'<span class="link_submenu_pacientes">'.$LANG['patients']['radiograph']?></span></a></li>
         <li><?php echo $outros.'<span class="link_submenu_pacientes">'.$LANG['patients']['others']?></span></a></li>
     </ul>
-
+</div>
   

@@ -63,20 +63,8 @@
 	}
 ?>
 <link href="../css/smile.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-<!--
-.style4 {color: #FFFFFF}
--->
-</style>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="conteudo">
-    <tr>
-      <td width="100%">&nbsp;&nbsp;&nbsp;<img src="pacientes/img/pacientes.png" alt="<?php echo $LANG['patients']['manage_patients']?>"> <span class="h3"><?php echo $LANG['patients']['manage_patients']?> &nbsp;[<?php echo $strLoCase?>] </span></td>
-    </tr>
-  </table>
+ 
 <div class="conteudo" id="table dados">
-<br />
-<?php include('submenu.php')?>
-<br>
   <table width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela_titulo">
     
     <tr>

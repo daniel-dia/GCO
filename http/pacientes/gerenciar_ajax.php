@@ -106,7 +106,6 @@
             document.getElementById('id_procurar').value = 'procurar';
         }
     }
-
     function niver() {
 
         var pesq = '';
@@ -135,7 +134,7 @@
         Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2B pesq %2B'&campo='%2Bdocument.getElementById('campo').options[document.getElementById('campo').selectedIndex].value)
     }
 </script> 
-<div class="conteudo" id="conteudo_central">
+    <div class="conteudo" id="conteudo_central">
     <h1 class="page-header"> <?php echo $LANG['patients']['manage_patients']?> </h1>
     
     <?php echo $LANG['patients']['search_for']?><br>
@@ -226,10 +225,7 @@
     </div>
     </div>
 </div>
-    
-
-
-<div class="conteudo" id="table dados"><br>
+    <div class="conteudo" id="table dados"><br>
  
   <div id="pesquisa"></div>
   <script>

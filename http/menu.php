@@ -108,7 +108,7 @@
                 </ul>
             </li> 
             <li>
-                <a href="javascript:Ajax('wallpapers/sair', 'conteudo', '')"><span class="glyphicon glyphicon-log-out"></span> <?php echo $LANG['menu']['logout']?></a>
+                <a href="sair.php"><span class="glyphicon glyphicon-log-out"></span> <?php echo $LANG['menu']['logout']?></a>
             </li>
             <li>
                 <div id="saudacao"></div>
