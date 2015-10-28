@@ -34,13 +34,17 @@ require_once 'lang/'.$idioma.'.php';
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
+				
                  <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
+					
+                    <div class="panel-heading" style="text-align:center">
+						<img src="imagens/Tooth.png" />
                         <h3 class="panel-title"><?php echo $LANG['wallpaper']['access_login']?></h3>
                     </div>
                      
                     <div class="panel-body">
-                        <form   id="form2" role="form"  name="form2" method="POST" action="login.php<?php echo $frmActEdt?>" onsubmit="formSender(this, 'conteudo'); return false;">
+				
+                        <form id="form2" role="form"  name="form2" method="POST" action="login.php<?php echo $frmActEdt?>" onsubmit="formSender(this, 'conteudo'); return false;">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="<?php echo $LANG['wallpaper']['login']?>" name="usuario" id="usuario"  autofocus>
@@ -54,7 +58,7 @@ require_once 'lang/'.$idioma.'.php';
                                     </label>
                                 </div>
                                  Change this to a button or input when using this as a form -->
-                                <input name="login" class="btn btn-lg btn-success btn-block" type="submit" class="forms" id="login" value="<?php echo $LANG['wallpaper']['btn_login']?>" />
+                                <input name="login" class="btn btn-lg btn-primary btn-block" type="submit" class="forms" id="login" value="<?php echo $LANG['wallpaper']['btn_login']?>" />
                             </fieldset>
                         </form>
                     </div>

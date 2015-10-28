@@ -45,11 +45,14 @@
 	if(!checklog()) {
 		die($frase_log);
 	}
+	
     function em_debito($codigo) {
-        $query = mysql_query("SELECT DISTINCT(vo.codigo_paciente), tp.* FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' AND tp.codigo = ".$codigo." ORDER BY `nome` ASC");
-        return(mysql_num_rows($query) > 0);
+		$sql = "SELECT DISTINCT(vo.codigo_paciente), tp.* FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' AND tp.codigo = ".$codigo." ORDER BY `nome` ASC";
+		$query = mysql_query($sql);
+		return(mysql_num_rows($query) > 0);
     }
 ?>
+
 <table class="table table-hover">
     <tr>
         <th>
@@ -60,7 +63,8 @@
         </th>
     </tr> 
 <?php
-    $_GET['pesquisa'] = utf8_decode ( htmlspecialchars( utf8_encode($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+    
+	$_GET['pesquisa'] = utf8_decode ( htmlspecialchars( utf8_encode($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
 	$pacientes = new TPacientes();
 	if($_GET[campo] == 'nascimento') {
 
@@ -119,10 +123,10 @@
     if($_GET['campo'] == 'agendados') {
         $sql = "SELECT DISTINCT ta.codigo_paciente, tp.* FROM agenda ta INNER JOIN pacientes tp ON ta.codigo_paciente = tp.codigo WHERE ta.data = CURDATE()";
     }
-	$lista = $pacientes->ListPacientes($sql.' LIMIT '.$limit.', '.PG_MAX);
+	$lista 		= $pacientes->ListPacientes($sql.' LIMIT '.$limit.', '.PG_MAX);
 	$total_regs = $pacientes->ListPacientes($sql);
 	 
-
+	echo $sql.' LIMIT '.$limit.', '.PG_MAX;
      
      
 	for($i = 0; $i < count($lista); $i++) {

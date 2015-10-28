@@ -188,6 +188,7 @@
 			}
 			return $lista;
 		}
+		
 		function ProximoCodigo() {
 			$row = mysql_fetch_array(mysql_query("SELECT `codigo` FROM `pacientes` ORDER BY `codigo` DESC LIMIT 1"));
 			return($row[codigo] + 1);

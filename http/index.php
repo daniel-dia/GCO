@@ -67,7 +67,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gerenciador Clínico Odontológico Smile Odonto - Administração Odontológica Em Suas Mãos</title>
+    <title>Gerenciador Clínico Odontológico</title>
     <link rel="SHORTCUT ICON" href="favicon.ico">
 
     <script language="javascript" type="text/javascript" src="lib/script.js.php"></script>
@@ -104,7 +104,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">GCO</a>
+                <a class="navbar-brand" href="index.php"><img src="imagens/Tooth.png"  style="display:inline"/> GCO</a>
             </div>
             <!-- /.navbar-header -->
             
