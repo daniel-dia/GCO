@@ -47,9 +47,15 @@
 	}
 	$sql = "SELECT * FROM `pacientes` WHERE `codigo` = '".$_GET['codigo']."'";
 	if($_GET['padrao'] == 'no_photo') {
-        $sql = "SELECT `foto` FROM `foto_padrao`";
+       // $sql = "SELECT `foto` FROM `foto_padrao`";
+        $foto = "../imagens/noPhoto.png";
+        header("location:$foto");
+        die();
+
 	}
+
 	$query = mysql_query($sql) or die(mysql_error());
 	$row = mysql_fetch_array($query);
 	echo $row['foto'];
+
 ?>

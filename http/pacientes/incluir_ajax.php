@@ -1,42 +1,4 @@
 <?php
-   /**
-    * Gerenciador Clínico Odontológico
-    * Copyright (C) 2006 - 2009
-    * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e Programação(ikkinet@gmail.com)
-    *
-    * Este arquivo é parte do programa Gerenciador Clínico Odontológico
-    *
-    * Gerenciador Clínico Odontológico é um software livre; você pode
-    * redistribuí-lo e/ou modificá-lo dentro dos termos da Licença
-    * Pública Geral GNU como publicada pela Fundação do Software Livre
-    * (FSF); na versão 2 da Licença invariavelmente.
-    *
-    * Este programa é distribuído na esperança que possa ser útil,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÂO
-    * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
-    * Licença Pública Geral GNU para maiores detalhes.
-    *
-    * Você recebeu uma cópia da Licença Pública Geral GNU,
-    * que está localizada na raíz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se não, visite o endereço para maiores informações:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Inglês)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (Português - Brasil)
-    *
-    * Em caso de dúvidas quanto ao software ou quanto à licença, visite o
-    * endereço eletrônico ou envie-nos um e-mail:
-    *
-    * http://www.smileodonto.com.br/gco
-    * smile@smileodonto.com.br
-    *
-    * Ou envie sua carta para o endereço:
-    *
-    * Smile Odontolóogia
-    * Rua Laudemira Maria de Jesus, 51 - Lourdes
-    * Arcos - MG - CEP 35588-000
-    *
-    *
-    */
 	include "../lib/config.inc.php";
 	include "../lib/func.inc.php";
 	include "../lib/classes.inc.php";
@@ -173,48 +135,46 @@
 		die();	
 	}
 ?>
+
+
+
 <link href="../css/smile.css" rel="stylesheet" type="text/css" />
 
    
-<h1 class="page-header"><?php echo $strCase?></h1> 
+
  
 <div class="conteudo" id="table dados">
-    
-        <?php include('submenu.php')?>
-    
-        <div id="pacientesConteudo" style="float:left">
- <!-- ------------------------------------------------------------------------------------------------------------------------------------>       
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><?php echo $LANG['patients']['personal_information']?></h3>
-                </div>
-                <div class="panel-body">
+        <!-- ------------------------------------------------------------------------------------------------------------------------------------>       
+             
+            <div class="panela apanel-default" class="clearfix">
+               
+               
+              <div >
+               <div class="col-sm-6"> 
+                 
+                    <iframe height="300" scrolling="No" border="no" width="200" name="foto_frame" id="foto_frame" src="pacientes/fotos.php?codigo=<?php echo $row[codigo]?><?php echo (($_GET[acao] != 'editar')?'&disabled=yes':'')?>" frameborder="no"></iframe>
+               </div>
+            <div class="col-sm-6">
+                  <h1 class="page-header"><?php echo $strCase?></h1> 
+                   <label> <?php echo $r[1]?>* <?php echo $LANG['patients']['clinical_sheet']?></label>
+                <?php
+                    if($_GET[acao] == "editar") {
+                ?>
+                              <input disabled value="<?php echo $row[codigo]?>" type="text" class="form-control" id="codigo" />
+                              <input name="codigo" value="<?php echo $row[codigo]?>" type="hidden" class="form-control" <?php echo $disable?> id="codigo" />
+                <?php
+                    } else {
+                ?>
+                              <input name="codigo" value="<?php echo $row[codigo]?>" type="text" class="form-control" <?php echo $disable?> id="codigo" />
+                <?php
+                    }
+                ?>
+
+            </div>
+         
+        </div>
                     <div class="row multiline">     
-                        <div class="col-sm-6">
-                               <label> <?php echo $r[1]?>* <?php echo $LANG['patients']['clinical_sheet']?></label>
-                            <?php
-                                if($_GET[acao] == "editar") {
-                            ?>
-                                          <input disabled value="<?php echo $row[codigo]?>" type="text" class="form-control" id="codigo" />
-                                          <input name="codigo" value="<?php echo $row[codigo]?>" type="hidden" class="form-control" <?php echo $disable?> id="codigo" />
-                            <?php
-                                } else {
-                            ?>
-                                          <input name="codigo" value="<?php echo $row[codigo]?>" type="text" class="form-control" <?php echo $disable?> id="codigo" />
-                            <?php
-                                }
-                            ?>
-                            
-                        </div>
-                        <div class="col-sm-6"> 
-                            <?php 
-                            if($row['foto'] != '') {
-                                echo '<img class="photo img-circle" src="pacientes/verfoto_p.php?codigo='.$row['codigo'].'" >';
-                            } else {
-                                echo '<img class="photo img-circle" src="pacientes/verfoto_p.php?codigo='.$row['codigo'].'&padrao=no_photo">';
-                            }
-                            ?>
-                        </div>
+
                         <div class="col-sm-12">
                             <label><?php echo $r[2]?>* <?php echo $LANG['patients']['name']?></label>
                             <input name="nom" value="<?php echo $row[nome]?>" type="text" class="form-control" <?php echo $disable?> id="nom" size="50" maxlength="80" />
@@ -351,58 +311,32 @@
                             <input name="obs_etiqueta" value="<?php echo $row[obs_etiqueta]?>" type="text" class="form-control" <?php echo $disable?> id="obs_etiqueta" />
                         </div>
                     </div>
-                </div>
+          
+                </div><br><br>
+              <div  class="apanel-footer" style="text-align:right">
+              <a class="btn  btn-default" href="relatorios/paciente.php?codigo=<?php echo $row['codigo']?>" target="_blank"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_sheet']?></a>
+              <input name="Salvar" type="submit" class="btn btn-primary" <?php echo $disable?> id="Salvar" value="<?php echo $LANG['patients']['save']?>" />
+            </div>      
             </div>
-                                                    
-                             
-                                  
-
-
-
-
-
-      
-<iframe height="300" scrolling="No" width="150" name="foto_frame" id="foto_frame" src="pacientes/fotos.php?codigo=<?php echo $row[codigo]?><?php echo (($_GET[acao] != "editar")?'&disabled=yes':'')?> frameborder="0"></iframe>
-                                 
-
+      <br><br>
  <!-- ------------------------------------------------------------------------------------------------------------------------------------>   
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title"><?php echo $LANG['patients']['treatments_to_do']?></h3>
                 </div>
                 <div class="panel-body">
-                    <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td><input name="tratamento[]" value="Ortodontia" <?php echo ((strpos($row[tratamento], 'Ortodontia')!== false)?'checked':'')?> type="checkbox" id="tra1" /><label for="tra1"> <?php echo $LANG['patients']['orthodonty']?></label></td>
-            <td><input name="tratamento[]" value="Implantodontia" <?php echo ((strpos($row[tratamento], 'Implantodontia')!== false)?'checked':'')?> type="checkbox" id="tra2" /><label for="tra2"> <?php echo $LANG['patients']['implantodonty']?></label>&nbsp;&nbsp;</td>
-            <td><input name="tratamento[]" value="Dentística" <?php echo ((strpos($row[tratamento], 'Dentística')!== false)?'checked':'')?> type="checkbox" id="tra3" /><label for="tra3"> <?php echo $LANG['patients']['dentistic']?></label>&nbsp;&nbsp;</td>
-            <td><input name="tratamento[]" value="Prótese" <?php echo ((strpos($row[tratamento], 'Prótese')!== false)?'checked':'')?> type="checkbox" id="tra4" /><label for="tra4"> <?php echo $LANG['patients']['prosthesis']?></label><br /></td>
-          </tr>
-          <tr>
-            <td><input name="tratamento[]" value="Odontopediatria" <?php echo ((strpos($row[tratamento], 'Odontopediatria')!== false)?'checked':'')?> type="checkbox" id="tra5" /><label for="tra5"> <?php echo $LANG['patients']['odontopediatry']?></label>&nbsp;&nbsp;</td>
-            <td><input name="tratamento[]" value="Cirurgia" <?php echo ((strpos($row[tratamento], 'Cirurgia')!== false)?'checked':'')?> type="checkbox" id="tra6" /><label for="tra6"> <?php echo $LANG['patients']['surgery']?></label>&nbsp;&nbsp;</td>
-            <td><input name="tratamento[]" value="Endodontia" <?php echo ((strpos($row[tratamento], 'Endodontia')!== false)?'checked':'')?> type="checkbox" id="tra7" /><label for="tra7"> <?php echo $LANG['patients']['endodonty']?></label>&nbsp;&nbsp;</td>
-            <td><input name="tratamento[]" value="Periodontia" <?php echo ((strpos($row[tratamento], 'Periodontia')!== false)?'checked':'')?> type="checkbox" id="tra8" /><label for="tra8"> <?php echo $LANG['patients']['periodonty']?></label>&nbsp;&nbsp;</td>
-          </tr>
-          <tr>
-            <td><input name="tratamento[]" value="Radiologia" <?php echo ((strpos($row[tratamento], 'Radiologia')!== false)?'checked':'')?> type="checkbox" id="tra9" /><label for="tra9"> <?php echo $LANG['patients']['radiology']?></label>&nbsp;&nbsp;</td>
-            <td><input name="tratamento[]" value="DTM" <?php echo ((strpos($row[tratamento], 'DTM')!== false)?'checked':'')?> type="checkbox" id="tra10" /><label for="tra10"> <?php echo $LANG['patients']['dtm']?></label>&nbsp;&nbsp;</td>
-            <td><input name="tratamento[]" value="Odontogeriatria" <?php echo ((strpos($row[tratamento], 'Odontogeriatria')!== false)?'checked':'')?> type="checkbox" id="tra11" /><label for="tra11"> <?php echo $LANG['patients']['odontogeriatry']?></label>&nbsp;&nbsp;</td>
-            <td><input name="tratamento[]" value="Ortopedia" <?php echo ((strpos($row[tratamento], 'Ortopedia')!== false)?'checked':'')?> type="checkbox" id="tra12" /><label for="tra12"> <?php echo $LANG['patients']['orthopedy']?></label>&nbsp;&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-        </table>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra1" ><input name="tratamento[]" value="Ortodontia" <?php echo ((strpos($row[tratamento], 'Ortodontia')!== false)?'checked':'')?> type="checkbox" id="tra1" /> <?php echo $LANG['patients']['orthodonty']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra2" ><input name="tratamento[]" value="Implantodontia" <?php echo ((strpos($row[tratamento], 'Implantodontia')!== false)?'checked':'')?> type="checkbox" id="tra2" /> <?php echo $LANG['patients']['implantodonty']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra3" ><input name="tratamento[]" value="Dentística" <?php echo ((strpos($row[tratamento], 'Dentística')!== false)?'checked':'')?> type="checkbox" id="tra3" /> <?php echo $LANG['patients']['dentistic']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra4" ><input name="tratamento[]" value="Prótese" <?php echo ((strpos($row[tratamento], 'Prótese')!== false)?'checked':'')?> type="checkbox" id="tra4" /> <?php echo $LANG['patients']['prosthesis']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra5" ><input name="tratamento[]" value="Odontopediatria" <?php echo ((strpos($row[tratamento], 'Odontopediatria')!== false)?'checked':'')?> type="checkbox" id="tra5" /> <?php echo $LANG['patients']['odontopediatry']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra6" ><input name="tratamento[]" value="Cirurgia" <?php echo ((strpos($row[tratamento], 'Cirurgia')!== false)?'checked':'')?> type="checkbox" id="tra6" /> <?php echo $LANG['patients']['surgery']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra7" ><input name="tratamento[]" value="Endodontia" <?php echo ((strpos($row[tratamento], 'Endodontia')!== false)?'checked':'')?> type="checkbox" id="tra7" /> <?php echo $LANG['patients']['endodonty']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra8" ><input name="tratamento[]" value="Periodontia" <?php echo ((strpos($row[tratamento], 'Periodontia')!== false)?'checked':'')?> type="checkbox" id="tra8" /> <?php echo $LANG['patients']['periodonty']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra9" ><input name="tratamento[]" value="Radiologia" <?php echo ((strpos($row[tratamento], 'Radiologia')!== false)?'checked':'')?> type="checkbox" id="tra9" /> <?php echo $LANG['patients']['radiology']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra10"><input name="tratamento[]" value="DTM" <?php echo ((strpos($row[tratamento], 'DTM')!== false)?'checked':'')?> type="checkbox" id="tra10" /> <?php echo $LANG['patients']['dtm']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra11"><input name="tratamento[]" value="Odontogeriatria" <?php echo ((strpos($row[tratamento], 'Odontogeriatria')!== false)?'checked':'')?> type="checkbox" id="tra11" /> <?php echo $LANG['patients']['odontogeriatry']?></label>
+                    <label class="col-sm-4 col-md-3 col-xs-6" for="tra12"><input name="tratamento[]" value="Ortopedia" <?php echo ((strpos($row[tratamento], 'Ortopedia')!== false)?'checked':'')?> type="checkbox" id="tra12" /> <?php echo $LANG['patients']['orthopedy']?></label>
                 </div>
             </div>
  <!-- ------------------------------------------------------------------------------------------------------------------------------------>   
@@ -411,72 +345,61 @@
                     <h3 class="panel-title"><?php echo $LANG['patients']['professional_informations']?></h3>
                 </div>
                 <div class="panel-body">
-                       <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td width="486"><?php echo $LANG['patients']['professional_searched']?><br />
-                <label><select name="codigo_dentistaprocurado" class="form-control" <?php echo $disable?> id="codigo_dentistaprocurado">
-                <option></option>
-<?php
-	$dentista = new TDentistas();
-	$lista = $dentista->ListDentistas();
-	for($i = 0; $i < count($lista); $i++) {
-		if($row[codigo_dentistaprocurado] == $lista[$i][codigo]) {
-			echo '<option value="'.$lista[$i][codigo].'" selected>'.$lista[$i][titulo].' '.$lista[$i][nome].')</option>';
-		} else {
-			echo '<option value="'.$lista[$i][codigo].'">'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
-		}
-	}
-?>
-			 </select>
-                </label>
-                <br />
-                <br />
-                <?php echo $LANG['patients']['answered_by']?><br />
-                <label><select name="codigo_dentistaatendido" class="form-control" <?php echo $disable?> id="codigo_dentistaatendido">
-                <option></option>
-<?php
-	$dentista = new TDentistas();
-	$lista = $dentista->ListDentistas();
-	for($i = 0; $i < count($lista); $i++) {
-		if($row[codigo_dentistaatendido] == $lista[$i][codigo]) {
-			echo '<option value="'.$lista[$i][codigo].'" selected>'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
-		} else {
-			echo '<option value="'.$lista[$i][codigo].'">'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
-		}
-	}
-?>
-			 </select>
-                </label>
-                <br />
-                <br />
-                <?php echo $LANG['patients']['forwarded_to']?><br />
-                <label><select name="codigo_dentistaencaminhado" class="form-control" <?php echo $disable?> id="codigo_dentistaencaminhado">
-                <option></option>
-<?php
-	$dentista = new TDentistas();
-	$lista = $dentista->ListDentistas();
-	for($i = 0; $i < count($lista); $i++) {
-		if($row[codigo_dentistaencaminhado] == $lista[$i][codigo]) {
-			echo '<option value="'.$lista[$i][codigo].'" selected>'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
-		} else {
-			echo '<option value="'.$lista[$i][codigo].'">'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
-		}
-	}
-?>
-			 </select>
-                </label>
-                <br />
-            <label></label></td>
-            <td width="11">&nbsp;</td>
-          </tr>
-          <tr>
-            <td colspan="2"><br /></td>
-          </tr>
-        </table>
+                    
+                    <div class="form-group col-sm-4">
+                        <label><?php echo $LANG['patients']['professional_searched']?></label>
+                        <select name="codigo_dentistaprocurado" class="form-control" <?php echo $disable?> id="codigo_dentistaprocurado">
+                        <option> </option>
+                        <?php
+                            $dentista = new TDentistas();
+                            $lista = $dentista->ListDentistas();
+                            for($i = 0; $i < count($lista); $i++) {
+                                if($row[codigo_dentistaprocurado] == $lista[$i][codigo]) {
+                                    echo '<option value="'.$lista[$i][codigo].'" selected>'.$lista[$i][titulo].' '.$lista[$i][nome].')</option>';
+                                } else {
+                                    echo '<option value="'.$lista[$i][codigo].'">'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
+                                }
+                            }
+                        ?>
+                         </select>
+                    </div>
+
+                    <div class="form-group  col-sm-4">
+                        <label><?php echo $LANG['patients']['answered_by']?></label>
+                        <select name="codigo_dentistaatendido" class="form-control" <?php echo $disable?> id="codigo_dentistaatendido">
+                    <option></option>
+                        <?php
+                            $dentista = new TDentistas();
+                            $lista = $dentista->ListDentistas();
+                            for($i = 0; $i < count($lista); $i++) {
+                                if($row[codigo_dentistaatendido] == $lista[$i][codigo]) {
+                                    echo '<option value="'.$lista[$i][codigo].'" selected>'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
+                                } else {
+                                    echo '<option value="'.$lista[$i][codigo].'">'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
+                                }
+                            }
+                        ?>
+                 </select>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <label><?php echo $LANG['patients']['forwarded_to']?></label>
+                        <select name="codigo_dentistaencaminhado" class="form-control" <?php echo $disable?> id="codigo_dentistaencaminhado">
+                    <option></option>
+                        <?php
+                            $dentista = new TDentistas();
+                            $lista = $dentista->ListDentistas();
+                            for($i = 0; $i < count($lista); $i++) {
+                                if($row[codigo_dentistaencaminhado] == $lista[$i][codigo]) {
+                                    echo '<option value="'.$lista[$i][codigo].'" selected>'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
+                                } else {
+                                    echo '<option value="'.$lista[$i][codigo].'">'.$lista[$i][titulo].' '.$lista[$i][nome].'</option>';
+                                }
+                            }
+                        ?>
+                     </select>
+                    </div> 
+                    
                 </div>
             </div>
  <!-- ------------------------------------------------------------------------------------------------------------------------------------>   
@@ -485,45 +408,71 @@
                     <h3 class="panel-title"><?php echo $LANG['patients']['familiar_information']?></h3>
                 </div>
                 <div class="panel-body">
-                          <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['father_name']?> <br />
-                <input name="nomepai" value="<?php echo $row[nomepai]?>" type="text" class="form-control" <?php echo $disable?> id="nomepai" size="50" maxlength="80" /></td>
-            <td><?php echo $LANG['patients']['birthdate']?><br />
-                <input name="nascimentopai" value="<?php echo $row[nascimentopai]?>" type="text" class="form-control" <?php echo $disable?> id="nascimentopai" size="20" maxlength="10" onKeypress="return Ajusta_Data(this, event);" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['father_profession']?> <br />
-                <input name="profissaopai" value="<?php echo $row[profissaopai]?>" type="text" class="form-control" <?php echo $disable?> id="profissaopai" size="50" maxlength="80" /></td>
-            <td><?php echo $LANG['patients']['telephone']?><br />
-                <input name="telefone1pais" value="<?php echo $row[telefone1pais]?>" type="text" class="form-control" <?php echo $disable?> id="telefone1pais" size="20" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
-          </tr>
-          <tr>
-            <td width="287"><br /><?php echo $LANG['patients']['mother_name']?><br />
-                <label>
-                <input name="nomemae" value="<?php echo $row[nomemae]?>" type="text" class="form-control" <?php echo $disable?> id="nomemae" size="50" maxlength="80" />
-                </label>
-                <br />
-                <label></label></td>
-            <td width="210"><br /><?php echo $LANG['patients']['birthdate']?><br />
-                <input name="nascimentomae" value="<?php echo $row[nascimentomae]?>" type="text" class="form-control" <?php echo $disable?> id="nascimentomae" size="20" maxlength="10" onKeypress="return Ajusta_Data(this, event);" /></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['mother_profession']?> <br />
-                <input name="profissaomae" value="<?php echo $row[profissaomae]?>" type="text" class="form-control" <?php echo $disable?> id="profissaomae" size="50" maxlength="80" /></td>
-            <td><?php echo $LANG['patients']['telephone']?><br />
-                <input name="telefone2pais" value="<?php echo $row[telefone2pais]?>" type="text" class="form-control" <?php echo $disable?> id="telefone2pais" size="20" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" /></td>
-          </tr>
-          <tr>
-            <td colspan="2"><br /><?php echo $LANG['patients']['complete_address_in_case_of_be_different_from_personal']?><br />
-                <input name="enderecofamiliar" value="<?php echo $row[enderecofamiliar]?>" type="text" class="form-control" <?php echo $disable?> id="endereco_familiar" size="78" maxlength="220" />                <br /></td>
-          </tr>
-        </table>
+                    <div class="col-sm-12 form-group">
+                       <label><?php echo $LANG['patients']['father_name']?> </label>
+                    <input name="nomepai" value="<?php echo $row[nomepai]?>" type="text" class="form-control" <?php echo $disable?> id="nomepai" size="50" maxlength="80" />
+                    </div>
+                    
+                    <div class="col-sm-4 form-group">
+                        <label><?php echo $LANG['patients']['birthdate']?></label>
+                        <input name="nascimentopai" value="<?php echo $row[nascimentopai]?>" type="text" class="form-control" <?php echo $disable?> id="nascimentopai" size="20" maxlength="10" onKeypress="return Ajusta_Data(this, event);" />
+                    </div>
+                    
+                    <div class="col-sm-4 form-group">
+                        <label><?php echo $LANG['patients']['father_profession']?> </label>
+                        <input name="profissaopai" value="<?php echo $row[profissaopai]?>" type="text" class="form-control" <?php echo $disable?> id="profissaopai" size="50" maxlength="80" />
+                    </div>
+                    
+                    <div class="col-sm-4 form-group">
+                         <label><?php echo $LANG['patients']['telephone']?></label>
+                        <input name="telefone1pais" value="<?php echo $row[telefone1pais]?>" type="text" class="form-control" <?php echo $disable?> id="telefone1pais" size="20" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" />
+                    </div>
 
+
+                    
+                    <div class="col-sm-12 form-group">
+                        <label><td width="287"><?php echo $LANG['patients']['mother_name']?>  </label>
+                        <input name="nomemae" value="<?php echo $row[nomemae]?>" type="text" class="form-control" <?php echo $disable?> id="nomemae" size="50" maxlength="80" />
+
+                    </div>
+                    
+                    <div class="col-sm-4 form-group">
+                        <label><?php echo $LANG['patients']['birthdate']?></label>
+                        <input name="nascimentomae" value="<?php echo $row[nascimentomae]?>" type="text" class="form-control" <?php echo $disable?> id="nascimentomae" size="20" maxlength="10" onKeypress="return Ajusta_Data(this, event);" />
+
+                    </div>
+                    
+                    <div class="col-sm-4 form-group">
+                        <label><?php echo $LANG['patients']['mother_profession']?> </label>
+                        <input name="profissaomae" value="<?php echo $row[profissaomae]?>" type="text" class="form-control" <?php echo $disable?> id="profissaomae" size="50" maxlength="80" />
+
+                    </div>
+                    
+                    <div class="col-sm-4 form-group">
+                        <label><?php echo $LANG['patients']['telephone']?></label>
+                        <input name="telefone2pais" value="<?php echo $row[telefone2pais]?>" type="text" class="form-control" <?php echo $disable?> id="telefone2pais" size="20" maxlength="13" onKeypress="return Ajusta_Telefone(this, event);" />
+
+                    </div>
+                    
+                    <div class="col-sm-12 form-group">
+                        <label><?php echo $LANG['patients']['complete_address_in_case_of_be_different_from_personal']?></label>
+                        <input name="enderecofamiliar" value="<?php echo $row[enderecofamiliar]?>" type="text" class="form-control" <?php echo $disable?> id="endereco_familiar" size="78" maxlength="220" />                
+
+                    </div>
+                    
+
+
+
+
+                        
+
+                        
+
+                        
+                        
+
+                        
+     
                 </div>
             </div>
  <!-- ------------------------------------------------------------------------------------------------------------------------------------>       
@@ -532,74 +481,59 @@
                     <h3 class="panel-title"><?php echo $LANG['patients']['extra_information']?></h3>
                 </div>
                 <div class="panel-body">
-                           <table width="497" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
+                    
+                    <div class="form-group"> 
+                        <div class="col-sm-4">
+                        <label><?php echo $LANG['patients']['record_date']?>  </label>
+                            <?php
+                                if($_GET[acao] == "editar") {
+                            ?>
+                        <input name="datacad" disabled value="<?php echo $row[datacadastro]?>" type="text" class="form-control" <?php echo $disable?> id="datacad" size="20" maxlength="10" />
+                        <input name="datacadastro" value="<?php echo $row[datacadastro]?>" type="hidden" id="datacadastro" />
+                            <?php
+                                } else {
+                            ?>
+                        <input name="datacadastro" value="<?php echo date(d.'/'.m.'/'.Y)?>" type="text" class="form-control" <?php echo $disable?> id="datacadastro" size="20" maxlength="10" onKeypress="return Ajusta_Data(this, event);" />
+                        <input name="datacad" value="" type="hidden" id="datacad" />
+                            <?php
+                                }
+                            ?>
 
-          <tr>
-            <td width="287"><?php echo $LANG['patients']['record_date']?>  <br />
-                <label></label>
-<?php
-	if($_GET[acao] == "editar") {
-?>
-                <input name="datacad" disabled value="<?php echo $row[datacadastro]?>" type="text" class="form-control" <?php echo $disable?> id="datacad" size="20" maxlength="10" />
-                <input name="datacadastro" value="<?php echo $row[datacadastro]?>" type="hidden" id="datacadastro" />
-<?php
-	} else {
-?>
-                <input name="datacadastro" value="<?php echo date(d.'/'.m.'/'.Y)?>" type="text" class="form-control" <?php echo $disable?> id="datacadastro" size="20" maxlength="10" onKeypress="return Ajusta_Data(this, event);" />
-                <input name="datacad" value="" type="hidden" id="datacad" />
-<?php
-	}
-?>
-                <br />
-                <br />
-                <label></label></td>
-            <td width="210"><?php echo $LANG['patients']['last_update']?>  <br />
-                <label></label>
-                <input name="dataatua" disabled value="<?php echo converte_data($row[dataatualizacao], 2)?>" type="text" class="form-control" <?php echo $disable?> id="dataatua" size="20" />
-                <input name="dataatualizacao" value="<?php echo converte_data($row[dataatualizacao], 2)?>" type="hidden" id="dataatualizacao" />
-                <br />
-                <br />
-                <label></label></td>
-          </tr>
-          <tr>
-            <td width="287"><?php echo $LANG['patients']['patient_status']?> <br />
-              <label><select name="status" class="form-control" <?php echo $disable?> id="status">
-<?php
-	$valores = array('Avaliação' => $LANG['patients']['evaluation'], 'Em tratamento' => $LANG['patients']['in_treatment'], 'Em revisão' => $LANG['patients']['in_revision'], 'Concluído' => $LANG['patients']['closed']);
-	foreach($valores as $chave => $valor) {
-		if($row[status] == $chave) {
-			echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
-		} else {
-			echo '<option value="'.$chave.'">'.$valor.'</option>';
-		}
-	}
-?>       
-			 </select> 
-              <br />
-              <br />
-              </label></td>
-            <td width="210"></td>
-          </tr>
-          <tr>
-            <td><?php echo $LANG['patients']['main_objective_of_the_consultation']?><br />
-              <label>
-              <textarea name="objetivo" cols="25" rows="4"><?php echo $row[objetivo]?></textarea>
-              </label></td>
-            <td><?php echo $LANG['patients']['comments']?><br />
-              <label>
-              <textarea name="observacoes" cols="25" rows="4"><?php echo $row[observacoes]?></textarea>
-              </label></td>
-          </tr>
-          <tr>
-            <td><label></label></td>
-            <td>&nbsp;</td>
-          </tr>
-        </table>
- 
+                        </div >
+
+                        <div class="col-sm-4">
+                        <label><?php echo $LANG['patients']['last_update']?>  </label>
+                        <input name="dataatua" disabled value="<?php echo converte_data($row[dataatualizacao], 2)?>" type="text" class="form-control" <?php echo $disable?> id="dataatua" size="20" />
+                        <input name="dataatualizacao" value="<?php echo converte_data($row[dataatualizacao], 2)?>" type="hidden" id="dataatualizacao" />
+                        </div>
+
+                        <div class="col-sm-4">
+                        <label><?php echo $LANG['patients']['patient_status']?> </label>
+                        <select name="status" class="form-control" <?php echo $disable?> id="status">
+                        <?php
+                        $valores = array('Avaliação' => $LANG['patients']['evaluation'], 'Em tratamento' => $LANG['patients']['in_treatment'], 'Em revisão' => $LANG['patients']['in_revision'], 'Concluído' => $LANG['patients']['closed']);
+                        foreach($valores as $chave => $valor) {
+                        if($row[status] == $chave) {
+                        echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
+                        } else {
+                        echo '<option value="'.$chave.'">'.$valor.'</option>';
+                        }}?>       
+                        </select> 
+                        </div>
+                    </div>
+                    
+                     <div class="form-group">
+                        <div class="col-sm-6">
+                        <label>  <?php echo $LANG['patients']['main_objective_of_the_consultation']?></label>
+                        <textarea name="objetivo"  class="form-control" cols="25" rows="4"><?php echo $row[objetivo]?></textarea>
+                        </div>
+
+                        <div class="col-sm-6">
+                        <label><?php echo $LANG['patients']['comments']?></label>
+                        <textarea name="observacoes" class="form-control" cols="25" rows="4"><?php echo $row[observacoes]?></textarea>
+                        </div>
+                      </div>
+       
                 </div>
             </div>
  <!-- ------------------------------------------------------------------------------------------------------------------------------------>   
@@ -608,66 +542,64 @@
                     <h3 class="panel-title"><?php echo $LANG['patients']['plan_information']?></h3>
                 </div>
                 <div class="panel-body">
-                     <table width="519" border="0" align="center" cellpadding="0" cellspacing="0" class="texto">
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td width="264"><?php echo $LANG['patients']['select_plan']?><br />
-                <select name="convenio" class="form-control" <?php echo $disable?> id="convenio">
-<?php
-	$query1 = mysql_query("SELECT * FROM convenios ORDER BY nomefantasia");
-	while($row1 = mysql_fetch_assoc($query1)) {
-		if($row[codigo_convenio] == $row1['codigo']) {
-			echo '<option value="'.$row1['codigo'].'" selected>'.$row1['nomefantasia'].'</option>';
-		} else {
-			echo '<option value="'.$row1['codigo'].'">'.$row1['nomefantasia'].'</option>';
-		}
-	}
-?>       
-			 </select> 
-              <label><br />
-              <br />
-              </label></td>
-            <td width="255"></td>
-          </tr>
-          <tr>
-            <td><label><?php echo $LANG['patients']['card_number']?><br />
-                <input name="matricula" value="<?php echo $row[matricula]?>" type="text" class="form-control" <?php echo $disable?> id="matricula" size="20" />
-                <br />
-              </label></td>
-            <td><?php echo $LANG['patients']['holder_name']?><br />
-              <input name="titular" value="<?php echo $row[titular]?>" type="text" class="form-control" <?php echo $disable?> id="titular" size="40" /></td>
-          </tr>
-          <tr>
-            <td><br /><?php echo $LANG['patients']['good_thru']?> <br />
-                <input name="validadeconvenio" value="<?php echo $row[validadeconvenio]?>" type="text" class="form-control" <?php echo $disable?> id="validadeconvenio" size="20" />
-                <br /></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-        </table>
-   
+
+                    <div class="col-sm-4">
+                        <label>
+                            <?php echo $LANG['patients']['select_plan']?>
+                        </label>
+                        <select name="convenio" class="form-control" <?php echo $disable?> id="convenio">
+                            <?php
+                                $query1 = mysql_query("SELECT * FROM convenios ORDER BY nomefantasia");
+                                while($row1 = mysql_fetch_assoc($query1)) {
+                                    if($row[codigo_convenio] == $row1['codigo']) {
+                                        echo '<option value="'.$row1['codigo'].'" selected>'.$row1['nomefantasia'].'</option>';
+                                    } else {
+                                        echo '<option value="'.$row1['codigo'].'">'.$row1['nomefantasia'].'</option>';
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>
+                            <?php echo $LANG['patients']['card_number']?>
+                        </label>
+                        <input name="matricula" value="<?php echo $row[matricula]?>" type="text" class="form-control" <?php echo $disable?> id="matricula" size="20" />
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label>
+                            <?php echo $LANG['patients']['good_thru']?>
+                        </label>
+                        <input name="validadeconvenio" value="<?php echo $row[validadeconvenio]?>" type="text" class="form-control" <?php echo $disable?> id="validadeconvenio" size="20" />
+                    </div>
+                     
+                    <div class="col-sm-12">
+                        <label>
+                            <?php echo $LANG['patients']['holder_name']?>
+                        </label>
+                        <input name="titular" value="<?php echo $row[titular]?>" type="text" class="form-control" <?php echo $disable?> id="titular" size="40" />
+                    </div>
                 </div>
             </div>
  <!-- ------------------------------------------------------------------------------------------------------------------------------------>
  
     
             <br style="clear:both" />
-            <div align="center">
-              <input name="Salvar" type="submit" class="form-control" <?php echo $disable?> id="Salvar" value="<?php echo $LANG['patients']['save']?>" />
+           <div style="text-align:right">
+              <a class="btn  btn-default" href="relatorios/paciente.php?codigo=<?php echo $row['codigo']?>" target="_blank"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_sheet']?></a>
+              <input name="Salvar" type="submit" class="btn btn-primary" <?php echo $disable?> id="Salvar" value="<?php echo $LANG['patients']['save']?>" />
             </div>
           </form> 
 
-            <img src="imagens/icones/imprimir.png">
-            <a href="relatorios/paciente.php?codigo=<?php echo $row['codigo']?>" target="_blank"><?php echo $LANG['patients']['print_sheet']?></a>&nbsp;
+             
+            
 
             <script>
             document.getElementById('nom').focus();
             </script>
-        </div>
 </div>
+ 
+<script> 
+    Ajax('pacientes/submenu','submenu'          ,'codigo=<?php echo $_GET[codigo].$acao ?>');
+</script>

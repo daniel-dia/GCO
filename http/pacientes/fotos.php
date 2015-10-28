@@ -89,25 +89,27 @@
 <script language="javascript" type="text/javascript" src="../lib/script.js.php"></script>
     
 <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="../css/gco.css" rel="stylesheet" type="text/css" />
 
 </head>
-<body style="background-color: #F0F0F0"><center>
+<body><center>
 <?php
     $sql = "SELECT `foto` FROM `pacientes` WHERE `codigo` = '".$_GET['codigo']."'";
     $query = mysql_query($sql) or die('Erro: '. mysql_error());
     $row = mysql_fetch_array($query);
 	if($row['foto'] != '') {
-		echo '<img class="img-circle" src="verfoto_p.php?codigo='.$_GET['codigo'].'" border="0">';
+		echo '<img class="photo img-circle" src="verfoto_p.php?codigo='.$_GET['codigo'].'" border="0">';
 	} else {
-		echo '<img class="img-circle"  src="verfoto_p.php?codigo='.$_GET['codigo'].'&padrao=no_photo" border="0">';
+		echo '<img class="photo img-circle"  src="verfoto_p.php?codigo='.$_GET['codigo'].'&padrao=no_photo" border="0">';
 	}
 ?><br><br>
 <form action="fotos.php?codigo=<?php echo $_GET['codigo']?>" method="POST" enctype="multipart/form-data" target="_self">
-<input type="file" <?php echo $disable?> name="foto" size="5" class="forms"><br>
-<input type="submit" <?php echo $disable?> class="forms" value="<?php echo $LANG['patients']['save']?>" name="send">
-</form>
-<br>
-<a <?php echo $href?>"fotos.php?codigo=<?php echo $_GET['codigo']?>" <?php echo $onclick?>"return confirmLink(this)"><?php echo $LANG['patients']['delete_photo']?></a>
+<input type="file" <?php echo $disable?> name="foto" size="5" class="forms"> 
+<input type="submit" <?php echo $disable?> class="btn btn-primary" value="<?php echo $LANG['patients']['save']?>" name="send">
+
+ 
+<a  class="btn btn-danger" <?php echo $href?>"fotos.php?codigo=<?php echo $_GET['codigo']?>" <?php echo $onclick?>"return confirmLink(this)"><?php echo $LANG['patients']['delete_photo']?></a>
+    </form>
 </center>
 </body>
 </html>

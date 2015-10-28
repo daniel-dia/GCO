@@ -64,13 +64,9 @@
 ?>
 <link href="../css/smile.css" rel="stylesheet" type="text/css" />
  
-<div class="conteudo" id="table dados">
-  <table width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela_titulo">
+<div class="conteudo" id="table dados"> 
     
-    <tr>
-      <td height="26">&nbsp;<?php echo $LANG['patients']['others']?></td>
-    </tr>
-  </table>
+    <h3><?php echo $LANG['patients']['others']?> </h3>
   <table width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela">
     <tr>
       <td>

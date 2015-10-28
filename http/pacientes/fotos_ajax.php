@@ -49,26 +49,11 @@
 	$strLoCase = encontra_valor('pacientes', 'codigo', $_GET[codigo], 'nome').' - '.$_GET['codigo'];
 	$acao = '&acao=editar';
 ?>
-<link href="../css/smile.css" rel="stylesheet" type="text/css" />
-<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-<style type="text/css">
-<!--
-.style4 {color: #FFFFFF}
--->
-</style>
  
 <div class="conteudo" id="table dados">
  
 <h3><?php echo $LANG['patients']['photos']?></h3>
-  <table width="610" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela">
-    <tr>
-      <td>
-        <br />
-        <fieldset>
-        <br />
-          <table width="550" border="0" align="center">
-            <tr>
+  
 <?php
 	$i = 0;
 	$query = mysql_query("SELECT * FROM `fotospacientes` WHERE `codigo_paciente` = '".$_GET[codigo]."' ORDER BY `codigo`") or die(mysql_error());
@@ -76,42 +61,29 @@
 		if($i % 2 === 0) {
 			echo '</tr><tr>';
 		}
-?>
-              <td width="50%" align="center" valign="top">
+            ?>
+              
                <img class="img-circle" src="pacientes/verfoto.php?codigo=<?php echo $row['codigo']?>" border="0"><BR>
                <font size="1"><?php echo $row['legenda']?></font><br><br>
                <?php echo ((verifica_nivel('pacientes', 'E'))?'<a href="pacientes/excluirfotos_ajax.php?codigo='.$_GET[codigo].'&codigo_foto='.$row[codigo].'" onclick="return confirmLink(this)" target="iframe_upload">'.$LANG['patients']['delete_photo'].'</a>':'')?>
-              </td>
-<?php
+               
+            <?php
 		$i++;
 	}
-?>
-           </tr>
-        </table> 
-        <br />
-        </fieldset>
-        <br />
+            ?>
+
+           
         <iframe name="iframe_upload" width="1" height="1" frameborder="0" scrolling="No"></iframe>
-          <form id="form2" name="form2" method="POST" action="pacientes/incluirfotos_ajax.php?codigo=<?php echo $_GET['codigo']?>" enctype="multipart/form-data" target="iframe_upload"> <?php/*onsubmit="Ajax('arquivos/daclinica/arquivos', 'conteudo', '');">*/?>
-  		  <table width="310" border="0" align="center" cellpadding="0" cellspacing="0">
-    		<tr align="center">
-              <td width="70%"><?php echo $LANG['patients']['file']?> <br />
+          <form id="form2" name="form2" method="POST" action="pacientes/incluirfotos_ajax.php?codigo=<?php echo $_GET['codigo']?>" enctype="multipart/form-data" target="iframe_upload">
+
+              <?php echo $LANG['patients']['file']?> 
                 <input type="file" size="20" name="arquivo" id="arquivo" class="forms" <?php echo $disable?> />
-              </td>
-            </tr>
-    		<tr align="center">
-              <td width="70%"><?php echo $LANG['patients']['legend']?> <br />
+ 
+                  <?php echo $LANG['patients']['legend']?> 
                 <input type="text" size="33" name="legenda" id="legenda" class="forms" <?php echo $disable?> />
-              </td>
-            </tr>
-            <tr align="center">
-              <td width="30%"> <br />
+ 
                 <input type="submit" name="Salvar" id="Salvar" value="<?php echo $LANG['patients']['save']?>" class="forms" <?php echo $disable?> />
-              </td>
-            </tr>
-          </table>
+    
+         
           </form>
-          <br />
-      </td>
-    </tr>
-  </table>
+       

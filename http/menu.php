@@ -41,9 +41,14 @@
     
 <div class="navbar-default sidebar" role="navigation" style="margin-bottom: 0">
     <div class="sidebar-nav">
+        
+        <div id="submenu">
+        
+        </div>
+        
         <ul class="nav" id="side-menu">
 
-            <li class="sidebar-search">
+              <!--  <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
@@ -51,9 +56,8 @@
                                     <i class="fa fa-search"></i>
                                 </button>
                             </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+                            </div> 
+                        </li>-->
             <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> <?php echo $LANG['menu']['file']?><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href="javascript:Ajax('dentistas/gerenciar','conteudo','')" ><img class="submenu-img" src="imagens/icons_menupop/dentista.png" /><?php echo $LANG['menu']['professionals']?>		</a>      </li>

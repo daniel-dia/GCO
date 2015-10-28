@@ -24,14 +24,17 @@ img.submenu-img{display: none}
 img.photo{
   object-fit: none; /* Do not scale the image */
   object-position: center; /* Center the image within the element */
-  height: 100px;
-  width: 100px;
+  height:   200px;
+  width:    200px;
 
 }
 
-.row.multiline div{
-    margin-bottom: 10px;
+.row.multiline div{ 
 }
 .agendarow div{
     padding:0
+}
+
+label{
+    margin-top:10px;
 }
