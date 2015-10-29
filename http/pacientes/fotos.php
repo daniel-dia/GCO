@@ -98,9 +98,9 @@
     $query = mysql_query($sql) or die('Erro: '. mysql_error());
     $row = mysql_fetch_array($query);
 	if($row['foto'] != '') {
-		echo '<img class="photo img-circle" src="verfoto_p.php?codigo='.$_GET['codigo'].'" border="0">';
+		echo '<img class="photo img-circle" src="verfoto.php?size=300&codigo='.$_GET['codigo'].'" border="0">';
 	} else {
-		echo '<img class="photo img-circle"  src="verfoto_p.php?codigo='.$_GET['codigo'].'&padrao=no_photo" border="0">';
+		echo '<img class="photo img-circle"  src="verfoto.php?size=300&codigo='.$_GET['codigo'].'&padrao=no_photo" border="0">';
 	}
 ?><br><br>
 <form action="fotos.php?codigo=<?php echo $_GET['codigo']?>" method="POST" enctype="multipart/form-data" target="_self">

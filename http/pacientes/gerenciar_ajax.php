@@ -159,7 +159,7 @@
       	      <input type="hidden" id="id_procurar" value="procurar">
     </div>
     <div  class="form-group">
-      	      <input name="procurar" id="procurar" type="text" class="form-control " size="20" maxlength="40" onkeyup="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
+      	      <input name="procurar" id="procurar" type="text" class="form-control " size="20" maxlength="40" oninput="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
       	      <select name="procurar1" id="procurar1" style="display:none" class="form-control " onchange="javascript:Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.options[this.selectedIndex].value%2B'&campo='%2BgetElementById('campo').options[getElementById('campo').selectedIndex].value)">
                 <option value=""></option>
                 <option value="Ortodontia"><?php echo $LANG['patients']['orthodonty']?></option>

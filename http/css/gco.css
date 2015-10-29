@@ -29,6 +29,14 @@ img.photo{
 
 }
 
+img.photosmall{
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height:   30px;
+  width:    30px;
+
+}
+
 .row.multiline div{ 
 }
 .agendarow div{
