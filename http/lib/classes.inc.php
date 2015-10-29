@@ -183,7 +183,7 @@
 			$query = mysql_query($sql) or die(mysql_error());
 			while($row = mysql_fetch_array($query)) {
 				$lista[$i][nome] = $row[nome];
-				$lista[$i][codigo] = $row[codigo];
+				$lista[$i][codigo] = $row[codigo]; 
 				$i++;
 			}
 			return $lista;

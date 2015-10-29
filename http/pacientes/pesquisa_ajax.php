@@ -45,14 +45,26 @@
 	if(!checklog()) {
 		die($frase_log);
 	}
-	
-    function em_debito($codigo) {
-		$sql = "SELECT DISTINCT(vo.codigo_paciente), tp.* FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' AND tp.codigo = ".$codigo." ORDER BY `nome` ASC";
-		$query = mysql_query($sql);
-		return(mysql_num_rows($query) > 0);
-    }
-?>
+    //function em_debito($codigo) {
+    //    $query = mysql_query("SELECT DISTINCT(vo.codigo_paciente), tp.* FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' AND tp.codigo = ".$codigo." ORDER BY `nome` ASC");
+    //    return(mysql_num_rows($query) > 0);
+    //}
 
+ 
+        $sql_leftJoin =  
+            "SELECT 
+                ( SELECT count(*) from v_orcamento vo
+                 WHERE 
+                    vo.data < CURDATE() AND 
+                    vo.pago = 'Não' AND 
+                    vo.confirmado = 'Sim' AND 
+                    vo.baixa = 'Não' AND
+                    vo.codigo_paciente = tp.codigo
+                 group by vo.codigo_paciente) as debito, tp.* 
+                 FROM pacientes tp ";
+               
+   
+?>
 <table class="table table-hover">
     <tr>
         <th>
@@ -63,8 +75,7 @@
         </th>
     </tr> 
 <?php
-    
-	$_GET['pesquisa'] = utf8_decode ( htmlspecialchars( utf8_encode($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
+    $_GET['pesquisa'] = utf8_decode ( htmlspecialchars( utf8_encode($_GET['pesquisa']) , ENT_QUOTES | ENT_COMPAT, 'utf-8') );
 	$pacientes = new TPacientes();
 	if($_GET[campo] == 'nascimento') {
 
@@ -115,31 +126,31 @@
 		$limit = 0;
 		$_GET[pg] = 1;
 	}
-	$sql = "SELECT * FROM `pacientes` WHERE ".$where." ORDER BY `nome` ASC";
+	//$sql = "SELECT * FROM `pacientes` WHERE "
+            
+   $sql = $sql_leftJoin." where ".$where." ORDER BY `nome` ASC";
 
     if($_GET['campo'] == 'debito') {
-        $sql = "SELECT DISTINCT(vo.codigo_paciente), tp.* FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' ORDER BY `nome` ASC";
+         $sql = "SELECT DISTINCT(vo.codigo_paciente), (select true) as debito, tp.* FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' ORDER BY `nome` ASC";
     }
     if($_GET['campo'] == 'agendados') {
-        $sql = "SELECT DISTINCT ta.codigo_paciente, tp.* FROM agenda ta INNER JOIN pacientes tp ON ta.codigo_paciente = tp.codigo WHERE ta.data = CURDATE()";
+        $sql = $sql_leftJoin." INNER JOIN pacientes tp ON ta.codigo_paciente = tp.codigo WHERE ta.data = CURDATE()";
+        //$sql = "SELECT DISTINCT ta.codigo_paciente, tp.* FROM agenda ta INNER JOIN pacientes tp ON ta.codigo_paciente = tp.codigo WHERE ta.data = CURDATE()";
     }
-	$lista 		= $pacientes->ListPacientes($sql.' LIMIT '.$limit.', '.PG_MAX);
-	$total_regs = $pacientes->ListPacientes($sql);
-	 
-	echo $sql.' LIMIT '.$limit.', '.PG_MAX;
-     
-     
-	for($i = 0; $i < count($lista); $i++) {
+            
+	$query = (mysql_query($sql.' LIMIT '.$limit.', '.PG_MAX));
+ 
+     while($row = mysql_fetch_array($query)) { 
 	 
 ?>
-<tr onclick="Ajax('pacientes/incluir', 'conteudo', 'codigo=<?php echo $lista[$i][codigo] ?>&acao=editar')" class="<?php echo em_debito($lista[$i][codigo])?'danger ':'' ?>  <?php echo (encontra_valor('pacientes', 'codigo', $lista[$i]['codigo'], 'falecido') == 'Sim')?'warning ':'' ?>">
+<tr onclick="Ajax('pacientes/incluir', 'conteudo', 'codigo=<?php echo $row[codigo] ?>&acao=editar')" class="<?php echo $row[debito] == 1 ? 'danger':'' ?> <?php echo $row[falecido] == 1 ? 'warning':'' ?>" >
 <td>
-    <?php echo $lista[$i][nome]?></td>
+    <img class="photosmall img-circle" height="30" src="pacientes/verfoto.php?size=30&codigo=<?php echo $row['codigo']?> "> <?php echo $row[nome]?></td>
 <td>
-    <?php echo $lista[$i][codigo].'  '.encontra_valor('pacientes', 'codigo', $lista[$i]['codigo'], 'status').''?></td>
+    <?php echo $row[codigo].'  '.$row['status'].''?></td>
     
-    <?php // echo ((verifica_nivel('pacientes', 'A'))?'<a href="javascript:Ajax(\'pacientes/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
-
+    <!--<td><?php  echo ((verifica_nivel('pacientes', 'A'))?'<a href="javascript:Ajax(\'pacientes/gerenciar\', \'conteudo\', \'codigo='.$row[codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.gif" alt="Excluir" width="19" height="19" border="0"></a>':'')?></td>
+-->
 <?php
 	}
 ?>
@@ -154,6 +165,7 @@
    
         
         <?php
+      /*
             $pg_total = ceil(count($total_regs)/PG_MAX);
             $i = $_GET[pg] - 5;
             if($i <= 1) {
@@ -178,7 +190,7 @@
                     echo '<li><a  onclick="javascript:Ajax(\'pacientes/pesquisa\', \'pesquisa\', \'pesquisa=\'%2BgetElementById(getElementById(\'id_procurar\').value).value%2B\'&campo=\'%2BgetElementById(\'campo\').options[getElementById(\'campo\').selectedIndex].value%2B\'&pg='.$i.'\')">'.$i.'</a></li>';
                 }
                 $i++;
-            }
+            }*/
         ?> 
   </ul>
 </nav>

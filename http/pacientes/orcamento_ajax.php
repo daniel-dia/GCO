@@ -50,7 +50,7 @@
 		$nome = explode(' ', $dentista->RetornaDados('nome'));
 		$nome = $nome[0].' '.$nome[count($nome) - 1];
 ?>
-      <tr class="<?php echo $td_class?>" onclick="Ajax('pacientes/orcamentofechar', 'pacientesConteudo', 'codigo=<?php echo $_GET[codigo]?>&indice_orc=<?php echo ($i+1)?>&acao=editar&subacao=editar&codigo_orc=<?php echo $row[codigo]?>')">
+      <tr class="<?php echo $td_class?>" onclick="Ajax('pacientes/orcamentofechar', 'conteudo', 'codigo=<?php echo $_GET[codigo]?>&indice_orc=<?php echo ($i+1)?>&acao=editar&subacao=editar&codigo_orc=<?php echo $row[codigo]?>')">
           <td><?php echo $LANG['patients']['budget']?> <?php echo $i+1?></td>
           <td><?php echo $dentista->RetornaDados('titulo').' '.$nome;?></td>
           <td><?php echo converte_data($row[data], 2)?></td>

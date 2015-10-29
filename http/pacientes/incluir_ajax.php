@@ -150,11 +150,10 @@
                
                
               <div >
-               <div class="col-sm-6"> 
-                 
+               <div style="float:left"> 
                     <iframe height="300" scrolling="No" border="no" width="200" name="foto_frame" id="foto_frame" src="pacientes/fotos.php?codigo=<?php echo $row[codigo]?><?php echo (($_GET[acao] != 'editar')?'&disabled=yes':'')?>" frameborder="no"></iframe>
                </div>
-            <div class="col-sm-6">
+            <div style="margin-left:250px">
                   <h1 class="page-header"><?php echo $strCase?></h1> 
                    <label> <?php echo $r[1]?>* <?php echo $LANG['patients']['clinical_sheet']?></label>
                 <?php
