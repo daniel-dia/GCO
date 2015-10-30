@@ -72,7 +72,7 @@ function searchOrcSuggest(txtSearch, txtCodigo, txtParticular, txtConvenio, divS
 function handleOrcSearchSuggest() {
     if (searchReq.readyState == 4) {
         var ss = document.getElementById(divSugestao);
-        var header = '<div class="search_suggest">';
+        var header = '<ul class="dropdown-menu dropdown-menu-suggest" >';
         var suggest = '';
         ss.innerHTML = '';
         var str = unescape(searchReq.responseText.replace(/\+/g , " "));;
@@ -85,12 +85,12 @@ function handleOrcSearchSuggest() {
             procedimento = datas[1];
             valor_particular = datas[2];
             valor_convenio = datas[3];
-            suggest += '<div onmouseover="javascript:suggestOver(this);" ';
+            suggest += '<li><a onmouseover="javascript:suggestOver(this);" ';
             suggest += 'onmouseout="javascript:suggestOut(this);" ';
             suggest += 'onclick="javascript:setOrcSearch(\''+ codigo +'\', \''+ procedimento +'\', \''+ valor_particular +'\', \''+ valor_convenio +'\', \''+ divSugestao +'\');" ';
-            suggest += 'class="suggest_link">' + procedimento + '</div>';
+            suggest += 'class="">' + procedimento + '</a></li>';
         }
-        var footer = '</div>';
+        var footer = '</ul>';
         ss.innerHTML = header+suggest+footer;
     }
 }

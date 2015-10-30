@@ -20,7 +20,7 @@
    
     
             <?php if(verifica_nivel('pacientes', 'E')){ ?>
-                <a  class="btn btn-default" href="javascript:Ajax('pacientes/orcamentofechar', 'pacientesConteudo', 'codigo=<?php echo $_GET[codigo].$acao?> ')"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  <?php echo $LANG['patients']['insert_new_budget']?></a>
+                <a  class="btn btn-default" href="javascript:Ajax('pacientes/orcamentofechar', 'conteudo', 'codigo=<?php echo $_GET[codigo].$acao?> ')"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  <?php echo $LANG['patients']['insert_new_budget']?></a>
             <?php }?>
  
       <br />
