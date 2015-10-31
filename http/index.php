@@ -120,7 +120,7 @@
             <div id="conteudo"></div>
         </div>
         
-        <div class="row">
+        <div>
             <div class="rodape col-xs-12" id="rodape"> <br />
                 <?php echo $LANG['general']['smile_odontology']?> - <?php echo $LANG['general']['enhancing_your_smile']?> - <a href="http://www.smileodonto.com.br" target="_blank">www.smileodonto.com.br </a><br>
                 <br />

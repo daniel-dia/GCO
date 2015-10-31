@@ -22,10 +22,11 @@ h1 img{
 img.submenu-img{display: none}
 
 img.photo{
-  object-fit: none; /* Do not scale the image */
-  object-position: center; /* Center the image within the element */
-  height:   200px;
-  width:    200px;
+    object-fit: none; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height:   200px;
+    width:    200px;
+    border: lightgray solid thin;
 
 }
 
@@ -45,6 +46,13 @@ img.photosmall{
 
 label{
     margin-top:10px;
+    text-overflow: ellipsis!important;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#page-wrapper{
+    padding-bottom: 100px;
 }
 
 .dropdown-menu-suggest {

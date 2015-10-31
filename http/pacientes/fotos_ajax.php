@@ -54,10 +54,13 @@
  
 <h3><?php echo $LANG['patients']['photos']?></h3>
   
+    
+     <iframe height="300" scrolling="No" border="no" width="200" name="foto_frame" id="foto_frame" src="pacientes/fotos.php?codigo=<?php echo $row[codigo]?><?php echo (($_GET[acao] != 'editar')?'&disabled=yes':'')?>" frameborder="no"></iframe>
+    
+    
 <?php
 	$i = 0;
-	$query = mysql_query("SELECT * FROM `fotospacientes` WHERE `codigo_paciente` = '".$_GET[codigo]."' ORDER BY `codigo`") or die(mysql_error());
-	while($row = mysql_fetch_array($query)) {
+	$query = mysql_query("SELECT * FROM `fotospacientes` WHERE `codigo_paciente` = '".$_GET[codigo]."' ORDER BY `codigo`") or die(mysql_error());	while($row = mysql_fetch_array($query)) {
 		if($i % 2 === 0) {
 			echo '</tr><tr>';
 		}

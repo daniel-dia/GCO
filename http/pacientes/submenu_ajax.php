@@ -25,9 +25,16 @@
     ?>
 
   <?php if($_GET[acao] == 'editar') { ?>
-     
+ 
     <ul class="nav nav-pills nav-stacked">
         <!--<li><a href="javascript:Ajax('pacientes/incluir','conteudo','codigo=<?php echo $_GET[codigo].$acao?>')"><span class="link_submenu_pacientes"><?php echo $LANG['patients']['clinical_sheet']?></span></a></li>-->
+        <li>
+            <?php echo $ficha ?> 
+            <h4>
+            <!-- <img class="photosmall img-circle" height="30" src="pacientes/verfoto.php?size=30&codigo=<?php echo $_GET['codigo']?> "> <?php echo $row[nome]?> -->
+            <?php echo $_GET['nome']?>
+            </h4></a>
+        </li>
         <li><?php echo $ficha.'<span class="link_submenu_pacientes">'.$LANG['patients']['clinical_sheet']?></span></a></li>
         <li><?php echo $odontograma.'<span class="link_submenu_pacientes">'.$LANG['patients']['odontogram']?></span></a></li>
         <li><?php echo $orcamento.'<span class="link_submenu_pacientes">'.$LANG['patients']['budget']?></span></a></li>

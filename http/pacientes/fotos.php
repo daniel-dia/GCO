@@ -100,15 +100,13 @@
 	if($row['foto'] != '') {
 		echo '<img class="photo img-circle" src="verfoto.php?size=300&codigo='.$_GET['codigo'].'" border="0">';
 	} else {
-		echo '<img class="photo img-circle"  src="verfoto.php?size=300&codigo='.$_GET['codigo'].'&padrao=no_photo" border="0">';
+		echo '<img class="photo img-circle" src="verfoto.php?size=300&codigo='.$_GET['codigo'].'&padrao=no_photo" border="0">';
 	}
 ?><br><br>
 <form action="fotos.php?codigo=<?php echo $_GET['codigo']?>" method="POST" enctype="multipart/form-data" target="_self">
-<input type="file" <?php echo $disable?> name="foto" size="5" class="forms"> 
-<input type="submit" <?php echo $disable?> class="btn btn-primary" value="<?php echo $LANG['patients']['save']?>" name="send">
-
- 
-<a  class="btn btn-danger" <?php echo $href?>"fotos.php?codigo=<?php echo $_GET['codigo']?>" <?php echo $onclick?>"return confirmLink(this)"><?php echo $LANG['patients']['delete_photo']?></a>
+        <input type="file" <?php echo $disable?> name="foto" class="form-control" size="5"> 
+        <input type="submit" <?php echo $disable?> class="" value="<?php echo $LANG['patients']['save']?>" name="send">
+        <a class="text-danger" <?php echo $href?>"fotos.php?codigo=<?php echo $_GET['codigo']?>" <?php echo $onclick?>"return confirmLink(this)"><?php echo $LANG['patients']['delete_photo']?></a>
     </form>
 </center>
 </body>
