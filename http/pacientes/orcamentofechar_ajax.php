@@ -179,36 +179,34 @@
     
     <form id="form2" name="form2" method="POST" action="pacientes/orcamentofechar_ajax.php?codigo=<?php echo $_GET[codigo]?>&acao=editar&subacao=editar&codigo_orc=<?php echo $codigo_orc?>" onsubmit="formSender(this, 'conteudo'); return false;">
         <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Panel title</h3>
-</div>
-          <div class="panel-body">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
 
-
-
-
-          <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-              <td colspan="2" bgcolor="#0099CC"><div align="center" class="style4"><?php echo $LANG['patients']['charge']?></div></td>
-              <td width="34%" height="20" bgcolor="#0099CC"><div align="center" class="style4"><?php echo $LANG['patients']['total_value']?> </div></td>
-              <td width="33%" bgcolor="#0099CC"><div align="center" class="style4"><?php echo $LANG['patients']['payment_method']?> </div></td>
-            </tr>
-            <tr>
-              <td colspan="4"><div align="center" class="style4">&nbsp;</td>
-            </tr>
-            <tr>
-              <td><div align="center"></div></td>
-              <td>
-                <div align="left">
-                  <input <?php echo $disable?> name="aserpago" type="radio" value="Particular" <?php echo $chk[aserpago]['Particular']?> onclick="document.getElementById('valortotal').value = document.getElementById('total_particular').value; document.getElementById('valor__total').value = document.getElementById('total_particular').value;" />
-                <?php echo $LANG['patients']['private']?>
-                <input <?php echo $disable?> name="aserpago" type="radio" value="Convênio" <?php echo $chk[aserpago]['Convênio']?> onclick="document.getElementById('valortotal').value = document.getElementById('total_convenio').value; document.getElementById('valor__total').value = document.getElementById('total_convenio').value;" />
-              <?php echo $LANG['patients']['plan']?></div></td>
-              <td><div align="center">
-                <input <?php echo $disable?> name="valor__total" disabled type="text" value="<?php echo money_form($row[valortotal])?>" class="form-control" id="valor__total" size="15" />
-                <input <?php echo $disable?> name="valortotal" type="hidden" value="<?php echo money_form($row[valortotal])?>" class="form-control" id="valortotal" size="15" />
-              </div></td>
-              <td><div align="right">
+                <div class="col-sm-4 col-md-3">
+                    <label><?php echo $LANG['patients']['charge']?></label><br>
+                    
+                    <div>
+                    <label>
+                        <input <?php echo $disable?> name="aserpago" type="radio" value="Particular" <?php echo $chk[aserpago]['Particular']?> onclick="document.getElementById('valortotal').value = document.getElementById('total_particular').value; document.getElementById('valor__total').value = document.getElementById('total_particular').value;" />
+                        <?php echo $LANG['patients']['private']?>
+                    </label>
+                        <label>
+                        <input <?php echo $disable?> name="aserpago" type="radio" value="Convênio" <?php echo $chk[aserpago]['Convênio']?> onclick="document.getElementById('valortotal').value = document.getElementById('total_convenio').value; document.getElementById('valor__total').value = document.getElementById('total_convenio').value;" />
+                        <?php echo $LANG['patients']['plan']?>
+                    </label>
+                        </div>
+                </div>
+                <div class="col-sm-4 col-md-3">
+                    <label><?php echo $LANG['patients']['total_value']?></label>
+                    <input <?php echo $disable?> name="valor__total" disabled type="text" value="<?php echo money_form($row[valortotal])?>" class="form-control" id="valor__total" size="15" />
+                    <input <?php echo $disable?> name="valortotal" type="hidden" value="<?php echo money_form($row[valortotal])?>" class="form-control" id="valortotal" size="15" />
+             
+                </div>
+                <div class="col-sm-4 col-md-3">
+                    <label><?php echo $LANG['patients']['payment_method']?></label>
+                    
                 <select <?php echo $disable?> name="formapagamento" class="form-control" id="formapagamento">
                     <?php
                         $valores = array('À vista' => $LANG['patients']['at_sight'], 'Cheque pré-datado' => $LANG['patients']['pre_dated_check'], 'Promissória' => $LANG['patients']['promissory'], 'Cartão' => $LANG['patients']['credit_card']);
@@ -221,101 +219,90 @@
                         }
                     ?>       
              </select>
-                </div>              </td>
-            </tr>
-            <tr>
-              <td colspan="2">&nbsp;</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td width="5%">&nbsp;</td>
-              <td width="28%"><div align="left"><?php echo $LANG['patients']['number_of_plots']?>:&nbsp;&nbsp;
-              <select <?php echo $disable?> name="parcelas" class="form-control" id="parcelas">
-    <?php
-    $estados = array();
-    for($i = 1; $i <= 20; $i++) {
-        array_push($estados, $i);
-    }
-    foreach($estados as $uf) {
-        if($row[parcelas] == $uf) {
-            echo '<option value="'.$uf.'" selected>'.$uf.'</option>';
-        } else {
-            echo '<option value="'.$uf.'">'.$uf.'</option>';
-        }
-    }
-    ?>
-             </select></div></td>
-              <td height="20" align="center">
-                <?php echo $LANG['patients']['first_plot']?>:
-              <select <?php echo $disable?> name="entrada_tipo" class="form-control" id="entrada_tipo">
-    <?php
-    $valores = array('R$' => $LANG['general']['currency'], '%' => '%');
-    foreach($valores as $chave => $valor) {
-        if($row['entrada_tipo'] == $chave) {
-            echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
-        } else {
-            echo '<option value="'.$chave.'">'.$valor.'</option>';
-        }
-    }
-    ?>
-             </select>
-             <input <?php echo $disable?> type="text" name="entrada" value="<?php echo $row['entrada']?>" class="form-control" size="10" onkeypress="return Ajusta_Valor(this, event);">
-              </td>
-              <td><div align="right"><?php echo $LANG['patients']['discount']?>:
-                  <input <?php echo $disable?> name="desconto" type="text" value="<?php echo $row[desconto]?>" class="form-control" id="desconto" size="5" onkeypress="return Ajusta_Valor(this, event);" />
-              %</div></td>
-            </tr>
-            <tr>
-              <td colspan="2">&nbsp;</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td><div align="center"></div></td>
-              <td colspan="2"><div align="left"><?php echo $LANG['patients']['professional']?>:
-                  <select <?php echo $disable?> name="codigo_dentista" class="form-control">
+                </div>
+                <div class="col-sm-4 col-md-3">
+                    <label><?php echo $LANG['patients']['number_of_plots']?></label>
+                    <select <?php echo $disable?> name="parcelas" class="form-control" id="parcelas">
                     <?php
-            $dentista = new TDentistas();
-            $lista = $dentista->ListDentistas("SELECT * FROM `dentistas` WHERE `ativo` = 'Sim' ORDER BY `nome` ASC");
-            for($i = 0; $i < count($lista); $i++) {
-                $nome = explode(' ', $lista[$i][nome]);
-                $nome = $nome[0].' '.$nome[count($nome) - 1];
-                if($row[codigo_dentista] == $lista[$i][codigo] || ($row[codigo_dentista] == "" && $_SESSION[codigo] == $lista[$i][codigo])) {
-                    echo '<option value="'.$lista[$i][codigo].'" selected>'.$lista[$i][titulo].' '.$nome.'</option>';
-                } else {
-                    echo '<option value="'.$lista[$i][codigo].'">'.$lista[$i][titulo].' '.$nome.'</option>';
-                }
-            }
-    ?>
-                    </select> 
-
-                    <?php echo $LANG['payment']['deadline'] ?>
-                    <select <?php echo $disable?> id="vencimento" name="vencimento">
+                    $estados = array();
+                    for($i = 1; $i <= 20; $i++) {
+                        array_push($estados, $i);
+                    }
+                    foreach($estados as $uf) {
+                        if($row[parcelas] == $uf) {
+                            echo '<option value="'.$uf.'" selected>'.$uf.'</option>';
+                        } else {
+                            echo '<option value="'.$uf.'">'.$uf.'</option>';
+                        }
+                    }
+                    ?>
+                    </select>
+                </div>
+                <div class="col-sm-4 col-md-3">
+                    <label><?php echo $LANG['patients']['first_plot']?></label>
+                    <div class="input-group">
+                        
+                        <select style="width:40%"<?php echo $disable?> name="entrada_tipo" class=" input-group-addon form-control" id="entrada_tipo">
+                            <?php $valores = array('R$' => $LANG['general']['currency'], '%' => '%');
+                        foreach($valores as $chave => $valor) {
+                            if($row['entrada_tipo'] == $chave) {
+                                echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
+                            } else {
+                                echo '<option value="'.$chave.'">'.$valor.'</option>';
+                            }
+                        }
+                            ?>
+                        </select>
+                        <input style="width:60%" <?php echo $disable?> type="text" name="entrada" value="<?php echo $row['entrada']?>" class="form-control" size="10" onkeypress="return Ajusta_Valor(this, event);">
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-2">
+                    <label><?php echo $LANG['patients']['discount']?></label>
+                    <div class="input-group">
+                        <input <?php echo $disable?> name="desconto" type="text" value="<?php echo $row[desconto]?>" class="form-control" id="desconto" size="5" onkeypress="return Ajusta_Valor(this, event);" />
+                        <span class="input-group-addon" id="basic-addon2">%</span>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-4 col-md-2">
+                    <label><?php echo $LANG['payment']['deadline'] ?></label>
+                     <select  class="form-control" <?php echo $disable?> id="vencimento" name="vencimento">
 
                         <?php for($dia = 5; $dia <= 30 ; $dia+=5){ ?>
                             <option <?php if($dia == $_POST['vencimento'] ){echo 'selected';} ?>  ><?php echo $dia ?></option>
                         <?php } ?>
                     </select>
-
-              </div></td>
-              <td><div align="right">
-                <input <?php echo $disable?> name="Salvar22" type="submit" id="Salvar22" value="<?php echo $LANG['patients']['calculate']?>" />&nbsp;
-              </div></td>
-            </tr>
-          </table>
-          <br />
-
-
-</div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <label><?php echo $LANG['patients']['professional']?></label>
+                     <select <?php echo $disable?> name="codigo_dentista" class="form-control">
+                        <?php
+                            $dentista = new TDentistas();
+                            $lista = $dentista->ListDentistas("SELECT * FROM `dentistas` WHERE `ativo` = 'Sim' ORDER BY `nome` ASC");
+                            for($i = 0; $i < count($lista); $i++) {
+                                $nome = explode(' ', $lista[$i][nome]);
+                                $nome = $nome[0].' '.$nome[count($nome) - 1];
+                                if($row[codigo_dentista] == $lista[$i][codigo] || ($row[codigo_dentista] == "" && $_SESSION[codigo] == $lista[$i][codigo])) {
+                                    echo '<option value="'.$lista[$i][codigo].'" selected>'.$lista[$i][titulo].' '.$nome.'</option>';
+                                } else {
+                                    echo '<option value="'.$lista[$i][codigo].'">'.$lista[$i][titulo].' '.$nome.'</option>';
+                                }
+                            }
+                         ?>
+                    </select> 
+                </div>
+            </div>
+            <div class="panel-footer"  style="text-align:right">
+                <input class="btn btn-primary" <?php echo $disable?> name="Salvar22" type="submit" id="Salvar22" value="<?php echo $LANG['patients']['calculate']?>" />
+            </div>
         </div>
     </form>
     
     <form id="form3" name="form3" method="POST" action="pacientes/orcamentofechar_ajax.php?codigo=<?php echo $_GET[codigo]?>&acao=editar&subacao=editar&codigo_orc=<?php echo $codigo_orc?>" onsubmit="formSender(this, 'conteudo'); return false;"> &nbsp;<br />
         <div class="panel panel-primary">
             <div class="panel-heading">
-<h3 class="panel-title">Panel title</h3>
-</div>  
+                <h3 class="panel-title">Panel title</h3>
+            </div>  
             <div class=" panel-body ">
                <div class="row">
                  
@@ -324,7 +311,8 @@
                 <div class="col-sm-3 col-xs-4"><?php echo $LANG['patients']['value']?></div>
                 <div class="col-sm-3 col-xs-12"><?php echo $LANG['patients']['status']?></div>
                  
-                </div>
+                </div> <!-- row -->
+                
                     <?php
                     if(empty($row[parcelas])) {
                     $row[parcelas] = 1; 
@@ -384,7 +372,7 @@
                     <?php echo $boleto ?>
                     <?php echo (($row['baixa'] == 'Não')?(($row1['pago'] == 'Sim')?$LANG['patients']['paid']:'<a href="javascript:Ajax(\'pagamentos/parcelas\', \'conteudo\', \'codigo='.completa_zeros($row1['codigo'], ZEROS).'\')">'.$LANG['patients']['open']).((($row1['datavencimento'] < date('Y-m-d')) && ($row1['pago'] != 'Sim'))?' ('.$LANG['patients']['overdue'].')</a>':'</a>').(($row1['pago'] == 'Sim')?' ('.converte_data($row1['datapgto'], 2).')':''):(($row1['pago'] == 'Sim')?$LANG['patients']['paid'].' ('.converte_data($row1['datapgto'], 2).')':$LANG['patients']['canceled']))?>
                 </div>
-            </div>
+            </div> <!-- row -->
 
     <?php } ?>
 
@@ -393,46 +381,40 @@
                   <strong><?php echo $LANG['patients']['final_value']?>:<?php echo $LANG['general']['currency'].' '.money_form($total_final)?></strong>
                  
             </div>
-                
+        
       
     
-    <div class="panel-footer"  style="text-align:right">
-        <label for="confirmed"> <?php echo $LANG['patients']['confirmed_budget']?></label>
-        <input <?php echo $disable?> type="checkbox" <?php echo (($row['confirmado'] == 'Sim')?'checked':'')?> name="confirmed" id="confirmed" value="Sim"><br/>
-        <input <?php echo $disable?> name="Salvar222" type="submit" class="btn btn-primary" value="<?php echo $LANG['patients']['save_budget']?>" />
-    </div>
-    </div>
-    </div>
-    
-      </form>
+            <div class="panel-footer"  style="text-align:right">
+                <label for="confirmed"> <?php echo $LANG['patients']['confirmed_budget']?></label>
+                <input <?php echo $disable?> type="checkbox" <?php echo (($row['confirmado'] == 'Sim')?'checked':'')?> name="confirmed" id="confirmed" value="Sim"><br/>
+                <input <?php echo $disable?> name="Salvar222" type="submit" class="btn btn-primary" value="<?php echo $LANG['patients']['save_budget']?>" />
+            </div>
         </div>
+      </form>
     
-<table width="100%" align="center">
-  <tr>
-    <td width="33%" align="center">
-      <a href="relatorios/orcamento.php?codigo=<?php echo $codigo_orc?>" target="_blank"><?php echo $LANG['patients']['print_budget']?></a>
-    </td>
+    <div>
+      <a href="relatorios/orcamento.php?codigo=<?php echo $codigo_orc?>" target="_blank" class="btn  btn-default"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_budget']?></a>
+    
 <?php
     if($disable == 'disabled') {
         if($row['baixa'] == 'Não') {
             if(!checknivel('Dentista')) {
 ?>
-    <td width="33%" align="center">
-      <a href="javascript:;" onclick="if(confirm('<?php echo $LANG['patients']['are_you_sure_you_want_to_cancel_this_budget']?>')) { javascript:Ajax('pacientes/orcamentofechar', 'conteudo', 'codigo=<?php echo $_GET[codigo]?>&indice_orc=<?php echo ($i+1)?>&acao=editar&subacao=editar&codigo_orc=<?php echo $row[codigo]?>&confirm_baixa=baixa') }">Dar Baixar no Orçamento</a>
-    </td>
+   
+      <a href="javascript:;" class="btn btn-danger" onclick="if(confirm('<?php echo $LANG['patients']['are_you_sure_you_want_to_cancel_this_budget']?>')) { javascript:Ajax('pacientes/orcamentofechar', 'conteudo', 'codigo=<?php echo $_GET[codigo]?>&indice_orc=<?php echo ($i+1)?>&acao=editar&subacao=editar&codigo_orc=<?php echo $row[codigo]?>&confirm_baixa=baixa') }">Dar Baixar no Orçamento</a>
+   
 <?php
             }
 ?>
-    <td width="34%" align="center">
-      <a href="relatorios/boleto.php?codigo=<?php echo $codigo_orc?>" target="_blank"><?php echo $LANG['patients']['print_billing_codes']?></a>
-    </td>
+   
+    <a href="relatorios/boleto.php?codigo=<?php echo $codigo_orc?>" class="btn  btn-default" target="_blank"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_billing_codes']?></a>
+   
 <?php
         }
     }
 ?>
-  </tr>
-</table>
-
+     </div>
+<br>
 <script>
 document.getElementById('descricao_new').focus();
 </script>
