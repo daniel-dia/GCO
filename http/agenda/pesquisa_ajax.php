@@ -63,23 +63,27 @@
 
     ?>
 
-        <div class="agendarow col-xs-12 col-sm-6">
-            <div class="col-xs-2">
-                <label><?php echo $horario[$i]?></label>
+        <div class="agendarow col-xs-12 col-md-6 ">
+            <div class="col-xs-8">
+                <div class="input-group ">
+                <span  class="input-group-addon"><?php echo $horario[$i]?></span>
+                <input class="form-control " type="text" size="30" maxlength="90" name="descricao" onkeyup="searchSuggest(this, 'codigo_pac<?php echo $i?>', 'search<?php echo $i?>');" id="descricao<?php echo $i?>" value="<?php echo $agenda->RetornaDados('descricao')?>" <?php echo $disable?> onblur="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&descricao='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>&codigo_paciente='%2Bdocument.getElementById('codigo_pac<?php echo $i?>').value);" onfocus="esconde_itens('searches')" onkeypress="document.getElementById('codigo_pac<?php echo $i?>').value=''" autocomplete="off" /> 
+                </div>
             </div>
-            <div class="col-xs-6">
-                <input type="text" size="30" maxlength="90" name="descricao" onkeyup="searchSuggest(this, 'codigo_pac<?php echo $i?>', 'search<?php echo $i?>');" id="descricao<?php echo $i?>" value="<?php echo $agenda->RetornaDados('descricao')?>" <?php echo $disable?> onblur="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&descricao='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>&codigo_paciente='%2Bdocument.getElementById('codigo_pac<?php echo $i?>').value);" onfocus="esconde_itens('searches')" onkeypress="document.getElementById('codigo_pac<?php echo $i?>').value=''" class="form-control" autocomplete="off"> 
-                <input type="hidden" id="codigo_pac<?php echo $i?>" value="<?php echo $agenda->RetornaDados('codigo_paciente')?>">
-                <div id='search<?php echo $i?>' style="position: absolute"></div>
-            </div>
-            <div class="col-xs-3">
-                <input type="text" size="13" maxlength="15" name="procedimento" id="procedimento" value="<?php echo $agenda->RetornaDados('procedimento')?>" <?php echo $disable?> onblur="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&procedimento='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>')" class="form-control" onfocus="esconde_itens('searches')">
-            </div>
-            <div class="col-xs-1">
-                <input style="margin:10px!important;" type="checkbox" name="faltou" id="faltou" value="<?php echo $val_chk?>" <?php echo $disable.' '.$chk?> onclick="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&faltou='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>'); muda_valor(this);" onfocus="esconde_itens('searches')"  >
+            <div class="col-xs-4">
+             <div class="input-group ">
+                <input class="form-control" type="text" size="13" maxlength="15" name="procedimento" id="procedimento" value="<?php echo $agenda->RetornaDados('procedimento')?>" <?php echo $disable?> onblur="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&procedimento='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>')" onfocus="esconde_itens('searches')" />
+                <span class="input-group-addon"><input class="" type="checkbox" name="faltou" id="faltou" value="<?php echo $val_chk?>" <?php echo $disable.' '.$chk?> onclick="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&faltou='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>'); muda_valor(this);" onfocus="esconde_itens('searches')"  /></span>
+                 </div>
             </div>
         </div>
+    
+    
+    
+    
 
+<input type="hidden" id="codigo_pac<?php echo $i?>" value="<?php echo $agenda->RetornaDados('codigo_paciente')?>" />
+            <div id='search<?php echo $i?>' style="position: absolute;z-index:099999"></div>
         <?php
     }
 

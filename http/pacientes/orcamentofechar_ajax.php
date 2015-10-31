@@ -259,7 +259,7 @@
                 <div class="col-sm-4 col-md-2">
                     <label><?php echo $LANG['patients']['discount']?></label>
                     <div class="input-group">
-                        <input <?php echo $disable?> name="desconto" type="text" value="<?php echo $row[desconto]?>" class="form-control" id="desconto" size="5" onkeypress="return Ajusta_Valor(this, event);" />
+                        <input class="form-control" <?php echo $disable?> name="desconto" type="text" value="<?php echo $row[desconto]?>" id="desconto" size="5" onkeypress="return Ajusta_Valor(this, event);" />
                         <span class="input-group-addon" id="basic-addon2">%</span>
                     </div>
                     
