@@ -97,7 +97,7 @@
     <form id="form1" name="form1" method="POST" action="pacientes/orcamentofechar_ajax.php?codigo=<?php echo $_GET[codigo]?>&acao=editar&subacao=editar&codigo_orc=<?php echo $codigo_orc?>" onsubmit="formSender(this, 'conteudo'); return false;">
         <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">Panel title</h3>
+            <h3 class="panel-title"><?php echo $LANG['patients']['procedure']?></h3>
         </div>    
         <table class="table">
               <tr>
@@ -180,12 +180,12 @@
     <form id="form2" name="form2" method="POST" action="pacientes/orcamentofechar_ajax.php?codigo=<?php echo $_GET[codigo]?>&acao=editar&subacao=editar&codigo_orc=<?php echo $codigo_orc?>" onsubmit="formSender(this, 'conteudo'); return false;">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Panel title</h3>
+                <h3 class="panel-title"><?php echo $LANG['patients']['charge']?></h3>
             </div>
             <div class="panel-body">
 
                 <div class="col-sm-4 col-md-3">
-                    <label><?php echo $LANG['patients']['charge']?></label><br>
+                    <label></label><br>
                     
                     <div>
                     <label>
@@ -301,17 +301,18 @@
     <form id="form3" name="form3" method="POST" action="pacientes/orcamentofechar_ajax.php?codigo=<?php echo $_GET[codigo]?>&acao=editar&subacao=editar&codigo_orc=<?php echo $codigo_orc?>" onsubmit="formSender(this, 'conteudo'); return false;"> &nbsp;<br />
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Panel title</h3>
+                <h3 class="panel-title"> <?php echo $LANG['patients']['confirmed_budget']?></h3>
             </div>  
             <div class=" panel-body ">
-               <div class="row">
-                 
-                <div class="col-sm-6 col-xs-8"><?php echo $LANG['patients']['plot']?> 
-                 <?php echo $LANG['patients']['date']?></div>
-                <div class="col-sm-3 col-xs-4"><?php echo $LANG['patients']['value']?></div>
-                <div class="col-sm-3 col-xs-12"><?php echo $LANG['patients']['status']?></div>
-                 
-                </div> <!-- row -->
+               <table class="table">
+                 <tr>
+                    <th><?php echo $LANG['patients']['plot']?> 
+                     <?php echo $LANG['patients']['date']?></th>
+                    <th><?php echo $LANG['patients']['value']?></th>
+                    <th><?php echo $LANG['patients']['bill_number']?></th>
+                    <th><?php echo $LANG['patients']['status']?></th>
+                 </tr>
+               <!-- row -->
                 
                     <?php
                     if(empty($row[parcelas])) {
@@ -355,46 +356,102 @@
                     }
                     $total_final += $valor;
                     ?>
-            <div class="row">
-                <div class="col-sm-4 col-xs-6">
+            <tr>
+                <td class="col-xs-3">
                     <div class="input-group">
                         <span class="input-group-addon" id="sizing-addon1"><?php echo $LANG['patients']['plot']?> <?php echo $i?></span>
                         <?php $boleto = (($row1['codigo'] != '')?''.$LANG['patients']['bill_number'].' '.$row1['codigo'].'':''); ?>
                         <input <?php echo $disable?> name="datavencimento[<?php echo $i?>]" value="<?php echo (($row1['datavencimento'] == '-00-')?'00/00/0000':converte_data($row1['datavencimento'], 2))?>" type="text" class="form-control" size="15" />
                     </div>
-                </div>
-                <div class="col-sm-3 col-xs-6">
+                </td>
+                <td class="col-xs-3">
                     <div class="input-group">
                         <span class="input-group-addon" id="sizing-addon1">R$</span><input <?php echo $disable?> name="parcela[<?php echo $i?>]" value="<?php echo money_form($valor)?>" type="text" class="form-control" size="15" />
                     </div>
+                </td>
+                <td class="col-xs-3">
+                    <?php
+                     
+                        $pago = $row1['pago'] == 'Sim';
+                        $baixa = $row['baixa'] == 'Sim';
+                        $vencido = ($row1['datavencimento'] < date('Y-m-d')); 
+                        
+                        $baixado = $baixa && $pago;
+                        $cancelado = $baixa && !$pago;
+                        $aberto =    !$baixa && !$pago &&  !$vencido;
+                        $atrazado =  !$baixa && !$pago &&  $vencido;
+                        ?>
+                    
+                        
+                        <?php echo $boleto;  ?>
+                </td>
+                <td class="col-xs-3">
+                    <span class="<?php if($atrazado) echo 'text-danger'?> <?php if($pago) echo 'text-success'?> <?php if($cancelado) echo 'text-warning'?>" >
+                        
+                        
+                        <?php if($baixa){ 
+                            if($pago)  echo '<span class=" glyphicon-ok glyphicon"></span> '.$LANG['patients']['paid'].' '.converte_data($row1['datapgto'], 2);
+                            if(!$pago) echo '<span class=" glyphicon-warning-sign glyphicon"></span> '.$LANG['patients']['canceled'];
+                        }?>
+                        
+                        
+                        <?php if(!$baixa){ 
+                          if($row['confirmado'] == 'Sim'){?>
+                          
+                          <a data-toggle="modal" data-target="#myModal"  onclick="Ajax('pagamentos/parcelas', 'modalbody', 'codigo=<?php echo completa_zeros($row1['codigo'], ZEROS) ?> ')" class="<?php if($atrazado) echo 'text-danger'?> <?php if($pago) echo 'text-success'?>">
+                              
+                            <?php 
+                                
+                            if(!$baixa && $pago) {
+                                echo '<span class="glyphicon-ok glyphicon"></span> '.$LANG['patients']['paid'] . ' ('.converte_data($row1['datapgto'], 2).')' ;
+                            }
+                            if($aberto) echo $LANG['patients']['open'];
+                            if($atrazado) {
+                                echo '<span class="glyphicon-alert glyphicon"></span> '. $LANG['patients']['overdue'];
+                            }
+                            ?>
+                            
+                        </a>
+                            
+                        <?php }} ?>
+                            
+                    </span>
+                    
+
+                </td>
+            </tr> <!-- row -->
+
+            <?php } ?>
+
+
+            <strong><?php echo $LANG['patients']['final_value']?>:<?php echo $LANG['general']['currency'].' '.money_form($total_final)?></strong>
+                </table>
+        </div>
+
+
+
+        <div class="panel-footer" style="text-align:right">
+
+            <div class="form-inline" >
+                <div class="checkbox" style="display:inline-block; margin-right:30px;">
+                <label>
+                    <input <?php echo $disable?> type="checkbox"
+                    <?php echo (($row['confirmado'] == 'Sim')?'checked':'')?> name="confirmed" id="confirmed" value="Sim">
+                    <?php echo $LANG['patients']['confirmed_budget']?>
+                    
+                </label>
+                   
                 </div>
-                <div class="col-sm-5 col-xs-12">
-                    <?php echo $boleto ?>
-                    <?php echo (($row['baixa'] == 'Não')?(($row1['pago'] == 'Sim')?$LANG['patients']['paid']:'<a href="javascript:Ajax(\'pagamentos/parcelas\', \'conteudo\', \'codigo='.completa_zeros($row1['codigo'], ZEROS).'\')">'.$LANG['patients']['open']).((($row1['datavencimento'] < date('Y-m-d')) && ($row1['pago'] != 'Sim'))?' ('.$LANG['patients']['overdue'].')</a>':'</a>').(($row1['pago'] == 'Sim')?' ('.converte_data($row1['datapgto'], 2).')':''):(($row1['pago'] == 'Sim')?$LANG['patients']['paid'].' ('.converte_data($row1['datapgto'], 2).')':$LANG['patients']['canceled']))?>
-                </div>
-            </div> <!-- row -->
-
-    <?php } ?>
-
-
+                 <input <?php echo $disable?> name="Salvar222" type="submit" class="btn btn-primary" value="<?php echo $LANG['patients']['save_budget']?>" />
                 
-                  <strong><?php echo $LANG['patients']['final_value']?>:<?php echo $LANG['general']['currency'].' '.money_form($total_final)?></strong>
-                 
-            </div>
-        
-      
-    
-            <div class="panel-footer"  style="text-align:right">
-                <label for="confirmed"> <?php echo $LANG['patients']['confirmed_budget']?></label>
-                <input <?php echo $disable?> type="checkbox" <?php echo (($row['confirmado'] == 'Sim')?'checked':'')?> name="confirmed" id="confirmed" value="Sim"><br/>
-                <input <?php echo $disable?> name="Salvar222" type="submit" class="btn btn-primary" value="<?php echo $LANG['patients']['save_budget']?>" />
             </div>
         </div>
-      </form>
-    
-    <div>
-      <a href="relatorios/orcamento.php?codigo=<?php echo $codigo_orc?>" target="_blank" class="btn  btn-default"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_budget']?></a>
-    
+    </div>
+</form>
+
+<div>
+     <a href="relatorios/orcamento.php?codigo=<?php echo $codigo_orc?>" target="_blank" class="btn  btn-default"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_budget']?></a>
+     <a href="relatorios/boleto.php?codigo=<?php echo $codigo_orc?>" class="btn  btn-default" target="_blank"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_billing_codes']?></a>
 <?php
     if($disable == 'disabled') {
         if($row['baixa'] == 'Não') {
@@ -405,15 +462,23 @@
    
 <?php
             }
-?>
-   
-    <a href="relatorios/boleto.php?codigo=<?php echo $codigo_orc?>" class="btn  btn-default" target="_blank"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_billing_codes']?></a>
-   
-<?php
         }
     }
 ?>
      </div>
+    
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="">
+        <div class="modal-content" id="modalbody">
+          
+          
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 <br>
 <script>
 document.getElementById('descricao_new').focus();

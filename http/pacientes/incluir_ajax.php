@@ -147,8 +147,6 @@
         <!-- ------------------------------------------------------------------------------------------------------------------------------------>       
              
     <div class="panel apanel-primary" class="clearfix">
-
-        
         <h1 class="page-header"> 
             <a href="javascript:Ajax('pacientes/fotos','conteudo','codigo=<?php echo $row['codigo']; ?>&acao=editar')" ><img style="height:100px" class="img-circle" src="pacientes/verfoto.php?size=200&codigo=<?php echo $row['codigo']; ?>"></a>    
             <?php echo $strCase?></h1> 
@@ -158,8 +156,13 @@
         <input name="codigo" value="<?php echo $row[codigo]?>" type="text" class="form-control" <?php echo $disable?> id="codigo" />
         <?php } ?>
 
-            
-                   <div class="row multiline">     
+        <?php if(true){ ?>
+        <div class="alert alert-danger">
+            <span class="glyphicon glyphicon-alert"></span> <?php echo $LANG['patients']['patients_in_debt']; ?>
+        </div>
+        <?php } ?>
+
+        <div class="row multiline">     
                         <div class="col-xs-12">
                             <label class="input-lg"><?php echo $r[2]?>*<?php echo $LANG['patients']['name']?></label>
                             <input name="nom" value="<?php echo $row[nome]?>" type="text" class="input-lg form-control form-lg" <?php echo $disable?> id="nom" size="50" maxlength="80" />
@@ -296,15 +299,15 @@
                             <input name="obs_etiqueta" value="<?php echo $row[obs_etiqueta]?>" type="text" class="form-control" <?php echo $disable?> id="obs_etiqueta" />
                         </div>
                     </div>
-          
-                </div><br><br>
-              <div  class="apanel-footer" style="text-align:right">
+        
+    </div><br><br>
+    <div  class="apanel-footer" style="text-align:right">
               <a class="btn  btn-default" href="relatorios/paciente.php?codigo=<?php echo $row['codigo']?>" target="_blank"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_sheet']?></a>
               <input name="Salvar" type="submit" class="btn btn-primary" <?php echo $disable?> id="Salvar" value="<?php echo $LANG['patients']['save']?>" />
             </div>      
-            </div>
-      <br><br>
+</div>
 
+<br><br>
     <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title"><?php echo $LANG['patients']['plan_information']?></h3>

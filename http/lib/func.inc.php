@@ -531,5 +531,10 @@
         return($nivel == 'Administrador' || mysql_num_rows(mysql_query("SELECT * FROM permissoes WHERE nivel = '".$nivel."' AND area = '".$area."' AND permissao LIKE '%".$permissao."%'")) > 0);
     }
 
+//------------------------------------------------------------------------//
+  function em_debito($codigo) {
+        $query = mysql_query("SELECT DISTINCT(vo.codigo_paciente), tp.* FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' AND tp.codigo = ".$codigo." ORDER BY `nome` ASC");
+        return(mysql_num_rows($query) > 0);
+    }
 
 ?>

@@ -1,47 +1,3 @@
-<?php
-   /**
-    * Gerenciador Clínico Odontológico
-    * Copyright (C) 2006 - 2009
-    * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e Programação(ikkinet@gmail.com)
-    *
-    * Este arquivo é parte do programa Gerenciador Clínico Odontológico
-    *
-    * Gerenciador Clínico Odontológico é um software livre; você pode
-    * redistribuí-lo e/ou modificá-lo dentro dos termos da Licença
-    * Pública Geral GNU como publicada pela Fundação do Software Livre
-    * (FSF); na versão 2 da Licença invariavelmente.
-    *
-    * Este programa é distribuído na esperança que possa ser útil,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÂO
-    * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
-    * Licença Pública Geral GNU para maiores detalhes.
-    *
-    * Você recebeu uma cópia da Licença Pública Geral GNU,
-    * que está localizada na raíz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se não, visite o endereço para maiores informações:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Inglês)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (Português - Brasil)
-    *
-    * Em caso de dúvidas quanto ao software ou quanto à licença, visite o
-    * endereço eletrônico ou envie-nos um e-mail:
-    *
-    * http://www.smileodonto.com.br/gco
-    * smile@smileodonto.com.br
-    *
-    * Ou envie sua carta para o endereço:
-    *
-    * Smile Odontolóogia
-    * Rua Laudemira Maria de Jesus, 51 - Lourdes
-    * Arcos - MG - CEP 35588-000
-    *
-    *
-    */
-	include_once "../lib/config.inc.php";
-	include_once "../lib/func.inc.php";
-	include_once "../lib/classes.inc.php";
-	require_once '../lang/'.$idioma.'.php';
-?>
 var req;
 var elem = '';
 if (navigator.appName.indexOf('Microsoft') != -1) {
@@ -51,14 +7,14 @@ if (navigator.appName.indexOf('Microsoft') != -1) {
 }
 
 function extraiScript(texto) {
- 	/**
- 	 * Função original de SkyWalker.TO do imasters/forum
- 	 * Alterada por Micox - micoxjcg@yahoo.com.br
- 	 * Alterada por Pita
- 	 * Ref.: http://forum.imasters.com.br/index.php?showtopic=165277
- 	 * Ref.: http://forum.imasters.com.br/index.php?showtopic=173928&st=0&p=552492&#entry552492
- 	 *
- 	 */	
+    /**
+    * Função original de SkyWalker.TO do imasters/forum
+    * Alterada por Micox - micoxjcg@yahoo.com.br
+    * Alterada por Pita
+    * Ref.: http://forum.imasters.com.br/index.php?showtopic=165277
+    * Ref.: http://forum.imasters.com.br/index.php?showtopic=173928&st=0&p=552492&#entry552492
+    *
+    */
 	var ini, pos_src, fim, codigo;
 	var objScript = null;
 	ini = texto.indexOf('<script', 0)
@@ -170,9 +126,9 @@ function formSender(f, campo) {
 	}
 }
 
-function Ajax(url, campo, query) {
-	elem = campo;
-	document.getElementById(elem).innerHTML = "<center><img src='imagens/loading.gif' width='31' ></center>";
+function Ajax(url, campo, query,callback) {
+	
+	atualizaCampo(campo, "<center><img src='imagens/loading.gif' width='31' ></center>");
 	if (window.XMLHttpRequest) {  
 		req = new XMLHttpRequest();  
 	} else if (window.ActiveXObject) {  
@@ -182,28 +138,49 @@ function Ajax(url, campo, query) {
 		return;  
 	}
 	req.open("GET", url+"_ajax.php?"+query, true);
-	req.onreadystatechange = processReqChange;
+	req.onreadystatechange = function() {
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+                var texto = unescape(req.responseText.replace(/\+/g , " "));;
+                atualizaCampo(campo,texto);
+                extraiScript(texto);
+                if(callback) callback(texto);
+            }
+            else {
+                callback("Error");
+                atualizaCampo(campo,"Error");
+            }
+        }
+    };
+    
 	req.send(null); 
     
     if(campo == "conteudo") window.location.hash = '#' + url;
 }
 
-function processReqChange() {
-	if (req.readyState == 4) {
-		if (req.status == 200) {
-			//document.getElementById(elem).innerHTML = unescape(req.responseText.replace(/\+/g , " "));;
-			var texto = unescape(req.responseText.replace(/\+/g , " "));;
-			document.getElementById(elem).innerHTML = texto;
-			extraiScript(texto);
-		}
-	}
-}
 
-function confirmLink(theLink) {
+
+//Atualiza o campos com uma string
+function atualizaCampo(campo, texto) {
+    if(!campo) return;
+    var HTMLelement;
+    
+    if(typeof campo == "string") 
+        HTMLelement = document.getElementById(campo);
+    else 
+        HTMLelement = campo;
+        
+    HTMLelement.innerHTML = texto;
+}   
+
+
+function confirmLink(theLink,deleteText) {
+            if(!deleteText) deleteText="Tem certeza que deseja deletar? ";
+            
 	if (typeof(window.opera) != 'undefined') {
 		return true;
 	}
-	var is_confirmed = confirm('<?php echo $LANG['script']['are_you_sure_you_wat_to_delete_the_data']?>');
+	var is_confirmed = confirm(deleteText);
 	if (is_confirmed) {
 		if ( typeof(theLink.href) != 'undefined' ) {
 			theLink.href += "&confirm_del=delete')";
