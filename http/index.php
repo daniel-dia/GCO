@@ -76,6 +76,8 @@
     <script language="javascript" type="text/javascript" src="lib/ajax_search.js"></script>
     <script language="javascript" type="text/javascript" src="js/sb-admin-2.js"></script>
     <script language="javascript" type="text/javascript" src="js/metisMenu.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/moment-with-locales.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 
      <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -88,6 +90,9 @@
     
     <!-- Custom CSS -->
     <link href="css/gco.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Date Time Picker -->
+    <link href="css/bootstrap-datetimepicker-standalone.css" rel="stylesheet" type="text/css" />
 </head>
     
 <body>

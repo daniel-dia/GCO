@@ -40,14 +40,36 @@
         ?>     
 		</select>
 </div>
-<div class="col-sm-4">
+<div class="col-sm-4 input-group date"  id="datetimepicker12">
         
         <label><?php echo $LANG['calendar']['date']?> </label>
-            <input name="procurar" id="procurar" value="<?php echo converte_data(hoje(), 2)?>" type="text" class="form-control" size="20" maxlength="40"
-		onkeyup="javascript:Ajax('agenda/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value%2B'&codigo_dentista='%2BgetElementById('codigo_dentista').options[getElementById('codigo_dentista').selectedIndex].value)"
-		onfocus="javascript:Ajax('agenda/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value%2B'&codigo_dentista='%2BgetElementById('codigo_dentista').options[getElementById('codigo_dentista').selectedIndex].value)"
-		onKeypress="return Ajusta_Data(this, event);"
-		onclick="abreCalendario(this)">
+        <input name="procurar" id="procurar" value="<?php echo converte_data(hoje(), 2)?>" 
+               
+               type="text" class="form-control" size="20" maxlength="40"
+               change="javascript:Ajax('agenda/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value%2B'&codigo_dentista='%2BgetElementById('codigo_dentista').options[getElementById('codigo_dentista').selectedIndex].value)"
+               aonfocus="javascript:Ajax('agenda/pesquisa', 'pesquisa', 'pesquisa='%2Bthis.value%2B'&codigo_dentista='%2BgetElementById('codigo_dentista').options[getElementById('codigo_dentista').selectedIndex].value)"
+               aonKeypress="return Ajusta_Data(this, event);"
+               aonclick="abreCalendario(this)">
+    
+    <div style="overflow:hidden;">
+    <div class="form-group">
+     
+            <div>
+                <div></div>
+            </div>
+        
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#procurar').datetimepicker({ 
+                sideBySide: false,
+                locale: 'pt-br',
+                viewMode: 'days', 
+                format: 'DD/MM/YYYY',
+            });
+        });
+    </script>
+</div>
       
 </div>
 <br><br>
