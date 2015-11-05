@@ -90,11 +90,13 @@
         <div id="linha-agenda" class="agendarow col-xs-12 col-md-6 <?php if($debito){ echo 'has-error text-warning'; } ?>">
             <div class="col-xs-8">
                 <div class="input-group aform-group ">
-                    <span  class="input-group-addon" style="width:78px!important">
+                    <span  class="input-group-addon" >
+                        <div style="width:48px!important">
                         <?php echo $horario[$i]?>
                         <span data-toggle="tooltip" 
                               data-placement="top" 
                               data-original-title=" <?php echo $LANG['patients']['patients_in_debt']; ?> " id="debit" class="danger <?php if($debito){ echo 'glyphicon-alert' ;} ?> glyphicon "></span>
+                        </div>
                     </span>
                 
                     <input <?php echo $disable?> 
