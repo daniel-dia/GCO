@@ -90,7 +90,7 @@
         <div id="linha-agenda" class="agendarow col-xs-12 col-md-6 <?php if($debito){ echo 'has-error text-warning'; } ?>">
             <div class="col-xs-8">
                 <div class="input-group aform-group ">
-                    <span  class="input-group-addon" style="width:54px">
+                    <span  class="input-group-addon" style="width:78px!important">
                         <?php echo $horario[$i]?>
                         <span data-toggle="tooltip" 
                               data-placement="top" 
