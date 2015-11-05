@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <?php
    /**
     * Gerenciador Clínico Odontológico
@@ -79,8 +79,13 @@
     <script language="javascript" type="text/javascript" src="js/moment-with-locales.min.js"></script>
     <script language="javascript" type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 
+    
+       <!-- Date Time Picker -->
+    <link href="css/bootstrap-datetimepicker-standalone.css" rel="stylesheet" type="text/css" />
+    
      <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
 
     <!-- Theme CSS -->
     <link href="css/sb-admin-2.css" rel="stylesheet" type="text/css" /> 
@@ -91,8 +96,7 @@
     <!-- Custom CSS -->
     <link href="css/gco.css" rel="stylesheet" type="text/css" />
     
-    <!-- Date Time Picker -->
-    <link href="css/bootstrap-datetimepicker-standalone.css" rel="stylesheet" type="text/css" />
+ 
 </head>
     
 <body>
@@ -122,7 +126,8 @@
         
         
         <div id="page-wrapper">
-            <div id="conteudo"></div>
+            <div id="conteudo">
+            </div>
         </div>
         
         <div>
