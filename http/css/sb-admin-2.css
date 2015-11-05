@@ -18,6 +18,15 @@ body {
     background-color: #fff;
 }
 
+
+@media(min-width:540px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 150px;
+        padding: 0 30px;
+        border-left: 1px solid #e7e7e7;
+    }
+}
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;
@@ -127,6 +136,24 @@ body {
     padding-left: 52px;
 }
 
+
+
+@media(min-width:540px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 150px;
+        margin-top: 111px;
+    }
+
+    .navbar-top-links .dropdown-messages,
+    .navbar-top-links .dropdown-tasks,
+    .navbar-top-links .dropdown-alerts {
+        margin-left: auto;
+    }
+}
+
+
 @media(min-width:768px) {
     .sidebar {
         z-index: 1;
@@ -141,6 +168,7 @@ body {
         margin-left: auto;
     }
 }
+
 
 .btn-outline {
     color: inherit;

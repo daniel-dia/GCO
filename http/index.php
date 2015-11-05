@@ -70,12 +70,16 @@
     <title>Gerenciador Clínico Odontológico</title>
     <link rel="SHORTCUT ICON" href="favicon.ico">
 
+    <!-- date time -->
     <script language="javascript" type="text/javascript" src="lib/script.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/ajax_search.js"></script>
+    
     <script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script language="javascript" type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script language="javascript" type="text/javascript" src="lib/ajax_search.js"></script>
     <script language="javascript" type="text/javascript" src="js/sb-admin-2.js"></script>
     <script language="javascript" type="text/javascript" src="js/metisMenu.min.js"></script>
+    
+    <!-- date time -->
     <script language="javascript" type="text/javascript" src="js/moment-with-locales.min.js"></script>
     <script language="javascript" type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 
@@ -104,7 +108,7 @@
     
     <div id="wrapper">
         
-          <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
 
             <div class="navbar-header" > 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -113,7 +117,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"><img src="imagens/Tooth.png"  style="display:inline"/> GCO</a>
+                <a class="navbar-brand" href="index.php">
+                    <img src="imagens/Tooth.png"  style="display:inline"/> Clínica Orthosul
+                </a>
             </div>
             <!-- /.navbar-header -->
             
@@ -128,15 +134,17 @@
         <div id="page-wrapper">
             <div id="conteudo">
             </div>
-        </div>
         
-        <div>
-            <div class="rodape col-xs-12" id="rodape"> <br />
-                <?php echo $LANG['general']['smile_odontology']?> - <?php echo $LANG['general']['enhancing_your_smile']?> - <a href="http://www.smileodonto.com.br" target="_blank">www.smileodonto.com.br </a><br>
-                <br />
-                <?php echo $LANG['general']['be_part_of_smile']?><br />
-                <a href="https://icons8.com/download-huge-windows8-set">Windows icons by Icons8</a>
-            </div>
+        
+             <!-- <div>
+              <div class="rodape col-xs-12" id="rodape"> <br />
+                    <?php echo $LANG['general']['smile_odontology']?> - <?php echo $LANG['general']['enhancing_your_smile']?> - <a href="http://www.smileodonto.com.br" target="_blank">www.smileodonto.com.br </a><br>
+                    <br />
+                    <?php echo $LANG['general']['be_part_of_smile']?><br />
+                    <a href="https://icons8.com/download-huge-windows8-set">Windows icons by Icons8</a>
+                </div>
+               
+            </div> -->
         </div>
     </div>
     
