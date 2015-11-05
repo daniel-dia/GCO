@@ -37,11 +37,25 @@ img.photosmall{
   width:    30px;
 
 }
-
-.row.multiline div{ 
-}
+  
 .agendarow > div{
     padding:0
+}
+
+
+
+
+.agendarow input:not(:focus), .agendarow span:not(:focus){ 
+    background: transparent;
+    border-left: none;
+    border-right: none;
+    border-color: #EFEFEF;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+}
+
+.agendarow input:disabled { 
+    background-color:  #FCFCFC!important;
 }
 
 label{
