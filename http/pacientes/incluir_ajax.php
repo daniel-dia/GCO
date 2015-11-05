@@ -156,7 +156,7 @@
         <input name="codigo" value="<?php echo $row[codigo]?>" type="text" class="form-control" <?php echo $disable?> id="codigo" />
         <?php } ?>
 
-        <?php if(true){ ?>
+        <?php if(em_debito($row['codigo'])){ ?>
         <div class="alert alert-danger">
             <span class="glyphicon glyphicon-alert"></span> <?php echo $LANG['patients']['patients_in_debt']; ?>
         </div>

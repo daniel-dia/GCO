@@ -257,10 +257,10 @@
   //------------------------------------------------------------------------//
 
   function maismes($data, $qtde) {
-  	$data = explode("-", $data);
-  	$dia = $data[2];
+  	$data = explode("/", $data);
+  	$dia = $data[0];
   	$mes = $data[1] + $qtde;
-  	$ano = $data[0];
+  	$ano = $data[2];
   	while($mes > 12) {
   		$mes -= 12;
   		$ano++;
@@ -268,6 +268,13 @@
   	if(strlen($mes) < 2) {
   		$mes = "0".$mes;
   	}
+      
+      if($dia > 28 && $mes == 2)
+         $dia = 28;
+      
+      if($dia > 30 && ( $mes == 2 || $mes == 4 || $mes == 6 || $mes == 9 ||$mes == 11 ))
+         $dia = 30;
+          
   	return($ano."-".$mes."-".$dia);
   }
 

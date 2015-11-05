@@ -175,7 +175,6 @@
         </div>
     </div>
     </form>
-
     
     <form id="form2" name="form2" method="POST" action="pacientes/orcamentofechar_ajax.php?codigo=<?php echo $_GET[codigo]?>&acao=editar&subacao=editar&codigo_orc=<?php echo $codigo_orc?>" onsubmit="formSender(this, 'conteudo'); return false;">
         <div class="panel panel-primary">
@@ -266,12 +265,10 @@
                 </div>
                 <div class="col-sm-4 col-md-2">
                     <label><?php echo $LANG['payment']['deadline'] ?></label>
-                     <select  class="form-control" <?php echo $disable?> id="vencimento" name="vencimento">
-
-                        <?php for($dia = 5; $dia <= 30 ; $dia+=5){ ?>
-                            <option <?php if($dia == $_POST['vencimento'] ){echo 'selected';} ?>  ><?php echo $dia ?></option>
-                        <?php } ?>
-                    </select>
+                    <input class="form-control" <?php echo $disable?> id="vencimento" name="vencimento" value="<?php $_POST['vencimento']?>"  >
+ 
+                   
+                    
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <label><?php echo $LANG['patients']['professional']?></label>
@@ -306,8 +303,7 @@
             <div class=" panel-body ">
                <table class="table">
                  <tr>
-                    <th><?php echo $LANG['patients']['plot']?> 
-                     <?php echo $LANG['patients']['date']?></th>
+                    <th><?php echo $LANG['patients']['plot']?> <?php echo $LANG['patients']['date']?></th>
                     <th><?php echo $LANG['patients']['value']?></th>
                     <th><?php echo $LANG['patients']['bill_number']?></th>
                     <th><?php echo $LANG['patients']['status']?></th>
@@ -324,44 +320,49 @@
                     $total_final = 0;
 
                     for($i = 1; $i <= $parc; $i++) {
-                    $row1 = mysql_fetch_array($query1);
-                    $valor = $row1['valor'];
-                    if($row['entrada'] != '' && $row['entrada'] != 0 && $i === 1) {
-                    $row['parcelas']--;
-                    $row1['datavencimento'] = date('Y-m-d');
-                    if($row['entrada_tipo'] == 'R$') {
-                    $row['valortotal'] -= $row['entrada'];
-                    $valor = $row['entrada'];
-                    } elseif($row['entrada_tipo'] == '%') {
-                    $row['valortotal'] -= ($row['valortotal']*($row['entrada']/100));
-                    $valor = $total - $row['valortotal'];
-                    }
-                    } else {
-                    if(empty($row1[valor])) {
-                    $valor = ($row['valortotal']-($total*($row[desconto]/100)))/$row[parcelas];
-                    }
-                    if(empty($row1[datavencimento])) {
-                    $diavencimento = $_POST['vencimento'];
-                    if(!$diavencimento)$diavencimento = 5;
-                    $row1[datavencimento] = maismesdia($row[data], $i-1, $diavencimento);
+                        $row1 = mysql_fetch_array($query1);
+                        $valor = $row1['valor'];
+                        if($row['entrada'] != '' && $row['entrada'] != 0 && $i === 1) {
+                            $row['parcelas']--;
+                            $row1['datavencimento'] = date('Y-m-d');
+                            if($row['entrada_tipo'] == 'R$') {
+                                $row['valortotal'] -= $row['entrada'];
+                                $valor = $row['entrada'];
+                            } elseif($row['entrada_tipo'] == '%') {
+                                $row['valortotal'] -= ($row['valortotal']*($row['entrada']/100));
+                                $valor = $total - $row['valortotal'];
+                            }
+                        } else {
+                        if(empty($row1[valor])) {
+                            $valor = ($row['valortotal']-($total*($row[desconto]/100)))/$row[parcelas];
+                        }
 
-                    }
+                        if(empty($row1[datavencimento])) {
+                            $datainicio = $_POST['vencimento'];
+                            if(!$datainicio)$datainicio = 5;
 
-                    }
-                    if($row1['pago'] != 'Sim' && $disable == 'disabled') {
-                    //$efetuar = '<input type="submit" class="form-control" name="efetuar['.$row1['codigo'].']" value="Efetuar pagamento">';
-                    $efetuar = '<a href="javascript:Ajax(\'pagamentos/parcelas\', \'conteudo\', \'codigo='.$row1['codigo'].'\')">Efetuar pagamento</a> ';
-                    } elseif($disable == 'disabled') {
-                    $efetuar = 'Pagamento já realizado!';
-                    }
-                    $total_final += $valor;
+                            $row1[datavencimento] = maismes($datainicio, $i-1);
+
+                        }
+
+                        }
+                        if($row1['pago'] != 'Sim' && $disable == 'disabled') {
+                            //$efetuar = '<input type="submit" class="form-control" name="efetuar['.$row1['codigo'].']" value="Efetuar pagamento">';
+                            $efetuar = '<a href="javascript:Ajax(\'pagamentos/parcelas\', \'conteudo\', \'codigo='.$row1['codigo'].'\')">Efetuar pagamento</a> ';
+                        } elseif($disable == 'disabled') {
+                            $efetuar = 'Pagamento já realizado!';
+                        }
+                        $total_final += $valor;
                     ?>
             <tr>
                 <td class="col-xs-3">
                     <div class="input-group">
                         <span class="input-group-addon" id="sizing-addon1"><?php echo $LANG['patients']['plot']?> <?php echo $i?></span>
                         <?php $boleto = (($row1['codigo'] != '')?''.$LANG['patients']['bill_number'].' '.$row1['codigo'].'':''); ?>
-                        <input <?php echo $disable?> name="datavencimento[<?php echo $i?>]" value="<?php echo (($row1['datavencimento'] == '-00-')?'00/00/0000':converte_data($row1['datavencimento'], 2))?>" type="text" class="form-control" size="15" />
+                        <input <?php echo $disable?> 
+                               name="datavencimento[<?php echo $i?>]" 
+                                id="datavencimento_<?php echo $i?>" 
+                               value="<?php echo (($row1['datavencimento'] == '-00-')?'00/00/0000':converte_data($row1['datavencimento'], 2))?>" type="text" class="form-control" size="15" />
                     </div>
                 </td>
                 <td class="col-xs-3">
@@ -483,3 +484,34 @@
 <script>
 document.getElementById('descricao_new').focus();
 </script>
+
+    
+ <!-- calendário -->
+
+<div style="overflow:hidden;">
+    <script type="text/javascript">
+    $(function () {
+        $('#vencimento').datetimepicker({ 
+            sideBySide: false,
+            locale: 'pt-br',
+            viewMode: 'days', 
+            format: 'DD/MM/YYYY',
+        });
+        
+        var i = 1;
+        while($('#datavencimento_'%2Bi).length > 0){
+            $('#datavencimento_'%2Bi).datetimepicker({ 
+                sideBySide: false,
+                useCurrent: false,
+                locale: 'pt-br',
+                viewMode: 'days', 
+                format: 'DD/MM/YYYY'
+            });
+            
+           i %2B%2B ;
+        }
+        
+      });
+     </script>
+    
+</div>

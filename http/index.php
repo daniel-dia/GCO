@@ -80,8 +80,8 @@
     <script language="javascript" type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 
     
-       <!-- Date Time Picker -->
-    <link href="css/bootstrap-datetimepicker-standalone.css" rel="stylesheet" type="text/css" />
+    <!-- Date Time Picker -->
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
     
      <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
