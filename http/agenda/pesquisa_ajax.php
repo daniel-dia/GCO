@@ -94,7 +94,7 @@
                         <?php echo $horario[$i]?>
                         <span data-toggle="tooltip" 
                               data-placement="top" 
-                              data-original-title="Tooltip on top" id="debit" class="danger <?php if($debito){ echo 'glyphicon-alert' ;} ?> glyphicon "></span>
+                              data-original-title=" <?php echo $LANG['patients']['patients_in_debt']; ?> " id="debit" class="danger <?php if($debito){ echo 'glyphicon-alert' ;} ?> glyphicon "></span>
                     </span>
                 
                     <input <?php echo $disable?> 
@@ -167,8 +167,5 @@
 <div id="agenda_atualiza"></div>
 
 <script>
-    $('.linha-agenda').tooltip({
-        selector: "[data-toggle=tooltip]",
-        container: "body"
-    });
+    $('[data-toggle="tooltip"]').tooltip();
 </script>
