@@ -41,9 +41,9 @@
     
 </script>
 
-
+    <h1 class="page-header"><?php echo $LANG['calendar']['manage_calendar']?></h1>
     <div  class="col-sm-8">
-        <label><?php echo $LANG['calendar']['manage_calendar']?></span></label>
+        <label><?php echo  $LANG['patients']['professional'] = 'Dentista'; ?></span></label>
       <select name="codigo_dentista" class="form-control" id="codigo_dentista"
               onchange="atualizaAgenda()">
       <option></option>

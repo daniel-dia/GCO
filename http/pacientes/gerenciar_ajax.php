@@ -1,42 +1,4 @@
 <?php
-   /**
-    * Gerenciador Clínico Odontológico
-    * Copyright (C) 2006 - 2009
-    * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e Programação(ikkinet@gmail.com)
-    *
-    * Este arquivo é parte do programa Gerenciador Clínico Odontológico
-    *
-    * Gerenciador Clínico Odontológico é um software livre; você pode
-    * redistribuí-lo e/ou modificá-lo dentro dos termos da Licença
-    * Pública Geral GNU como publicada pela Fundação do Software Livre
-    * (FSF); na versão 2 da Licença invariavelmente.
-    *
-    * Este programa é distribuído na esperança que possa ser útil,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÂO
-    * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
-    * Licença Pública Geral GNU para maiores detalhes.
-    *
-    * Você recebeu uma cópia da Licença Pública Geral GNU,
-    * que está localizada na raíz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se não, visite o endereço para maiores informações:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Inglês)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (Português - Brasil)
-    *
-    * Em caso de dúvidas quanto ao software ou quanto à licença, visite o
-    * endereço eletrônico ou envie-nos um e-mail:
-    *
-    * http://www.smileodonto.com.br/gco
-    * smile@smileodonto.com.br
-    *
-    * Ou envie sua carta para o endereço:
-    *
-    * Smile Odontolóogia
-    * Rua Laudemira Maria de Jesus, 51 - Lourdes
-    * Arcos - MG - CEP 35588-000
-    *
-    *
-    */
 	include "../lib/config.inc.php";
 	include "../lib/func.inc.php";
 	include "../lib/classes.inc.php";
@@ -134,12 +96,11 @@
         Ajax('pacientes/pesquisa', 'pesquisa', 'pesquisa='%2B pesq %2B'&campo='%2Bdocument.getElementById('campo').options[document.getElementById('campo').selectedIndex].value)
     }
 </script> 
-    <div class="conteudo" id="conteudo_central">
+<div class="conteudo" id="conteudo_central">
     <h1 class="page-header"> <?php echo $LANG['patients']['manage_patients']?> </h1>
-    
-    <?php echo $LANG['patients']['search_for']?><br>
-    <div class="form-group form-inline">
-    <div class="form-group">      	      
+    <div class="form-inline">
+    <div class="input-group">     
+            <div class="input-group-addon"><span class="glyphicon glyphicon-search " aria-hidden="true"></span></div>
       	      <select name="campo" id="campo" class="form-control " onchange="esconde(this)">
       	        <option value="nome"><?php echo $LANG['patients']['name']?></option>
       	        <option value="nascimento"><?php echo $LANG['patients']['birthdays']?></option>
@@ -225,8 +186,7 @@
     </div>
     </div>
 </div>
-    <div class="conteudo" id="table dados"><br>
- 
+    <br>
   <div id="pesquisa"></div>
   <script>
   document.getElementById('procurar').focus();

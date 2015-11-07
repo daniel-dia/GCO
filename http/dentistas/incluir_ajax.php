@@ -553,3 +553,6 @@
 <script>
 document.getElementById('nom').focus();
 </script>
+
+    <th><?php echo $LANG['professionals']['delete']?></th>
+      <td><?php echo ((verifica_nivel('profissionais', 'A'))?'<a href="javascript:Ajax(\'dentistas/gerenciar\', \'conteudo\', \'codigo='.$lista[$i][codigo].'" onclick="return confirmLink(this)"><img src="imagens/icones/excluir.png" alt="" width="19" height="19" border="0"></a>':'')?></td>

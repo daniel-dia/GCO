@@ -10,6 +10,7 @@ $LANG['general']['administration_in_your_hands'] = 'Administração Odontológic
 $LANG['general']['be_part_of_smile'] = 'Faça parte da nossa rede de clínicas odontológicas, nós ajudamos você no seu empreendimento.';
 $LANG['general']['warning'] = 'Atenção';
 $LANG['general']['disclaimer_end_of_activities'] = 'Esta é a última versão do GCO que será disponibilizada para download. O GCO continuará existindo, porém estamos desenvolvendo uma versão online, assim todos os dados ficarão na nuvem para consulta onde quiser.<br><br>Você ainda poderá utilizar esta versão offline por quanto tempo quiser, porém o suporte, manutenção e atualizações estão interrompidos desde a data do lançamento desta versão 6.0.<br><br>Eslcarecemos que o GCO Online, assim como este GCO offline, nunca foi pago e nunca será. Nossa filosofia ainda permanece a mesma de quando começamos o projeto: ajudar na gestão e administração das clínicas odontológicas.<br><br>Agradecemos a todos os que utilizaram este software. Aguardamos você no novo GCO Online.<br><br>Equipe Smile Odonto';
+$LANG['general']['add'] = 'Adicionar';
 $LANG['func']['sunday'] = 'Domingo';
 $LANG['func']['monday'] = 'Segunda-Feira';
 $LANG['func']['tuesday'] = 'Terça-Feira';

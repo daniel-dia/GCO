@@ -1,43 +1,5 @@
 <?php
-   /**
-    * Gerenciador Clínico Odontológico
-    * Copyright (C) 2006 - 2009
-    * Autores: Ivis Silva Andrade - Engenharia e Design(ivis@expandweb.com)
-    *          Pedro Henrique Braga Moreira - Engenharia e Programação(ikkinet@gmail.com)
-    *
-    * Este arquivo é parte do programa Gerenciador Clínico Odontológico
-    *
-    * Gerenciador Clínico Odontológico é um software livre; você pode
-    * redistribuí-lo e/ou modificá-lo dentro dos termos da Licença
-    * Pública Geral GNU como publicada pela Fundação do Software Livre
-    * (FSF); na versão 2 da Licença invariavelmente.
-    *
-    * Este programa é distribuído na esperança que possa ser útil,
-    * mas SEM NENHUMA GARANTIA; sem uma garantia implícita de ADEQUAÇÂO
-    * a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a
-    * Licença Pública Geral GNU para maiores detalhes.
-    *
-    * Você recebeu uma cópia da Licença Pública Geral GNU,
-    * que está localizada na raíz do programa no arquivo COPYING ou COPYING.TXT
-    * junto com este programa. Se não, visite o endereço para maiores informações:
-    * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html (Inglês)
-    * http://www.magnux.org/doc/GPL-pt_BR.txt (Português - Brasil)
-    *
-    * Em caso de dúvidas quanto ao software ou quanto à licença, visite o
-    * endereço eletrônico ou envie-nos um e-mail:
-    *
-    * http://www.smileodonto.com.br/gco
-    * smile@smileodonto.com.br
-    *
-    * Ou envie sua carta para o endereço:
-    *
-    * Smile Odontolóogia
-    * Rua Laudemira Maria de Jesus, 51 - Lourdes
-    * Arcos - MG - CEP 35588-000
-    *
-    *
-    */
-	include "../lib/config.inc.php";
+   	include "../lib/config.inc.php";
 	include "../lib/func.inc.php";
 	include "../lib/classes.inc.php";
 	require_once '../lang/'.$idioma.'.php';
@@ -45,24 +7,19 @@
 	if(!checklog()) {
 		die($frase_log);
 	}
-    //function em_debito($codigo) {
-    //    $query = mysql_query("SELECT DISTINCT(vo.codigo_paciente), tp.* FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' AND tp.codigo = ".$codigo." ORDER BY `nome` ASC");
-    //    return(mysql_num_rows($query) > 0);
-    //}
 
- 
-        $sql_leftJoin =  
-            "SELECT 
-                ( SELECT count(*) from v_orcamento vo
-                 WHERE 
-                    vo.data < CURDATE() AND 
-                    vo.pago = 'Não' AND 
-                    vo.confirmado = 'Sim' AND 
-                    vo.baixa = 'Não' AND
-                    vo.codigo_paciente = tp.codigo
-                 group by vo.codigo_paciente) as debito, tp.* 
-                 FROM pacientes tp ";
-               
+    $sql_leftJoin =  
+    "SELECT 
+        ( SELECT count(*) from v_orcamento vo
+         WHERE 
+            vo.data < CURDATE() AND 
+            vo.pago = 'Não' AND 
+            vo.confirmado = 'Sim' AND 
+            vo.baixa = 'Não' AND
+            vo.codigo_paciente = tp.codigo
+         group by vo.codigo_paciente) as debito, tp.* 
+         FROM pacientes tp ";
+
    
 ?>
 <table class="table table-hover">
@@ -160,13 +117,12 @@
   </table>
  
 
-
 <nav>
   <ul class="pagination">
    
         
         <?php
-      /*
+      
             $pg_total = ceil(count($total_regs)/PG_MAX);
             $i = $_GET[pg] - 5;
             if($i <= 1) {
@@ -191,19 +147,21 @@
                     echo '<li><a  onclick="javascript:Ajax(\'pacientes/pesquisa\', \'pesquisa\', \'pesquisa=\'%2BgetElementById(getElementById(\'id_procurar\').value).value%2B\'&campo=\'%2BgetElementById(\'campo\').options[getElementById(\'campo\').selectedIndex].value%2B\'&pg='.$i.'\')">'.$i.'</a></li>';
                 }
                 $i++;
-            }*/
+            }
         ?> 
   </ul>
 </nav>
+
+
 <div class="row">
 <div class="col-sm-4">
  <?php echo $LANG['patients']['total_patients']?>: <b><?php echo count($total_regs)?></b>
 </div>
 <div class="col-sm-4">
-        <a href="relatorios/pacientes.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_report']?></a>
+        <a href="relatorios/pacientes.php?sql=<?php echo ajaxurlencode($sql)?>" target="_blank" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_report']?></a>
 </div>
 <div class="col-sm-4">
-        <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?><?php echo ($_GET['campo']=='nascimento' ? '&nasc=true' : '')?>" target="_blank"><span class="glyphicon glyphicon-tag"></span> <?php echo $LANG['patients']['print_labels']?></a>
+        <a href="etiquetas/print_etiqueta.php?sql=<?php echo ajaxurlencode($sql)?><?php echo ($_GET['campo']=='nascimento' ? '&nasc=true' : '')?>" target="_blank"  class="btn btn-default"><span class="glyphicon glyphicon-tag"></span> <?php echo $LANG['patients']['print_labels']?></a>
 </div>
 </div>
 <br>
