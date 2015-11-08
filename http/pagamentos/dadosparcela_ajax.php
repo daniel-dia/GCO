@@ -77,7 +77,8 @@ function atualiza_valor() {
  <div class="modal-footer">
      <div class="form-group inline-form">
      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-     <input <?php echo (($row['pago'] == 'Sim' || $row['baixa'] == 'Sim' || $row['confirmado'] == 'Não')?'disabled':'')?> type="submit" name="Salvar" value="<?php echo $LANG['payment']['confirm_payment']?>" class="btn btn-primary">
+        <input <?php echo (($row['pago'] == 'Sim' || $row['baixa'] == 'Sim' || $row['confirmado'] == 'Não')?'disabled':'')?> type="submit" 
+               name="Salvar" value="<?php echo $LANG['payment']['confirm_payment']?>" class="btn btn-primary">
      </div>
 </div>
 

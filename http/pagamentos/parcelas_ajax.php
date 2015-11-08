@@ -19,7 +19,7 @@
         echo '<script>if(confirm("'.$LANG['payment']['payment_successfully_done'].'\n\n'.$LANG['payment']['patient'].': '.$row['paciente'].'\n\n'.$LANG['payment']['professional'].': '.(($row['sexo_dentista'] == 'Masculino')?'Dr. ':'Dra. ').$row['dentista'].'\n\n'.$LANG['payment']['total_to_pay'].': '.$LANG['general']['currency'].' '.money_form($_POST['valor']).'\n\n'.$LANG['payment']['deadline'].': '.converte_data($row['data'], 2).'\n\n'.$LANG['payment']['payment_date'].': '.date('d/m/Y').'\n\n'.$LANG['payment']['do_you_wish_to_print_the_receipt'].'")) { window.open("relatorios/recibo.php?codigo_parcela='.$_POST['parcela'].'", "'.$LANG['payment']['receipt'].'",  "height=350,width=320,status=yes,toolbar=no,menubar=no,location=no") }</script>';
 	}
 ?>
-
+   <form id="form2" name="form2" method="POST" action="pagamentos/parcelas_ajax.php" onsubmit="formSender(this, 'conteudo'); return false;">
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -39,6 +39,7 @@
     <div id="pagamento"></div>
 
     </div>
+</form>
 
 <script>
 document.getElementById('parcela').focus();
