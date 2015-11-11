@@ -42,7 +42,7 @@
     $agenda = new TAgendas();
 
     // Define as horas mostradas na agenda
-    $horas = array(7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22);
+    $horas = array('07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22');
     $minutos = array('00', '15', '30', '45');
     foreach($horas as $hora) foreach($minutos as $minuto) $horario[] = $hora.":".$minuto;
 
