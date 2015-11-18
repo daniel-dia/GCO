@@ -265,10 +265,10 @@
                 </div>
                 <div class="col-sm-4 col-md-2">
                     <label><?php echo $LANG['payment']['deadline'] ?></label>
-                    <input class="form-control" <?php echo $disable?> id="vencimento" name="vencimento" value="<?php $_POST['vencimento']?>"  >
+                    <input class="form-control" <?php echo $disable?> id="vencimento" name="vencimento" 
+                           value="<?php if($_POST['vencimento']) echo $_POST['vencimento']; else echo date('d/m/a');?>"  >
  
-                   
-                    
+                  
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <label><?php echo $LANG['patients']['professional']?></label>
@@ -311,48 +311,51 @@
                <!-- row -->
                 
                     <?php
-                    if(empty($row[parcelas])) {
-                    $row[parcelas] = 1; 
-                    }
-                    $query1 = mysql_query("SELECT * FROM `parcelas_orcamento` WHERE `codigo_orcamento` = '".$codigo_orc."' ORDER BY `codigo`") or die(mysql_error());
-                    $parc = $row['parcelas'];
-                    $total = $row['valortotal'];
-                    $total_final = 0;
+    if(empty($row[parcelas])) {
+        $row[parcelas] = 1; 
+    }
+                       
+    $query1 = mysql_query("SELECT * FROM `parcelas_orcamento` WHERE `codigo_orcamento` = '".$codigo_orc."' ORDER BY `codigo`") or die(mysql_error());
+    $parc = $row['parcelas'];
+    $total = $row['valortotal'];
+    $total_final = 0;
 
-                    for($i = 1; $i <= $parc; $i++) {
-                        $row1 = mysql_fetch_array($query1);
-                        $valor = $row1['valor'];
-                        if($row['entrada'] != '' && $row['entrada'] != 0 && $i === 1) {
-                            $row['parcelas']--;
-                            $row1['datavencimento'] = date('Y-m-d');
-                            if($row['entrada_tipo'] == 'R$') {
-                                $row['valortotal'] -= $row['entrada'];
-                                $valor = $row['entrada'];
-                            } elseif($row['entrada_tipo'] == '%') {
-                                $row['valortotal'] -= ($row['valortotal']*($row['entrada']/100));
-                                $valor = $total - $row['valortotal'];
-                            }
-                        } else {
-                        if(empty($row1[valor])) {
-                            $valor = ($row['valortotal']-($total*($row[desconto]/100)))/$row[parcelas];
-                        }
+    for($i = 1; $i <= $parc; $i++) {
+       $row1 = mysql_fetch_array($query1);
+       $valor = $row1['valor'];
 
-                        if(empty($row1[datavencimento])) {
-                            $datainicio = $_POST['vencimento'];
-                            if(!$datainicio)$datainicio = 5;
-
-                            $row1[datavencimento] = maismes($datainicio, $i-1);
-
-                        }
-
-                        }
-                        if($row1['pago'] != 'Sim' && $disable == 'disabled') {
-                            //$efetuar = '<input type="submit" class="form-control" name="efetuar['.$row1['codigo'].']" value="Efetuar pagamento">';
-                            $efetuar = '<a href="javascript:Ajax(\'pagamentos/parcelas\', \'conteudo\', \'codigo='.$row1['codigo'].'\')">Efetuar pagamento</a> ';
-                        } elseif($disable == 'disabled') {
-                            $efetuar = 'Pagamento já realizado!';
-                        }
-                        $total_final += $valor;
+       if($row['entrada'] != '' && $row['entrada'] != 0 && $i === 1) {
+            $row['parcelas']--;
+            $row1['datavencimento'] = date('Y-m-d');
+            if($_POST['vencimento']) { 
+                $row1['datavencimento'] = converte_data($_POST['vencimento'],1);
+            }
+            echo $_POST['vencimento'];
+            if($row['entrada_tipo'] == 'R$') {
+                $row['valortotal'] -= $row['entrada'];
+                $valor = $row['entrada'];
+            } 
+            elseif($row['entrada_tipo'] == '%') {
+                $row['valortotal'] -= ($row['valortotal']*($row['entrada']/100));
+                $valor = $total - $row['valortotal'];
+            }
+        } 
+        else {
+           if(empty($row1[valor])) {
+               $valor = ($row['valortotal']-($total*($row[desconto]/100)))/$row[parcelas];
+           }
+           if(empty($row1['datavencimento'])) {
+                if($_POST['vencimento']) $row[data] = converte_data($_POST['vencimento'],1);
+                $row1['datavencimento'] = maismes($row[data], $i-1);
+           }
+       }
+       if($row1['pago'] != 'Sim' && $disable == 'disabled') {
+           //$efetuar = '<input type="submit" class="forms" name="efetuar['.$row1['codigo'].']" value="Efetuar pagamento">';
+           $efetuar = '<a href="javascript:Ajax(\'pagamentos/parcelas\', \'conteudo\', \'codigo='.$row1['codigo'].'\')">Efetuar pagamento</a> ';
+       } elseif($disable == 'disabled') {
+           $efetuar = 'Pagamento já realizado!';
+       }
+       $total_final += $valor;
                     ?>
             <tr>
                 <td class="col-xs-3">
@@ -425,8 +428,9 @@
             <?php } ?>
 
 
-            <strong><?php echo $LANG['patients']['final_value']?>:<?php echo $LANG['general']['currency'].' '.money_form($total_final)?></strong>
-                </table>
+             
+            </table>
+                   <strong><?php echo $LANG['patients']['final_value']?>:<?php echo $LANG['general']['currency'].' '.money_form($total_final)?></strong>
         </div>
 
 

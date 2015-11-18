@@ -75,7 +75,7 @@
         $new_data = explode("-", $data);
         $new_data = mktime ( 0 , 0 , 0 , $new_data[1] , $new_data[2] , $new_data[0] );
 
-    }
+    } 
     return $new_data;
   
   }
@@ -257,24 +257,24 @@
   //------------------------------------------------------------------------//
 
   function maismes($data, $qtde) {
-  	$data = explode("/", $data);
-  	$dia = $data[0];
-  	$mes = $data[1] + $qtde;
-  	$ano = $data[2];
+  		$data = explode("-", $data);
+        $dia = $data[2];
+        $mes = $data[1] + $qtde;
+        $ano = $data[0];
   	while($mes > 12) {
   		$mes -= 12;
   		$ano++;
   	}
-  	if(strlen($mes) < 2) {
-  		$mes = "0".$mes;
-  	}
       
       if($dia > 28 && $mes == 2)
          $dia = 28;
-      
+
       if($dia > 30 && ( $mes == 2 || $mes == 4 || $mes == 6 || $mes == 9 ||$mes == 11 ))
          $dia = 30;
-          
+
+      if(strlen($mes) < 2) $mes = "0".$mes;
+      if(strlen($dia) < 2) $dia = "0".$dia;
+   
   	return($ano."-".$mes."-".$dia);
   }
 
