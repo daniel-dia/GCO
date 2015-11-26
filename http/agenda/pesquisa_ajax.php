@@ -21,22 +21,27 @@
         Ajax('pacientes/debito',null,'codigo='%2Bid, function(texto){
             var line = $(HTMLElement).parents(".agendarow");
             var sym = $(line).find('#debit');
-            if(texto=='true'){
-                line.addClass ('has-error');
+            if(texto=='true'){ 
+                line.addClass("debito");
                 sym.addClass('glyphicon-alert glyphicon');
+                line.find(".form-control").addClass("text-danger");
             }
-            else{
-                line.removeClass ('has-error');
+            else{ 
+                line.removeClass("debito");
                 sym.removeClass('glyphicon-alert glyphicon');
+                line.find(".form-control").removeClass("text-danger");
             }
         });
     }
     
 </script>
 
-<div>
+<div class="clearfix">
     
 <?php
+
+    $debito_total =0 ;
+
 	if(!is_date(converte_data($_GET[pesquisa], 1)) || $_GET[codigo_dentista] == "") die();
 
     $agenda = new TAgendas();
@@ -85,22 +90,25 @@
         $pacienteatual=$agenda->RetornaDados('descricao');
         $codigo_pac = $agenda->RetornaDados('codigo_paciente');
         $debito = em_debito($codigo_pac );
+        
+        $debito_total += $debito;
+        
     ?>
 
-        <div id="linha-agenda" class="agendarow col-xs-12 col-md-6 <?php if($debito){ echo 'has-error text-warning'; } ?>">
-            <div class="col-xs-8">
+        <div id="linha-agenda" class="agendarow col-xs-12 col-md-6 <?php if($debito){ echo 'debito has-error text-warning'; } ?>">
+            <div class="col-xs-9">
                 <div class="input-group aform-group ">
-                    <span  class="input-group-addon" >
-                        <div style="width:48px!important">
-                        <?php echo $horario[$i]?>
-                        <span data-toggle="tooltip" 
-                              data-placement="top" 
-                              data-original-title=" <?php echo $LANG['patients']['patients_in_debt']; ?> " id="debit" class="danger <?php if($debito){ echo 'glyphicon-alert' ;} ?> glyphicon "></span>
+                    <span class="input-group-addon" >
+                        <div style="min-width:48px!important">
+                            <?php echo $horario[$i]?>
+                            <span data-toggle="tooltip" 
+                                  data-placement="top" 
+                                  data-original-title=" <?php echo $LANG['patients']['patients_in_debt']; ?> " id="debit" class="danger <?php if($debito){ echo 'glyphicon-alert' ;} ?> glyphicon "></span>
+                            <span> <?php if($debito) echo 'R$ '.number_format ($debito,2); ?> </span>
                         </div>
                     </span>
-                
                     <input <?php echo $disable?> 
-                       class="form-control" 
+                       class="form-control <?php if($debito) echo 'text-danger' ?>" 
                        type="text" 
                        size="30" 
                        maxlength="90" 
@@ -117,14 +125,17 @@
                    <div id='search<?php echo $i?>' style="index:099999"></div>
                 </div>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-3">
              <div class="input-group">
-                <input class="form-control" type="text" size="13" maxlength="15" name="procedimento" id="procedimento" value="<?php echo $agenda->RetornaDados('procedimento')?>" <?php echo $disable?> onblur="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&procedimento='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>')" onfocus="esconde_itens('searches')" />
+                <input class="form-control <?php if($debito) echo 'text-danger' ?>" type="text" size="13" maxlength="15" name="procedimento" id="procedimento" value="<?php echo $agenda->RetornaDados('procedimento')?>" <?php echo $disable?> onblur="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&procedimento='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>')" onfocus="esconde_itens('searches')" />
+                  
                 <span class="input-group-addon">
                     <input class="" type="checkbox" name="faltou" id="faltou" value="<?php echo $val_chk?>" <?php echo $disable.' '.$chk?> onclick="Ajax('agenda/atualiza', 'agenda_atualiza', 'data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&faltou='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>'); muda_valor(this);" onfocus="esconde_itens('searches')"  /></span>
-                  
+                
                  </div>
+                 
             </div>
+          
             <input type="hidden" id="codigo_pac<?php echo $i?>" value="<?php echo $agenda->RetornaDados('codigo_paciente')?>" />
             
         </div>
@@ -147,25 +158,38 @@
 ?>
 	 
 
+</div>
+
+<div class="clearfix">
+    <br>
+    <?php //imprime debito total do dia
+        if($debito_total > 0){ ?>
+        <div class="alert alert-danger alert-dismissible" role="alert"> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo $LANG['patients']['patients_in_debt']; ?>
+            <strong><?php echo 'R$ '.number_format ($debito_total,2); ?> </strong>
         </div>
+    <?php } ?>
+</div>
+ 
+<div class="clearfix" id="agendacomprida">
 
-        <div class="clearfix" id="agendacomprida">
-           
-        </div>
+</div>
 
-         <div class="clearfix" >
-            <label><?php echo $LANG['calendar']['comments_of_day']?></label>
-            <textarea class="form-control" name="observacoes" rows="6" style="overflow:hidden" <?php echo $disable_obs?> onblur='Ajax("agenda/atualizaobs", "agenda_atualiza", "data=<?php echo converte_data($_GET['pesquisa'], 1)?>&codigo_dentista=<?php echo $_GET['codigo_dentista']?>&obs="%2Bthis.value.replace(/\n/g, "<br>"))'>
-                <?php echo ereg_replace('<br>', "\n", $row['obs'])?>
-            </textarea>
-         </div>
-     <div>
+ <div class="clearfix" >
+    <label><?php echo $LANG['calendar']['comments_of_day']?></label>
+    <textarea class="form-control" name="observacoes" rows="6" style="overflow:hidden" <?php echo $disable_obs?> onblur='Ajax("agenda/atualizaobs", "agenda_atualiza", "data=<?php echo converte_data($_GET['pesquisa'], 1)?>&codigo_dentista=<?php echo $_GET['codigo_dentista']?>&obs="%2Bthis.value.replace(/\n/g, "<br>"))'>
+        <?php echo ereg_replace('<br>', "\n", $row['obs'])?>
+    </textarea>
+ </div>
 
-        <a class="btn btn-default" href="relatorios/agenda_consultas.php?data=<?php echo converte_data($_GET[pesquisa], 1)?>&codigo_dentista=<?php echo $_GET[codigo_dentista]?>" target="_blank">
-            <span class="glyphicon-print glyphicon" ></span>
-            <?php echo $LANG['calendar']['print_calendar']?>
-        </a>
-    </div>
+<div>
+    <a class="btn btn-default" href="relatorios/agenda_consultas.php?data=<?php echo converte_data($_GET[pesquisa], 1)?>&codigo_dentista=<?php echo $_GET[codigo_dentista]?>" target="_blank">
+        <span class="glyphicon-print glyphicon" ></span>
+        <?php echo $LANG['calendar']['print_calendar']?>
+    </a>
+</div>
+
 <div id="agenda_atualiza"></div>
 
 <script>

@@ -70,7 +70,14 @@ label{
 }
 
 .dropdown-menu-suggest {
- 
- display: block!important;
-  
+    display: block!important;
+}
+
+.debito{
+    color:#a94442!important;
+    background-color: #f2dede;
+}
+
+.debito input{
+    color:#a94442!important;
 }

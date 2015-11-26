@@ -257,24 +257,25 @@
   //------------------------------------------------------------------------//
 
   function maismes($data, $qtde) {
-  	$data = explode("/", $data);
-  	$dia = $data[0];
-  	$mes = $data[1] + $qtde;
-  	$ano = $data[2];
-  	while($mes > 12) {
+     $data = explode("/", $data);
+     $dia = $data[0];
+     $mes = $data[1] + $qtde;
+     $ano = $data[2];
+
+     while($mes > 12) {
   		$mes -= 12;
   		$ano++;
-  	}
-  	if(strlen($mes) < 2) {
-  		$mes = "0".$mes;
-  	}
-      
-      if($dia > 28 && $mes == 2)
+  	 }
+
+     if($dia > 28 && $mes == 2)
          $dia = 28;
       
-      if($dia > 30 && ( $mes == 2 || $mes == 4 || $mes == 6 || $mes == 9 ||$mes == 11 ))
+     if($dia > 30 && ( $mes == 2 || $mes == 4 || $mes == 6 || $mes == 9 ||$mes == 11 ))
          $dia = 30;
-          
+      
+     if(strlen($mes) < 2) $mes = "0".$mes;      
+     if(strlen($dia) < 2) $dia = "0".$dia;
+      
   	return($ano."-".$mes."-".$dia);
   }
 
@@ -540,8 +541,14 @@
 
 //------------------------------------------------------------------------//
   function em_debito($codigo) {
-        $query = mysql_query("SELECT DISTINCT(vo.codigo_paciente), tp.* FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' AND tp.codigo = ".$codigo." ORDER BY `nome` ASC");
-        return(mysql_num_rows($query) > 0);
+        $query = mysql_query("SELECT sum(valor) as soma FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' AND tp.codigo = ".$codigo." ORDER BY `nome` ASC");
+     
+        $a = mysql_fetch_array($query);
+        
+
+        if(count($a)>0) return round ($a[0],2) ;
+        
+        return 0;
     }
 
 ?>

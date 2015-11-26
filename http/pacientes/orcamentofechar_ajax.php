@@ -339,7 +339,7 @@
 
                         if(empty($row1[datavencimento])) {
                             $datainicio = $_POST['vencimento'];
-                            if(!$datainicio)$datainicio = 5;
+                            if(!$datainicio)$datainicio = date('d/m/a') ;
 
                             $row1[datavencimento] = maismes($datainicio, $i-1);
 
