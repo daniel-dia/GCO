@@ -14,24 +14,45 @@
     }
     
     function verificaDebito(HTMLElement){
-        
-        var id = parseInt(HTMLElement.value.split('-')[1]);
-        if(isNaN(id)) return;
+       
             
-        Ajax('pacientes/debito',null,'codigo='%2Bid, function(texto){
-            var line = $(HTMLElement).parents(".agendarow");
-            var sym = $(line).find('#debit');
-            if(texto=='true'){ 
-                line.addClass("debito");
+        var id=false;
+        if(HTMLElement.value.split('-').length>1)
+            id = parseInt(HTMLElement.value.split('-')[1]);
+        
+        var line = $(HTMLElement).parents(".agendarow");
+        var sym = $(line).find('#debit');
+        
+        
+        if(!id || isNaN(id)) {
+            line.removeClass("debito text-danger");
+            sym.removeClass('glyphicon-alert glyphicon');
+            line.find(".form-control").removeClass("text-danger");
+            line.find("#debito").html("");
+            line.find("#time").removeClass("text-danger");
+            return;
+        }
+        
+        console.log("request")
+        
+        $.ajax({url: "pacientes/debito_ajax.php?codigo="%2Bid, cache: false})
+          .done(function( texto ) {
+          if(texto!='false'){ 
+                line.addClass("debito text-danger");
                 sym.addClass('glyphicon-alert glyphicon');
                 line.find(".form-control").addClass("text-danger");
+                line.find("#debito").html('R$ '%2Btexto);
+                line.find("#time").addClass("text-danger");
             }
             else{ 
-                line.removeClass("debito");
+                line.removeClass("debito text-danger");
                 sym.removeClass('glyphicon-alert glyphicon');
                 line.find(".form-control").removeClass("text-danger");
+                line.find("#debito").html("");
+                line.find("#time").removeClass("text-danger");
             }
-        });
+          });
+      
     }
     
 </script> 
@@ -94,16 +115,16 @@
         
     ?>
 
-        <div id="linha-agenda" class="agendarow col-xs-12 col-md-6 <?php if($debito){ echo 'debito has-error text-warning'; } ?>">
+        <div id="linha-agenda" class="agendarow col-xs-12 col-md-6 <?php if($debito){ echo 'debito text-danger'; } ?>">
             <div class="col-xs-9">
                 <div class="input-group aform-group ">
                     <span class="input-group-addon" >
-                        <div style="min-width:48px!important">
+                        <div style="min-width:48px!important" id="time" class="<?php if($debito){ echo 'text-danger' ;} ?>">
                             <?php echo $horario[$i]?>
                             <span data-toggle="tooltip" 
                                   data-placement="top" 
                                   data-original-title=" <?php echo $LANG['patients']['patients_in_debt']; ?> " id="debit" class="danger <?php if($debito){ echo 'glyphicon-alert' ;} ?> glyphicon "></span>
-                            <span> <?php if($debito) echo 'R$ '.number_format ($debito,2); ?> </span>
+                            <span id="debito"> <?php if($debito) echo 'R$ '.number_format ($debito,2); ?> </span>
                         </div>
                     </span>
                     <input <?php echo $disable?> 
@@ -118,10 +139,16 @@
                        onfocus="esconde_itens('searches')" 
                        onkeypress="document.getElementById('codigo_pac<?php echo $i?>').value=''" 
                        autocomplete="off" 
-                       onblur="Ajax('agenda/atualiza','agenda_atualiza','data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&descricao='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>&codigo_paciente='%2Bdocument.getElementById('codigo_pac<?php echo $i?>').value);
-                                verificaDebito(this);" 
+                       onblur="verificaDebito(this);
+                               if(this.value=='')
+                                    Ajax('agenda/atualiza','agenda_atualiza','data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&descricao='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>&codigo_paciente=0');
+                               else
+                                    Ajax('agenda/atualiza','agenda_atualiza','data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&descricao='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>&codigo_paciente='%2Bdocument.getElementById('codigo_pac<?php echo $i?>').value);
+                               " 
                        /> 
+                        <input type="hidden" id="codigo_pac<?php echo $i?>" value="<?php echo $agenda->RetornaDados('codigo_paciente')?>" />
                    <div id='search<?php echo $i?>' style="index:099999"></div>
+                      
                 </div>
             </div>
             <div class="col-xs-3">
@@ -135,7 +162,7 @@
                  
             </div>
           
-            <input type="hidden" id="codigo_pac<?php echo $i?>" value="<?php echo $agenda->RetornaDados('codigo_paciente')?>" />
+          
             
         </div>
             

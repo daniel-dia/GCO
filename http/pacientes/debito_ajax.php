@@ -1,5 +1,4 @@
 <?php
-    
     include "../lib/config.inc.php";
 	include "../lib/func.inc.php";
 	include "../lib/classes.inc.php";
@@ -7,7 +6,7 @@
    
     $debito = em_debito($_GET['codigo']);
     
-    if($debito) echo 'true' ; 
+    if($debito) echo  number_format ($debito,2) ; 
     else echo 'false';  
     
 ?>
