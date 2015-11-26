@@ -541,10 +541,9 @@
 //------------------------------------------------------------------------//
   function em_debito($codigo) {
               
-        $query = mysql_query("SELECT sum(valor) as soma FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'NÃ£o' AND confirmado = 'Sim' AND baixa = 'NÃ£o' AND tp.codigo = ".$codigo." ORDER BY `nome` ASC");
+        $query = mysql_query("SELECT sum(valor) as soma FROM pacientes tp INNER JOIN v_orcamento vo ON tp.codigo = vo.codigo_paciente WHERE data < '".date('Y-m-d')."' AND pago = 'Não' AND confirmado = 'Sim' AND baixa = 'Não' AND tp.codigo = ".$codigo." ORDER BY `nome` ASC");
         $a = mysql_fetch_array($query);
         if(count($a)>0) return round ($a[0],2) ;
-        
         return 0;
     }
 

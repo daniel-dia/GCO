@@ -34,7 +34,7 @@
         });
     }
     
-</script>
+</script> 
 
 <div class="clearfix">
     
@@ -90,7 +90,6 @@
         $pacienteatual=$agenda->RetornaDados('descricao');
         $codigo_pac = $agenda->RetornaDados('codigo_paciente');
         $debito = em_debito($codigo_pac );
-        
         $debito_total += $debito;
         
     ?>
