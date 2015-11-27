@@ -131,7 +131,7 @@ function Ajax(url, campo, query, callback) {
 	atualizaCampo(campo, "<center><img src='imagens/loading.gif' width='31' ></center>");
     
     $.ajax({url: url+"_ajax.php?"+query, cache: false}).done(function( texto ) {
-        var texto = unescape(req.responseText.replace(/\+/g , " "));;
+        var texto = unescape(texto.replace(/\+/g , " "));;
         atualizaCampo(campo,texto);
         extraiScript(texto);
         if(callback) callback(texto);
