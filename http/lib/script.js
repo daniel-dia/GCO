@@ -126,36 +126,18 @@ function formSender(f, campo) {
 	}
 }
 
-function Ajax(url, campo, query,callback) {
+function Ajax(url, campo, query, callback) {
 	
 	atualizaCampo(campo, "<center><img src='imagens/loading.gif' width='31' ></center>");
-	if (window.XMLHttpRequest) {  
-		req = new XMLHttpRequest();  
-	} else if (window.ActiveXObject) {  
-		req = new ActiveXObject("Microsoft.XMLHTTP");  
-	} else {  
-		alert("Seu navegador n&atilde;o suporta XMLHttpRequest.");  
-		return;  
-	}
-	req.open("GET", url+"_ajax.php?"+query, true);
-	req.onreadystatechange = function() {
-        if (req.readyState == 4) {
-            if (req.status == 200) {
-                var texto = unescape(req.responseText.replace(/\+/g , " "));;
-                atualizaCampo(campo,texto);
-                extraiScript(texto);
-                if(callback) callback(texto);
-            }
-            else {
-                callback("Error");
-                atualizaCampo(campo,"Error");
-            }
-        }
-    };
     
-	req.send(null); 
-    
-    if(campo == "conteudo") window.location.hash = '#' + url;
+    $.ajax({url: url+"_ajax.php?"+query, cache: false}).done(function( texto ) {
+        var texto = unescape(req.responseText.replace(/\+/g , " "));;
+        atualizaCampo(campo,texto);
+        extraiScript(texto);
+        if(callback) callback(texto);
+         
+    });
+	if(campo == "conteudo") window.location.hash = '#' + url;
 }
 
 
@@ -444,37 +426,6 @@ function createQCObject() {
 		}
 	}
 }
-
-/*function createQCObject() {
-   var req;
-   if(window.XMLHttpRequest){
-      // Firefox, Safari, Opera...
-      req = new XMLHttpRequest();
-   } else if(window.ActiveXObject) {
-      // Internet Explorer 5+
-      req = new ActiveXObject("Microsoft.XMLHTTP");
-   } else {
-      alert('Problem creating the XMLHttpRequest object');
-   }
-   return req;
-}
-
-// Make the XMLHttpRequest object
-var http = createQCObject();
-
-function displayQCalendar(m,y) {
-	http.open('GET', '/lib/calendario.inc.php?m='+m+'&y='+y);
-   	http.onreadystatechange = function() {
-		if(http.readyState == 4 && http.status == 200) {
-      		var response = http.responseText;
-      		if(response) {
-	alert(m+"/"+y);
-				document.getElementById("calendario").innerHTML = http.responseText;
-      		}
-   		}
-	}
-   	http.send(null);
-}*/
 
 function findPosX(obj) {
 	var curleft = 0;
