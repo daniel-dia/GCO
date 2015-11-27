@@ -117,14 +117,15 @@
 
         <div id="linha-agenda" class="agendarow col-xs-12 col-md-6 <?php if($debito){ echo 'debito text-danger'; } ?>">
             <div class="col-xs-9">
-                <div class="input-group aform-group ">
+                <div class="input-group">
                     <span class="input-group-addon" >
-                        <div style="min-width:48px!important" id="time" class="<?php if($debito){ echo 'text-danger' ;} ?>">
+                         <div style="min-width:48px!important" id="time" class="<?php if($debito){ echo 'text-danger' ;} ?>">
+                            <a href="#" onclick="Ajax('pacientes/incluir','conteudo','codigo=' %2B $('#codigo_pac<?php echo $i?>').val() %2B '&acao=editar')">
                             <?php echo $horario[$i]?>
-                            <span data-toggle="tooltip" 
-                                  data-placement="top" 
-                                  data-original-title=" <?php echo $LANG['patients']['patients_in_debt']; ?> " id="debit" class="danger <?php if($debito){ echo 'glyphicon-alert' ;} ?> glyphicon "></span>
+                                <span class="glyphicon glyphicon-user"></span>
+                            
                             <span id="debito"> <?php if($debito) echo 'R$ '.number_format ($debito,2); ?> </span>
+                             </a> 
                         </div>
                     </span>
                     <input <?php echo $disable?> 
@@ -139,7 +140,8 @@
                        onfocus="esconde_itens('searches')" 
                        onkeypress="document.getElementById('codigo_pac<?php echo $i?>').value=''" 
                        autocomplete="off" 
-                       onblur="verificaDebito(this);
+                       onblur="$('#codigo_pac<?php echo $i?>').val(this.value.split('-')[1]);
+                               verificaDebito(this);
                                if(this.value=='')
                                     Ajax('agenda/atualiza','agenda_atualiza','data=<?php echo $agenda->RetornaDados('data')?>&hora=<?php echo $agenda->RetornaDados('hora')?>:00&descricao='%2Bthis.value%2B'&codigo_dentista=<?php echo $agenda->RetornaDados('codigo_dentista')?>&codigo_paciente=0');
                                else

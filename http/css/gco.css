@@ -81,3 +81,17 @@ label{
 .debito input{
     color:#a94442!important;
 }
+
+.agendarow  a .glyphicon-user{
+    color:#ddd; 
+}
+
+.agendarow  .text-danger a .glyphicon-user{
+    color:#a94442!important; 
+}
+.agendarow  a:hover .glyphicon-user{
+    color:black; 
+}
+.agendarow a { 
+    text-decoration:none;
+}
