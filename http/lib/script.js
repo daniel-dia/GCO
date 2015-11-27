@@ -128,7 +128,8 @@ function formSender(f, campo) {
 
 function Ajax(url, campo, query, callback) {
 	
-	atualizaCampo(campo, "<center><img src='imagens/loading.gif' width='31' ></center>");
+    
+	atualizaCampo(campo, "<center><img src='imagens/loading.gif' width='31' style='margin-top:100px' ></center>");
     
     $.ajax({url: url+"_ajax.php?"+query, cache: false}).done(function( texto ) {
         var texto = unescape(texto.replace(/\+/g , " "));;
@@ -141,18 +142,23 @@ function Ajax(url, campo, query, callback) {
 }
 
 
+function getCampo(campo){
+    if(typeof campo == "string") 
+        return document.getElementById(campo);
+    else 
+        return campo;
+}
 
 //Atualiza o campos com uma string
 function atualizaCampo(campo, texto) {
     if(!campo) return;
-    var HTMLelement;
+    var HTMLelement = getCampo(campo);
     
-    if(typeof campo == "string") 
-        HTMLelement = document.getElementById(campo);
-    else 
-        HTMLelement = campo;
-        
-    HTMLelement.innerHTML = texto;
+    $(HTMLelement).fadeOut(100,function(){
+        $(HTMLelement).hide();
+        $(HTMLelement).fadeIn(100);	
+        HTMLelement.innerHTML = texto;
+    });
 }   
 
 
