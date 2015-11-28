@@ -63,21 +63,23 @@
     <div class="col-sm-4"  id="datetimepicker12">
         
         <label><?php echo $LANG['calendar']['date']?> </label>
-        <div class="input-group"> 
-        <span class="input-group-btn ">
+        <div class="input-group" name="procurar2"  > 
+            <span class="input-group-btn ">
                  <button class="btn btn-primary" type="button" 
                          onclick="increaseDate(document.getElementById('procurar'),-1)">  
                      <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
             </span> 
-            <input name="procurar" 
-                id="procurar" value="<?php echo converte_data(hoje(), 2)?>" 
-                type="text" 
-                class="form-control"  
+            <input 
+                   name="procurar" 
+                   id="procurar" 
+                   value="<?php echo converte_data(hoje(), 2)?>" 
+                   type="text" 
+                   class="form-control"  
                    
-                onchange="atualizaAgenda()"
-                onfocus="atualizaAgenda()"
-                onKeypress="atualizaAgenda()"
+                   onchange="atualizaAgenda()"
+                   aonfocus="atualizaAgenda()"
+                   onKeypress="atualizaAgenda()"
                 />
    
             <span class="input-group-btn ">
@@ -89,24 +91,16 @@
       
         </div>
        
-        <div style="overflow:hidden;">
-            <div class="form-group">
-                
-                <div>
-                    <div>
-                    </div>
-                </div>
-                
-            </div>
+        <div>
             <script type="text/javascript">
-            $(function () {
+             
                 $('#procurar').datetimepicker({ 
                     sideBySide: false,
                     locale: 'pt-br',
                     viewMode: 'days', 
                     format: 'DD/MM/YYYY',
                 });
-            });
+             
             </script>
         </div>
         
