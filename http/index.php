@@ -70,7 +70,6 @@
     <title>Gerenciador Clínico Odontológico</title>
     <link rel="SHORTCUT ICON" href="favicon.ico">
 
-    <!-- date time -->
     <script language="javascript" type="text/javascript" src="lib/script.js"></script>
     <script language="javascript" type="text/javascript" src="lib/ajax_search.js"></script>
     
@@ -133,7 +132,8 @@
         
         
         <div id="page-wrapper">
-            <div id="conteudo">
+            <div id="conteudo" style="position:relative">
+              
             </div>
         
         

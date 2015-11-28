@@ -154,11 +154,11 @@ function atualizaCampo(campo, texto) {
     if(!campo) return;
     var HTMLelement = getCampo(campo);
     
-    $(HTMLelement).fadeOut(100,function(){
+    
         $(HTMLelement).hide();
         $(HTMLelement).fadeIn(100);	
         HTMLelement.innerHTML = texto;
-    });
+     
 }   
 
 

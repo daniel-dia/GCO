@@ -1,3 +1,5 @@
+ 
+
 <?php
 	include "../lib/config.inc.php";
 	include "../lib/func.inc.php";
@@ -77,8 +79,7 @@
                    type="text" 
                    class="form-control"  
                    
-                   onchange="atualizaAgenda()"
-                   aonfocus="atualizaAgenda()"
+                   onchange="atualizaAgenda()" 
                    onKeypress="atualizaAgenda()"
                 />
    
@@ -98,9 +99,9 @@
                     sideBySide: false,
                     locale: 'pt-br',
                     viewMode: 'days', 
-                    format: 'DD/MM/YYYY',
-                });
-             
+                    format: 'DD/MM/YYYY',   
+                }).on('dp.change',function(){atualizaAgenda()})
+               
             </script>
         </div>
         
