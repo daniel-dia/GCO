@@ -63,6 +63,13 @@
                     <li><a href="javascript:Ajax('configuracoes/permissoes','conteudo','')"><?php echo $LANG['menu']['permissions']?></a></li>
                 </ul>
             </li>
+
+                
+            <li><a href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> <?php echo $LANG['patients']['others']?><span class="fa arrow"></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="javascript:Ajax('relatorios/debitos','conteudo','')"> Relatório de débitos </a> </li> 
+                </ul>
+            </li> 
             <li><a href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <?php echo $LANG['menu']['help']?><span class="fa arrow"></a>
                 <ul class="nav nav-second-level">
                     <li><a href="javascript:Ajax('sobre/notas','conteudo','')"> <?php echo $LANG['menu']['version_notes']?></a> </li>
