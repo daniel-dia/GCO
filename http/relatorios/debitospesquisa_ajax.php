@@ -10,10 +10,15 @@ $data_final = "now()";
 $pago ="'Não'";
 
 
+if($_GET["data_inicial"]!="") $data_inicial = "'".converte_data($_GET["data_inicial"],1)."'";
+if($_GET["data_final"]!="") $data_final = "'".converte_data( $_GET["data_final"],1)."'";
+if($_GET["pago"]) $pago = "'".$_GET["pago"]."'";
+ 
 $query3 = "
 select 
 pacientes.codigo as codigo, 
 pacientes.nome, 
+pacientes.observacoes, 
 pacientes.telefone1,  
 pacientes.telefone2, 
 pacientes.celular,  
@@ -30,13 +35,14 @@ inner join pacientes on orcamento.codigo_paciente = pacientes.codigo
  
 where
 
-parcelas_orcamento.pago= ".$pago ." and
+
 orcamento.baixa='Não' and
-parcelas_orcamento.datavencimento < ".$data_final ." and 
-parcelas_orcamento.datavencimento> ".$data_inicial ."
+parcelas_orcamento.datavencimento > ".$data_inicial ." and
+parcelas_orcamento.datavencimento < ".$data_final ." and
+parcelas_orcamento.pago= ".$pago ." 
+limit 1000";
+
  
-limit 1000
-";
 
 $query = (mysql_query($query3)); 
 $codAtual = null;?>
@@ -44,7 +50,7 @@ $codAtual = null;?>
     <tr>
     <th>Nome</th>
     <th>Contato</th> 
-    <th>Orçamento</th>
+    <th width="230px">Orçamento</th>
      
     </tr>
     
@@ -59,12 +65,14 @@ $codAtual = null;?>
 
 <td>
     <img class="photosmall img-circle" height="30" src="pacientes/verfoto.php?size=30&codigo=<?php echo $row['codigo']?> "> <?php echo $row[nome]?>
+    <?php if($row['observacoes']!="") echo '<small><br><br>'.$row['observacoes'].'</small>' ?>
 </td>
 <td>
-    <?php echo $row['telefone1'] ?> <br>
-    <?php echo $row['telefone2'] ?> <br>
-    <?php echo $row['celular'] ?> <br>
-    <?php echo $row['email'] ?>
+    <?php if($row['email']!="") echo $row['email'].'<br>' ?>
+    <?php if($row['celular']!="") echo $row['celular'].'<br>' ?>  
+    <?php if($row['telefone1']!="") echo $row['telefone1'].'<br>' ?>  
+    <?php if($row['telefone2']!="") echo $row['telefone2'].'<br>' ?>  
+    
 </td>
  
 <td>

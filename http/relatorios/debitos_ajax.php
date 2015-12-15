@@ -2,18 +2,17 @@
 <h1 class="page-header">Relatório de Débitos</h1>
 
 <div class="form-inline">
-    <div class="form-group col-sm-3">
+    <div class="form-group acol-sm-3" style="position: relative;">
         <label for="data-inicial">Data Inicial</label><br>
-        <input id="data-inicial" type="text" name="data-inicial" class="form-control">
-    </div>
-
+        <input id="data_inicial" type="text" name="data_inicial" class="form-control"></input>
+     </div>
    
-    <div class="form-group col-sm-3">
-        <label for="data-final">Data final</label><br>
-        <input id="data-final" type="text" name="data-final" class="form-control">
+    <div class="form-group acol-sm-3" style="position: relative;">
+        <label for="data_final">Data final</label><br>
+        <input id="data_final" type="text" name="data_final" class="form-control"></input>
     </div>
     
-     <div class="form-group col-sm-3">
+     <div class="form-group acol-sm-3">
         <label for="pago">Pago</label><br>
         <select id="pago" type="text" name="pago" class="form-control">
             <option value="Não" selected>Não</option>
@@ -22,29 +21,32 @@
          
     </div>
     
-    <div class="form-group col-sm-3">
+    <div class="form-group acol-sm-3">
         <label>&nbsp;</label><br>
-        <a href="javascript:Ajax('relatorios/debitospesquisa','pesquisa','')" class="btn btn-primary">Pesquisar</a>
+        <a href="javascript:Ajax('relatorios/debitospesquisa','pesquisa','data_inicial=' %2B document.getElementById('data_inicial').value %2B'&data_final=' %2B document.getElementById('data_final').value %2B'&pago=' %2B document.getElementById('pago').value)" class="btn btn-primary">Pesquisar</a>
     </div> 
 </div>
-<div id="pesquisa" class="col-sm-12">
+<br>
+
+<div id="pesquisa" style="background-color:white">
     
 </div>
 
- <script type="text/javascript">
-             
-    $('#data-inicial').datetimepicker({ 
-        sideBySide: false,
-        locale: 'pt-br',
-        viewMode: 'days', 
-        format: 'DD/MM/YYYY',   
-    }).on('dp.change',function(){ })
-  
-    $('#data-final').datetimepicker({ 
-        sideBySide: false,
-        locale: 'pt-br',
-        viewMode: 'days', 
-        format: 'DD/MM/YYYY',   
-    }).on('dp.change',function(){ })
-          
+<script type="text/javascript">
+
+$('#data_inicial').datetimepicker({ 
+    sideBySide: false,
+    locale: 'pt-br',
+    viewMode: 'years', 
+    format: 'MM/YYYY',   
+}).on('dp.change',function(){ })
+
+$('#data_final').datetimepicker({ 
+    sideBySide: false,
+    locale: 'pt-br',
+    viewMode: 'years', 
+    format: 'MM/YYYY',   
+}).on('dp.change',function(){ })
+
+
 </script>
