@@ -64,14 +64,16 @@ $codAtual = null;?>
 <tr onclick="Ajax('pacientes/incluir', 'conteudo', 'codigo=<?php echo $row["codigo"] ?>&acao=editar')" class="<?php echo $row[debito] == 1 ? 'danger':'' ?> <?php echo $row[falecido] == 1 ? 'warning':'' ?>" >
 
 <td>
-    <img class="photosmall img-circle" height="30" src="pacientes/verfoto.php?size=30&codigo=<?php echo $row['codigo']?> "> <?php echo $row[nome]?>
+    <!--<img class="photosmall img-circle" height="30" src="pacientes/verfoto.php?size=30&codigo=<?php echo $row['codigo']?> "> -->
+    <?php echo $row[nome]?>
     <?php if($row['observacoes']!="") echo '<small><br><br>'.$row['observacoes'].'</small>' ?>
 </td>
 <td>
-    <?php if($row['email']!="") echo $row['email'].'<br>' ?>
+  
     <?php if($row['celular']!="") echo $row['celular'].'<br>' ?>  
     <?php if($row['telefone1']!="") echo $row['telefone1'].'<br>' ?>  
     <?php if($row['telefone2']!="") echo $row['telefone2'].'<br>' ?>  
+    <small><small><?php if($row['email']!="") echo $row['email'] ?></small></small>
     
 </td>
  

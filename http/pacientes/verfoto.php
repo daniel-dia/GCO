@@ -10,7 +10,7 @@
 	if(!checklog()) {
 		die($frase_log);
 	}
-	$sql = "SELECT * FROM `fotospacientes` WHERE `codigo` = '".$_GET['codigo']."'";
+	$sql = "SELECT * FROM `fotospacientes` WHERE (legenda = 'Fotografia Sorriso' or legenda = 'Fotografia Frontal' or legenda = 'Fotografia Perfil') and `codigo_paciente` = '".$_GET['codigo']."'";
 	$query = mysql_query($sql);
 	$row = mysql_fetch_array($query);
     $blob = $row['foto'];

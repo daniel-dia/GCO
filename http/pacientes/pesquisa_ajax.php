@@ -102,7 +102,8 @@
 ?>
 <tr onclick="Ajax('pacientes/incluir', 'conteudo', 'codigo=<?php echo $row[codigo] ?>&acao=editar')" class="<?php echo $row[debito] == 1 ? 'danger':'' ?> <?php echo $row[falecido] == 1 ? 'warning':'' ?>" >
 <td>
-    <img class="photosmall img-circle" height="30" src="pacientes/verfoto.php?size=30&codigo=<?php echo $row['codigo']?> "> <?php echo $row[nome]?>
+    <!--<img class="photosmall img-circle" height="30" src="pacientes/verfoto.php?size=30&codigo=<?php echo $row['codigo']?> "> -->
+    <?php echo $row[nome]?>
 </td>
 <td>
     <?php echo $row[codigo].'  '.$row['status'].''?></td>
