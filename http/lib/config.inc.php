@@ -55,7 +55,7 @@
     $bd = 'gerenciador';
   
     // Quantidade de páginas exibidas nas paginações
-    define('PG_MAX', 15);
+    define('PG_MAX', 40);
     // Quantidade de páginas exibidas nas paginações menores
     define('PG_MAX_MEN', 10);
     // Quantidade de zeros para completar a numeração dos boletos
