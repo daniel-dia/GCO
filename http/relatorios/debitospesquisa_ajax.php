@@ -12,7 +12,10 @@ $pago ="'Não'";
 
 if($_GET["data_inicial"]!="") $data_inicial = "'".converte_data($_GET["data_inicial"],1)."'";
 if($_GET["data_final"]!="") $data_final = "'".converte_data( $_GET["data_final"],1)."'";
-if($_GET["pago"]) $pago = "'".$_GET["pago"]."'";
+if($_GET["pago"] == "Sim")
+    $pago = "'Sim'";
+else
+    $pago = "'Não'";
  
 $query3 = "
 select 
