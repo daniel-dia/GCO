@@ -38,14 +38,14 @@ $('#data_inicial').datetimepicker({
     sideBySide: false,
     locale: 'pt-br',
     viewMode: 'years', 
-    format: 'MM/YYYY',   
+    format: 'DD/MM/YYYY',   
 }).on('dp.change',function(){ })
 
 $('#data_final').datetimepicker({ 
     sideBySide: false,
     locale: 'pt-br',
     viewMode: 'years', 
-    format: 'MM/YYYY',   
+    format: 'DD/MM/YYYY',   
 }).on('dp.change',function(){ })
 
 
