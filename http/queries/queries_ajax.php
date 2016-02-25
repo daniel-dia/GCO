@@ -6,28 +6,16 @@
 
 
 
-$select = "select * from queries" ;
+$select = "select * from queries order by nome" ;
 
 $mysqlquery = mysql_query($select);
 ?>
 
 <h1>Consultas Personalizadas</h1>
-<table class='table table-striped'>
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Consulta SQL</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php while( $row1 = mysql_fetch_assoc($mysqlquery)) { ?>
-        <tr>
-            <td><?php echo $row1['nome'] ?></td>
-            <td><?php echo $row1['query'] ?></td>
-            <td>
-                <a href="javascript:Ajax('queries/tabela','conteudo','query=<?php echo urlencode($row1['id']) ?>')" class="btn btn-primary">Ver</a>
-            </td>
-        </tr>
-        <?php } ?>
-    </tbody>
+<hr>
+<ul>
+<?php while( $row1 = mysql_fetch_assoc($mysqlquery)) { ?>
+    <li><a href="javascript:Ajax('queries/tabela','conteudo','query=<?php echo urlencode($row1['id']) ?>')" class="btn btn-link"><?php echo $row1['nome'] ?></a></li>
+<?php } ?>
+</ul>
 </table>

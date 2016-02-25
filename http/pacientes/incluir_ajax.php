@@ -303,7 +303,7 @@
         <div class="col-lg-4 col-md-6 col-sm-6 form-group">
             <label><?php echo $LANG['patients']['email']?></label><input name="email" value="<?php echo $row[email]?>" type="text" class="form-control" <?php echo $disable?> id="email" size="50" />
     </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+        <div class="col-lg-8 col-md-12 col-sm-12 form-group">
             <label><?php echo $LANG['patients']['comments_for_label']?> </label>
             <input name="obs_etiqueta" value="<?php echo $row[obs_etiqueta]?>" type="text" class="form-control" <?php echo $disable?> id="obs_etiqueta" />
         </div>
@@ -318,64 +318,131 @@
     </div>
         <br><br>
 
-    <div class="panel panel-primary table-responsive ">
-        <div class="panel-heading">
-            Parcelas de orçamentos pagos ou não pagos
+
+        <!-- ------------------------------------------------------------------------------------------------------------------------------------>       
+        <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><?php echo $LANG['patients']['extra_information']?></h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class=" "> 
+                            <div class="col-sm-4 form-group">
+                            <label><?php echo $LANG['patients']['record_date']?>  </label>
+                                <?php
+                                    if($_GET[acao] == "editar") {
+                                ?>
+                            <input name="datacad" disabled value="<?php echo $row[datacadastro]?>" type="text" class="form-control" <?php echo $disable?> id="datacad" size="20" maxlength="10" />
+                            <input name="datacadastro" value="<?php echo $row[datacadastro]?>" type="hidden" id="datacadastro" />
+                                <?php
+                                    } else {
+                                ?>
+                            <input name="datacadastro" value="<?php echo date(d.'/'.m.'/'.Y)?>" type="text" class="form-control" <?php echo $disable?> id="datacadastro" size="20" maxlength="10" onKeypress="return Ajusta_Data(this, event);" />
+                            <input name="datacad" value="" type="hidden" id="datacad" />
+                                <?php
+                                    }
+                                ?>
+
+                            </div >
+
+                            <div class="col-sm-4 form-group">
+                            <label><?php echo $LANG['patients']['last_update']?>  </label>
+                            <input name="dataatua" disabled value="<?php echo converte_data($row[dataatualizacao], 2)?>" type="text" class="form-control" <?php echo $disable?> id="dataatua" size="20" />
+                            <input name="dataatualizacao" value="<?php echo converte_data($row[dataatualizacao], 2)?>" type="hidden" id="dataatualizacao" />
+                            </div>
+
+                            <div class="col-sm-4 form-group">
+                            <label><?php echo $LANG['patients']['patient_status']?> </label>
+                            <select name="status" class="form-control" <?php echo $disable?> id="status">
+                            <?php
+                            $valores = array('Avaliação' => $LANG['patients']['evaluation'], 'Em tratamento' => $LANG['patients']['in_treatment'], 'Em revisão' => $LANG['patients']['in_revision'], 'Concluído' => $LANG['patients']['closed']);
+                            foreach($valores as $chave => $valor) {
+                            if($row[status] == $chave) {
+                            echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
+                            } else {
+                            echo '<option value="'.$chave.'">'.$valor.'</option>';
+                            }}?>       
+                            </select> 
+                            </div>
+                        </div>
+
+                         <div >
+                            <div class="col-sm-6 form-group">
+                            <label>  <?php echo $LANG['patients']['main_objective_of_the_consultation']?></label>
+                            <textarea name="objetivo"  class="form-control" cols="25" rows="4"><?php echo $row[objetivo]?></textarea>
+                            </div>
+
+                            <div class="col-sm-6 form-group">
+                            <label><?php echo $LANG['patients']['comments']?></label>
+                            <textarea name="observacoes" class="form-control" cols="25" rows="4"><?php echo $row[observacoes]?></textarea>
+                            </div>
+                          </div>
+
+                    </div>
+                </div>
+                
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------ -->           
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary table-responsive ">
+                <div class="panel-heading">
+                    Parcelas de orçamentos pagos ou não pagos
+                </div>
+                <?php
+                $select = "select 
+                        orcamento.codigo,
+                        parcelas_orcamento.codigo,
+                        parcelas_orcamento.datavencimento,
+                        parcelas_orcamento.valor,
+                        parcelas_orcamento.pago
+                        from parcelas_orcamento
+                        INNER JOIN orcamento on orcamento.codigo = parcelas_orcamento.codigo_orcamento
+                        INNER JOIN pacientes on orcamento.codigo_paciente = pacientes.codigo
+                        where 
+                        pacientes.codigo = '".$row['codigo']."' and
+                        (parcelas_orcamento.pago= 'Não' or parcelas_orcamento.pago= 'sim') and 
+                        orcamento.baixa='Não'
+                        ORDER BY  orcamento.codigo, parcelas_orcamento.codigo ASC limit 100";
+        
+                //$select = "select * from dentistas";
+                
+                include "tabela_ajax.php"; ?>
+            </div>
+        
         </div>
-        <?php
-        $select = "select 
-                orcamento.codigo,
-                parcelas_orcamento.codigo,
-                parcelas_orcamento.datavencimento,
-                parcelas_orcamento.valor,
-                parcelas_orcamento.pago
-                from parcelas_orcamento
-                INNER JOIN orcamento on orcamento.codigo = parcelas_orcamento.codigo_orcamento
-                INNER JOIN pacientes on orcamento.codigo_paciente = pacientes.codigo
-                where 
-                pacientes.codigo = '".$row['codigo']."' and
-                (parcelas_orcamento.pago= 'Não' or parcelas_orcamento.pago= 'sim') and 
-                orcamento.baixa='Não'
-                ORDER BY  orcamento.codigo, parcelas_orcamento.codigo ASC limit 1000";
+        <div class="col-md-6">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">
+                    Histórico
+                </div>
+                
+                <?php
+                $select = "SELECT
+                    agenda.data,
+                    agenda.hora,
+                    agenda.procedimento,
+                    agenda.faltou
+        
+                    FROM `agenda` 
+                    INNER JOIN pacientes on pacientes.codigo = agenda.codigo_paciente
+        
+                    WHERE 
+                    pacientes.codigo = '".$row['codigo']."' and
+                    agenda.descricao is not null and 
+                    agenda.codigo_paciente != 0  
+        
+                    ORDER BY agenda.data DESC, agenda.hora DESC  
+                    LIMIT 100";
+        
+                //$select = "select * from dentistas";
+                
+                //echo 
+                include "tabela_ajax.php"; ?>
 
-        //$select = "select * from dentistas";
-        
-        include "tabela_ajax.php"; ?>
-    </div>
-        
-        
-        
-    <div class="panel panel-primary ">
-        <div class="panel-heading">
-             Histórico
+            </div>
         </div>
-        
-        <?php
-        $select = "SELECT
-            agenda.data,
-            agenda.hora,
-            agenda.procedimento,
-            agenda.faltou
-
-            FROM `agenda` 
-            INNER JOIN pacientes on pacientes.codigo = agenda.codigo_paciente
-
-            WHERE 
-              pacientes.codigo = '".$row['codigo']."' and
-              agenda.descricao is not null and 
-              agenda.codigo_paciente != 0  
-
-            ORDER BY agenda.data, agenda.hora, agenda.procedimento ASC 
-            LIMIT 1000";
-
-        //$select = "select * from dentistas";
-        
-        //echo 
-        include "tabela_ajax.php"; ?>
-        
-        
     </div>
-        
         
         
         
@@ -578,67 +645,7 @@
 
                     </div>
                 </div>
-        <!-- ------------------------------------------------------------------------------------------------------------------------------------>       
-        <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><?php echo $LANG['patients']['extra_information']?></h3>
-                    </div>
-                    <div class="panel-body">
 
-                        <div class="form-group"> 
-                            <div class="col-sm-4">
-                            <label><?php echo $LANG['patients']['record_date']?>  </label>
-                                <?php
-                                    if($_GET[acao] == "editar") {
-                                ?>
-                            <input name="datacad" disabled value="<?php echo $row[datacadastro]?>" type="text" class="form-control" <?php echo $disable?> id="datacad" size="20" maxlength="10" />
-                            <input name="datacadastro" value="<?php echo $row[datacadastro]?>" type="hidden" id="datacadastro" />
-                                <?php
-                                    } else {
-                                ?>
-                            <input name="datacadastro" value="<?php echo date(d.'/'.m.'/'.Y)?>" type="text" class="form-control" <?php echo $disable?> id="datacadastro" size="20" maxlength="10" onKeypress="return Ajusta_Data(this, event);" />
-                            <input name="datacad" value="" type="hidden" id="datacad" />
-                                <?php
-                                    }
-                                ?>
-
-                            </div >
-
-                            <div class="col-sm-4">
-                            <label><?php echo $LANG['patients']['last_update']?>  </label>
-                            <input name="dataatua" disabled value="<?php echo converte_data($row[dataatualizacao], 2)?>" type="text" class="form-control" <?php echo $disable?> id="dataatua" size="20" />
-                            <input name="dataatualizacao" value="<?php echo converte_data($row[dataatualizacao], 2)?>" type="hidden" id="dataatualizacao" />
-                            </div>
-
-                            <div class="col-sm-4">
-                            <label><?php echo $LANG['patients']['patient_status']?> </label>
-                            <select name="status" class="form-control" <?php echo $disable?> id="status">
-                            <?php
-                            $valores = array('Avaliação' => $LANG['patients']['evaluation'], 'Em tratamento' => $LANG['patients']['in_treatment'], 'Em revisão' => $LANG['patients']['in_revision'], 'Concluído' => $LANG['patients']['closed']);
-                            foreach($valores as $chave => $valor) {
-                            if($row[status] == $chave) {
-                            echo '<option value="'.$chave.'" selected>'.$valor.'</option>';
-                            } else {
-                            echo '<option value="'.$chave.'">'.$valor.'</option>';
-                            }}?>       
-                            </select> 
-                            </div>
-                        </div>
-
-                         <div class="form-group">
-                            <div class="col-sm-6">
-                            <label>  <?php echo $LANG['patients']['main_objective_of_the_consultation']?></label>
-                            <textarea name="objetivo"  class="form-control" cols="25" rows="4"><?php echo $row[objetivo]?></textarea>
-                            </div>
-
-                            <div class="col-sm-6">
-                            <label><?php echo $LANG['patients']['comments']?></label>
-                            <textarea name="observacoes" class="form-control" cols="25" rows="4"><?php echo $row[observacoes]?></textarea>
-                            </div>
-                          </div>
-
-                    </div>
-                </div>
         <!-- ------------------------------------------------------------------------------------------------------------------------------------>   
 
         <br style="clear:both" />
