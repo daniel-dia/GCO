@@ -305,7 +305,8 @@
     <div  class="apanel-footer" style="text-align:right">
         <a class="btn  btn-default" href="relatorios/paciente.php?codigo=<?php echo $row['codigo']?>" target="_blank"><span class="glyphicon glyphicon-print"></span> <?php echo $LANG['patients']['print_sheet']?></a>
         <input name="Salvar" type="submit" class="btn btn-primary" <?php echo $disable?> id="Salvar" value="<?php echo $LANG['patients']['save']?>" />
-    </div>     
+    </div>   
+    <hr>
     <!-- ------------------------------------------------------------------------------------------------------------------------------------>       
     <div class="panel panel-primary">
             <div class="panel-heading">

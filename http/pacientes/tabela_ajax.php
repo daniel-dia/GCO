@@ -1,18 +1,21 @@
 <?php
 
-$mysqlquery = mysql_query($select);
-$array = mysql_fetch_assoc($mysqlquery);
+$mysqlquery_t = mysql_query($select);
+$array_t = mysql_fetch_assoc($mysqlquery_t);
 
 echo "<table class='table table-striped'>";
-echo "<thead><tr>";
-
-foreach ($array as $key=>$value) echo "<th>".$key."</th>";
-
-echo "</tr></thead>";
-
-while( $row1 = mysql_fetch_assoc($mysqlquery)) {
+$first_t = true;
+while( $row_t = mysql_fetch_assoc($mysqlquery_t)) {
+    
+    if($first_t){
+        echo "<thead><tr>";
+        foreach ($row_t as $key=>$value) echo "<th>".$key."</th>";
+        echo "</tr></thead>";
+        $first_t=false;
+    }
+    
     echo "<tr>";
-    foreach ($row1 as $key=>$value) echo "<td>".$value."</td>";
+    foreach ($row_t as $key=>$value) echo "<td>".$value."</td>";
     echo "</tr>";
 }
 
