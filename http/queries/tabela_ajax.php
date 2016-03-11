@@ -8,13 +8,11 @@
 $query_select = "select * from queries where id = ".$_GET["query"] ;
 $mysqlquery = mysql_query($query_select);
 
-
 $row0 = mysql_fetch_assoc($mysqlquery);
 $select = $row0['query'];
 $name = $row0['nome'];
 
 $mysqlquery = mysql_query($select);
-$array = mysql_fetch_assoc($mysqlquery);
 
 echo "<h1>".$name."</h1>";
 echo "<div class='table-responsive'>";
@@ -23,9 +21,10 @@ echo "<table class='table table-striped'>";
 $first = true;
 
 while( $row1 = mysql_fetch_assoc($mysqlquery)) {
-    if($first){
+    
+	if($first){
         echo "<thead><tr>";
-        foreach ($array as $key=>$value) echo "<th>".$key."</th>";
+        foreach ($row1 as $key=>$value) echo "<th>".$key."</th>";
         echo "</tr></thead>";
         $first=false;
     }

@@ -6,8 +6,9 @@
 
 
 
-$select = "select * from queries order by nome" ;
-
+$select = "select * from queries order by nome";
+ 
+ 
 $mysqlquery = mysql_query($select);
 ?>
 
