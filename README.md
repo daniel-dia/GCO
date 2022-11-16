@@ -35,3 +35,14 @@ Maiores informações sobre a Smile podem ser encontradas em seu web site: www.s
 Gerenciador Clínico Odontológico protegido pela licença GPL.
 
 
+# Para Rodar
+1 - Adicionar gco.local no localhost
+
+2 - Subir os containers
+
+``
+docker-compose up
+``
+
+3 - Entrar no Configurador
+http://gco.local/configurador.php
